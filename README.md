@@ -1,60 +1,70 @@
 # FMDb
-1. Introduction 
- This website will serve as a platform where users can log, review, and track movies and TV shows they have watched. It will provide a social and interactive space where users can share their thoughts, create watchlists, and discover new content based on community ratings and recommendations.
-2. Functionalities 
- The following section outlines the key functionalities of the project:
 
+## 📌 Introduction
+This website will serve as a platform where users can log, review, and track movies and TV shows they have watched. It will provide a social and interactive space where users can share their thoughts, create watchlists, and discover new content based on community ratings and recommendations.
 
+## 🚀 Features
+### 🔹 User & Admin Authentication
+- Users can **sign up and log in** with email and password.
+- Admins have **separate registration** with moderation privileges.
+- **Password recovery & reset** options available.
 
-   2.1. Sign up (User/Admin) 
-Users will be able to create an account by providing basic details like username, email, and password.
-Admins will have separate registration with additional privileges.
+### 🔹 Profile Management
+- Users can **edit their profile**, change username, profile picture, and bio.
+- Option to set profiles as **public or private**.
 
-   2.2. Log in (User/Admin) 
-Users and admins can log in using valid credentials.
-Password recovery and reset options will be available.
+### 🔹 Movie & TV Show Logging
+- Users can **log movies and TV shows** they have watched.
+- Add **personal ratings and reviews**.
+- System **tracks user watch history**.
 
-   2.3. Profile Editing 
-Users can edit their profiles, including changing their username, profile picture, and bio.
-Users can mark their profile as public or private.
+### 🔹 Watchlists
+- Users can **create and manage** watchlists.
+- **Custom categories** for organization.
 
-   2.4. Movies & TV Show Logging 
-Users can log movies and TV shows they have watched.
-Users can add personal ratings and reviews.
-The system will keep track of logged content.
+### 🔹 Community Reviews & Ratings
+- Users can **post and read reviews** for movies & TV shows.
+- **Aggregated ratings** based on user feedback.
 
-   2.5. Watchlists
-Users can create and manage watchlists for movies and TV shows they plan to watch.
-Custom categories for organizing watchlists.
+### 🔹 Movie & TV Show Database
+- **Searchable database** for movies & TV shows.
+- Filter by **title, genre, and release year**.
+- **Integration with external APIs** (e.g., TMDb) for fetching movie details.
 
-   2.6.  Community Reviews & Ratings
-Users can read and post reviews for movies and TV shows.
-Movies and TV shows will have an average rating based on user input.
+### 🔹 Trending & Recommendations
+- Homepage features **trending movies & TV shows** based on user activity.
+- **Personalized recommendations** based on viewing history.
 
-   2.7. Movie & TV Show Database
-The website will maintain a database of movies and TV shows.
-Users can search for movies and TV shows by title, genre, and release year.
+### 🔹 Social Interaction
+- Users can **follow others** and see their logged movies & reviews.
+- **Like & comment** on reviews.
+- **Discussion threads** on movies & TV shows.
 
-   2.8. Trending & Recommendations
-The homepage will feature trending movies and TV shows based on user activity.
-Personalized recommendations based on viewing history.
+### 🔹 Admin Panel
+- **Moderation tools** to manage user reviews & reported content.
+- Admins can **add, edit, or remove movies & TV shows** from the database.
+- **User management** to restrict rule-violating accounts.
 
-   2.9. Social Interaction
-Users can follow other users and see their logged movies and reviews.
-Commenting and liking system for user reviews.
+### 🔹 Yearly Statistics
+- Users get a **summary of their logged movies & TV shows**.
+- Breakdown of **genres, total watch time, and top-rated content**.
+- Set **watch goals** and track progress.
 
-   2.10. Admin Panel
-Admins will have the ability to moderate user reviews and reported content.
-Admins can add, edit, or remove movies and TV shows in the database.
+### 🔹 Featured Reviews
+- **Top reviews** featured on the homepage based on community votes.
+- **Verified critics** section for professional reviews.
+- Users can **nominate reviews** for featuring.
 
-   2.11. Yearly Statistics
-Users will receive yearly summaries of their logged movies and TV shows.
-Breakdown of genres, total watch time, and highest-rated content.
+### 🔹 Activity Tracking
+- Platform tracks **active reviewers & contributors**.
+- **Leaderboard** for most engaged users.
+- Users earn **badges & achievements** (e.g., 'Top Reviewer', 'Movie Buff').
 
-   2.12.  Featured Reviews
-The best reviews will be featured on the homepage based on user votes.
-Verified critics will have a separate section for professional reviews.
+🤝 Contributors
+- [@mwahaj36](https://github.com/mwahaj36)
+- [@TayyabKhalid25](https://github.com/TayyabKhalid25)
 
-   2.13. Activity Tracking 
-The platform will track user activity, including frequent reviewers and contributors.
-A leaderboard for most active users 
+---
+
+This README serves as a guide for understanding the project's goals and functionalities. More features and refinements will be added as development progresses!
+
