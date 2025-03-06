@@ -4,6 +4,8 @@
 2. Functionalities 
  The following section outlines the key functionalities of the project:
 
+
+
        2.1. Sign up (User/Admin) 
 Users will be able to create an account by providing basic details like username, email, and password.
 Admins will have separate registration with additional privileges.
