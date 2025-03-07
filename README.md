@@ -63,6 +63,7 @@ This website will serve as a platform where users can log, review, and track mov
 🤝 Contributors
 - [@mwahaj36](https://github.com/mwahaj36)
 - [@TayyabKhalid25](https://github.com/TayyabKhalid25)
+- [@Ibrahim-Alam-3075](https://github.com/Ibrahim-Alam-3075)
 
 ---
 
