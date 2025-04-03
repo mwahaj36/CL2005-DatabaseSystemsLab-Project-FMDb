@@ -7,6 +7,10 @@ const port = 3000;
 // Database configuration
 const dbConfig = {
     server: 'localhost\\SQLEXPRESS', // Replace with your server name or IP
+    // things to do on OWN machine: ensure browser is running and automatic start is enabled
+    // sql tcp/ip protocol is enabled in sql server configuration manager and in properties/ipaddress under IPAII tcp port is 1433
+    // in ssms, right click server, properties, security and ensure sql server and windows authentication mode is selected. if not added, add new login with below credentials by right clicking security and selecting new login. sa may or may not be disabled, u can change that too
+    // idk if its required, but firewall pe incoming connections mei 1433 port allow karo via rule.
     user: 'sa', // Replace with your SQL Server username
     password: '123', // Replace with your SQL Server password
     port: 1433, // Default SQL Server port
