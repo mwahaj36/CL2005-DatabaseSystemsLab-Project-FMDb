@@ -48,10 +48,11 @@ router.post('/signin', async (req, res) => {
 // Route to check if a username exists in the database
 router.get('/authname/:name', async (req, res) => {
     const username = req.params.name;
-
-    if (!username) {
-        return res.status(400).send('Username is required');
-    }
+    
+    // invalid case cause incomplete url returns 404 automatically
+    // if (!username) {  
+    //     return res.status(400).send('Username is required');
+    // }
 
     try {
         const query = `
@@ -79,9 +80,10 @@ router.get('/authname/:name', async (req, res) => {
 router.get('/authemail/:mail', async (req, res) => {
     const email = req.params.mail;
 
-    if (!email) {
-        return res.status(400).send('Email is required');
-    }
+    // invalid case cause incomplete url returns 404 automatically
+    // if (!email) {
+    //     return res.status(400).send('Email is required');
+    // }
 
     try {
         const query = `

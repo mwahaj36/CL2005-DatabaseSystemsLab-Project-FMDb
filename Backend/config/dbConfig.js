@@ -9,7 +9,7 @@ const dbConfig = {
     server: 'localhost\\SQLEXPRESS', // Replace with your server name or IP
     user: 'sa', // Replace with your SQL Server username
     password: '123', // Replace with your SQL Server password
-    database: 'FMDB', // Replace with your database name
+    database: 'FMDb', // Replace with your database name
     options: {
         encrypt: true, // Use encryption if required
         trustServerCertificate: true // Use this if you're connecting to a local SQL Server
