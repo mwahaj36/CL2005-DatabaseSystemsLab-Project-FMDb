@@ -1,0 +1,6 @@
+white: #f5f5f5
+purpleWhite: #f8e7f6
+purple: #DD88cF
+DarkPurple: #4B164C
+
+https://colorhunt.co/palette/f5f5f5f8e7f6dd88cf4b164c
