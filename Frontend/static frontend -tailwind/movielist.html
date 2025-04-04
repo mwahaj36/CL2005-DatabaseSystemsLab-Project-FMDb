@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="img/LightOnDark.png" >
+    <title>Films</title>
+  </head>
+  <body class="relative bg-cover bg-center bg-fixed" style="background-image: url('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg');">
+    <!-- Purple Overlay on background -->
+    <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+
+<!-- Navbar -->
+<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div class="pt-2">
+      <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
+    </div>
+
+    <!-- Menu Items (Desktop) -->
+    <div class="text-white hidden space-x-24 md:flex">
+      <a href="/homeGuest.html" class="hover:text-purple font-bold">Home</a>
+      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
+      <a href="#" class="hover:text-purple font-bold">Members</a>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
+      <input
+      type="text"
+      class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
+      placeholder="Search for a film/ genre/ year"
+    />
+      <button
+        class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
+      >
+        Go
+      </button>
+    </div>
+      <!-- Hamburger Icon (Mobile) -->
+      <button
+        id="menu-btn"
+        class="block md:hidden focus:outline-none"
+      >
+        <div class="space-y-1.5">
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="md:hidden relative z-[999]">
+  <div
+    id="menu"
+    class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+  >
+    <!-- Links -->
+    <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
+    <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+    <a href="#" class="hover:text-purple font-bold">Members</a>
+
+    <!-- Search Bar -->
+    <form class="w-full px-4">
+      <input
+        type="text"
+        placeholder="Search for a film/ genre/ year"
+        class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
+      >
+        Go
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+  <!-- MovieList -->
+<!-- MovieList -->
+<section id="MovieList" class="relative z-10">
+    <!-- Container for heading and movie blocks -->
+    <div class="max-w-8xl px-5 mx-auto mt-32  text-center">
+        <!-- Heading -->
+        <h2 class="text-6xl text-white text-shadow font-bold text-center">
+           Films
+        </h2>
+        <!-- Movie Container -->
+        <div class="flex flex-col mt-24 md:flex-row space-y-20 md:space-y-6 flex-wrap justify-center">
+            <!-- Movie 1 -->
+            <div class="flex flex-col md:pt-12 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="movie.html" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Joker" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Joker</h5>
+            </div>
+            <!-- Movie 2 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/hA2ple9q4qnwxp3hKVNhroipsir.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Mad Max: Fury Road" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Mad Max: Fury Road</h5>
+            </div>
+            <!-- Movie 3 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/e7olqFmzcIX5c23kX4zSmLPJi8c.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="The Fall Guy" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">The Fall Guy</h5>
+            </div>
+            <!-- Movie 4 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/4lhR4L2vzzjl68P1zJyCH755Oz4.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Monkey Man" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Monkey Man</h5>
+            </div>
+            <!-- Movie 5 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/w03EiJVHP8Un77boQeE7hg9DVdU.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Singin' in the Rain" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Singin' in the Rain</h5>
+            </div>
+            <!-- Movie 6 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/2vyfH2FfDC8Du1mwaULUIOPd1ho.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Merry Christmas" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Merry Christmas</h5>
+            </div>
+            <!-- Movie 7 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/hKZZiiHuHFopzJwl0JYttRWEzKD.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Meri Pyaari Bindu" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Meri Pyaari Bindu</h5>
+            </div>
+            <!-- Movie 8 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/A6s9Nb0bfuH1KqXvnG22FCAgrP7.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Hasee Toh Phasee" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Hasee Toh Phasee</h5>
+            </div>
+            <!-- Movie 9 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/qhb1qOilapbapxWQn9jtRCMwXJF.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Wonka" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Wonka</h5>
+            </div>
+            <!-- Movie 10 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/7ht2IMGynDSVQGvAXhAb83DLET8.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="The Farewell" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">The Farewell</h5>
+            </div>
+            <!-- Movie 1 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Thor: Ragnarok" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Thor: Ragnarok</h5>
+            </div>
+            <!-- Movie 2 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/rrAYdezO3h1mjdYTaQyTXoj8IZ4.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="The Perfect Date" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">The Perfect Date</h5>
+            </div>
+            <!-- Movie 3 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/lbctonEnewCYZ4FYoTZhs8cidAl.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="The Lego Movie" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">The Lego Movie</h5>
+            </div>
+            <!-- Movie 4 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/ts996lKsxvjkO2yiYG0ht4qAicO.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Gone Girl" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Gone Girl</h5>
+            </div>
+            <!-- Movie 5 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/pscQKoikkSJxAu8O5LKtjgGJEt1.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="When We First Met" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">When We First Met</h5>
+            </div>
+            <!-- Movie 6 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/uQVIQDc3foTPodZw0ie1Or0CXBn.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Night School" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Night School</h5>
+            </div>
+            <!-- Movie 7 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Don't Look Up" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Don't Look Up</h5>
+            </div>
+            <!-- Movie 8 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/4b4v7RnPhNyPEaVGFarEuo74r8W.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Beef" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Beef</h5>
+            </div>
+            <!-- Movie 9 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/dgXPhzNJH8HFTBjXPB177yNx6RI.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Shaun of the Dead" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Shaun of the Dead</h5>
+            </div>
+            <!-- Movie 10 -->
+            <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+                <a href="#" class="block">
+                    <img src="https://image.tmdb.org/t/p/original/zPib4ukTSdXvHP9pxGkFCe34f3y.jpg" 
+                         class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                         alt="Hot Fuzz" />
+                </a>
+                <h5 class="text-xl font-bold text-white text-shadow">Hot Fuzz</h5>
+            </div>
+        </div>
+
+        <!-- Centered See More Button -->
+        <div class="w-full text-center mt-10">
+            <button class="px-8 py-3 text-white bg-purple hover:bg-darkPurple rounded-full text-lg transition duration-300">
+                See More
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="footer" class="mt-10 relative w-full p-6 bg-darkPurple z-10 shadow-xl">
+    <footer >
+        <div class="flex flex-col items-center space-y-3">
+            <!-- Logo -->
+            <img src="img/Light.png" alt="Logo" class="w-40" />
+            <!-- Copyright Text -->
+            <p class="text-sm text-white">&copy; 2025 FMDb. All rights reserved.</p>
+        </div>
+    </footer>
+</section>
+
+
+
+
+        <script src="script.js"></script>
+        
+  </body>
+</html>
