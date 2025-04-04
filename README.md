@@ -5,7 +5,7 @@ This website will serve as a platform where users can log, review, and track mov
 
 ## 🚀 Features
 ### 🔹 User & Admin Authentication
-- Users can **sign up and log in** with email and password.
+- Users can **sign up and log in** with username and password.
 - Admins have **separate registration** with moderation privileges.
 - **Password recovery & reset** options available.
 
