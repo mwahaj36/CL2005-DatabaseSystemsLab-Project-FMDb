@@ -20,9 +20,9 @@ GO
 
 -- Movies Table
 CREATE TABLE Movies (
-    MovieID INT PRIMARY KEY,
+    MovieID INT IDENTITY(1,1) PRIMARY KEY,
     Title VARCHAR(255),
-    Type VARCHAR(10) CHECK (Type IN ('Movie', 'TV Show')) NOT NULL,
+    Type VARCHAR(10) CHECK (Type IN ('Movie', 'Series')) NOT NULL,
     Synopsis TEXT,
     ReleaseDate DATE,
     MovieLength TIME,
@@ -41,7 +41,7 @@ GO
 
 -- Users Table
 CREATE TABLE Users (
-    UserID INT PRIMARY KEY,
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
     FullName VARCHAR(255),
     Username VARCHAR(50) UNIQUE,
     PasswordHash VARCHAR(255),
@@ -100,7 +100,7 @@ GO
 
 -- Movie People Tables
 CREATE TABLE Actors (
-    ActorID INT PRIMARY KEY,
+    ActorID INT IDENTITY(1,1) PRIMARY KEY,
     ActorName VARCHAR(255)
 );
 
@@ -118,7 +118,7 @@ CREATE TABLE MovieActors (
 GO
 
 CREATE TABLE Directors (
-    DirectorID INT PRIMARY KEY,
+    DirectorID INT IDENTITY(1,1) PRIMARY KEY,
     DirectorName VARCHAR(255)
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE MovieDirectors (
 GO
 
 CREATE TABLE Writers (
-    WriterID INT PRIMARY KEY,
+    WriterID INT IDENTITY(1,1) PRIMARY KEY,
     WriterName VARCHAR(255)
 );
 
@@ -152,7 +152,7 @@ CREATE TABLE MovieWriters (
 GO
 
 CREATE TABLE Producers (
-    ProducerID INT PRIMARY KEY,
+    ProducerID INT IDENTITY(1,1) PRIMARY KEY,
     ProducerName VARCHAR(255)
 );
 
@@ -170,14 +170,14 @@ GO
 
 -- Genres and Tags
 CREATE TABLE Genres (
-    GenreID INT PRIMARY KEY,
+    GenreID INT IDENTITY(1,1) PRIMARY KEY,
     GenreName VARCHAR(50) UNIQUE
 );
 
 GO
 
 CREATE TABLE Tags (
-    TagID INT PRIMARY KEY,
+    TagID INT IDENTITY(1,1) PRIMARY KEY,
     TagName VARCHAR(50) UNIQUE
 );
 
@@ -205,7 +205,7 @@ GO
 
 -- Activity and Reply
 CREATE TABLE Activity (
-    ActivityID INT PRIMARY KEY,
+    ActivityID INT  IDENTITY(1,1) PRIMARY KEY,
     ActivityDateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
     IsWatched BIT NOT NULL,
     UserID INT NOT NULL,
@@ -222,7 +222,7 @@ GO
 
 CREATE TABLE Reply (
     ActivityID INT NOT NULL,
-    ReplyID INT NOT NULL,
+    ReplyID INT IDENTITY(1,1) NOT NULL,
     PRIMARY KEY (ReplyID, ActivityID),
     FOREIGN KEY (ActivityID) REFERENCES Activity(ActivityID),
     FOREIGN KEY (ReplyID) REFERENCES Activity(ActivityID)
