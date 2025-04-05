@@ -1,22 +1,26 @@
 const express = require('express');
 const sql = require('mssql');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt'); // Added bcrypt for password hashing
+const bcrypt = require('bcrypt');  // For Password Hashing
+const { secretKey, bcryptCostFactor } = require('../config'); // Import config
 const router = express.Router();
-const secretKey = 'nigga'; // Replace with your secret key
-const bcryptCostFactor = 5; // Define the cost factor for bcrypt
 
 // Authentication route for User Log In
 router.post('/signin', async (req, res) => {
-    const { username, password } = req.body;
-
-    if (!username || !password) {
-        return res.status(400).send('Username and password are required');
+    if (!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).send('Request body is required');
     }
+
+    const keys = Object.keys(req.body);
+    if (keys.length !== 2 || !keys.includes('username') || !keys.includes('password')) {
+        return res.status(400).send('Request body must contain only username and password');
+    }
+
+    const { username, password } = req.body;
 
     try {
         const query = `
-            SELECT UserId, Password 
+            SELECT UserId, PasswordHash 
             FROM Users 
             WHERE Username = @username
         `;
@@ -26,7 +30,7 @@ router.post('/signin', async (req, res) => {
         const result = await request.query(query);
 
         if (result.recordset.length > 0) {
-            const hashedPassword = result.recordset[0].Password;
+            const hashedPassword = result.recordset[0].PasswordHash;
             const isMatch = await bcrypt.compare(password, hashedPassword);
 
             if (isMatch) {
@@ -109,11 +113,18 @@ router.get('/authemail/:mail', async (req, res) => {
 
 // Route for User Sign Up
 router.post('/signup', async (req, res) => {
-    const { fullname, username, password, email, gender, dateofbirth, bio, usertype, privacy } = req.body;
-
-    if (!fullname || !username || !password || !email || !gender || !dateofbirth || !bio || !usertype || !privacy) {
-        return res.status(400).send('All fields are required');
+    if (!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).send('Request body is required');
     }
+
+    const requiredFields = ['fullname', 'username', 'password', 'email', 'gender', 'dateofbirth', 'bio', 'usertype', 'privacy'];
+    const keys = Object.keys(req.body);
+
+    if (keys.length !== requiredFields.length || !requiredFields.every(field => keys.includes(field))) {
+        return res.status(400).send(`Request body must contain only the following fields: ${requiredFields.join(', ')}`);
+    }
+
+    const { fullname, username, password, email, gender, dateofbirth, bio, usertype, privacy } = req.body;
 
     try {
         // Check if username or email already exists because i dont trust Wahaj
@@ -162,6 +173,61 @@ router.post('/signup', async (req, res) => {
     } catch (err) {
         console.error('Error during sign up:', err.message);
         res.status(500).send('Error during sign up');
+    }
+});
+
+// Password reset
+router.put('/reset', async (req, res) => {
+    if (!req.body || Object.keys(req.body).length === 0) {
+        return res.status(400).send('Request body is required');
+    }
+
+    const requiredFields = ['email', 'password'];
+    const keys = Object.keys(req.body);
+
+    if (keys.length !== requiredFields.length || !requiredFields.every(field => keys.includes(field))) {
+        return res.status(400).send(`Request body must contain only the following fields: ${requiredFields.join(', ')}`);
+    }
+
+    const { email, password } = req.body;
+
+    try {
+        // Check if the email exists in the database and get the UserId
+        const query = `
+            SELECT UserId
+            FROM Users
+            WHERE Email = @Email
+        `;
+        const request = new sql.Request();
+        request.input('Email', sql.VarChar, email);
+
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'Email not found' });
+        }
+
+        const userId = result.recordset[0].UserId;
+
+        // Hash the new password
+        const hashedPassword = await bcrypt.hash(password, bcryptCostFactor);
+
+        // Update the password in the database using UserId
+        const updateQuery = `
+            UPDATE Users
+            SET PasswordHash = @PasswordHash
+            WHERE UserId = @UserId
+        `;
+        const updateRequest = new sql.Request();
+        updateRequest.input('PasswordHash', sql.VarChar, hashedPassword);
+        updateRequest.input('UserId', sql.Int, userId);
+
+        await updateRequest.query(updateQuery);
+
+        res.json({ success: true, message: 'Password updated successfully' });
+    } catch (err) {
+        console.error('Error during password update:', err.message);
+        res.status(500).send('Error during password update');
     }
 });
 

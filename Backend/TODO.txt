@@ -1,0 +1,21 @@
+1- Return Current UserID with jwt token in signup and signin for ease at backend
+2- Implement APIs for the following: 
+### 🔹 Admin Panel
+- **Moderation tools** to manage user reviews & reported content.
+- Admins can **add, edit, or remove movies & TV shows** from the database.
+- **User management** to restrict rule-violating accounts.
+
+### 🔹 Yearly Statistics
+- Users get a **summary of their logged movies & TV shows**.
+- Breakdown of **genres, total watch time, and top-rated content**.
+- Set **watch goals** and track progress.
+
+### 🔹 Featured Reviews
+- **Top reviews** featured on the homepage based on community votes.
+- **Verified critics** section for professional reviews.
+- Users can **nominate reviews** for featuring.
+
+### 🔹 Activity Tracking
+- Platform tracks **active reviewers & contributors**.
+- **Leaderboard** for most engaged users.
+- Users earn **badges & achievements** (e.g., 'Top Reviewer', 'Movie Buff').
