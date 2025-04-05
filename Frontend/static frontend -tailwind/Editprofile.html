@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="img/LightOnDark.png" />
+    <title>Edit Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  </head>
+
+  <body
+    class="relative bg-cover bg-center bg-fixed"
+    style="background-image: url('https://image.tmdb.org/t/p/original/nlPCdZlHtRNcF6C9hzUH4ebmV1w.jpg');"
+  >
+    <!-- Purple Overlay -->
+    <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+
+    <!-- Navbar -->
+<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="pt-2">
+        <a href="homeGuest.html">
+          <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
+        </a>
+      </div>
+  
+      <!-- Menu Items (Desktop) -->
+      <div class="text-white hidden space-x-24 md:flex">
+        <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+        <a href="login-signup.html" class="hover:text-purple font-bold">Login / Signup</a>
+        <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+        <a href="members.html" class="hover:text-purple font-bold">Members</a>
+        <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+      </div>
+  
+      <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
+        <input
+        type="text"
+        class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
+        placeholder="Search for a film/ genre/ year"
+      />
+        <button
+          class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
+        >
+          Go
+        </button>
+      </div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button
+          id="menu-btn"
+          class="block md:hidden focus:outline-none"
+        >
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="md:hidden relative z-[999]">
+    <div
+      id="menu"
+      class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+    >
+      <!-- Links -->
+      <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
+      <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+      <a href="members.html" class="hover:text-purple font-bold">Members</a>
+      <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+  
+      <!-- Search Bar -->
+      <form class="w-full px-4">
+        <input
+          type="text"
+          placeholder="Search for a film/ genre/ year"
+          class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
+        >
+          Go
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <section id="edit-profile" class=" relative">
+    <div class="relative font-std w-full -pt-14 rounded-2xl bg-black bg-opacity-30 pr-40 font-normal leading-relaxed shadow-xl py-4"> <!-- Reduced padding (py-4) -->
+        <h2 class="relative mb-5 text-center pt-10 pb-10 text-6xl font-bold text-white">Edit Profile</h2>
+        <div class="relative -pt-30 flex flex-col md:flex-row items-start justify-between">
+
+            <!-- Left Side: Profile Picture and Buttons -->
+            <div class="w-full md:w-1/3 text-center mb-6 md:mb-0 flex flex-col items-center pt-20 min-h-screen">
+                <img src="img/profile.png" alt="Profile Picture" class="w-72 h-72 mx-auto mb-4 ">
+                <button class="bg-purpleWhite px-16 text-darkPurple px-4 py-2 rounded-lg hover:bg-purple hover:text-white transition-colors duration-300">
+                    Change Profile Picture
+                </button>
+            </div>
+    
+            <!-- Right Side: Profile Form -->
+            <div class="w-full md:w-2/3">
+
+                <form class="space-y-4">
+
+                    <!-- First Name and Last Name -->
+                    <div class="flex space-x-4">
+                        <div class="w-1/2">
+                            <label for="first_name" class="block text-sm font-bold text-xl text-white">First Name</label>
+                            <input type="text" id="first_name" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md" value="Muhammad">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="last_name" class="block text-sm font-bold text-xl text-white">Last Name</label>
+                            <input type="text" id="last_name" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md" value="Wahaj">
+                        </div>
+                    </div>
+    
+                    <!-- Username -->
+                    <div>
+                        <label for="username" class="block text-sm font-bold text-xl text-white">Username</label>
+                        <input type="text" id="username" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md" value="oogabooga36" readonly>
+                    </div>
+
+                    <!-- Bio -->
+                    <div>
+                        <label for="bio" class="block text-sm font-bold text-xl text-white">Bio</label>
+                        <textarea id="bio" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md" rows="4">up wonking my willy</textarea>
+                    </div>
+
+                    <!-- Rank (Dropdown) -->
+                    <div>
+                        <label for="rank" class="block text-sm font-bold text-xl text-white">Rank</label>
+                        <select id="rank" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md">
+                            <option value="admin">Admin</option>
+                            <option value="verifiedcritic">Verified Critic</option> 
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div>
+                        <label for="dob" class="block text-sm font-bold text-xl text-white">Date of Birth</label>
+                        <input type="date" id="dob" class="w-full px-3 py-2 focus:bg-purpleWhite rounded-md" value="2005-06-30">
+                    </div>
+    
+                    <!-- Save and Cancel buttons -->
+                    <div class="flex justify-end space-x-4">
+                        <a href="changePass.html" class="px-4 py-2 font-bold  text-white hover:text-purpleWhite">Change Password</a>
+                        <a href="profile.html" type="button" class="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg ">Cancel</a>
+                        <a href="profile.html" type="submit" class="px-4 py-2 font-bold bg-purple text-white rounded-lg ">Save Changes</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  
+    <!-- Footer -->
+    <section
+      id="footer"
+      class="relative w-full  p-6 bg-darkPurple z-10 shadow-xl"
+    >
+      <footer>
+        <div class="flex flex-col items-center space-y-3">
+          <img src="img/Light.png" alt="Logo" class="w-40" />
+          <p class="text-sm text-white">&copy; 2025 FMDb. All rights reserved.</p>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>

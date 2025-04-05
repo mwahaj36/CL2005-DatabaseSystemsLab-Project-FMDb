@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="img/LightOnDark.png" />
+    <title>Joker 2019 Reviews</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  </head>
+
+  <body
+    class="relative bg-cover bg-center bg-fixed"
+    style="background-image: url('https://image.tmdb.org/t/p/original/n6bUvigpRFqSwmPp1m2YADdbRBc.jpg');"
+  >
+    <!-- Purple Overlay -->
+    <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+
+    <!-- Navbar -->
+<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="pt-2">
+        <a href="homeGuest.html">
+          <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
+        </a>
+      </div>
+  
+      <!-- Menu Items (Desktop) -->
+      <div class="text-white hidden space-x-24 md:flex">
+        <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+        <a href="login-signup.html" class="hover:text-purple font-bold">Login / Signup</a>
+        <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+        <a href="members.html" class="hover:text-purple font-bold">Members</a>
+        <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+      </div>
+  
+      <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
+        <input
+        type="text"
+        class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
+        placeholder="Search for a film/ genre/ year"
+      />
+        <button
+          class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
+        >
+          Go
+        </button>
+      </div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button
+          id="menu-btn"
+          class="block md:hidden focus:outline-none"
+        >
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="md:hidden relative z-[999]">
+    <div
+      id="menu"
+      class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+    >
+      <!-- Links -->
+      <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
+      <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+      <a href="members.html" class="hover:text-purple font-bold">Members</a>
+      <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+  
+      <!-- Search Bar -->
+      <form class="w-full px-4">
+        <input
+          type="text"
+          placeholder="Search for a film/ genre/ year"
+          class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
+        >
+          Go
+        </button>
+      </form>
+    </div>
+  </div>
+
+<!-- Reviews Section -->
+<!-- Reviews Section -->
+<section class="relative z-10 mt-24 px-4 md:px-20">
+    <!-- Movie Info Header (Wider & Centered) -->
+    <div class="max-w-7xl mx-auto text-center mb-10">
+      <a href="movie.html" class="text-white text-5xl md:text-7xl font-bold">
+        Joker <span class="text-purpleWhite font-semibold text-3xl md:text-5xl">(2019)</span>
+      </a>
+      <p class="text-purpleWhite text-2xl md:text-3xl font-semibold mt-2">
+        Directed by Todd Phillips
+      </p>
+    </div>
+  
+    <!-- Reviews Heading -->
+    <h2 class="text-white text-4xl md:text-5xl font-bold text-center mb-10">Reviews</h2>
+  
+    <!-- All Reviews (Wider 2-Column Layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+      <!-- Review Cards -->
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300 relative">
+        <div class="flex items-start space-x-6">
+          <div class="bg-gold  font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.5</div>
+          <div class="text-left flex-1">
+            <p class="text-white text-lg md:text-xl italic">“A raw, unsettling deep dive into the making of a villain. This is not just a movie, it’s a psychological experience.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@moviebuff_kay</p>
+          </div>
+        </div>
+        <!-- Like Button (Lower Right Corner) -->
+        <div class="absolute bottom-4 right-4">
+          <button class="text-purpleWhite hover:text-pink-500 text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300 relative">
+        <div class="flex items-start space-x-6">
+          <div class="bg-gold font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.4</div>
+          <div class="text-left flex-1">
+            <p class="text-white text-lg md:text-xl italic">“Dark, disturbing, and absolutely brilliant. Joker deserves all the praise it gets and more.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@gothamreviews</p>
+          </div>
+        </div>
+        <!-- Like Button (Lower Right Corner) -->
+        <div class="absolute bottom-4 right-4">
+          <button class="text-purpleWhite hover:text-pink-500 text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300 relative">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.6</div>
+          <div class="text-left flex-1">
+            <p class="text-white text-lg md:text-xl italic">“Phoenix delivers a career-defining performance — I was haunted and mesmerized at the same time.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@cinemaniac22</p>
+          </div>
+        </div>
+        <!-- Like Button (Lower Right Corner) -->
+        <div class="absolute bottom-4 right-4">
+          <button class="text-purpleWhite hover:text-pink-500 text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300 relative">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.3</div>
+          <div class="text-left flex-1">
+            <p class="text-white text-lg md:text-xl italic">“The cinematography, the score, the storytelling — everything was top-tier. Joker will stay with you.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@reelreaper</p>
+          </div>
+        </div>
+        
+        <!-- Like Button (Lower Right Corner) -->
+        <div class="absolute bottom-4 right-4">
+          <button class="text-purpleWhite hover:text-pink-500 text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none">
+            <i class="fas fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.3</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“An unnerving, bold take on the origins of a well-known villain. This film leaves an impression long after it ends.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@movieman</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">9.4</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“A psychological thriller that redefines the genre. Every scene is packed with tension and depth.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@cineaddict</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.6</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“The complexity of Arthur Fleck's character is a testament to Joaquin Phoenix’s unparalleled acting.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@cinephile123</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">9.7</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“An unflinching portrayal of society’s breakdown, Joker is a film that resonates deeply with the world today.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@filmfanatic</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3xl px-6 py-9 rounded-xl shadow-inner">8.8</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“A brilliant yet terrifying film. It’s hard to shake off the darkness of this interpretation of the Joker.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@darknightreviews</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">9.5</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“A haunting and intense journey into the psyche of one of the most iconic villains in comic book history.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@psychothrills</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">9.3</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“A true masterpiece of cinema, mixing psychological depth with an outstanding performance by Phoenix.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@filmgeek88</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">9.4</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“This film is an emotional rollercoaster, with incredible visuals and a score that perfectly complements the story.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@cinemadreamer</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">9.1</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“An unforgettable portrayal of one man's descent into madness. Joaquin Phoenix is truly mesmerizing.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@moviecritic_jane</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-black bg-opacity-60 p-6 rounded-3xl shadow-md hover:scale-[1.02] transition-transform duration-300">
+        <div class="flex items-start space-x-6">
+          <div class="bg-purpleWhite font-bold text-2xl md:text-3x px-6 py-9 rounded-xl shadow-inner">8.9</div>
+          <div class="text-left">
+            <p class="text-white text-lg md:text-xl italic">“Joker’s gritty, unsettling atmosphere perfectly captures the essence of Gotham’s dark reality.”</p>
+            <p class="text-purpleWhite font-bold mt-3 text-md">@urbancritic</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Repeat the structure for other reviews with like button properly placed -->
+    </div>
+  </section>
+
+  
+
+    <!-- Footer -->
+    <section
+      id="footer"
+      class="mt-32 relative w-full p-6 bg-darkPurple z-10 shadow-xl"
+    >
+      <footer>
+        <div class="flex flex-col items-center space-y-3">
+          <img src="img/Light.png" alt="Logo" class="w-40" />
+          <p class="text-sm text-white">&copy; 2025 FMDb. All rights reserved.</p>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>

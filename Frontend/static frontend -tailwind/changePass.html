@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="icon" type="image/png" href="img/LightOnDark.png" />
+    <title>Joker 2019 Reviews</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  </head>
+
+  <body
+    class="relative bg-cover bg-center bg-fixed"
+    style="background-image: url('https://image.tmdb.org/t/p/original/nlPCdZlHtRNcF6C9hzUH4ebmV1w.jpg');"
+  >
+    <!-- Purple Overlay -->
+    <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+
+    <!-- Navbar -->
+<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="pt-2">
+        <a href="homeGuest.html">
+          <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
+        </a>
+      </div>
+  
+      <!-- Menu Items (Desktop) -->
+      <div class="text-white hidden space-x-24 md:flex">
+        <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+        <a href="login-signup.html" class="hover:text-purple font-bold">Login / Signup</a>
+        <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+        <a href="members.html" class="hover:text-purple font-bold">Members</a>
+        <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+      </div>
+  
+      <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
+        <input
+        type="text"
+        class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
+        placeholder="Search for a film/ genre/ year"
+      />
+        <button
+          class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
+        >
+          Go
+        </button>
+      </div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button
+          id="menu-btn"
+          class="block md:hidden focus:outline-none"
+        >
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div class="md:hidden relative z-[999]">
+    <div
+      id="menu"
+      class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+    >
+      <!-- Links -->
+      <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
+      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
+      <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
+      <a href="members.html" class="hover:text-purple font-bold">Members</a>
+      <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
+  
+      <!-- Search Bar -->
+      <form class="w-full px-4">
+        <input
+          type="text"
+          placeholder="Search for a film/ genre/ year"
+          class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
+        >
+          Go
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <section id="hero" class="-mt-14">
+    <!-- Flex Container -->
+    <div class="relative z-10 mt-24 container flex justify-center items-center px-6 mx-auto space-y-0md:space-y-0">
+  
+      <!-- Forgot Password -->
+      <div class="flex flex-col items-center space-y-6 mt-10 text-center  mb-24">
+        <h1 class="text-white text-3xl font-bold md:text-6xl">
+          Change Password
+        </h1>
+        <form class="w-full max-w-md bg-purpleWhite bg-opacity-80 px-6 py-8 rounded-3xl space-y-6 drop-shadow-xl">
+          <!-- Old Pass -->
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <input
+                class="pr-10 block w-full bg-white text-darkPurple border-2 border-purpleWhite text-darkPurple rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
+                id="old-pass"
+                type="password"
+                placeholder="Enter your Old Password"
+              />
+            </div>
+          </div>
+        <!-- New Pass -->
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+            <input
+                class="pr-10 block w-full bg-white text-darkPurple border-2 border-purpleWhite text-darkPurple rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
+                id="new-pass"
+                type="password"
+                placeholder="Enter your New Password"
+            />
+            </div>
+        </div>
+        <!-- Confirm New Pass -->
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+            <input
+                class="pr-10 block w-full bg-white text-darkPurple border-2 border-purpleWhite text-darkPurple rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
+                id="Confnew-pass"
+                type="password"
+                placeholder="Confirm your New Password"
+            />
+            </div>
+        </div>
+          <!-- Submit Button -->
+          <div class="flex flex-col justify-between mt-4">
+            <button 
+              type="submit"
+              class="px-6 py-3 text-xl md:text-2xl font-bold text-white rounded-xl bg-darkPurple hover:bg-purpleWhite hover:text-darkPurple transition-all duration-300"
+            >
+              Change
+          </button>
+          </div>
+        </form>
+        <!-- Back to Login -->
+        <div class="mt-4">
+          <a href="Editprofile.html" class="text-purpleWhite text-2xl hover:text-purple font-bold">Back</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+    <!-- Footer -->
+    <section
+      id="footer"
+      class="mt-32 relative w-full p-6 bg-darkPurple z-10 shadow-xl"
+    >
+      <footer>
+        <div class="flex flex-col items-center space-y-3">
+          <img src="img/Light.png" alt="Logo" class="w-40" />
+          <p class="text-sm text-white">&copy; 2025 FMDb. All rights reserved.</p>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
