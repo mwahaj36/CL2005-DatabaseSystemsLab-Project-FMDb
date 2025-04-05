@@ -47,6 +47,24 @@ ADD PRIMARY KEY (UserID, MovieID),
     FOREIGN KEY (MovieID) REFERENCES Movies(MovieID);
 GO
 
+
+
+-- Add PRIMARY KEY constraints for Actors tables
+ALTER TABLE Actors
+ADD PRIMARY KEY (ActorID);
+GO
+
+-- Add PRIMARY KEY constraints for Director tables
+ALTER TABLE Directors
+ADD PRIMARY KEY (DirectorID);
+GO
+
+-- Add PRIMARY KEY constraints for Writer tables
+ALTER TABLE Writers
+ADD PRIMARY KEY (WriterID);
+GO
+
+
 -- Movie People Constraints
 ALTER TABLE MovieActors
 ADD PRIMARY KEY (ActorID, MovieID),
@@ -66,20 +84,25 @@ ADD PRIMARY KEY (WriterID, MovieID),
     FOREIGN KEY (MovieID) REFERENCES Movies(MovieID);
 GO
 
-ALTER TABLE MovieProducers
-ADD PRIMARY KEY (ProducerID, MovieID),
-    FOREIGN KEY (ProducerID) REFERENCES Producers(ProducerID),
-    FOREIGN KEY (MovieID) REFERENCES Movies(MovieID);
+
+-- Genres table constraints
+ALTER TABLE Genres
+ADD CONSTRAINT PK_Genres PRIMARY KEY (GenreID);
 GO
 
--- Genre and Tag Constraints
 ALTER TABLE Genres
 ADD CONSTRAINT UQ_GenreName UNIQUE (GenreName);
+GO
+
+-- Tags table constraints
+ALTER TABLE Tags
+ADD CONSTRAINT PK_Tags PRIMARY KEY (TagID);
 GO
 
 ALTER TABLE Tags
 ADD CONSTRAINT UQ_TagName UNIQUE (TagName);
 GO
+
 
 ALTER TABLE MovieGenres
 ADD PRIMARY KEY (GenreID, MovieID),
@@ -107,3 +130,4 @@ ADD PRIMARY KEY (ReplyID, ActivityID),
     FOREIGN KEY (ActivityID) REFERENCES Activity(ActivityID),
     FOREIGN KEY (ReplyID) REFERENCES Activity(ActivityID);
 GO
+

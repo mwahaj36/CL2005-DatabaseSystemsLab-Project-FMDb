@@ -121,18 +121,6 @@ CREATE TABLE MovieWriters (
 );
 GO
 
--- Producers Table
-CREATE TABLE Producers (
-    ProducerID INT IDENTITY (1,1),
-    ProducerName VARCHAR(255)
-);
-GO
-
-CREATE TABLE MovieProducers (
-    ProducerID INT NOT NULL,
-    MovieID INT NOT NULL
-);
-GO
 
 -- Genres and Tags
 CREATE TABLE Genres (
@@ -178,3 +166,33 @@ CREATE TABLE Reply (
     ReplyID INT IDENTITY (1,1) NOT NULL
 );
 GO
+
+
+
+
+
+--- drop 
+
+use master 
+go 
+drop database FMDB
+
+-- Drop tables in the correct order to prevent foreign key constraint issues
+DROP TABLE IF EXISTS Reply;
+DROP TABLE IF EXISTS Activity;
+DROP TABLE IF EXISTS UserWatchlist;
+DROP TABLE IF EXISTS UserLikedMovies;
+DROP TABLE IF EXISTS UserFavorites;
+DROP TABLE IF EXISTS Friends;
+DROP TABLE IF EXISTS MovieWriters;
+DROP TABLE IF EXISTS Writers;
+DROP TABLE IF EXISTS MovieDirectors;
+DROP TABLE IF EXISTS Directors;
+DROP TABLE IF EXISTS MovieActors;
+DROP TABLE IF EXISTS Actors;
+DROP TABLE IF EXISTS MovieTags;
+DROP TABLE IF EXISTS Tags;
+DROP TABLE IF EXISTS MovieGenres;
+DROP TABLE IF EXISTS Genres;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Movies;
