@@ -3292,15 +3292,15 @@ GO
 
 -- Movies 
 
-ALTER TABLE Movies
-ADD CONSTRAINT DF_FMDB_Rating DEFAULT 0 FOR FMDB_Rating;
+-- ALTER TABLE Movies
+-- ADD CONSTRAINT DF_FMDB_Rating DEFAULT 0 FOR FMDB_Rating;
 
 
 ALTER TABLE Movies
 ALTER COLUMN Language VARCHAR(255);
 
 
-delete from Movies ;
+-- delete from Movies ;
 
 
 INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synopsis,MoviePosterLink,MovieBackdropLink,Awards,BoxOffice,MPAA_Rating) VALUES

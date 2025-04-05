@@ -220,36 +220,36 @@ GO
 
 
 
---- Drop Query 
+-- -- Drop Query 
 
-use FMDB
-GO
--- Drop tables in the correct order to prevent foreign key constraint issues
-DROP TABLE IF EXISTS Reply;
-DROP TABLE IF EXISTS Activity;
-DROP TABLE IF EXISTS UserWatchlist;
-DROP TABLE IF EXISTS UserLikedMovies;
-DROP TABLE IF EXISTS UserFavorites;
-DROP TABLE IF EXISTS Friends;
-DROP TABLE IF EXISTS MovieWriters;
-DROP TABLE IF EXISTS Writers;
-DROP TABLE IF EXISTS MovieDirectors;
-DROP TABLE IF EXISTS Directors;
-DROP TABLE IF EXISTS MovieActors;
-DROP TABLE IF EXISTS Actors;
-DROP TABLE IF EXISTS MovieKeywords;
-DROP TABLE IF EXISTS Keywords;
-DROP TABLE IF EXISTS MovieGenres;
-DROP TABLE IF EXISTS Genres;
-DROP TABLE IF EXISTS Users;
-DROP TABLE IF EXISTS Movies;
-go 
+-- use FMDB
+-- GO
+-- -- Drop tables in the correct order to prevent foreign key constraint issues
+-- DROP TABLE IF EXISTS Reply;
+-- DROP TABLE IF EXISTS Activity;
+-- DROP TABLE IF EXISTS UserWatchlist;
+-- DROP TABLE IF EXISTS UserLikedMovies;
+-- DROP TABLE IF EXISTS UserFavorites;
+-- DROP TABLE IF EXISTS Friends;
+-- DROP TABLE IF EXISTS MovieWriters;
+-- DROP TABLE IF EXISTS Writers;
+-- DROP TABLE IF EXISTS MovieDirectors;
+-- DROP TABLE IF EXISTS Directors;
+-- DROP TABLE IF EXISTS MovieActors;
+-- DROP TABLE IF EXISTS Actors;
+-- DROP TABLE IF EXISTS MovieKeywords;
+-- DROP TABLE IF EXISTS Keywords;
+-- DROP TABLE IF EXISTS MovieGenres;
+-- DROP TABLE IF EXISTS Genres;
+-- DROP TABLE IF EXISTS Users;
+-- DROP TABLE IF EXISTS Movies;
+-- go 
 
 
-use master 
-go 
+-- use master 
+-- go 
 
-ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
+-- ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+-- GO
 
-drop database FMDB
+-- drop database FMDB
