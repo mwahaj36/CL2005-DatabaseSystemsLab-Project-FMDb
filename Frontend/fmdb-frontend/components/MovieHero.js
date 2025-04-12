@@ -19,9 +19,12 @@ const MovieHero = ({ movieData }) => {
             {/* Left: Title & Year */}
             <div className="flex items-end space-x-4">
               <h1 className="text-white text-3xl font-bold md:text-6xl">{movieData.Title}</h1>
-              <h2 className="text-purpleWhite text-xl font-bold md:text-3xl">
-                {new Date(movieData.ReleaseDate).getFullYear()}
-              </h2>
+              {movieData.ReleaseDate && !isNaN(new Date(movieData.ReleaseDate).getFullYear()) && (
+  <h2 className="text-purpleWhite text-xl font-bold md:text-3xl">
+    {new Date(movieData.ReleaseDate).getFullYear()}
+  </h2>
+)}
+
             </div>
 
             {/* Right: Log Button */}

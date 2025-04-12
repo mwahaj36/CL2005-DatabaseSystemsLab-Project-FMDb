@@ -24,7 +24,8 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-10 text-white font-bold">
             <Link href="/" className="hover:text-purple">Home</Link>
             <Link href="/login" className="hover:text-purple">Login / Signup</Link>
-            <Link href="/movies" className="hover:text-purple">Films</Link>
+            <Link href="/MoviesListPage" className="hover:text-purple">Films</Link>
+            <Link href="/SeriesListPage" className="hover:text-purple">Series</Link>
             <Link href="/members" className="hover:text-purple">Members</Link>
             <Link href="/verifiedReviews" className="text-gold hover:text-purple">Verified Critics</Link>
           </div>

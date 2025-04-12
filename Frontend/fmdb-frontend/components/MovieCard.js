@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const MovieCard = ({ movie }) => {
   return (
-    <div className="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/4">
+    <div className="flex flex-col items-center p-6 space-y-4 rounded-lg bg-veryLightGray shadow-lg transition-all duration-300 w-full">
       <Link href={`/movie/${movie.MovieID}`}>
         <img
           src={movie.Poster}
-          className="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105"
+          className="w-full h-80 object-cover -mt-14 shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
           alt={movie.Title}
         />
       </Link>

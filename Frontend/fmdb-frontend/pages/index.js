@@ -3,33 +3,14 @@ import HeroSection from "../components/HeroSection";
 import Spotlight from "../components/Spotlight";
 import Leaderboard from "../components/Leaderboard";
 import Footer from "../components/Footer";
+import moviesData from "../data/FMDBDatabase.json"; // ✅ FIXED: direct array
 
 const HomePage = () => {
-
-  const movies = [
-    {
-      MovieID: "tt2975590",
-      Title: "Batman V Superman: Dawn Of Justice",
-      Poster: "https://image.tmdb.org/t/p/original/5UsK3grJvtQrtzEgqNlDljJW96w.jpg"
-    },
-    {
-      MovieID: "tt0109424",
-      Title: "Chungking Express",
-      Poster: "https://image.tmdb.org/t/p/original/43I9DcNoCzpyzK8JCkJYpHqHqGG.jpg"
-    },
-    {
-      MovieID: "tt0068646",
-      Title: "The Godfather",
-      Poster: "https://image.tmdb.org/t/p/original/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
-    },
-    {
-      MovieID: "tt15398776",
-      Title: "Oppenheimer",
-      Poster: "https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-    }
-  ];
-  
-
+  // ✅ Get top 5 movies by IMDB rating
+  const topFiveMovies = [...moviesData]
+    .filter(movie => movie.IMDB_Rating && !isNaN(parseFloat(movie.IMDB_Rating)))
+    .sort((a, b) => parseFloat(b.IMDB_Rating) - parseFloat(a.IMDB_Rating))
+    .slice(0, 5);
 
   const topThreeUsers = [
     {
@@ -54,15 +35,14 @@ const HomePage = () => {
 
   return (
     <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
-    {/* Purple Overlay on background */}
-    <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-    <div>
-      <Navbar />
-      <HeroSection />
-      <Spotlight movies={movies} />
-      <Leaderboard topThree={topThreeUsers} />
-      <Footer />
-    </div>
+      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+      <div>
+        <Navbar />
+        <HeroSection />
+        <Spotlight movies={topFiveMovies} />
+        <Leaderboard topThree={topThreeUsers} />
+        <Footer />
+      </div>
     </div>
   );
 };
