@@ -1970,1337 +1970,1832 @@ GO
 -- Actors 
 
 INSERT INTO Actors (ActorName) VALUES
-('Cameron Diaz')
-,('Danny Aiello')
-,('Joaquin Phoenix')
-,('Tom Hardy')
-,('Ryan Gosling')
-,('Dev Patel')
-,('Gene Kelly')
-,('Timothée Chalamet')
-,('Isabelle Almoyan')
-,('Ayushmann Khurrana')
-,('Sidharth Malhotra')
-,('Shuzhen Zhao')
-,('Chris Hemsworth')
-,('Noah Centineo')
-,('Will Arnett')
-,('Ben Affleck')
-,('Adam Devine')
-,('Kevin Hart')
-,('Leonardo DiCaprio')
-,('Steven Yeun')
-,('Simon Pegg')
-,('Thomas Law')
-,('Soumitra Chatterjee')
-,('Ali Wong')
-,('Leila Hatami')
-,('Shahab Hosseini')
-,('Kareem Abdul-Jabbar')
-,('Bruce Willis')
-,('Will Ferrell')
-,('Tabu')
-,('Morgan Freeman')
-,('Jim Carrey')
-,('Hugh Jackman')
-,('Rishi Kapoor')
-,('Avinash Tiwary')
-,('Daniel Radcliffe')
-,('Danny McBride')
-,('Oscar Isaac')
-,('Shah Rukh Khan')
-,('Akshay Kumar')
-,('Zac Efron')
-,('Juhan Ulfsak')
-,('Paul Dano')
-,('Robin Williams')
-,('James McAvoy')
-,('Mel Gibson')
-,('Theo James')
-,('Viggo Mortensen')
-,('Alex Huff')
-,('Zack Gottsagen')
-,('Deepika Padukone')
-,('Christian Bale')
-,('Ken Leung')
-,('Malin Akerman')
-,('Emily Browning')
-,('Eddie Redmayne')
-,('Andrew Garfield')
-,('Will Smith')
-,('Alec Baldwin')
-,('Andy Samberg')
-,('Taito Ban')
-,('Greg Cipes')
-,('Matt Damon')
-,('Camila Mendes')
-,('Elle Fanning')
-,('Steve Carell')
-,('Dwayne Johnson')
-,('Raja')
-,('Jesse Eisenberg')
-,('Henry Cavill')
-,('Rosa Salazar')
-,('Brad Pitt')
-,('Tom Hanks')
-,('Ranbir Kapoor')
-,('Bradley Cooper')
-,('Adam Sandler')
-,('Shane West')
-,('Margot Robbie')
-,('Jonah Hill')
-,('Emma Stone')
-,('Mesfin Lamengo')
-,('James Corden')
-,('Jake Gyllenhaal')
-,('Ryan Reynolds')
-,('Chukwudi Iwuji')
-,('Ed Helms')
-,('Russell Crowe')
-,('Kumail Nanjiani')
-,('Cillian Murphy')
-,('Adrien Brody')
-,('Adam Driver')
-,('J.C. Currais')
-,('Casey Affleck')
-,('Michael Keaton')
-,('Joseph Gordon-Levitt')
-,('Roman Griffin Davis')
-,('Daniel Kaluuya')
-,('Ansel Elgort')
-,('Saoirse Ronan')
-,('Heath Ledger')
-,('Michael Cera')
-,('Ralph Fiennes')
-,('Shameik Moore')
-,('Ellen Burstyn')
-,('Michelle Yeoh')
-,('Colin Farrell')
-,('Daniel Craig')
-,('Brigitte Lin')
-,('Demi Moore')
-,('Ali Junejo')
-,('Arif Hassan')
-,('Marlon Brando')
-,('Tim Roth')
-,('Varun Dhawan')
-,('Matthew McConaughey')
-,('Edward Asner')
-,('Masako Nozawa')
-,('Elise Baughman')
-,('Daiki Yamashita')
-,('Jessie James Grelle')
-,('Junko Takeuchi')
-,('Mayumi Tanaka')
-,('Johnny Yong Bosch')
-,('Bryan Cranston')
-,('Bob Odenkirk')
-,('Ricky Gervais')
-,('Jeremy Swift')
-,('Úrsula Corberó')
-,('Lee Jung-jae')
-,('Rainn Wilson')
-,('Jennifer Aniston')
-,('Winona Ryder')
-,('Peter Dinklage')
-,('Matt Smith')
-,('Cristin Milioti')
-,('Claire Foy')
-,('Benedict Cumberbatch')
-,('Thandiwe Newton')
-,('Karl Urban')
-,('Allison Tolman')
-,('Louis Hofmann')
-,('Jason Bateman')
-,('Nicholas Braun')
-,('Pedro Pascal')
-,('Jonathan Groff')
-,('Freya Allan')
-,('Jon Hamm')
-,('Jorge Garcia')
-,('Dominic Purcell')
-,('Michael C. Hall')
-,('Josh Radnor')
-,('Johnny Galecki')
-,('Amy Poehler')
-,('Joel McHale')
-,('Rami Malek')
-,('Hugh Dancy')
-,('Elliot Page')
-,('David Ramsey')
-,('Grant Gustin')
-,('Tom Welling')
-,('Jack Coleman')
-,('Charlie Cox')
-,('Krysten Ritter')
-,('Mike Colter')
-,('Finn Jones')
-,('Brenton Thwaites')
-,('Ben McKenzie')
-,('Jared Padalecki')
-,('Tom Ellis')
-,('Evan Peters')
-,('James Gandolfini')
-,('Matt Dillon')
-,('Ossie Davis')
-,('Robert De Niro')
-,('Charlize Theron')
-,('Emily Blunt')
-,('Pitobash')
-,('Donald O''Connor')
-,('Zendaya')
-,('Drew Ater')
-,('Parineeti Chopra')
-,('Gustave Die')
-,('Awkwafina')
-,('Tom Hiddleston')
-,('Laura Marano')
-,('Elizabeth Banks')
-,('Rosamund Pike')
-,('Alexandra Daddario')
-,('Tiffany Haddish')
-,('Jennifer Lawrence')
-,('Kate Ashfield')
-,('Martin Freeman')
-,('Zachary Bailess')
-,('Madhavi Mukherjee')
-,('Randall Park')
-,('Payman Maadi')
-,('Taraneh Alidoosti')
-,('Lloyd Bridges')
-,('Haley Joel Osment')
-,('William Dick')
-,('Shahid Kapoor')
-,('Andrew Kevin Walker')
-,('Laura Linney')
-,('Michelle Williams')
-,('Rajat Kapoor')
-,('Triptii Dimri')
-,('Zoe Kazan')
-,('Walton Goggins')
-,('Carey Mulligan')
-,('Kajol')
-,('Suniel Shetty')
-,('Arjun Rampal')
-,('Leslie Mann')
-,('Jefferson Hall')
-,('Sally Field')
-,('Anya Taylor-Joy')
-,('Kaya Scodelario')
-,('Mahershala Ali')
-,('Donna Biscoe')
-,('Ann Pierce')
-,('Gary Oldman')
-,('Jackie Chan')
-,('Billy Crudup')
-,('Abbie Cornish')
-,('Felicity Jones')
-,('Richard Pyros')
-,('Jamie Foxx')
-,('John David Washington')
-,('Alex Sharp')
-,('Maura Tierney')
-,('Jimmy Tandel')
-,('Scott Menville')
-,('Maya Hawke')
-,('Justice Smith')
-,('Keira Knightley')
-,('Kamalinee Mukherjee')
-,('Woody Harrelson')
-,('Amitabh Bachchan')
-,('Amy Adams')
-,('Christoph Waltz')
-,('Jessica Chastain')
-,('Anthony Hopkins')
-,('Rebecca Williams')
-,('Nargis Fakhri')
-,('Saurabh Shukla')
-,('Jason Andrews')
-,('Juliette Binoche')
-,('Mandy Moore')
-,('Issa Rae')
-,('Priyanka Chopra Jonas')
-,('Channing Tatum')
-,('Penn Badgley')
-,('Sun Zhi Hua-Hilton')
-,('Mark Ruffalo')
-,('Jodie Comer')
-,('Tina Fey')
-,('Lil Rel Howery')
-,('Emilia Fox')
-,('Scarlett Johansson')
-,('Diego Calva')
-,('Ivy O''Brien')
-,('Zooey Deschanel')
-,('Thomasin McKenzie')
-,('Allison Williams')
-,('Jon Bernthal')
-,('Rooney Mara')
-,('Mélanie Laurent')
-,('Laurie Metcalf')
-,('Julia Stiles')
-,('Kieran Culkin')
-,('F. Murray Abraham')
-,('Kate Winslet')
-,('Jake Johnson')
-,('Alexandra Shipp')
-,('Keke Palmer')
-,('Joey King')
-,('Stephanie Hsu')
-,('Brendan Gleeson')
-,('Chris Evans')
-,('Tony Leung Chiu-wai')
-,('Jaden Smith')
-,('Margaret Qualley')
-,('Rasti Farooq')
-,('Samiya Mumtaz')
-,('Al Pacino')
-,('Amanda Plummer')
-,('Banita Sandhu')
-,('Rebecca Ferguson')
-,('Charlie Hunnam')
-,('Christopher Plummer')
-,('Kôki Uchiyama')
-,('Andrew Chandler')
-,('Justin Briner')
-,('Bryce Papenbrook')
-,('Maile Flanagan')
-,('Akemi Okamura')
-,('Michelle Ruff')
-,('Anna Gunn')
-,('Jonathan Banks')
-,('Tom Basden')
-,('Jason Sudeikis')
-,('Álvaro Morte')
-,('Tom Choi')
-,('John Krasinski')
-,('Courteney Cox')
-,('David Harbour')
-,('Lena Headey')
-,('Fabien Frankel')
-,('Paul Anderson')
-,('Jimmi Simpson')
-,('Olivia Colman')
-,('Jeffrey Wright')
-,('Jack Quaid')
-,('Billy Bob Thornton')
-,('Karoline Eichhorn')
-,('Brian Cox')
-,('Wagner Moura')
-,('Holt McCallany')
-,('Elisabeth Moss')
-,('Josh Holloway')
-,('Wentworth Miller')
-,('Chris Bartlett')
-,('Jennifer Carpenter')
-,('Jason Segel')
-,('Stephanie Beatriz')
-,('Jim Parsons')
-,('Aubrey Plaza')
-,('Gillian Jacobs')
-,('Christian Slater')
-,('Mads Mikkelsen')
-,('Tom Hopper')
-,('Bella Ramsey')
-,('Stephen Amell')
-,('Candice Patton')
-,('Allison Mack')
-,('Hayden Panettiere')
-,('Margarita Levieva')
-,('Rachael Taylor')
-,('Simone Missick')
-,('Jessica Henwick')
-,('Anna Diop')
-,('Donal Logue')
-,('Jensen Ackles')
-,('Lauren German')
-,('Sarah Paulson')
-,('Edie Falco')
-,('Ben Stiller')
-,('Ruby Dee')
-,('Zazie Beetz')
-,('Nicholas Hoult')
-,('Aaron Taylor-Johnson')
-,('Jatin Malik')
-,('Debbie Reynolds')
-,('Bob Barna')
-,('Nishant Dahiya')
-,('Adah Sharma')
-,('Murray McArthur')
-,('X Mayo')
-,('Cate Blanchett')
-,('Odiseas Georgiadis')
-,('Craig Berry')
-,('Neil Patrick Harris')
-,('Shelley Hennig')
-,('Rob Riggle')
-,('Meryl Streep')
-,('Joseph Lee')
-,('Nick Frost')
-,('Bill Nighy')
-,('Jasper Levine')
-,('Shailen Mukherjee')
-,('Radhika Apte')
-,('James Saito')
-,('Mina Sadati')
-,('Peter Graves')
-,('Toni Collette')
-,('Guy Massey')
-,('Shraddha Kapoor')
-,('Daniel Zacapa')
-,('Noah Emmerich')
-,('Ratna Pathak Shah')
-,('Sumit Kaul')
-,('Viola Davis')
-,('Megan Park')
-,('Georgia King')
-,('Lily Gladstone')
-,('Justin Timberlake')
-,('Katie Amanda Keane')
-,('Paresh Rawal')
-,('Kirron Kher')
-,('Thomas Lennon')
-,('Ivo Uukkivi')
-,('Mary Elizabeth Winstead')
-,('Christopher Walken')
-,('Pierce Brosnan')
-,('Betty Buckley')
-,('Rory Culkin')
-,('Daniel Ings')
-,('Linda Cardellini')
-,('Paul Rudd')
-,('Dakota Johnson')
-,('Nikitin Dheer')
-,('Tom Wilkinson')
-,('Matthew Goode')
-,('Jena Malone')
-,('Tom Prior')
-,('Jacob Warner')
-,('Jon Voight')
-,('Isiah Whitlock Jr.')
-,('Sacha Baron Cohen')
-,('J.K. Simmons')
-,('Justin Cooper')
-,('Makoto Furukawa')
-,('Khary Payton')
-,('Austin Abrams')
-,('Adam Brody')
-,('Amy Ryan')
-,('Rosario Dawson')
-,('Anuj Gurwara')
-,('Irrfan Khan')
-,('Michael Shannon')
-,('Jennifer Connelly')
-,('Kristen Wiig')
-,('Claire Forlani')
-,('Shammi Kapoor')
-,('Anil Kapoor')
-,('Julianne Moore')
-,('Don McManus')
-,('Dane Cook')
-,('Peter Coyote')
-,('Kate McKinnon')
-,('Ileana D''Cruz')
-,('Anne Hathaway')
-,('Brie Larson')
-,('Christopher Mintz-Plasse')
-,('Amanda Bynes')
-,('Liang Wei-Hui-Duncan')
-,('Anthony Edwards')
-,('Pom Klementieff')
-,('Mark Wahlberg')
-,('Angourie Rice')
-,('Holly Hunter')
-,('Robert Downey Jr.')
-,('Michal Zebrowski')
-,('Julia Greer')
-,('Jimmy Ortega')
-,('Kyle Chandler')
-,('Kenny Chin')
-,('Geoffrey Arend')
-,('Michael Caine')
-,('Catherine Keener')
-,('Bryan Barter')
-,('Tracy Letts')
-,('Anna Kendrick')
-,('Mathieu Amalric')
-,('Aaron Eckhart')
-,('Gerry Robert Byrne')
-,('Hailee Steinfeld')
-,('Mackenzie Foy')
-,('Robin de Jesus')
-,('Amiee Conn')
-,('Brandon Perea')
-,('Ke Huy Quan')
-,('Kerry Condon')
-,('Ana de Armas')
-,('Faye Wong')
-,('Dennis Quaid')
-,('Alina Khan')
-,('Eman Suleman')
-,('James Caan')
-,('Laura Lovelace')
-,('Gitanjali Rao')
-,('Michelle Dockery')
-,('Jordan Nagai')
-,('Aaron Dismuke')
-,('Nobuhiko Okamoto')
-,('Trina Nishimura')
-,('Kate Higgins')
-,('Laurent Vernin')
-,('Stephanie Sheh')
-,('Aaron Paul')
-,('Rhea Seehorn')
-,('Tony Way')
-,('Hannah Waddingham')
-,('Itziar Ituño')
-,('Greg Chun')
-,('Jenna Fischer')
-,('Lisa Kudrow')
-,('Finn Wolfhard')
-,('Maisie Williams')
-,('Olivia Cooke')
-,('Finn Cole')
-,('Milanka Brooks')
-,('Dominic West')
-,('Mark Gatiss')
-,('James Marsden')
-,('Carmen Ejogo')
-,('Laz Alonso')
-,('Russell Harvard')
-,('Andreas Pietschmann')
-,('Charlie Tahan')
-,('Alan Ruck')
-,('Juan Murcia')
-,('Hannah Gross')
-,('MyAnna Buring')
-,('Aaron Staton')
-,('Naveen Andrews')
-,('Wade Williams')
-,('Emily Swallow')
-,('Luna Lauren Velez')
-,('Lyndsy Fonseca')
-,('Andre Braugher')
-,('Melissa Rauch')
-,('Retta')
-,('Yvette Nicole Brown')
-,('Michael Cristofer')
-,('Aaron Abrams')
-,('Aidan Gallagher')
-,('Gabriel Luna')
-,('Willa Holland')
-,('Tom Cavanagh')
-,('Erica Durance')
-,('Greg Grunberg')
-,('David Tennant')
-,('Sean Ringgold')
-,('David Wenham')
-,('Curran Walters')
-,('Cory Michael Smith')
-,('Alexander Calvert')
-,('Rachael Harris')
-,('Frances Conroy')
-,('Theo Rossi')
-,('Tony Sirico')
-,('Lee Evans')
-,('Richard Edson')
-,('Hugh Keays-Byrne')
-,('Sikandar Kher')
-,('Jean Hagen')
-,('Javier Bardem')
-,('Nicole Britton')
-,('Amrita Bagchi')
-,('Manoj Joshi')
-,('Paul G. Raymond')
-,('Hong Lu')
-,('Idris Elba')
-,('Alison Brie')
-,('Tyler Perry')
-,('Andrew Bachelor')
-,('Romany Malco')
-,('Young Mazino')
-,('Lucy Davis')
-,('Robert Popper')
-,('James Tarpey')
-,('Shyamal Ghoshal')
-,('Anil Dhawan')
-,('Michelle Buteau')
-,('Sareh Bayat')
-,('Babak Karimi')
-,('Julie Hagerty')
-,('Olivia Williams')
-,('Martha Espinoza')
-,('Kay Kay Menon')
-,('Natascha McElhone')
-,('Fawad Khan')
-,('Abrar Qazi')
-,('Maria Bello')
-,('Shea Whigham')
-,('Jesse Plemons')
-,('Ethan Phillips')
-,('Kenton Duty')
-,('Shreyas Talpade')
-,('Matthew Perry')
-,('Andrew Howard')
-,('Antonia Ribero')
-,('Martin Sheen')
-,('Harvey Fierstein')
-,('Haley Lu Richardson')
-,('Abigail Breslin')
-,('Joely Richardson')
-,('Sebastian Maniscalco')
-,('Julia Denton')
-,('Bruce Dern')
-,('Sathyaraj')
-,('Tzi Ma')
-,('Jackie Earle Haley')
-,('Vanessa Hudgens')
-,('Sophie Perry')
-,('Milo Gibson')
-,('Mario Van Peebles')
-,('Robert John Burke')
-,('Jeremy Strong')
-,('Peter Gallagher')
-,('Cary Elwes')
-,('Haruna Mikawa')
-,('Tara Strong')
-,('Caitríona Balfe')
-,('Rish Shah')
-,('Kelli O''Hara')
-,('Connie Britton')
-,('Philip Baker Hall')
-,('Danielle Nicolet')
-,('Master Abhijit')
-,('Moushumi Chatterjee')
-,('Diane Lane')
-,('Gal Gadot')
-,('Jeff Daniels')
-,('Jake Weber')
-,('Michael Conner Humphreys')
-,('Kumud Mishra')
-,('Raj Zutshi')
-,('Jacki Weaver')
-,('Emily Watson')
-,('Alison Pill')
-,('Daryl Hannah')
-,('Amar Gupta')
-,('Amanda Seyfried')
-,('Dave Franco')
-,('Bill Hader')
-,('Dan Byrd')
-,('Sunny Wu Jin Zahao')
-,('Joe Keery')
-,('Dave Bautista')
-,('Taraji P. Henson')
-,('Annabelle Wallis')
-,('Matt Bomer')
-,('Ray Romano')
-,('Alden Ehrenreich')
-,('Ed Stoppard')
-,('Azhy Robertson')
-,('Marcos A. Ferraez')
-,('Richard Donelly')
-,('Jamahl Garrison-Lowe')
-,('Chloë Grace Moretz')
-,('Piper Perabo')
-,('Taika Waititi')
-,('Bradley Whitford')
-,('Eiza González')
-,('Dustin Fitzsimons')
-,('Eli Roth')
-,('Lucas Hedges')
-,('Larisa Oleynik')
-,('Elijah Wood')
-,('John Lithgow')
-,('Terry Walters')
-,('Michael Wincott')
-,('Brian Tyree Henry')
-,('James Hong')
-,('Pat Shortt')
-,('Jamie Lee Curtis')
-,('Takeshi Kaneshiro')
-,('Brian Howe')
-,('Edward Hamilton-Clark')
-,('Sarwat Gilani')
-,('Ali Kureshi')
-,('Richard S. Castellano')
-,('John Travolta')
-,('Sahil Vedoliyaa')
-,('Jason Momoa')
-,('Bob Peterson')
-,('Stephanie Nadolny')
-,('Yûko Minaguchi')
-,('Ayane Sakura')
-,('Yûki Kaji')
-,('Chie Nakamura')
-,('Tony Beck')
-,('Jamieson Price')
-,('Betsy Brandt')
-,('Patrick Fabian')
-,('Diane Morgan')
-,('Brett Goldstein')
-,('Pedro Alonso')
-,('Wi Ha-joon')
-,('Leslie David Baker')
-,('Matt LeBlanc')
-,('Gaten Matarazzo')
-,('Emilia Clarke')
-,('Emma D''Arcy')
-,('Helen McCrory')
-,('Wunmi Mosaku')
-,('Rupert Graves')
-,('Evan Rachel Wood')
-,('Erin Moriarty')
-,('Jason Schwartzman')
-,('Maja Schöne')
-,('Skylar Gaertner')
-,('Peter Friedman')
-,('Alberto Ammann')
-,('Sonny Valicenti')
-,('Eamon Farren')
-,('January Jones')
-,('Evangeline Lilly')
-,('Robert Knepper')
-,('Carl Weathers')
-,('James Remar')
-,('Melissa Fumero')
-,('Simon Helberg')
-,('Jim O''Heir')
-,('Martin Wallström')
-,('Laurence Fishburne')
-,('Emmy Raver-Lampman')
-,('Brendan Rozario')
-,('Katie Cassidy')
-,('Jesse L. Martin')
-,('Michael Rosenbaum')
-,('Masi Oka')
-,('Genneya Walton')
-,('Carrie-Anne Moss')
-,('Alfre Woodard')
-,('Tom Pelphrey')
-,('Teagan Croft')
-,('Robin Lord Taylor')
-,('Mark Sheppard')
-,('D.B. Woodside')
-,('Lily Rabe')
-,('Deirdre O''Connell')
-,('Steven Van Zandt')
-,('Chris Elliott')
-,('Giancarlo Esposito')
-,('Brett Cullen')
-,('Josh Helman')
-,('Teresa Palmer')
-,('Sobhita Dhulipala')
-,('Millard Mitchell')
-,('Josh Brolin')
-,('Christian Brunetti')
-,('Prakash Belawadi')
-,('Sharat Saxena')
-,('Bertie Caplan')
-,('Hong Lin')
-,('Jeff Goldblum')
-,('Matt Walsh')
-,('David Burrows')
-,('Carrie Coon')
-,('Robbie Amell')
-,('Taran Killam')
-,('Rob Morgan')
-,('Remy Holt')
-,('Dylan Moran')
-,('Joe Cornish')
-,('Luke Bromley')
-,('Gitali Roy')
-,('Manav Vij')
-,('Vivian Bang')
-,('Sarina Farhadi')
-,('Maral Baniadam')
-,('Robert Hays')
-,('Trevor Morgan')
-,('T.J. Jagodowski')
-,('Narendra Jha')
-,('Gwyneth Paltrow')
-,('Holland Taylor')
-,('Sahiba Bali')
-,('Terrence Howard')
-,('Mackenzie Davis')
-,('Maya G. Love')
-,('Tantoo Cardinal')
-,('Robin Bartlett')
-,('Benny Nieves')
-,('Om Puri')
-,('Tyler Steelman')
-,('Timothy Eulich')
-,('Nathalie Baye')
-,('Polly Holliday')
-,('Jessica Sula')
-,('Cherry Jones')
-,('Vinnie Jones')
-,('Dimiter D. Marinov')
-,('Jennifer Ehle')
-,('Shia LaBeouf')
-,('Mukesh Tiwari')
-,('Robert Littman')
-,('Jeffrey Dean Morgan')
-,('Jamie Chung')
-,('Finlay Wright-Stephens')
-,('Darcy Bryce')
-,('Ron Silver')
-,('Brian Tarantina')
-,('John Carroll Lynch')
-,('Meredith Hagner')
-,('Anne Haney')
-,('Daisuke Hirakawa')
-,('Hynden Walch')
-,('Josh Lucas')
-,('Talia Ryder')
-,('Lamar Johnson')
-,('Roger Aaron Brown')
-,('Catherine Bell')
-,('Siri')
-,('Baby Bakita')
-,('Amber Heard')
-,('Raghubir Yadav')
-,('Ray Fisher')
-,('Ed Skrein')
-,('Michael Peña')
-,('Marcia Gay Harden')
-,('Harold G. Herthum')
-,('Piyush Mishra')
-,('Jeneva Talwar')
-,('Lio Tipton')
-,('Chris Tucker')
-,('Luis Guzmán')
-,('Britt Robertson')
-,('Emma Mackey')
-,('Seth Rogen')
-,('Thomas Haden Church')
-,('Deneke Muhugeta')
-,('Yasiin Bey')
-,('Utkarsh Ambudkar')
-,('Karen Gillan')
-,('Anupam Kher')
-,('Scott Grimes')
-,('Maureen Lipman')
-,('Wallace Shawn')
-,('Shane Powers')
-,('Virginia Loring Cooke')
-,('Zach Galifianakis')
-,('Matthew Gray Gubler')
-,('Rebecca Hall')
-,('Sam Rockwell')
-,('Caleb Landry Jones')
-,('Micah Howard')
-,('Joseph Mazzello')
-,('Michael Fassbender')
-,('David Krumholtz')
-,('Ken Watanabe')
-,('Willem Dafoe')
-,('Maggie Gyllenhaal')
-,('Thomas Jay Ryan')
-,('Joshua Henry')
-,('Thom Shelton')
-,('Andrew Koji')
-,('Gary Lydon')
-,('Valerie Chow')
-,('James Karen')
-,('Gore Abrams')
-,('Salmaan Peerzada')
-,('Nadia Afgan')
-,('Robert Duvall')
-,('Samuel L. Jackson')
-,('Isha Chaturvedi')
-,('Stellan Skarsgård')
-,('Lyne Renée')
-,('Delroy Lindo')
-,('Yumiko Kobayashi')
-,('Jôji Yanami')
-,('Yui Ishikawa')
-,('Noriaki Sugiyama')
-,('Kazuya Nakai')
-,('Steve Prince')
-,('RJ Mitte')
-,('Michael Mando')
-,('Kerry Godliman')
-,('Juno Temple')
-,('Miguel Herrán')
-,('Lee Byung-hun')
-,('Brian Baumgartner')
-,('Caleb McLaughlin')
-,('Sophie Turner')
-,('Rhys Ifans')
-,('Ned Dennehy')
-,('Monica Dolan')
-,('Tobias Menzies')
-,('Louise Brealey')
-,('Tessa Thompson')
-,('Rachel McAdams')
-,('Jessie T. Usher')
-,('Jördis Triebel')
-,('Julia Garner')
-,('Matthew Macfadyen')
-,('Paulina Gaitan')
-,('Stacey Roca')
-,('Mimî M Khayisa')
-,('John Slattery')
-,('Daniel Dae Kim')
-,('Paul Adelstein')
-,('Misty Rosas')
-,('Julie Benz')
-,('Joel McKinnon Miller')
-,('Kevin Sussman')
-,('Rashida Jones')
-,('Donald Glover')
-,('BD Wong')
-,('Hettienne Park')
-,('Colm Feore')
-,('Rick Gonzalez')
-,('Kayla Compton')
-,('John Schneider')
-,('Adrian Pasdar')
-,('J.R. Ramirez')
-,('Karen Pittman')
-,('Wai Ching Ho')
-,('Sigourney Weaver')
-,('Minka Kelly')
-,('Erin Richards')
-,('Samantha Smith')
-,('Scarlett Estevez')
-,('Jessica Lange')
-,('Daniel J. Watts')
-,('Lorraine Bracco')
-,('Keith David')
-,('Paul Benjamin')
-,('Leigh Gill')
-,('Riley Keough')
-,('Matuse')
-,('Adithi Kalkunte')
-,('Dawn Addams')
-,('Jennifer Finley')
-,('Aarnaa Sharma')
-,('Amita Udgata')
-,('Tom Davis')
-,('Becca Khalil')
-,('Blaine Kern III')
-,('Keith Ferguson')
-,('Lisa Banes')
-,('Chris Wylde')
-,('Gavin Ferguson')
-,('Richard Hadfield')
-,('Bholanath Koyal')
-,('Pawan Singh')
-,('Karan Soni')
-,('Shirin Yazdanbakhsh')
-,('Ehteram Boroumand')
-,('Stephen Stucker')
-,('Bruce Norris')
-,('Denise Hughes')
-,('Aamir Bashir')
-,('Reg E. Cathey')
-,('Heidi Schanz')
-,('Sam Humphrey')
-,('Anahita Oberoi')
-,('Farhana Bhat');
+('Aakriti Dobhal'),
+('Aamir Bashir'),
+('Aariyan Gupta'),
+('Aarnaa Sharma'),
+('Aaron Abrams'),
+('Aaron Dismuke'),
+('Aaron Eckhart'),
+('Aaron Marshall'),
+('Aaron Paul'),
+('Aaron Staton'),
+('Aaron Taylor-Johnson'),
+('Aaron Tveit'),
+('Aaron W Reed'),
+('Abbey Lee'),
+('Abbie Cornish'),
+('Abigail Breslin'),
+('Abrar Qazi'),
+('Adah Sharma'),
+('Adam Brody'),
+('Adam Devine'),
+('Adam Driver'),
+('Adam Dunn'),
+('Adam Gregory'),
+('Adam Sandler'),
+('Adam Scott'),
+('Adeel Afzal'),
+('Adeel Akhtar'),
+('Adithi Kalkunte'),
+('Aditi Rao Hydari'),
+('Adrian Pasdar'),
+('Adrien Brody'),
+('Agha Haider'),
+('Ai Fairouz'),
+('Aida Turturro'),
+('Aidan Gallagher'),
+('Aidy Bryant'),
+('Aimee Garcia'),
+('Akemi Okamura'),
+('Aksel Hennie'),
+('Akshay Kumar'),
+('Al Lettieri'),
+('Al Madrigal'),
+('Al Pacino'),
+('Al Thompson'),
+('Alan Boell'),
+('Alan Ritchson'),
+('Alan Ruck'),
+('Albert Jones'),
+('Alberto Ammann'),
+('Alden Ehrenreich'),
+('Alec Baldwin'),
+('Alecia Svensen'),
+('Alex Huff'),
+('Alex Sharp'),
+('Alexander Biglane'),
+('Alexander Calvert'),
+('Alexandra Daddario'),
+('Alexandra Shipp'),
+('Alfie Allen'),
+('Alfre Woodard'),
+('Ali Hasnain'),
+('Ali Junejo'),
+('Ali Kureshi'),
+('Ali Larter'),
+('Ali Wong'),
+('Ali-Asghar Shahbazi'),
+('Alia Bhatt'),
+('Alice Eve'),
+('Alice Orr-Ewing'),
+('Alina Khan'),
+('Alisha Boe'),
+('Alison Brie'),
+('Alison Pill'),
+('Allison Mack'),
+('Allison Miller'),
+('Allison Tolman'),
+('Allison Williams'),
+('Alon Aboutboul'),
+('Aly Michalka'),
+('Alyson Hannigan'),
+('Amanda Abbington'),
+('Amanda Bynes'),
+('Amanda Donohoe'),
+('Amanda Farinos'),
+('Amanda Plummer'),
+('Amanda Seyfried'),
+('Amar Gupta'),
+('Amaury Nolasco'),
+('Amber Heard'),
+('Amiee Conn'),
+('Amita Udgata'),
+('Amitabh Bachchan'),
+('Amrita Bagchi'),
+('Amy Adams'),
+('Amy Poehler'),
+('Amy Ryan'),
+('Ana Cruz Kayne'),
+('Ana de Armas'),
+('Anahita Oberoi'),
+('Andre Braugher'),
+('Andrea Riseborough'),
+('Andreas Pietschmann'),
+('Andrew Bachelor'),
+('Andrew Chandler'),
+('Andrew Garfield'),
+('Andrew Howard'),
+('Andrew Keegan'),
+('Andrew Kevin Walker'),
+('Andrew Koji'),
+('Andrew Scott'),
+('Andrew Sellon'),
+('Andy Hull'),
+('Andy Samberg'),
+('Andy Serkis'),
+('Angela Kinsey'),
+('Angela Sarafyan'),
+('Angourie Rice'),
+('Anil Dhawan'),
+('Anil Kapoor'),
+('Ann Pierce'),
+('Anna Diop'),
+('Anna Gunn'),
+('Anna Kendrick'),
+('Anna Shaffer'),
+('Anna Torv'),
+('Annabelle Wallis'),
+('Anne Haney'),
+('Anne Hathaway'),
+('Anne Winters'),
+('Annette O''Toole'),
+('Ansel Elgort'),
+('Anshikaa Shrivastava'),
+('Anthony Daniels'),
+('Anthony Edwards'),
+('Anthony Hopkins'),
+('Anti'),
+('Antje Traue'),
+('Antonia Ribero'),
+('Antony Starr'),
+('Anuj Gurwara'),
+('Anupam Kher'),
+('Anuradha Chandan'),
+('Anya Chalotra'),
+('Anya Taylor-Joy'),
+('Aparajita Adhya'),
+('Archie Yates'),
+('Arif Hassan'),
+('Arjun Mathur'),
+('Arjun Rampal'),
+('Arthur J. Nascarella'),
+('Arty Froushan'),
+('Ashish Ghosh'),
+('Ashish Vidyarthi'),
+('Ashley Jensen'),
+('Ashley Park'),
+('Ashley Rae Spillers'),
+('Ashley White'),
+('Ashwini Kalsekar'),
+('Aubrey Plaza'),
+('Austin Abrams'),
+('Austin Butler'),
+('Austin Freeman'),
+('Austyn Johnson'),
+('Ava Capri'),
+('Avinash Tiwary'),
+('Aviva Baumann'),
+('Awkwafina'),
+('Ayane Sakura'),
+('Ayelet Zurer'),
+('Ayush Mahesh Khedekar'),
+('Ayushmann Khurrana'),
+('Azharuddin Mohammed Ismail'),
+('Azhy Robertson'),
+('Aziz Ansari'),
+('BD Wong'),
+('Babak Karimi'),
+('Baby Bakita'),
+('Bad Bunny'),
+('Balendar Singh'),
+('Banita Sandhu'),
+('Banjô Ginga'),
+('Bankim Ghosh'),
+('Barbie Ferreira'),
+('Barry Keoghan'),
+('Beanie Feldstein'),
+('Beau Knapp'),
+('Becca Khalil'),
+('Bella Ramsey'),
+('Ben Affleck'),
+('Ben Hanson'),
+('Ben Knight'),
+('Ben Levi Ross'),
+('Ben McKenzie'),
+('Ben Shenkman'),
+('Ben Stiller'),
+('Benedict Cumberbatch'),
+('Benjamin Gilani'),
+('Benjamin Walker'),
+('Benny Nieves'),
+('Bertie Caplan'),
+('Beth Littleford'),
+('Betsy Brandt'),
+('Betty Buckley'),
+('Betty Gabriel'),
+('Bholanath Koyal'),
+('Bholaraj Sapkota'),
+('Biff Wiff'),
+('Bill Camp'),
+('Bill Hader'),
+('Bill Irwin'),
+('Bill Murray'),
+('Bill Nighy'),
+('Bill Nunn'),
+('Billie Lourd'),
+('Billie Whitelaw'),
+('Billy Bob Thornton'),
+('Billy Crudup'),
+('Billy Magnussen'),
+('Bindu Desai'),
+('Blaine Kern III'),
+('Blair Slater'),
+('Bo Burnham'),
+('Bob Barna'),
+('Bob Mack'),
+('Bob Odenkirk'),
+('Bob Penny'),
+('Bob Peterson'),
+('Bob Stephenson'),
+('Bokeem Woodbine'),
+('Boyd Holbrook'),
+('Brad Mann'),
+('Brad Pitt'),
+('Brad William Henke'),
+('Bradley Cooper'),
+('Bradley Whitford'),
+('Brandon McKnight'),
+('Brandon Perea'),
+('Brendan Fraser'),
+('Brendan Gleeson'),
+('Brendan Hunt'),
+('Brendan Rozario'),
+('Brendan Wayne'),
+('Brenton Thwaites'),
+('Brett Cullen'),
+('Brett Goldstein'),
+('Brian Baumgartner'),
+('Brian Cox'),
+('Brian Delate'),
+('Brian Howe'),
+('Brian Tarantina'),
+('Brian Tyree Henry'),
+('Brie Larson'),
+('Brigitte Lin'),
+('Britne Oldford'),
+('Britt Robertson'),
+('Bruce Dern'),
+('Bruce Norris'),
+('Bruce Willis'),
+('Bryan Barter'),
+('Bryan Cranston'),
+('Bryce Papenbrook'),
+('Burr Steers'),
+('Busy Philipps'),
+('C.S. Lee'),
+('CJ Jones'),
+('Caitlynne Medrek'),
+('Caitríona Balfe'),
+('Caleb Landry Jones'),
+('Caleb McLaughlin'),
+('Callie Hernandez'),
+('Cam Gigandet'),
+('Cameron Diaz'),
+('Cameron Seely'),
+('Camila Mendes'),
+('Camille Kostek'),
+('Camren Bicondova'),
+('Candice Patton'),
+('Cara Jade Myers'),
+('Carey Mulligan'),
+('Carl Weathers'),
+('Carla Gugino'),
+('Carlos Valdes'),
+('Carly Chaikin'),
+('Carmen Ejogo'),
+('Carol Ann Susi'),
+('Caroline Dhavernas'),
+('Carrie Coon'),
+('Carrie Lazar'),
+('Carrie-Anne Moss'),
+('Carson Holmes'),
+('Cary Elwes'),
+('Casey Affleck'),
+('Cate Blanchett'),
+('Catherine Bell'),
+('Catherine Keener'),
+('Catherine O''Hara'),
+('Cesar Aguirre'),
+('Chace Crawford'),
+('Chanel Cresswell'),
+('Chang Chen'),
+('Channing Tatum'),
+('Charles Edwards'),
+('Charles Walker'),
+('Charlie Cox'),
+('Charlie Day'),
+('Charlie Heaton'),
+('Charlie Hunnam'),
+('Charlie Tahan'),
+('Charlize Theron'),
+('Charlyne Yi'),
+('Chelsea Peretti'),
+('Cherry Jones'),
+('Chevy Chase'),
+('Chhaya Kadam'),
+('Chidi Ajufo'),
+('Chie Nakamura'),
+('Chiwetel Ejiofor'),
+('Chloë Grace Moretz'),
+('Chloë Sevigny'),
+('Chris Bartlett'),
+('Chris Chalk'),
+('Chris Elliott'),
+('Chris Evans'),
+('Chris Hemsworth'),
+('Chris Pang'),
+('Chris Parnell'),
+('Chris Penn'),
+('Chris Pratt'),
+('Chris Tucker'),
+('Chris Waitt'),
+('Chris Wylde'),
+('Christian Bale'),
+('Christian Brunetti'),
+('Christian Erickson'),
+('Christian Slater'),
+('Christian Stolte'),
+('Christina Hendricks'),
+('Christina Pickles'),
+('Christina Robinson'),
+('Christine Toy Johnson'),
+('Christoph Waltz'),
+('Christopher B. Duncan'),
+('Christopher Meloni'),
+('Christopher Mintz-Plasse'),
+('Christopher Plummer'),
+('Christopher Walken'),
+('Chukwudi Iwuji'),
+('Cillian Murphy'),
+('Cinda Adams'),
+('Claire Forlani'),
+('Claire Foy'),
+('Clancy Brown'),
+('Clark Gregg'),
+('Clayne Crawford'),
+('Clifford Chapin'),
+('Cobie Smulders'),
+('Colin Farrell'),
+('Colin Hanks'),
+('Colleen Clinkenbeard'),
+('Colleen O''Shaughnessey'),
+('Collette Wolfe'),
+('Colm Feore'),
+('Colton Haynes'),
+('Common'),
+('Conan O''Brien'),
+('Connie Britton'),
+('Conor Leslie'),
+('Cory Michael Smith'),
+('Cotter Smith'),
+('Courteney Cox'),
+('Craig Berry'),
+('Craig Roberts'),
+('Creed Bratton'),
+('Cristin Milioti'),
+('Curran Walters'),
+('Cyd Charisse'),
+('D.B. Woodside'),
+('Daiki Yamashita'),
+('Daisuke Hirakawa'),
+('Dakota Johnson'),
+('Damian Young'),
+('Damián Alcázar'),
+('Dan Byrd'),
+('Dan Castellaneta'),
+('Dane Cook'),
+('Daniel Brühl'),
+('Daniel Craig'),
+('Daniel Dae Kim'),
+('Daniel Davis'),
+('Daniel Huttlestone'),
+('Daniel Ings'),
+('Daniel J. Watts'),
+('Daniel Kaluuya'),
+('Daniel Lapaine'),
+('Daniel Radcliffe'),
+('Daniel Zacapa'),
+('Danielle Nicolet'),
+('Danielle Panabaker'),
+('Danny Aiello'),
+('Danny McBride'),
+('Danny Pudi'),
+('Darcy Bryce'),
+('Darko Peric'),
+('Daryl Hannah'),
+('Daryl Mitchell'),
+('Daryn Kahn'),
+('Dave Bautista'),
+('Dave Franco'),
+('Dave Wittenberg'),
+('David Bowie'),
+('David Burrows'),
+('David Castañeda'),
+('David Choe'),
+('David Clennon'),
+('David Cross'),
+('David H. Holmes'),
+('David Harbour'),
+('David Henrie'),
+('David Kaye'),
+('David Krumholtz'),
+('David Mazouz'),
+('David Oyelowo'),
+('David Ramsey'),
+('David S. Howard'),
+('David Schrempf'),
+('David Schwimmer'),
+('David Tennant'),
+('David Thewlis'),
+('David Turner'),
+('David Wenham'),
+('David Zayas'),
+('Dawn Addams'),
+('Dax Flame'),
+('DeRay Davis'),
+('Dean Feldman'),
+('Dean J. West'),
+('Dean Norris'),
+('Debbie Reynolds'),
+('Deborah Ann Woll'),
+('Deepika Padukone'),
+('Deirdre O''Connell'),
+('Delfeayo Marsalis'),
+('Delroy Lindo'),
+('Demi Moore'),
+('Deneke Muhugeta'),
+('Denis O''Hare'),
+('Denise Hughes'),
+('Dennis Quaid'),
+('Derek Graf'),
+('Desmond Harrington'),
+('Dev Patel'),
+('Devon Graye'),
+('Diana Lin'),
+('Diane Keaton'),
+('Diane Kruger'),
+('Diane Lane'),
+('Diane Morgan'),
+('Dianne Wiest'),
+('Diego Calva'),
+('Dileep Rao'),
+('Dilip Bose'),
+('Dimiter D. Marinov'),
+('Dirk Blocker'),
+('Dominic Chianese'),
+('Dominic Purcell'),
+('Dominic West'),
+('Don Johnson'),
+('Don McManus'),
+('Donal Logue'),
+('Donald Glover'),
+('Donald O''Connor'),
+('Donna Biscoe'),
+('Donnie Wahlberg'),
+('Doug Benson'),
+('Douglas Fowley'),
+('Drew Ater'),
+('Dua Lipa'),
+('Dustin Fitzsimons'),
+('Dwayne Johnson'),
+('Dylan Minnette'),
+('Dylan Moran'),
+('Eamon Farren'),
+('Echo Kellum'),
+('Ed Harris'),
+('Ed Helms'),
+('Ed Renninger'),
+('Ed Skrein'),
+('Ed Stoppard'),
+('Eddie Jemison'),
+('Eddie Redmayne'),
+('Edi Patterson'),
+('Edie Falco'),
+('Edward Asner'),
+('Edward Hamilton-Clark'),
+('Edward Norton'),
+('Ehteram Boroumand'),
+('Eiza González'),
+('Eka Darville'),
+('Eli Roth'),
+('Elie Docter'),
+('Elijah Wood'),
+('Elisabeth Moss'),
+('Elise Baughman'),
+('Elizabeth Banks'),
+('Elle Fanning'),
+('Ellen Burstyn'),
+('Ellen Wong'),
+('Ellie Kemper'),
+('Elliot Page'),
+('Elliott Gould'),
+('Elodie Yung'),
+('Eman Suleman'),
+('Emilia Clarke'),
+('Emilia Fox'),
+('Emilie de Ravin'),
+('Emily Bett Rickards'),
+('Emily Blunt'),
+('Emily Browning'),
+('Emily Swallow'),
+('Emily Watson'),
+('Emma D''Arcy'),
+('Emma Mackey'),
+('Emma Roberts'),
+('Emma Stone'),
+('Emmy Raver-Lampman'),
+('Enrique Arce'),
+('Eric Bauza'),
+('Eric Berryman'),
+('Eric Mason'),
+('Eric Vale'),
+('Erica Durance'),
+('Erin Gerasimovich'),
+('Erin Moriarty'),
+('Erin Richards'),
+('Esther Acebo'),
+('Ethan Phillips'),
+('Evan Peters'),
+('Evan Rachel Wood'),
+('Evangeline Lilly'),
+('Ewan McGregor'),
+('Ezra Miller'),
+('F. Murray Abraham'),
+('Fabien Frankel'),
+('Farhana Bhat'),
+('Farid Sajjadi Hosseini'),
+('Fawad Khan'),
+('Faye Wong'),
+('Felicity Jones'),
+('Felix Mallard'),
+('Finlay Wright-Stephens'),
+('Finn Cole'),
+('Finn Jones'),
+('Finn Wolfhard'),
+('Flora Slorach'),
+('Florence Pugh'),
+('Frances Conroy'),
+('Francis X. McCarthy'),
+('Francisco Denis'),
+('Frank Finlay'),
+('Frank John Hughes'),
+('Frank Whaley'),
+('Frankie Faison'),
+('Frederick Weller'),
+('Freida Pinto'),
+('Freya Allan'),
+('Gabriel Luna'),
+('Gabrielle Union'),
+('Gal Gadot'),
+('Gary Lydon'),
+('Gary Oldman'),
+('Gaten Matarazzo'),
+('Gavin Ferguson'),
+('Gedeon Burkhard'),
+('Gene Kelly'),
+('Genneya Walton'),
+('Genta Nakamura'),
+('Geoff Pierson'),
+('Geoffrey Arend'),
+('George Cheung'),
+('George Kelly'),
+('Georgia King'),
+('Gerry Robert Byrne'),
+('Giancarlo Esposito'),
+('Gideon Glick'),
+('Gillian Anderson'),
+('Gillian Jacobs'),
+('Gitali Roy'),
+('Gitanjali Rao'),
+('Giullian Yao Gioiello'),
+('Glenn Fitzgerald'),
+('Glenn Fleshler'),
+('Gopichand Lagadapati'),
+('Gore Abrams'),
+('Govardhan Asrani'),
+('Grace Gummer'),
+('Grant Gustin'),
+('Greg Chun'),
+('Greg Cipes'),
+('Greg Grunberg'),
+('Gulshan Grover'),
+('Gururaj Manepalli'),
+('Gustave Die'),
+('Guy Massey'),
+('Gwyneth Paltrow'),
+('Habtunu Africho'),
+('Hailee Steinfeld'),
+('Haley Joel Osment'),
+('Haley Lu Richardson'),
+('Hammad Haider Butt'),
+('Hannah Gross'),
+('Hannah John-Kamen'),
+('Hannah Waddingham'),
+('Hannibal Buress'),
+('Hansford Prince'),
+('Haradhan Bannerjee'),
+('Hari Nef'),
+('Harold G. Herthum'),
+('Harry Goodwins'),
+('Harry Kirton'),
+('Harry Lennix'),
+('Harry Lloyd'),
+('Harry Shum Jr.'),
+('Hartley Sawyer'),
+('Haruna Mikawa'),
+('Harvey Fierstein'),
+('Harvey Keitel'),
+('Hayden Panettiere'),
+('Hazel Mailloux'),
+('Heath Ledger'),
+('Heidi Schanz'),
+('Helen McCrory'),
+('Helena Bonham Carter'),
+('Henry Cavill'),
+('Henry Golding'),
+('Hettienne Park'),
+('Hiro Shimono'),
+('Hiroaki Hirata'),
+('Hiroyuki Sanada'),
+('Holland Taylor'),
+('Holly Hunter'),
+('Holt McCallany'),
+('Honey Albela'),
+('Hong Lin'),
+('Hong Lu'),
+('Hoyeon'),
+('Hugh Dancy'),
+('Hugh Grant'),
+('Hugh Jackman'),
+('Hugh Keays-Byrne'),
+('Hugo Diego Garcia'),
+('Hugo Weaving'),
+('Hunter Aldridge'),
+('Hunter Parrish'),
+('Hynden Walch'),
+('Iain Glen'),
+('Ian Peck'),
+('Ice Cube'),
+('Idara Victor'),
+('Idris Elba'),
+('Ikue Ôtani'),
+('Ikuto Kanemasa'),
+('Ileana D''Cruz'),
+('Imelda Staunton'),
+('Irrfan Khan'),
+('Isabelle Almoyan'),
+('Isha Chaturvedi'),
+('Isiah Whitlock Jr.'),
+('Isla Fisher'),
+('Issa Rae'),
+('Isy Suttie'),
+('Iteeva Pande'),
+('Itziar Ituño'),
+('Ivo Uukkivi'),
+('Ivy O''Brien'),
+('Izzie Coffey'),
+('J. Smith-Cameron'),
+('J.B. Smoove'),
+('J.C. Currais'),
+('J.C. MacKenzie'),
+('J.D.'),
+('J.K. Simmons'),
+('J.R. Ramirez'),
+('JJ Feild'),
+('Jack Coleman'),
+('Jack Quaid'),
+('Jacki Weaver'),
+('Jackie Chan'),
+('Jackie Earle Haley'),
+('Jacky Ido'),
+('Jacob G. Akins'),
+('Jacob Warner'),
+('Jacqueline Obradors'),
+('Jada Pinkett Smith'),
+('Jaden Smith'),
+('Jahnni St. John'),
+('Jaideep Ahlawat'),
+('Jaime Lorente'),
+('Jake Gyllenhaal'),
+('Jake Johnson'),
+('Jake Weber'),
+('Jamahl Garrison-Lowe'),
+('James Brolin'),
+('James Caan'),
+('James Corden'),
+('James Gandolfini'),
+('James Hong'),
+('James Karen'),
+('James Kyson'),
+('James Lugton'),
+('James M. Connor'),
+('James Marsden'),
+('James McAvoy'),
+('James Michael Tyler'),
+('James Remar'),
+('James Saito'),
+('James Tarpey'),
+('Jami Owen'),
+('Jamie Chung'),
+('Jamie Foxx'),
+('Jamie Lee Curtis'),
+('Jamie-Lynn Sigler'),
+('Jamieson Price'),
+('Janae Collins'),
+('Jane Adams'),
+('Janet McTeer'),
+('January Jones'),
+('Jared Padalecki'),
+('Jason Andrews'),
+('Jason Bateman'),
+('Jason Bernard'),
+('Jason Clarke'),
+('Jason Mantzoukas'),
+('Jason Momoa'),
+('Jason Schwartzman'),
+('Jason Segel'),
+('Jason Sudeikis'),
+('Jasper Levine'),
+('Jatin Malik'),
+('Javier Bardem'),
+('Jawed Sheikh'),
+('Jay Lycurgo'),
+('Jean Hagen'),
+('Jeanine Serralles'),
+('Jeff Daniels'),
+('Jeff Goldblum'),
+('Jefferson Hall'),
+('Jeffrey Dean Morgan'),
+('Jeffrey Tambor'),
+('Jeffrey Wright'),
+('Jeffrey Zubernis'),
+('Jemima Rooper'),
+('Jena Malone'),
+('Jeneva Talwar'),
+('Jenna Fischer'),
+('Jennifer Aniston'),
+('Jennifer Carpenter'),
+('Jennifer Connelly'),
+('Jennifer Ehle'),
+('Jennifer Finley'),
+('Jennifer Lawrence'),
+('Jennifer Tilly'),
+('Jenny Slate'),
+('Jensen Ackles'),
+('Jeon Young-soo'),
+('Jeremiah Craft'),
+('Jeremiah Yurk'),
+('Jeremy Irons'),
+('Jeremy Leary'),
+('Jeremy Renner'),
+('Jeremy Shamos'),
+('Jeremy Strong'),
+('Jeremy Swift'),
+('Jerome Ranft'),
+('Jerry Grayson'),
+('Jesse Eisenberg'),
+('Jesse L. Martin'),
+('Jesse Plemons'),
+('Jessica Chastain'),
+('Jessica Frances Dukes'),
+('Jessica Henwick'),
+('Jessica Kate Meyer'),
+('Jessica Lange'),
+('Jessica Rothe'),
+('Jessica Stroup'),
+('Jessica Sula'),
+('Jessie James Grelle'),
+('Jessie T. Usher'),
+('Jillian Dion'),
+('Jim Beaver'),
+('Jim Carrey'),
+('Jim O''Heir'),
+('Jim Parsons'),
+('Jim Rash'),
+('Jimmi Simpson'),
+('Jimmy Ortega'),
+('Jimmy Shergill'),
+('Jimmy Tandel'),
+('Jira Banjara'),
+('Jisshu Sengupta'),
+('Joaquin Phoenix'),
+('Jodi Lyn O''Keefe'),
+('Jodie Comer'),
+('Joe Chrest'),
+('Joe Cornish'),
+('Joe Cortese'),
+('Joe Keery'),
+('Joe Lo Truglio'),
+('Joe Nieves'),
+('Joe Tuttle'),
+('Joe Wilkinson'),
+('Joel McHale'),
+('Joel McKinnon Miller'),
+('Joely Richardson'),
+('Joey Batey'),
+('Joey King'),
+('John Albright'),
+('John Barrowman'),
+('John Bradley'),
+('John Carroll Lynch'),
+('John Carty'),
+('John Cassini'),
+('John Clarence Stewart'),
+('John David Washington'),
+('John Glover'),
+('John Gowans'),
+('John Hawkes'),
+('John Krasinski'),
+('John Lacy'),
+('John Lithgow'),
+('John Mahoney'),
+('John Marley'),
+('John Mulaney'),
+('John Ortiz'),
+('John Randall'),
+('John Ratzenberger'),
+('John Ross Bowie'),
+('John Schneider'),
+('John Slattery'),
+('John Travolta'),
+('John Turturro'),
+('John Ventimiglia'),
+('Johnny Galecki'),
+('Johnny Simmons'),
+('Johnny Yong Bosch'),
+('Jomon Thomas'),
+('Jon Bernthal'),
+('Jon Hamm'),
+('Jon Kenny'),
+('Jon Voight'),
+('Jonah Bobo'),
+('Jonah Hill'),
+('Jonathan Aris'),
+('Jonathan Banks'),
+('Jonathan Camp'),
+('Jonathan Groff'),
+('Jonathan Marc Sherman'),
+('Jonathan Parks Jordan'),
+('Jonathan Pryce'),
+('Jordan Claire Robbins'),
+('Jordan Nagai'),
+('Jordan Rodrigues'),
+('Jordana Spiro'),
+('Jorge Garcia'),
+('Jorge Lendeborg Jr.'),
+('Jorge Monterrosa'),
+('Joseph Gordon-Levitt'),
+('Joseph Lee'),
+('Joseph Mazzello'),
+('Josh Brolin'),
+('Josh Helman'),
+('Josh Holloway'),
+('Josh Lucas'),
+('Josh Pais'),
+('Josh Radnor'),
+('Joshua Henry'),
+('Joshua Orpin'),
+('Jovan Adepo'),
+('Juan Murcia'),
+('Jude Law'),
+('Judith Light'),
+('Juhan Ulfsak'),
+('Julia Clarke'),
+('Julia Denton'),
+('Julia Garner'),
+('Julia Greer'),
+('Julia Hsu'),
+('Julia Rayner'),
+('Julia Stiles'),
+('Julianne Moore'),
+('Julie Benz'),
+('Julie Hagerty'),
+('Juliette Binoche'),
+('Jun''ichi Suwabe'),
+('June Malia'),
+('June Squibb'),
+('Junko Takeuchi'),
+('Juno Temple'),
+('Justice Smith'),
+('Justin Briner'),
+('Justin Cooper'),
+('Justin H. Min'),
+('Justin Hartley'),
+('Justin Swain'),
+('Justin Timberlake'),
+('Jôji Yanami'),
+('Jördis Triebel'),
+('Kabir Sajid Shaikh'),
+('Kacey Rohl'),
+('Kai Lennox'),
+('Kaitlyn Dever'),
+('Kaito Ishikawa'),
+('Kajol'),
+('Kal-El Cage'),
+('Kaley Cuoco'),
+('Kamalinee Mukherjee'),
+('Kamini Kaushal'),
+('Kamu Mukherjee'),
+('Kappei Yamaguchi'),
+('Karamveer Kanwar'),
+('Karan Soni'),
+('Kareem Abdul-Jabbar'),
+('Karen Fukuhara'),
+('Karen Gillan'),
+('Karen Kilgariff'),
+('Karen Pittman'),
+('Karl Urban'),
+('Karoline Eichhorn'),
+('Kasia Stelmach'),
+('Kate Ashfield'),
+('Kate Flannery'),
+('Kate Higgins'),
+('Kate Mara'),
+('Kate McKinnon'),
+('Kate Winslet'),
+('Katee Sackhoff'),
+('Katherine Langford'),
+('Katherine O''Sullivan'),
+('Kathy Bates'),
+('Katie Amanda Keane'),
+('Katie Cassidy'),
+('Kay Kay Menon'),
+('Kaya Scodelario'),
+('Kayla Compton'),
+('Kazuya Nakai'),
+('Ke Huy Quan'),
+('Keala Settle'),
+('Keanu Reeves'),
+('Keean Johnson'),
+('Keegan-Michael Key'),
+('Keir Mills'),
+('Keira Knightley'),
+('Keith David'),
+('Keith Ferguson'),
+('Keith William Richards'),
+('Keke Palmer'),
+('Kelli O''Hara'),
+('Ken Garito'),
+('Ken Jeong'),
+('Ken Leung'),
+('Ken Watanabe'),
+('Kenny Chin'),
+('Kenton Duty'),
+('Kerry Condon'),
+('Kerry Godliman'),
+('Kevin Alejandro'),
+('Kevin Corrigan'),
+('Kevin Costner'),
+('Kevin Hart'),
+('Kevin Spacey'),
+('Kevin Sussman'),
+('Kevin West'),
+('Kharaj Mukherjee'),
+('Khary Payton'),
+('Kieran Culkin'),
+('Kiernan Shipka'),
+('Kim Byung-cheol'),
+('Kim Dickens'),
+('Kimia Hosseini');
 
 GO
 
 INSERT INTO Actors (ActorName) VALUES
-  ('Zoë Soul')
-,('Tommie-Amber Pirie')
-,('Ashley Rae Spillers')
-,('Janae Collins')
-,('Parvin Dabas')
-,('Govardhan Asrani')
-,('Yuvika Chaudhary')
-,('Adam Gregory')
-,('Sander Rebane')
-,('Aaron Marshall')
-,('Frank John Hughes')
-,('Robert Prosky')
-,('Neal Huff')
-,('Merritt Wever')
-,('Logan Dean')
-,('Mary Agnes Nixon')
-,('Alan Boell')
-,('Tim Zajaros')
-,('Manu Malik')
-,('Matthew Modine')
-,('Chris Penn')
-,('Stephen McHattie')
-,('Scott Glenn')
-,('Thomas Morrison')
-,('Hugo Weaving')
-,('Nona Gaye')
-,('Ben Shenkman')
-,('Jacqueline Obradors')
-,('Swoosie Kurtz')
-,('Ikuto Kanemasa')
-,('Michael Bolton')
-,('Ray McKinnon')
-,('Paris Berelc')
-,('Keegan-Michael Key')
-,('Mark Moses')
-,('Eddie Jemison')
-,('Timothy John Smith')
-,('Conan O''Brien')
-,('Melkote')
-,('Jacob G. Akins')
-,('Sajal Bhattacharya')
-,('Christopher Meloni')
-,('Lana Condor')
-,('Aksel Hennie')
-,('Jahnni St. John')
-,('Sam Anderson')
-,('Shikha Jain')
-,('Ayush Mahesh Khedekar')
-,('Beth Littleford')
-,('Hazel Mailloux')
-,('Norbert Leo Butz')
-,('Jonathan Parks Jordan')
-,('Ritu Arya')
-,('Jisshu Sengupta')
-,('Samantha Barks')
-,('Chris Parnell')
-,('Joe Lo Truglio')
-,('Malcolm McDowell')
-,('Keith William Richards')
-,('Andrew Sellon')
-,('John Lacy')
-,('Britne Oldford')
-,('Terence Rosemore')
-,('J.B. Smoove')
-,('Steve Berg')
-,('Lois Smith')
-,('Aidy Bryant')
-,('John Gowans')
-,('Wanja Mues')
-,('David Turner')
-,('Hansford Prince')
-,('Ben Hanson')
-,('Katherine O''Sullivan')
-,('Andy Serkis')
-,('Archie Yates')
-,('Stephen Root')
-,('Morse Diggs')
-,('Alecia Svensen')
-,('Gedeon Burkhard')
-,('Odeya Rush')
-,('Larry Miller')
-,('Mark Webber')
-,('Marion Cotillard')
-,('Bill Murray')
-,('Ron Dean')
-,('Kirsten Dunst')
-,('John Mulaney')
-,('Bill Irwin')
-,('Judith Light')
-,('Sonoya Mizuno')
-,('Terry Notary')
-,('Bad Bunny')
-,('Biff Wiff')
-,('John Carty')
-,('Liang Zhen')
-,('Kevin West')
-,('Tom Morton')
-,('Honey Albela')
-,('Agha Haider')
-,('Al Lettieri')
-,('Ashish Ghosh')
-,('Sharon Duncan-Brewster')
-,('Chidi Ajufo')
-,('Elie Docter')
-,('Tom Laflin')
-,('Eric Vale')
-,('Jun''ichi Suwabe')
-,('Clifford Chapin')
-,('Laurent Vernin');
-
-GO 
-INSERT INTO Actors (ActorName) VALUES
-('Colleen Clinkenbeard'),
-('Wendee Lee'),
-('Jonathan Banks'),
-('Mark Margolis'),
-('Joe Wilkinson'),
-('Toheeb Jimoh'),
-('Mike Manning'),
-('Kim Byung-cheol'),
-('Creed Bratton'),
-('Christina Pickles'),
-('Millie Bobby Brown'),
-('John Bradley'),
-('Kurt Egyiawan'),
-('Harry Kirton'),
-('Hannah John-Kamen'),
-('Vanessa Kirby'),
-('Jonathan Aris'),
-('Anthony Hopkins'),
-('Stephen Dorff'),
-('Karen Fukuhara'),
+('Kimiko Glenn'),
+('Kirk Thornton'),
+('Kirron Kher'),
 ('Kirsten Dunst'),
-('Oliver Masucci'),
-('Jordana Spiro'),
-('J. Smith-Cameron'),
-('Francisco Denis'),
-('Cotter Smith'),
-('Anna Shaffer'),
-('Kiernan Shipka'),
-('Emilie de Ravin'),
-('Rockmond Dunbar'),
+('Kishô Taniyama'),
+('Kit Harington'),
+('Kobna Holdbrook-Smith'),
+('Kola Bokinni'),
+('Kristen Bell'),
+('Kristen Wiig'),
+('Kristin Kreuk'),
+('Krysten Ritter'),
+('Kulbhushan Kharbanda'),
+('Kumail Nanjiani'),
+('Kumud Mishra'),
+('Kunal Nayyar'),
+('Kurt Braunohler'),
+('Kurt Egyiawan'),
+('Kurt Fuller'),
+('Kurt Koehler'),
+('Kyle Chandler'),
+('Kôki Uchiyama'),
+('LaKeith Stanfield'),
+('Lalit Parimoo'),
+('Lamar Johnson'),
+('Lana Condor'),
+('Lane Erwin'),
+('Lanny Flaherty'),
+('Lara Jean Chorostecki'),
+('Larisa Oleynik'),
+('Larry Miller'),
+('Lateef Crowder'),
+('Laura Linney'),
+('Laura Lovelace'),
+('Laura Marano'),
+('Laura Mennell'),
+('Lauren German'),
+('Laurence Fishburne'),
+('Laurent Vernin'),
+('Laurie Metcalf'),
+('Laz Alonso'),
+('Lee Byung-hun'),
+('Lee Evans'),
+('Lee Jung-jae'),
+('Lee-Na Kwan'),
+('Leigh Gill'),
+('Leighton Meester'),
+('Leila Hatami'),
 ('Leilani Shiu'),
-('Christina Robinson'),
-('Marshall Manesh'),
-('Chelsea Peretti'),
-('Carol Ann Susi'),
-('Adam Scott'),
-('Chevy Chase'),
-('Stephanie Corneliussen'),
-('Kacey Rohl'),
-('Ritu Arya'),
-('Melanie Lynskey'),
-('Echo Kellum'),
-('Brandon McKnight'),
-('Justin Hartley'),
-('Zachary Quinto'),
-('Nikki M. James'),
-('Janet McTeer'),
-('Ron Cephas Jones'),
-('Giullian Yao Gioiello'),
-('Rosario Dawson'),
-('Jay Lycurgo'),
-('Morena Baccarin'),
-('Ruth Connell'),
-('Tricia Helfer'),
-('Billie Lourd'),
-('David H. Holmes'),
-('Dominic Chianese'),
-('W. Earl Brown'),
-('Frankie Faison'),
-('Josh Pais'),
-('Abbey Lee'),
-('Adam Dunn'),
-('Jomon Thomas'),
-('John Albright'),
+('Lekh Tandon'),
+('Lena Headey'),
+('Leonardo DiCaprio'),
+('Lesley-Ann Brandt'),
+('Leslie David Baker'),
+('Leslie Grossman'),
+('Leslie Mann'),
+('Leslie Nielsen'),
+('Liang Wei-Hui-Duncan'),
+('Liang Zhen'),
+('Lil Rel Howery'),
+('Lily Gladstone'),
+('Lily James'),
+('Lily Rabe'),
+('Lily Tomlin'),
+('Lin Shaye'),
+('Linda Cardellini'),
+('Lio Tipton'),
+('Lisa Ann Walter'),
+('Lisa Banes'),
+('Lisa Emery'),
+('Lisa Jakub'),
+('Lisa Kudrow'),
+('Lisa Vicari'),
+('Lloyd Bridges'),
+('Logan Dean'),
+('Logan Lerman'),
+('Lois Kelly-Miller'),
+('Lois Smith'),
+('Lorna Patterson'),
+('Lorraine Bracco'),
+('Louis Hofmann'),
+('Louise Brealey'),
+('Lucas Hedges'),
+('Luci Christian'),
+('Lucius Hoyos'),
+('Lucy Davis'),
+('Luis Guzmán'),
+('Luke Brandon Field'),
+('Luke Bromley'),
+('Luke Hemsworth'),
+('Luke Wilson'),
+('Luna Lauren Velez'),
+('Lyndsy Fonseca'),
+('Lyne Renée'),
 ('Léa Seydoux'),
-('Vincent Gurzo'),
-('Aparajita Adhya'),
-('Anshikaa Shrivastava'),
-('Olivia Colman'),
-('Yongbo Jiang'),
-('Benedict Cumberbatch'),
-('Zak Steiner'),
-('Will Ferrell'),
+('M. Night Shyamalan'),
+('Mackenzie Davis'),
+('Mackenzie Foy'),
+('Macon Blair'),
+('Madhavi Mukherjee'),
+('Mads Mikkelsen'),
+('Maggie Gyllenhaal'),
+('Maggie Wheeler'),
+('Mahershala Ali'),
+('Maia Reficco'),
+('Maile Flanagan'),
+('Maisie Williams'),
+('Maja Schöne'),
+('Makoto Furukawa'),
+('Makrand Deshpande'),
+('Malcolm McDowell'),
+('Malin Akerman'),
+('Manav Vij'),
+('Mandy Moore'),
+('Manoj Joshi'),
+('Manu Malik'),
+('Mara Wilson'),
+('Maral Baniadam'),
+('Marc Evan Jackson'),
+('Marcia Gay Harden'),
+('Marcos A. Ferraez'),
+('Marcus Henderson'),
+('Margaret Qualley'),
+('Margarita Levieva'),
+('Margo Moorer'),
+('Margot Robbie'),
+('Maria Bakalova'),
+('Maria Bello'),
+('Marika Casteel'),
+('Marina Inoue'),
+('Mario Van Peebles'),
+('Marion Bailey'),
+('Marion Cotillard'),
+('Marisa Tomei'),
+('Mark Gatiss'),
+('Mark Margolis'),
+('Mark Moses'),
+('Mark Pellegrino'),
+('Mark Ruffalo'),
+('Mark Rylance'),
+('Mark Sheppard'),
+('Mark Wahlberg'),
+('Mark Webber'),
+('Markie Post'),
+('Marlene Lawston'),
+('Marlon Brando'),
+('Marshall Manesh'),
+('Martha Espinoza'),
+('Martha MacIsaac'),
+('Martin Donovan'),
+('Martin Freeman'),
+('Martin Sheen'),
+('Martin Wallström'),
+('Mary Agnes Nixon'),
+('Mary Elizabeth Winstead'),
+('Mary Lynn Rajskub'),
+('Mary Mallen'),
+('Masakazu Morita'),
+('Masako Nozawa'),
+('Masi Oka'),
+('Master Abhijit'),
+('Mathieu Amalric'),
+('Matilda Tucker'),
+('Matt Bomer'),
+('Matt Damon'),
+('Matt Dillon'),
+('Matt Frewer'),
+('Matt Jaynes'),
+('Matt LeBlanc'),
+('Matt Lutz'),
+('Matt Smith'),
+('Matt Walsh'),
+('Matthew Erickson'),
+('Matthew Fox'),
+('Matthew Goode'),
+('Matthew Gray Gubler'),
+('Matthew Lawrence'),
+('Matthew Macfadyen'),
+('Matthew Maher'),
+('Matthew McConaughey'),
+('Matthew Modine'),
+('Matthew Needham'),
+('Matthew Perry'),
+('Matthew Pruitt'),
+('Matuse'),
+('Maura Tierney'),
+('Maureen Lipman'),
+('Max Casella'),
+('Maya G. Love'),
+('Maya Hawke'),
+('Mayim Bialik'),
+('Mayumi Tanaka'),
+('Megalyn Echikunwoke'),
+('Megan Park'),
+('Meghan Heffern'),
+('Mehar Bano'),
+('Mehdi Koushki'),
+('Mel Gibson'),
+('Melanie Lynskey'),
+('Melissa Fumero'),
+('Melissa Leo'),
+('Melissa Rauch'),
+('Melkote'),
+('Meredith Hagner'),
+('Merila Zare''i'),
+('Merritt Wever'),
+('Meryl Streep'),
+('Mesfin Lamengo'),
+('Micah Howard'),
+('Michael Bolton'),
+('Michael Buscemi'),
+('Michael C. Hall'),
+('Michael Caine'),
+('Michael Cera'),
+('Michael Chow'),
+('Michael Conner Humphreys'),
+('Michael Cristofer'),
+('Michael Emerson'),
+('Michael Fassbender'),
+('Michael Imperioli'),
+('Michael Keaton'),
+('Michael Kelly'),
+('Michael Mando'),
+('Michael Marcus'),
+('Michael McKean'),
+('Michael Michele'),
+('Michael Peña'),
+('Michael Potts'),
+('Michael Rosenbaum'),
+('Michael Shannon'),
+('Michael Vu'),
+('Michael Wincott'),
+('Michaela Coel'),
+('Michaela Jaé  Rodriguez'),
+('Michal Zebrowski'),
+('Michelle Buteau'),
+('Michelle Dockery'),
+('Michelle Greenidge'),
+('Michelle Monaghan'),
+('Michelle Ruff'),
+('Michelle Trachtenberg'),
+('Michelle Williams'),
+('Michelle Yeoh'),
+('Mickey Sumner'),
+('Miguel Herrán'),
+('Mike Colter'),
+('Mike Hatton'),
+('Mike Manning'),
+('Mike McFarland'),
+('Milanka Brooks'),
+('Millard Mitchell'),
+('Millie Bobby Brown'),
+('Milo Gibson'),
+('Milo Ventimiglia'),
+('Mimî M Khayisa'),
+('Mina Sadati'),
+('Minka Kelly'),
+('Mir Sarwar'),
+('Misha Collins'),
 ('Missi Pyle'),
-('Daryn Kahn'),
-('Anne Winters'),
-('Ron Perlman'),
-('Justin H. Min'),
+('Missy Yager'),
+('Misty Rosas'),
+('Mitchell Ryan'),
+('Mojtaba Pirzadeh'),
+('Monica Dolan'),
+('Monique Gabriela Curnen'),
+('Morena Baccarin'),
+('Morgan Brown'),
+('Morgan Freeman'),
+('Moritz Jahn'),
+('Morse Diggs'),
+('Moushumi Chatterjee'),
+('Mukesh Khanna'),
+('Mukesh Tiwari'),
+('Murielle Telio'),
+('Murray McArthur'),
+('MyAnna Buring'),
+('Mykelti Williamson'),
+('Mélanie Laurent'),
+('Nadia Afgan'),
+('Nancy Carell'),
+('Naomi Watts'),
+('Narendra Jha'),
+('Nargis Fakhri'),
+('Natalia Dyer'),
+('Natascha McElhone'),
+('Natasha O''Keeffe'),
+('Nathalie Baye'),
+('Nathan Jones'),
+('Nathan Mitchell'),
+('Naveen Andrews'),
+('Neal Huff'),
+('Ned Dennehy'),
+('Neena Kulkarni'),
+('Neil Patrick Harris'),
+('Nia Celeste'),
+('Nicholas Braun'),
+('Nicholas Hoult'),
+('Nick Frost'),
+('Nick Mohammed'),
+('Nick Offerman'),
+('Nico Parker'),
+('Nicola Cunningham'),
+('Nicole Britton'),
+('Nikitin Dheer'),
+('Nikki M. James'),
+('Nikolaj Coster-Waldau'),
+('Nilotpal Dey'),
+('Nishant Dahiya'),
+('Noah Centineo'),
+('Noah Emmerich'),
+('Noah Jupe'),
+('Noah Schnapp'),
+('Nobuhiko Okamoto'),
+('Nona Gaye'),
+('Nora Dunn'),
+('Norbert Leo Butz'),
+('Noriaki Sugiyama'),
+('Odeya Rush'),
+('Odiseas Georgiadis'),
+('Oliver Farrelly'),
+('Oliver Masucci'),
+('Olivia Colman'),
+('Olivia Cooke'),
+('Olivia Williams'),
+('Om Puri'),
+('Oscar Isaac'),
+('Oscar Lesage'),
+('Oscar Nuñez'),
+('Ossie Davis'),
+('Osy Ikhile'),
+('Otto'),
+('P.J. Byrne'),
+('Packy Lee'),
+('Paresh Rawal'),
+('Parineeti Chopra'),
+('Paris Berelc'),
+('Park Hae-soo'),
+('Parmeet Sethi'),
+('Parvin Dabas'),
+('Pat Shortt'),
+('Patricia Belcher'),
+('Patricia Clarkson'),
+('Patricia Kalember'),
+('Patrick Fabian'),
+('Patrick Fugit'),
+('Patrick Mapel'),
+('Patrick Wilson'),
+('Patti Yasutake'),
+('Paul Adelstein'),
+('Paul Anderson'),
+('Paul Benjamin'),
+('Paul Blackthorne'),
+('Paul Dano'),
+('Paul G. Raymond'),
+('Paul Herman'),
+('Paul Lux'),
+('Paul Romero'),
+('Paul Rudd'),
+('Paul Satterfield'),
+('Paulina Gaitan'),
+('Pawan Singh'),
+('Payman Maadi'),
+('Paz de la Huerta'),
+('Pedro Alonso'),
+('Pedro Pascal'),
+('Peggy Roeder'),
+('Penelope Wilton'),
+('Penn Badgley'),
+('Pete Postlethwaite'),
+('Peter Anthony Tambakis'),
+('Peter Coyote'),
+('Peter Crombie'),
+('Peter Dinklage'),
+('Peter Friedman'),
+('Peter Gallagher'),
+('Peter Graves'),
+('Peter Grosz'),
+('Peter Krause'),
 ('Peter Serafinowicz'),
 ('Peter Wight'),
-('Flora Slorach'),
-('Kamu Mukherjee'),
-('Kabir Sajid Shaikh'),
-('Charlyne Yi'),
-('Merila Zare''i'),
-('Sahra Asadollahi'),
-('Otto'),
-('Glenn Fitzgerald'),
-('Peggy Roeder'),
-('Sumit Kaul'),
-('R. Lee Ermey'),
-('Ron Taylor'),
-('Yahya Abdul-Mateen II'),
-('Aakriti Dobhal'),
-('Shagufta Ali'),
-('Erin Gerasimovich'),
-('Meghan Heffern'),
-('James M. Connor'),
-('Jillian Dion'),
-('Stark Sands'),
-('Arjun Mathur'),
-('Razak Khan'),
-('Shawar Ali'),
-('Hunter Parrish'),
-('Martin Donovan'),
-('Shane Carruth'),
-('Steve Eastin'),
-('Anne Haney'),
-('Ukee Washington'),
-('Lanny Flaherty'),
-('Chanel Cresswell'),
-('Von Lewis'),
-('Selena Gomez'),
-('John Hawkes'),
-('Rakesh Kukreti'),
-('Alon Aboutboul'),
-('Kai Lennox'),
-('Laura Mennell'),
-('Richard Cetrone'),
-('Michael Marcus'),
-('Rachel Griffiths'),
-('Michael Michele'),
-('Michael Buscemi'),
-('J.C. MacKenzie'),
-('June Squibb'),
-('Mitchell Ryan'),
-('Reina Ueda'),
-('Kal-El Cage'),
-('JJ Feild'),
-('Maia Reficco'),
-('Luke Wilson'),
-('Tonita Castro'),
-('Paul Satterfield'),
-('Sione Kelepi'),
-('Doug Benson'),
-('Srikanth Polisetti'),
-('Hunter Aldridge'),
-('Rupsa Banerjee'),
-('Kevin Costner'),
-('Scoot McNairy'),
-('Jeremy Irons'),
-('Idara Victor'),
-('Chiwetel Ejiofor'),
-('Richard Clarke'),
-('Margo Moorer'),
-('Jaideep Ahlawat'),
-('Jira Banjara'),
-('John Carroll Lynch'),
-('Paul Herman'),
-('Karen Kilgariff'),
-('Amy Ryan'),
-('Matt Lutz'),
-('Dua Lipa'),
-('Haradhan Bannerjee'),
-('Daniel Huttlestone'),
-('Ellie Kemper'),
-('Kevin Corrigan'),
-('Aly Michalka'),
-('Tommy Kominik'),
-('Ed Renninger'),
-('Chloë Sevigny'),
-('Camille Kostek'),
-('Maria Bakalova'),
-('Kristen Wiig'),
-('Jeremy Renner'),
-('Murielle Telio'),
-('Kurt Braunohler'),
-('Macon Blair'),
-('Richard Ridings'),
-('Gideon Glick'),
-('Telvin Griffin'),
-('Mary Mallen'),
-('Damian Young'),
-('Charles Walker'),
-('Daniel Davis'),
-('Luke Brandon Field'),
-('Lil Rel Howery'),
-('CJ Jones'),
-('Jami Owen'),
-('Jacky Ido'),
-('Jordan Rodrigues'),
-('Daryl Mitchell'),
-('Ellen Wong'),
-('Pete Postlethwaite'),
-('Edward Norton'),
-('Cillian Murphy'),
-('Tom Wilkinson'),
-('Kimiko Glenn'),
-('Anne Hathaway'),
-('Bradley Whitford'),
-('Rosemarie DeWitt'),
-('Barbie Ferreira'),
-('Logan Lerman'),
-('Sunita Mani'),
-('Oliver Farrelly'),
-('Katherine Langford'),
-('Songshen Zuo'),
-('George Cheung'),
-('Hugo Diego Garcia'),
+('Phil Dunster'),
+('Phil LaMarr'),
+('Philip Baker Hall'),
+('Phoebe Tonkin'),
+('Phyllis Smith'),
+('Pierce Brosnan'),
+('Piggy Chan'),
+('Piper Perabo'),
+('Pitobash'),
+('Piyush Mishra'),
+('Polly Holliday'),
+('Pom Klementieff'),
+('Portia Doubleday'),
+('Prakash Belawadi'),
+('Prateek Kapoor'),
 ('Priya Usman Khan'),
-('Ali Hasnain'),
-('Diane Keaton'),
-('Ving Rhames'),
+('Priyanka Chopra Jonas'),
+('Puvisha Manoharan'),
+('Quincy Tyler Bernstine'),
+('R. Lee Ermey'),
+('RJ Mitte'),
+('Rachael Harris'),
+('Rachael Taylor'),
+('Rachel Boston'),
+('Rachel Griffiths'),
+('Rachel McAdams'),
 ('Rachica Oswal'),
-('Chang Chen'),
-('Hugh Grant'),
-('Jeremy Leary'),
-('Veronica Laux'),
-('Matthew Erickson'),
-('Luci Christian'),
-('Mike McFarland'),
-('Colleen O''Shaughnessey'),
-('Yuriko Yamaguchi'),
-('Masakazu Morita'),
-('Giancarlo Esposito'),
-('Kerry Condon'),
-('Penelope Wilton'),
-('Kola Bokinni'),
-('Enrique Arce'),
-('Yasushi Iwaki'),
-('Oscar Nuñez'),
-('Maggie Wheeler'),
-('Noah Schnapp'),
-('Alfie Allen'),
-('Matthew Needham'),
-('Packy Lee'),
-('Michaela Coel'),
-('Marion Bailey'),
-('Vinette Robinson'),
-('Aaron Paul'),
-('Michael Potts'),
-('Nathan Mitchell'),
-('Ewan McGregor'),
-('Moritz Jahn'),
-('Jessica Frances Dukes'),
-('Scott Nicholson'),
+('Radhika Apte'),
+('Rafe Spall'),
+('Raghubir Yadav'),
+('Rainn Wilson'),
+('Raj Zutshi'),
+('Raja'),
+('Rajat Kapoor'),
+('Rajatabha Dutta'),
+('Rakesh Kukreti'),
+('Ralph Fiennes'),
+('Rami Malek'),
+('Ramiz Law'),
+('Ranbir Kapoor'),
+('Randall Park'),
+('Rashida Jones'),
+('Rasti Farooq'),
+('Ratna Pathak Shah'),
+('Ray Fisher'),
+('Ray McKinnon'),
+('Ray Romano'),
+('Razak Khan'),
 ('Raúl Méndez'),
-('Albert Jones'),
-('Royce Pierreson'),
-('Robert Morse'),
-('Michael Emerson'),
-('Jodi Lyn O''Keefe'),
-('Lateef Crowder'),
-('Geoff Pierson'),
-('Joe Nieves'),
-('Marc Evan Jackson'),
-('John Ross Bowie'),
-('Rob Lowe'),
+('Rebecca De Mornay'),
+('Rebecca Ferguson'),
+('Rebecca Hall'),
+('Rebecca Williams'),
+('Rebel Wilson'),
+('Reg E. Cathey'),
+('Reina Ueda'),
+('Remo Girone'),
+('Remy Holt'),
+('Retta'),
+('Rhea Seehorn'),
+('Rhenzy Feliz'),
+('Rhys Ifans'),
+('Rich Ceraulo Ko'),
+('Rich Sommer'),
+('Richard Cetrone'),
+('Richard Clarke'),
+('Richard Conte'),
+('Richard Donelly'),
+('Richard Edson'),
 ('Richard Erdman'),
-('Vaishnavi Sharma'),
-('Lara Jean Chorostecki'),
-('Jordan Claire Robbins'),
-('Nico Parker'),
-('John Barrowman'),
-('Hartley Sawyer'),
-('Sam Jones III'),
-('Ali Larter'),
-('Ayelet Zurer'),
-('Benjamin Walker'),
-('Jeremiah Craft'),
-('Christine Toy Johnson'),
-('Wai Ching Ho'),
-('Alan Ritchson'),
-('Chris Chalk'),
+('Richard Gross'),
+('Richard Hadfield'),
+('Richard Pyros'),
+('Richard Ridings'),
+('Richard S. Castellano'),
+('Richard Schiff'),
+('Richmond Arquette'),
+('Rick Gonzalez'),
+('Ricky Adams'),
+('Ricky Gervais'),
+('Rico Bueno'),
+('Riley Keough'),
+('Rish Shah'),
+('Rishi Kapoor'),
+('Rita Moreno'),
+('Ritu Arya'),
 ('Rob Benedict'),
+('Rob Huebel'),
+('Rob Lowe'),
+('Rob Morgan'),
+('Rob Riggle'),
+('Rob Thomas'),
+('Robbie Amell'),
+('Robert De Niro'),
+('Robert Downey Jr.'),
+('Robert Duvall'),
+('Robert Hays'),
+('Robert Iler'),
+('Robert John Burke'),
+('Robert Knepper'),
+('Robert Littman'),
+('Robert Morse'),
+('Robert Popper'),
+('Robert Prosky'),
+('Robert Sheehan'),
+('Robert Stack'),
+('Robin Bartlett'),
+('Robin Greer'),
+('Robin Lord Taylor'),
+('Robin Williams'),
+('Robin de Jesus'),
+('Rockmond Dunbar'),
+('Roger Aaron Brown'),
+('Roman Griffin Davis'),
+('Roman Guerriero'),
+('Romany Malco'),
+('Ron Cephas Jones'),
+('Ron Dean'),
+('Ron Perlman'),
+('Ron Silver'),
+('Ron Taylor'),
+('Rooney Mara'),
+('Roopa Ganguly'),
+('Rory Culkin'),
+('Rosa Salazar'),
+('Rosamund Pike'),
+('Rosario Dawson'),
+('Rose Reynolds'),
+('Rosemarie DeWitt'),
+('Rosie Huntington-Whiteley'),
+('Royce Pierreson'),
+('Ruby Dee'),
+('Rupert Graves'),
+('Rupsa Banerjee'),
+('Russell Crowe'),
+('Russell Harvard'),
+('Ruth Connell'),
+('Ryan Gosling'),
+('Ryan Hansen'),
+('Ryan Potter'),
+('Ryan Reynolds'),
+('Ryosuke Higa'),
+('Sacha Baron Cohen'),
+('Sacha Dhawan'),
+('Sahiba Bali'),
+('Sahil Vedoliyaa'),
+('Sahra Asadollahi'),
+('Sajal Bhattacharya'),
+('Sally Field'),
+('Salmaan Peerzada'),
+('Sam Anderson'),
+('Sam Humphrey'),
+('Sam Jones III'),
+('Sam Rockwell'),
+('Samantha Barks'),
+('Samantha Mahurin'),
+('Samantha Smith'),
+('Samantha White'),
+('Sameer Sharma'),
+('Samiya Mumtaz'),
+('Samuel L. Jackson'),
+('Sander Rebane'),
+('Sandra Bullock'),
+('Sania Saeed'),
+('Sanjana Sanghi'),
+('Saoirse Ronan'),
+('Sarah Paulson'),
+('Sarah Snook'),
+('Sarah Wayne Callies'),
+('Sareh Bayat'),
+('Sarina Farhadi'),
+('Sarwat Gilani'),
+('Sathyaraj'),
+('Satish Shah'),
+('Satya Krishnan'),
+('Saurabh Shukla'),
+('Scarlett Estevez'),
+('Scarlett Johansson'),
+('Scoot McNairy'),
+('Scott Glenn'),
+('Scott Grimes'),
+('Scott Menville'),
+('Scott Nicholson'),
+('Scott Thompson'),
+('Sean Bean'),
+('Sean Pertwee'),
+('Sean Ringgold'),
+('Seann Conway'),
+('Sebastian Arcelus'),
+('Sebastian Maniscalco'),
+('Sebastian Stan'),
+('Selena Gomez'),
+('Sendhil Ramamurthy'),
+('Seth Rogen'),
+('Shagufta Ali'),
+('Shah Rukh Khan'),
+('Shahab Hosseini'),
+('Shahid Kapoor'),
+('Shailen Mukherjee'),
+('Shameik Moore'),
+('Shammi Kapoor'),
+('Shane Carruth'),
+('Shane Powers'),
+('Shane West'),
+('Sharat Saxena'),
+('Sharon Duncan-Brewster'),
+('Sharon Rooney'),
+('Shawar Ali'),
+('Shea Whigham'),
+('Sheaun McKinney'),
+('Sheila Flitton'),
+('Shelley Hennig'),
+('Shernaz Patel'),
+('Shia LaBeouf'),
+('Shikha Jain'),
+('Shirin Yazdanbakhsh'),
+('Shraddha Kapoor'),
+('Shreyas Talpade'),
+('Shuzhen Zhao'),
+('Shyamal Ghoshal'),
+('Shôtarô Morikubo'),
+('Sidharth Malhotra'),
+('Sigourney Weaver'),
+('Sikandar Kher'),
+('Simon Helberg'),
+('Simon Pegg'),
+('Simone Missick'),
+('Sione Kelepi'),
+('Siri'),
+('Skylar Gaertner'),
+('Sobhita Dhulipala'),
+('Sofia Hasmik'),
+('Sofia Hublitz'),
+('Sohail Sameer'),
+('Songshen Zuo'),
+('Sonny Valicenti'),
+('Sonoya Mizuno'),
+('Sonya Jehan'),
+('Sophie Evans'),
+('Sophie Perry'),
+('Sophie Rundle'),
+('Sophie Turner'),
+('Soumitra Chatterjee'),
+('Spike Lee'),
+('Srikanth Polisetti'),
+('Stacey Roca'),
+('Stark Sands'),
+('Stellan Skarsgård'),
+('Stephan Kampwirth'),
+('Stephane Fichet'),
+('Stephanie Beatriz'),
+('Stephanie Corneliussen'),
+('Stephanie Hsu'),
+('Stephanie Nadolny'),
+('Stephanie Sheh'),
+('Stephen Amell'),
+('Stephen Blackehart'),
+('Stephen Dorff'),
+('Stephen McHattie'),
+('Stephen McKinley Henderson'),
+('Stephen Merchant'),
+('Stephen Root'),
+('Stephen Stucker'),
+('Sterling Hayden'),
+('Sterling Knight'),
+('Steve Berg'),
+('Steve Carell'),
+('Steve Eastin'),
+('Steve Prince'),
+('Steve Staley'),
+('Steve Toussaint'),
+('Steven Michael Quezada'),
+('Steven Van Zandt'),
+('Steven Yeun'),
+('Sumit Kaul'),
+('Sun Zhi Hua-Hilton'),
+('Suniel Shetty'),
+('Sunita Mani'),
+('Sunny Wu Jin Zahao'),
+('Susan May Pratt'),
+('Susan Park'),
+('Swaroopa Ghosh'),
+('Swoosie Kurtz'),
+('T.J. Jagodowski'),
+('Tabu'),
+('Taika Waititi'),
+('Taito Ban'),
+('Takayo Fischer'),
+('Takeshi Kaneshiro'),
+('Talia Ryder'),
+('Tallie Medel'),
+('Tantoo Cardinal'),
+('Tara Strong'),
+('Taraji P. Henson'),
+('Taran Killam'),
+('Taraneh Alidoosti'),
+('Taylor Kitsch'),
+('Teagan Croft'),
+('Ted Sutton'),
+('Telvin Griffin'),
+('Terence Rosemore'),
+('Teresa Palmer'),
+('Terrence Howard'),
+('Terry Crews'),
+('Terry Notary'),
+('Terry O''Quinn'),
+('Terry Walters'),
+('Tessa Thompson'),
+('Thandiwe Newton'),
+('Theo James'),
+('Theo Rossi'),
+('Thom Shelton'),
+('Thomas Haden Church'),
+('Thomas Jay Ryan'),
+('Thomas Law'),
+('Thomas Lennon'),
+('Thomas Morrison'),
+('Thomasin McKenzie'),
+('Tiffany Haddish'),
+('Til Schweiger'),
+('Tim Griffin'),
+('Tim Roth'),
+('Tim Zajaros'),
+('Timothy Eulich'),
+('Timothy John Smith'),
+('Timothée Chalamet'),
+('Tina Fey'),
+('Tobias Menzies'),
+('Toby Meuli'),
+('Toheeb Jimoh'),
+('Tom Basden'),
+('Tom Berenger'),
+('Tom Cavanagh'),
+('Tom Choi'),
+('Tom Davis'),
+('Tom Ellis'),
+('Tom Hanks'),
+('Tom Hardy'),
+('Tom Hiddleston'),
+('Tom Hopper'),
+('Tom Laflin'),
+('Tom Morton'),
+('Tom Pelphrey'),
+('Tom Prior'),
 ('Tom Welling'),
-('Leslie Grossman'),
-('Michael Kelly'),
-('Aida Turturro');
+('Tom Wilkinson'),
+('Tom Wu'),
+('Tomer Capone'),
+('Tommie-Amber Pirie'),
+('Tommy Kominik'),
+('Toni Collette'),
+('Tonita Castro'),
+('Tony Beck'),
+('Tony Cavalero'),
+('Tony Dalton'),
+('Tony Goldwyn'),
+('Tony Leung Chiu-wai'),
+('Tony Sirico'),
+('Tony Way'),
+('Toshiki Masuda'),
+('Tracy Letts'),
+('Trevor Morgan'),
+('Tricia Helfer'),
+('Trina Nishimura'),
+('Triptii Dimri'),
+('Trisha Gorman'),
+('Troy Metcalf'),
+('Tyler Hoechlin'),
+('Tyler Perry'),
+('Tyler Steelman'),
+('Tzi Ma'),
+('Ukee Washington'),
+('Una Stubbs'),
+('Utkarsh Ambudkar'),
+('Vaishnavi Sharma'),
+('Valerie Chow'),
+('Vanessa Hudgens'),
+('Vanessa Kirby'),
+('Varun Dhawan'),
+('Veronica Laux'),
+('Viggo Mortensen'),
+('Vikram Kapadia'),
+('Vin Diesel'),
+('Vincent D''Onofrio'),
+('Vincent Gurzo'),
+('Vincent Kartheiser'),
+('Vinette Robinson'),
+('Ving Rhames'),
+('Vinnie Jones'),
+('Viola Davis'),
+('Vipin Sharma'),
+('Virginia Gardner'),
+('Virginia Loring Cooke'),
+('Vivian Bang'),
+('Von Lewis'),
+('W. Earl Brown'),
+('Wade Williams'),
+('Wagner Moura'),
+('Wai Ching Ho'),
+('Wallace Shawn'),
+('Wally Wingert'),
+('Walton Goggins'),
+('Wanja Mues'),
+('Warren Finkelstein'),
+('Wendee Lee'),
+('Wentworth Miller'),
+('Wes Chatham'),
+('Wi Ha-joon'),
+('Will Arnett'),
+('Will Ferrell'),
+('Will Smith'),
+('Willa Holland'),
+('Willem Dafoe'),
+('William Dick'),
+('William Fichtner'),
+('Wilson Bethel'),
+('Wilson Mbomio'),
+('Winona Ryder'),
+('Winston Duke'),
+('Woody Harrelson'),
+('Wrenn Schmidt'),
+('Wunmi Mosaku'),
+('X Mayo'),
+('Yahya Abdul-Mateen II'),
+('Yang Xuejian'),
+('Yasiin Bey'),
+('Yasushi Iwaki'),
+('Yaya DaCosta'),
+('Yongbo Jiang'),
+('Young Mazino'),
+('Yui Ishikawa'),
+('Yumiko Kobayashi'),
+('Yunjin Kim'),
+('Yuri Lowenthal'),
+('Yuriko Yamaguchi'),
+('Yuvika Chaudhary'),
+('Yvette Nicole Brown'),
+('Yûki Kaji'),
+('Yûko Minaguchi'),
+('Zac Efron'),
+('Zach Galifianakis'),
+('Zachary Bailess'),
+('Zachary Quinto'),
+('Zachary Scott Ross'),
+('Zack Gottsagen'),
+('Zak Steiner'),
+('Zakir Hussain'),
+('Zazie Beetz'),
+('Zendaya'),
+('Zenobia Shroff'),
+('Zhiming Huang'),
+('Zoe Kazan'),
+('Zooey Deschanel'),
+('Zoë Kravitz'),
+('Zoë Soul'),
+('Álvaro Morte'),
+('Úrsula Corberó');
 
 
 select * from Actors;
 GO 
 
 -- Movies 
-
--- ALTER TABLE Movies
--- ADD CONSTRAINT DF_FMDB_Rating DEFAULT 0 FOR FMDB_Rating;
-
-
-ALTER TABLE Movies
-ALTER COLUMN Language VARCHAR(255);
-
-
--- delete from Movies ;
 
 
 INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synopsis,MoviePosterLink,MovieBackdropLink,Awards,BoxOffice,MPAA_Rating) VALUES
@@ -3357,7 +3852,6 @@ INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synop
 ,('Mrs. Doubtfire','24 Nov 1993',7.1,'125 minutes','English','Movie','Eccentric actor Daniel Hillard is an amusing and caring father. But after a disastrous birthday party for his son, Chris, his wife, Miranda, draws the line and files a divorce. He can see their three children only once a week which doesn''t sit well with him. He also holds a job at a TV studio as a shipping clerk under the recommendation of his liason. But when Miranda puts out an ad for a nanny, he takes it upon himself to make a disguise as a British lady named Mrs. Doubtfire. And he must also deal with Miranda''s new boyfriend, Stu Dunemyer.','https://image.tmdb.org/t/p/original/shHrSmXS5140o6sQzgzXxn3KqSm.jpg','https://image.tmdb.org/t/p/original/sTgavNm82pTaZR9U2NQZ1J2FrJz.jpg','Won 1 Oscar. 11 wins & 10 nominations total','$219,195,243','PG-13')
 ,('Split','27 Jan 2017',7.3,'117 minutes','English','Movie','Though Kevin (James McAvoy) has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher (Betty Buckley), there remains one still submerged who is set to materialize and dominate all of the others. Compelled to abduct three teenage girls led by the willful, observant Casey, Kevin reaches a war for survival among all of those contained within him -- as well as everyone around him -- as the walls between his compartments shatter.','https://image.tmdb.org/t/p/original/lli31lYTFpvxVBeFHWoe5PMfW5s.jpg','https://image.tmdb.org/t/p/original/9pkZesKMnblFfKxEhQx45YQ2kIe.jpg','10 wins & 27 nominations total','$138,291,365','PG-13')
 ,('Signs','02 Aug 2002',6.8,'106 minutes','English, Portuguese','Movie','Preacher Graham Hess loses his faith in God after his wife dies in a brutal car accident. He lives with his children and brother in a farmhouse. Crop circles start to appear in their cornfields; Graham dismisses them as mischief by miscreants. After hearing strange noises and watching news coverage on crop circles appearing all over the world, the family grows suspicious of alien activities. Now they must stick together as a family and believe, to survive and escape the ordeal.','https://image.tmdb.org/t/p/original/sCFwJVsw7f3OlgttW6BMbLSYAt9.jpg','https://image.tmdb.org/t/p/original/rsPjEr7o02mo8ex6wD2PbRwasUe.jpg','3 wins & 34 nominations total','$227,966,634','PG-13')
-,('The Gentlemen',NULL,8,'50 minutes','English','Series','The series follows Eddie Horniman, who has inherited his father''s sizeable estate only to discover that it''s sitting on top of a weed empire owned by the legendary Bobby Glass. Has this straight-up soldier got what it takes to master the dark arts of the British criminal underworld and take control of the entire operation?','https://image.tmdb.org/t/p/original/tw3tzfXaSpmUZIB8ZNqNEGzMBCy.jpg','https://image.tmdb.org/t/p/original/PqIW7PA74YBURz5slZkxc0K5Pl.jpg','1 win & 4 nominations total','$36,471,795','R')
 ,('Green Book','16 Nov 2018',8.2,'130 minutes','English, Italian, Russian, German','Movie','In 1962, tough bouncer Frank "Tony Lip" Vallelonga searches for work while his nightclub is closed for renovations. The most promising offer turns out to be the driver for African-American classical pianist Don Shirley for a concert tour into the Deep South states. Although hardly enthused at working for a Black man, Tony accepts the job and they begin their trek armed with "The Negro Motorist Green Book," a guide for safe travel through America''s racial segregation. The snobbishly erudite pianist and the crudely practical bouncer can barely get along with their clashing attitudes to life and ideals. However, as the disparate pair witness and endure America''s appalling injustices on the road, they find a newfound respect for each other''s talents and start to face them together. In doing so, they nurture an understanding and a friendship that would change both their lives.','https://image.tmdb.org/t/p/original/7BsvSuDQuoqhWmU2fL7W2GOcZHU.jpg','https://image.tmdb.org/t/p/original/5En0fmDagt3Pk8d7P3uTwfeQceg.jpg','Won 3 Oscars. 58 wins & 123 nominations total','$85,080,171','PG-13')
 ,('The Fundamentals of Caring','24 Jun 2016',7.3,'97 minutes','English','Movie','A writer (Paul Rudd) retires after a personal tragedy and becomes a disabled teen''s caregiver. When the two embark on an impromptu road trip, their ability to cope is tested as they start to understand the importance of hope and friendship.','https://image.tmdb.org/t/p/original/zZ0eda1GyHILNSoq9KF5u0hcq6O.jpg','https://image.tmdb.org/t/p/original/9kAKDdnHvhS93eMTqsXwiVaBtw7.jpg','4 nominations',NULL,'TV-MA')
 ,('The Peanut Butter Falcon','23 Aug 2019',7.6,'97 minutes','English','Movie','The Peanut Butter Falcon is an adventure story set in the world of a modern Mark Twain that begins when Zak (22), a young man with Down syndrome, runs away from the nursing home where he lives to chase his dream of becoming a professional wrestler by attending the wrestling school The Salt Water Redneck. Through circumstances beyond their control Tyler (32), a small-time outlaw on the run, becomes Zak''s unlikely coach and ally. Together they wind through deltas, elude capture, drink whisky, find God, catch fish, and convince Eleanor (28), a kind nursing home employee with a story of her own, to join them on their journey.','https://image.tmdb.org/t/p/original/qyQcRGvdW3VtxHR4fSDgPOePEip.jpg','https://image.tmdb.org/t/p/original/lewYqqt8epnjFhEOIIIINX9Z8EE.jpg','20 wins & 16 nominations total','$20,457,158','PG-13')
@@ -3520,3 +4014,16621 @@ INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synop
 
 SELECT * from movies ;
 GO
+
+-- Join Tables ( MovieGenres, MovieDirectors, MovieWriters, MovieActors )
+
+-- Movie: There''s Something About Mary
+DECLARE @MovieTitle VARCHAR(255) = 'There''s Something About Mary';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Bobby Farrelly', 'Peter Farrelly');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ed Decter', 'John J. Strauss',  'Ed Decter', 'John J. Strauss', 'Peter Farrelly', 'Bobby Farrelly');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Cameron Diaz';
+SET @Character = 'Mary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Dillon';
+SET @Character = 'Healy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ben Stiller';
+SET @Character = 'Ted';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lee Evans';
+SET @Character = 'Tucker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Elliott';
+SET @Character = 'Dom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lin Shaye';
+SET @Character = 'Magda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Tambor';
+SET @Character = 'Sully';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Markie Post';
+SET @Character = 'Mary''s Mom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith David';
+SET @Character = 'Mary''s Dad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'W. Earl Brown';
+SET @Character = 'Warren';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('surgeon', 'romcom', 'stalker', 'dream girl', 'taboo', 'screwball comedy', 'frisbee', 'troubadour', 'intellectual disability');
+
+GO
+-- ============================================
+
+-- Movie: Do the Right Thing
+DECLARE @MovieTitle VARCHAR(255) = 'Do the Right Thing';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Spike Lee');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Spike Lee');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Danny Aiello';
+SET @Character = 'Sal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ossie Davis';
+SET @Character = 'Da Mayor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ruby Dee';
+SET @Character = 'Mother Sister';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Edson';
+SET @Character = 'Vito';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Giancarlo Esposito';
+SET @Character = 'Buggin Out';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Spike Lee';
+SET @Character = 'Mookie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Nunn';
+SET @Character = 'Radio Raheem';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Turturro';
+SET @Character = 'Pino';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Benjamin';
+SET @Character = 'ML';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frankie Faison';
+SET @Character = 'Coconut Sid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'police brutality', 'hip-hop', 'italian american', 'culture clash', 'chaos', 'heat', 'street war', 'restaurant critic', 'radio transmission', 'punk rock', 'pizzeria', 'police operation', 'pizza', 'love', 'money', 'racism', 'brooklyn', 'new york city', 'heatwave');
+
+GO
+-- ============================================
+
+-- Movie: Joker
+DECLARE @MovieTitle VARCHAR(255) = 'Joker';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Todd Phillips');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Todd Phillips', 'Scott Silver',  'Bob Kane', 'Bill Finger', 'Jerry Robinson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Joaquin Phoenix';
+SET @Character = 'Arthur Fleck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert De Niro';
+SET @Character = 'Murray Franklin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zazie Beetz';
+SET @Character = 'Sophie Dumond';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frances Conroy';
+SET @Character = 'Penny Fleck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brett Cullen';
+SET @Character = 'Thomas Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shea Whigham';
+SET @Character = 'Detective Burke';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Camp';
+SET @Character = 'Detective Garrity';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Glenn Fleshler';
+SET @Character = 'Randall';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leigh Gill';
+SET @Character = 'Gary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Pais';
+SET @Character = 'Hoyt Vaughn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('dreams', 'street gang', 'society', 'psychopath', 'clown', 'villain', 'based on comic', 'murder', 'psychological thriller', 'criminal mastermind', 'mental illness', 'anarchy', 'character study', 'clown makeup', 'subway train', 'social realism', 'supervillain', 'tv host', '1980s', 'mother son relationship', 'origin story', 'falling into madness', 'frightened', 'pretentious');
+
+GO
+-- ============================================
+
+-- Movie: Mad Max: Fury Road
+DECLARE @MovieTitle VARCHAR(255) = 'Mad Max: Fury Road';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('George Miller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('George Miller', 'Brendan McCarthy', 'Nick Lathouris');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tom Hardy';
+SET @Character = 'Max Rockatansky';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charlize Theron';
+SET @Character = 'Imperator Furiosa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nicholas Hoult';
+SET @Character = 'Nux';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hugh Keays-Byrne';
+SET @Character = 'Immortan Joe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Helman';
+SET @Character = 'Slit';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nathan Jones';
+SET @Character = 'Rictus Erectus';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zoë Kravitz';
+SET @Character = 'Toast the Knowing';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rosie Huntington-Whiteley';
+SET @Character = 'The Splendid Angharad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Riley Keough';
+SET @Character = 'Capable';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Abbey Lee';
+SET @Character = 'The Dag';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rescue', 'future', 'australia', 'chase', 'dystopia', 'post-apocalyptic future', 'survival', 'on the run', 'on the road', 'desert', 'convoy', 'peak oil', 'dark future', 'post-apocalyptic', 'car', 'suspenseful', 'intense', 'awestruck', 'commanding', 'hopeful');
+
+GO
+-- ============================================
+
+-- Movie: The Fall Guy
+DECLARE @MovieTitle VARCHAR(255) = 'The Fall Guy';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Leitch');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Glen A. Larson',  'Drew Pearce');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ryan Gosling';
+SET @Character = 'Colt Seavers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emily Blunt';
+SET @Character = 'Jody Moreno';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Taylor-Johnson';
+SET @Character = 'Tom Ryder';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hannah Waddingham';
+SET @Character = 'Gail Meyer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Teresa Palmer';
+SET @Character = 'Iggy Starr';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Hsu';
+SET @Character = 'Alma Milan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Winston Duke';
+SET @Character = 'Dan Tucker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ben Knight';
+SET @Character = 'Dressler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matuse';
+SET @Character = 'Doone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Dunn';
+SET @Character = 'Nigel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('stuntman', 'missing person', 'duringcreditsstinger', 'movie industry', 'action comedy', 'playful', 'based on tv series', 'grand', 'romantic', 'amused', 'farcical');
+
+GO
+-- ============================================
+
+-- Movie: Monkey Man
+DECLARE @MovieTitle VARCHAR(255) = 'Monkey Man';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Dev Patel');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Dev Patel', 'Paul Angunawela', 'John Collee',  'Dev Patel');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Dev Patel';
+SET @Character = 'Kid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pitobash';
+SET @Character = 'Alphonso';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jatin Malik';
+SET @Character = 'Young Kid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sikandar Kher';
+SET @Character = 'Rana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sobhita Dhulipala';
+SET @Character = 'Sita';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Makrand Deshpande';
+SET @Character = 'Baba Shakti';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashwini Kalsekar';
+SET @Character = 'Queenie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vipin Sharma';
+SET @Character = 'Alpha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adithi Kalkunte';
+SET @Character = 'Neela';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jomon Thomas';
+SET @Character = 'Mirza';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('indian', 'revenge thriller', 'action thriller', 'suspenseful', 'night club', 'трансгендер', 'лгбт');
+
+GO
+-- ============================================
+
+-- Movie: Singin'' in the Rain
+DECLARE @MovieTitle VARCHAR(255) = 'Singin'' in the Rain';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Musical', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Stanley Donen', 'Gene Kelly');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Betty Comden', 'Adolph Green');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Gene Kelly';
+SET @Character = 'Don Lockwood';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Donald O''Connor';
+SET @Character = 'Cosmo Brown';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Debbie Reynolds';
+SET @Character = 'Kathy Selden';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jean Hagen';
+SET @Character = 'Lina Lamont';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Millard Mitchell';
+SET @Character = 'R.F. Simpson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cyd Charisse';
+SET @Character = 'Dancer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Douglas Fowley';
+SET @Character = 'Roscoe Dexter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rita Moreno';
+SET @Character = 'Zelda Zanders';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dawn Addams';
+SET @Character = 'Teresa - a Lady-in-Waiting';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Albright';
+SET @Character = 'Call Boy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('fan', 'musical', 'partner', 'film in film', 'hollywood', 'broadway', 'dancing in the street', 'burlesque', 'audience', 'chorus girl', 'diction coach', 'pearl necklace', 'flapper', 'silent film star', 'squeaky voice', 'christmas', '1920s', 'old hollywood', 'provocative', 'sentimental', 'amused', 'exuberant');
+
+GO
+-- ============================================
+
+-- Movie: Dune: Part Two
+DECLARE @MovieTitle VARCHAR(255) = 'Dune: Part Two';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Denis Villeneuve');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Denis Villeneuve', 'Jon Spaihts',  'Frank Herbert');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Paul Atreides';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zendaya';
+SET @Character = 'Chani';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca Ferguson';
+SET @Character = 'Jessica';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Javier Bardem';
+SET @Character = 'Stilgar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Brolin';
+SET @Character = 'Gurney Halleck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Austin Butler';
+SET @Character = 'Feyd-Rautha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Florence Pugh';
+SET @Character = 'Princess Irulan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dave Bautista';
+SET @Character = 'Beast Rabban';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Walken';
+SET @Character = 'Emperor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Léa Seydoux';
+SET @Character = 'Lady Margot Fenring';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('epic', 'based on novel or book', 'fight', 'politics', 'sandstorm', 'sand', 'spice', 'chosen one', 'cult', 'sequel', 'romance', 'tragedy', 'distant future', 'tragic hero', 'creature', 'planet', 'desert', 'destiny', 'giant worm', 'space opera', 'sand dune', 'allegorical', 'messiah', 'fall from grace', 'shocking', 'domineering', 'vengeance', 'vindictive', 'cautionary', 'religious allegory', 'giant creature', 'power', 'grand', 'violence', 'suspenseful', 'intense', 'ambiguous', 'antagonistic', 'audacious', 'awestruck', 'bold', 'exuberant', 'foreboding', 'melodramatic');
+
+GO
+-- ============================================
+
+-- Movie: Money, Guns, and a Merry Christmas
+DECLARE @MovieTitle VARCHAR(255) = 'Money, Guns, and a Merry Christmas';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Romance');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Isabelle Almoyan';
+SET @Character = 'Amanda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Drew Ater';
+SET @Character = 'Damian Blaine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Barna';
+SET @Character = 'Craig';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nicole Britton';
+SET @Character = 'Anna';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Brunetti';
+SET @Character = 'Browne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Clarke';
+SET @Character = 'Alice';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lane Erwin';
+SET @Character = 'Viper #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dean Feldman';
+SET @Character = 'Harvey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Finley';
+SET @Character = 'Guest #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vincent Gurzo';
+SET @Character = 'Harold';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+
+
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Meri Pyaari Bindu
+DECLARE @MovieTitle VARCHAR(255) = 'Meri Pyaari Bindu';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Akshay Roy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Soumik Sen',  'Suprotim Sengupta',  'Suprotim Sengupta',  'Suprotim Sengupta');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ayushmann Khurrana';
+SET @Character = 'Abhimanyu Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Parineeti Chopra';
+SET @Character = 'Bindu Shankarnarayanan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nishant Dahiya';
+SET @Character = 'Dhruv';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amrita Bagchi';
+SET @Character = 'Maulshree';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Prakash Belawadi';
+SET @Character = 'Bindu''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rajatabha Dutta';
+SET @Character = 'Abhi''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'June Malia';
+SET @Character = 'Bindu''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kharaj Mukherjee';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aarnaa Sharma';
+SET @Character = 'Young Bindu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aparajita Adhya';
+SET @Character = 'Abhi''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('writer''s block', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Hasee Toh Phasee
+DECLARE @MovieTitle VARCHAR(255) = 'Hasee Toh Phasee';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Vinil Mathew');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Harshavardhan Kulkarni',  'Anurag Kashyap', 'Harshavardhan Kulkarni', 'Purva Naresh', 'Vinil Mathew');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Sidharth Malhotra';
+SET @Character = 'Nikhil Bhardwaj';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Parineeti Chopra';
+SET @Character = 'Meeta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adah Sharma';
+SET @Character = 'Karishma';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Manoj Joshi';
+SET @Character = 'Devesh Solanki - Meeta and Karishma''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sharat Saxena';
+SET @Character = 'S.B Bharadwaj - Nikhil''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Neena Kulkarni';
+SET @Character = 'Nikhil''s mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sameer Sharma';
+SET @Character = 'Abhay';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aariyan Gupta';
+SET @Character = 'Vipul''s Son';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amita Udgata';
+SET @Character = 'Aunty Kaveri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anshikaa Shrivastava';
+SET @Character = 'Young Meeta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('romcom', 'family relationships', 'relationship', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Wonka
+DECLARE @MovieTitle VARCHAR(255) = 'Wonka';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Comedy', 'Family', 'Fantasy', 'Musical');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Paul King');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Roald Dahl',  'Paul King',  'Simon Farnaby', 'Paul King');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Willy Wonka';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gustave Die';
+SET @Character = 'Ship''s Engineer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Murray McArthur';
+SET @Character = 'Ship''s Captain';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul G. Raymond';
+SET @Character = 'Map Seller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bertie Caplan';
+SET @Character = 'Shoeshine Boy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Isy Suttie';
+SET @Character = 'Fruit & Veg Vendor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kobna Holdbrook-Smith';
+SET @Character = 'Officer Affable';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matilda Tucker';
+SET @Character = 'Young Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Davis';
+SET @Character = 'Bleacher';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Olivia Colman';
+SET @Character = 'Mrs. Scrubitt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('chocolate', 'musical', 'prequel', 'nostalgic', 'duringcreditsstinger', 'cartel');
+
+GO
+-- ============================================
+
+-- Movie: The Farewell
+DECLARE @MovieTitle VARCHAR(255) = 'The Farewell';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Lulu Wang');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Lulu Wang');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shuzhen Zhao';
+SET @Character = 'Nai Nai';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Awkwafina';
+SET @Character = 'Billi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'X Mayo';
+SET @Character = 'Suze';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hong Lu';
+SET @Character = 'Little Nai Nai';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hong Lin';
+SET @Character = 'Doctor Wu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tzi Ma';
+SET @Character = 'Haiyan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diana Lin';
+SET @Character = 'Lu Jian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yang Xuejian';
+SET @Character = 'Mr. Li';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Becca Khalil';
+SET @Character = 'Shirley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yongbo Jiang';
+SET @Character = 'Uncle Haibin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('grandparent grandchild relationship', 'family relationships', 'wedding', 'east asian lead', 'family reunion', 'grandmother', 'chinese american', 'family gathering', 'ethical dilemma', 'woman director', 'lung cancer', 'deadly disease', 'relationships', 'personal relationships', 'grandmother granddaughter relationship', 'asian american');
+
+GO
+-- ============================================
+
+-- Movie: Thor: Ragnarok
+DECLARE @MovieTitle VARCHAR(255) = 'Thor: Ragnarok';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Comedy', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Taika Waititi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Eric Pearson', 'Craig Kyle', 'Christopher L. Yost',  'Stan Lee', 'Larry Lieber', 'Jack Kirby',  'Greg Pak',  'Walter Simonson',  'Carlo Pagulayan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Chris Hemsworth';
+SET @Character = 'Thor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Hiddleston';
+SET @Character = 'Loki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cate Blanchett';
+SET @Character = 'Hela';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Idris Elba';
+SET @Character = 'Heimdall';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeff Goldblum';
+SET @Character = 'Grandmaster';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tessa Thompson';
+SET @Character = 'Valkyrie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karl Urban';
+SET @Character = 'Skurge';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Ruffalo';
+SET @Character = 'Bruce Banner / Hulk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anthony Hopkins';
+SET @Character = 'Odin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Benedict Cumberbatch';
+SET @Character = 'Doctor Strange';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('superhero', 'based on comic', 'sequel', 'alien planet', 'female villain', 'norse mythology', 'aftercreditsstinger', 'duringcreditsstinger', 'marvel cinematic universe (mcu)', 'norse god', 'loki');
+
+GO
+-- ============================================
+
+-- Movie: The Perfect Date
+DECLARE @MovieTitle VARCHAR(255) = 'The Perfect Date';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Chris Nelson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steve Bloom',  'Randall Green');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Noah Centineo';
+SET @Character = 'Brooks Rattigan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laura Marano';
+SET @Character = 'Celia Lieberman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Odiseas Georgiadis';
+SET @Character = 'Murph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Camila Mendes';
+SET @Character = 'Shelby Pace';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Walsh';
+SET @Character = 'Charlie Rattigan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Chrest';
+SET @Character = 'Harvey Lieberman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carrie Lazar';
+SET @Character = 'Lillian Lieberman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexander Biglane';
+SET @Character = 'Tuna Melt on Seven Grain';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Blaine Kern III';
+SET @Character = 'Franklin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zak Steiner';
+SET @Character = 'Reece';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('adolescence', 'fake boyfriend', 'based on young adult novel');
+
+GO
+-- ============================================
+
+-- Movie: The Lego Movie
+DECLARE @MovieTitle VARCHAR(255) = 'The Lego Movie';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Family', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Phil Lord', 'Christopher Miller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Phil Lord', 'Christopher Miller',  'Dan Hageman', 'Kevin Hageman', 'Phil Lord', 'Christopher Miller',  'Ole Kirk Christiansen', 'Godtfred Kirk Christiansen', 'Jens Nygaard Knudsen');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Will Arnett';
+SET @Character = 'Batman / Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elizabeth Banks';
+SET @Character = 'Wyldstyle / Lucy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Craig Berry';
+SET @Character = 'Blake / Additional Voices';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alison Brie';
+SET @Character = 'Unikitty';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Burrows';
+SET @Character = 'Octan Robot / Additional Voices';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anthony Daniels';
+SET @Character = 'C-3PO';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charlie Day';
+SET @Character = 'Benny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Farinos';
+SET @Character = 'Mom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith Ferguson';
+SET @Character = 'Han Solo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Will Ferrell';
+SET @Character = 'Lord Business / President Business / The Man Upstairs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('friendship', 'parent child relationship', 'prophecy', 'superhero', 'villain', 'based on comic', 'part live action', 'based on toy', 'falling in love', 'anti villain', 'super power', 'good cop bad cop', 'duringcreditsstinger', 'live action and animation', 'lego', 'father son relationship', 'loving', 'mischievous', 'playful', 'irreverent', 'evil tyrant', 'witty', 'hilarious', 'whimsical', 'celebratory', 'euphoric', 'exhilarated', 'exuberant', 'ridiculous');
+
+GO
+-- ============================================
+
+-- Movie: Gone Girl
+DECLARE @MovieTitle VARCHAR(255) = 'Gone Girl';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Fincher');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Gillian Flynn',  'Gillian Flynn');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ben Affleck';
+SET @Character = 'Nick Dunne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rosamund Pike';
+SET @Character = 'Amy Dunne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Neil Patrick Harris';
+SET @Character = 'Desi Collings';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tyler Perry';
+SET @Character = 'Tanner Bolt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carrie Coon';
+SET @Character = 'Margo Dunne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kim Dickens';
+SET @Character = 'Detective Rhonda Boney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patrick Fugit';
+SET @Character = 'Officer James Gilpin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Clennon';
+SET @Character = 'Rand Elliott';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Banes';
+SET @Character = 'Marybeth Elliott';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Missi Pyle';
+SET @Character = 'Ellen Abbott';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('infidelity', 'based on novel or book', 'wife', 'marriage crisis', 'investigation', 'disappearance', 'psychological thriller', 'whodunit', 'blunt', 'missing person', 'psychotic', 'search party', 'criminal lawyer', 'mysterious', 'detached', 'murder suspect', 'missing wife', 'satirical', 'perspective', 'manipulative woman', 'playful', 'killed during sex', 'irreverent', 'antagonistic', 'audacious', 'wry');
+
+GO
+-- ============================================
+
+-- Movie: When We First Met
+DECLARE @MovieTitle VARCHAR(255) = 'When We First Met';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Fantasy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Ari Sandel');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('John Whittington');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Adam Devine';
+SET @Character = 'Noah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexandra Daddario';
+SET @Character = 'Avery';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shelley Hennig';
+SET @Character = 'Carrie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Bachelor';
+SET @Character = 'Max';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robbie Amell';
+SET @Character = 'Ethan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dean J. West';
+SET @Character = 'Phil';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Cavalero';
+SET @Character = 'Angus Young';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Delfeayo Marsalis';
+SET @Character = 'Danny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Wylde';
+SET @Character = 'Mr. Costigan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daryn Kahn';
+SET @Character = 'Drunk Hulk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('time travel', 'halloween party', 'unrequited love', 'time loop', 'do over');
+
+GO
+-- ============================================
+
+-- Movie: Night School
+DECLARE @MovieTitle VARCHAR(255) = 'Night School';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Malcolm D. Lee');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Kevin Hart', 'Harry Ratchford', 'Joey Wells', 'Matthew Kellard', 'Nicholas Stoller', 'John Hamburg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Kevin Hart';
+SET @Character = 'Teddy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tiffany Haddish';
+SET @Character = 'Carrie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Riggle';
+SET @Character = 'Mackenzie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Romany Malco';
+SET @Character = 'Jaylen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taran Killam';
+SET @Character = 'Stewart';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Megalyn Echikunwoke';
+SET @Character = 'Lisa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Al Madrigal';
+SET @Character = 'Luis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mary Lynn Rajskub';
+SET @Character = 'Theresa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith David';
+SET @Character = 'Gerald';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Winters';
+SET @Character = 'Mila';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('baseball bat', 'exam', 'car crash', 'dyslexia', 'teacher', 'prom', 'learning disability', 'night school', 'high school drop out', 'boxing ring');
+
+GO
+-- ============================================
+
+-- Movie: Don''t Look Up
+DECLARE @MovieTitle VARCHAR(255) = 'Don''t Look Up';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Adam McKay');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Adam McKay',  'Adam McKay', 'David Sirota');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Leonardo DiCaprio';
+SET @Character = 'Dr. Randall Mindy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Lawrence';
+SET @Character = 'Kate Dibiasky';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Meryl Streep';
+SET @Character = 'President Orlean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cate Blanchett';
+SET @Character = 'Brie Evantee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Morgan';
+SET @Character = 'Dr. Teddy Oglethorpe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonah Hill';
+SET @Character = 'Jason Orlean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Rylance';
+SET @Character = 'Peter Isherwell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tyler Perry';
+SET @Character = 'Jack Bremmer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Yule';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ron Perlman';
+SET @Character = 'Benedict Drask';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('artificial intelligence (a.i.)', 'the white house', 'asteroid', 'climate change', 'satire', 'global warming', 'comet', 'end of the world', 'social commentary', 'social satire', 'meteorite', 'astronomer', 'disaster', 'teacher student relationship', 'denial', 'mass hysteria', 'aftercreditsstinger', 'duringcreditsstinger', 'amused', 'antagonistic');
+
+GO
+-- ============================================
+
+-- Movie: Beef
+DECLARE @MovieTitle VARCHAR(255) = 'Beef';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Lee Sung Jin', 'Lee Sung Jin', 'Jean Kyoung Frazier');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Steven Yeun';
+SET @Character = 'Danny Cho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ali Wong';
+SET @Character = 'Amy Lau';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Lee';
+SET @Character = 'George Nakai';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Young Mazino';
+SET @Character = 'Paul Cho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Remy Holt';
+SET @Character = 'June';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Choe';
+SET @Character = 'Isaac Cho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patti Yasutake';
+SET @Character = 'Fumi Nakai';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashley Park';
+SET @Character = 'Naomi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maria Bello';
+SET @Character = 'Jordan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin H. Min';
+SET @Character = 'Edwin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Shaun of the Dead
+DECLARE @MovieTitle VARCHAR(255) = 'Shaun of the Dead';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Horror');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Edgar Wright');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Simon Pegg', 'Edgar Wright');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Simon Pegg';
+SET @Character = 'Shaun';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate Ashfield';
+SET @Character = 'Liz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nick Frost';
+SET @Character = 'Ed';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lucy Davis';
+SET @Character = 'Dianne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dylan Moran';
+SET @Character = 'David';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nicola Cunningham';
+SET @Character = 'Mary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keir Mills';
+SET @Character = 'Clubber 1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Jaynes';
+SET @Character = 'Clubber 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gavin Ferguson';
+SET @Character = 'Football Kid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Serafinowicz';
+SET @Character = 'Pete';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('london', 'england', 'dark comedy', 'satire', 'surrey', 'parody', 'slacker', 'friends', 'survival', 'zombie', 'cynical', 'survival horror', 'british pub', 'boyfriend girlfriend relationship', 'taunting', 'zombie apocalypse', 'frantic', 'satirical', 'desperate', 'anxious', 'playful', 'dramatic', 'suspenseful', 'witty', 'amused', 'defiant', 'exuberant', 'farcical');
+
+GO
+-- ============================================
+
+-- Movie: Hot Fuzz
+DECLARE @MovieTitle VARCHAR(255) = 'Hot Fuzz';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Edgar Wright');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Edgar Wright', 'Simon Pegg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Simon Pegg';
+SET @Character = 'Nicholas Angel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Freeman';
+SET @Character = 'Met Sergeant';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Nighy';
+SET @Character = 'Met Chief Inspector';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Popper';
+SET @Character = '''Not'' Janine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Cornish';
+SET @Character = 'Bob';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Waitt';
+SET @Character = 'Dave';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eric Mason';
+SET @Character = 'Bernard Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Billie Whitelaw';
+SET @Character = 'Joyce Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nick Frost';
+SET @Character = 'PC Danny Butterman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Wight';
+SET @Character = 'Roy Porter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('countryside', 'police', 'village', 'arrest', 'parody', 'partner', 'murder', 'rural area', 'conspiracy', 'serial killer', 'gunfight', 'police force', 'buddy cop', 'accident');
+
+GO
+-- ============================================
+
+-- Movie: The World''s End
+DECLARE @MovieTitle VARCHAR(255) = 'The World''s End';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Edgar Wright');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Simon Pegg', 'Edgar Wright');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Thomas Law';
+SET @Character = 'Young Gary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zachary Bailess';
+SET @Character = 'Young Andy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jasper Levine';
+SET @Character = 'Young Steven';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Tarpey';
+SET @Character = 'Young Peter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luke Bromley';
+SET @Character = 'Young Oliver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sophie Evans';
+SET @Character = 'Becky Salt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samantha White';
+SET @Character = 'Erika Leekes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rose Reynolds';
+SET @Character = 'Tracy Benson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Hadfield';
+SET @Character = 'Young Shane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Flora Slorach';
+SET @Character = 'Young Sam';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('addiction', 'alcoholism', 'end of the world', 'apocalypse', 'homage', 'pub', 'hilarious', 'pub crawl');
+
+GO
+-- ============================================
+
+-- Movie: Charulata
+DECLARE @MovieTitle VARCHAR(255) = 'Charulata';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Satyajit Ray');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Rabindranath Tagore',  'Satyajit Ray');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Soumitra Chatterjee';
+SET @Character = 'Amal / Bhupati''s cousin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Madhavi Mukherjee';
+SET @Character = 'Charulata / wife';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shailen Mukherjee';
+SET @Character = 'Bhupati / husband';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shyamal Ghoshal';
+SET @Character = 'Umapada / Charulata''s brother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gitali Roy';
+SET @Character = 'Mandakini / Umapada''s wife';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dilip Bose';
+SET @Character = 'Shashanka';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nilotpal Dey';
+SET @Character = 'Joydeb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bankim Ghosh';
+SET @Character = 'Jagannath';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bholanath Koyal';
+SET @Character = 'Braja';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kamu Mukherjee';
+SET @Character = 'Fellow Liberal at the Party';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('swing', 'writer', 'india', 'calcutta', 'newspaper editor', 'based on short story', '19th century', 'preserved film');
+
+GO
+-- ============================================
+
+-- Movie: Andhadhun
+DECLARE @MovieTitle VARCHAR(255) = 'Andhadhun';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Sriram Raghavan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Arijit Biswas',  'Yogesh Chandekar',  'Sriram Raghavan',  'Hemanth M. Rao',  'Pooja Ladha Surti',  'Olivier Treiner');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ayushmann Khurrana';
+SET @Character = 'Akash';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tabu';
+SET @Character = 'Simi Sinha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Radhika Apte';
+SET @Character = 'Sophie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anil Dhawan';
+SET @Character = 'Pramod Sinha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Manav Vij';
+SET @Character = 'DSP Manohar Jawanda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zakir Hussain';
+SET @Character = 'Dr. Swami';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashwini Kalsekar';
+SET @Character = 'Rasika Jawanda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chhaya Kadam';
+SET @Character = 'Saroja';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pawan Singh';
+SET @Character = 'Murli';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kabir Sajid Shaikh';
+SET @Character = 'Bandu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('pianist', 'witness to a crime', 'blind man', 'piano', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Always Be My Maybe
+DECLARE @MovieTitle VARCHAR(255) = 'Always Be My Maybe';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Nahnatchka Khan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ali Wong', 'Randall Park', 'Michael Golamco');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ali Wong';
+SET @Character = 'Sasha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Randall Park';
+SET @Character = 'Marcus';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Saito';
+SET @Character = 'Harry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Buteau';
+SET @Character = 'Veronica';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vivian Bang';
+SET @Character = 'Jenny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keanu Reeves';
+SET @Character = 'Keanu Reeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Susan Park';
+SET @Character = 'Judy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Dae Kim';
+SET @Character = 'Brandon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karan Soni';
+SET @Character = 'Tony';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charlyne Yi';
+SET @Character = 'Ginger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'san francisco', 'california', 'restaurant owner', 'widower', 'childhood friends', 'chinese american', 'woman director', 'reconnect', 'rekindled romance', 'childhood sweethearts', 'asian american');
+
+GO
+-- ============================================
+
+-- Movie: A Separation
+DECLARE @MovieTitle VARCHAR(255) = 'A Separation';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Asghar Farhadi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Asghar Farhadi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Leila Hatami';
+SET @Character = 'Simin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Payman Maadi';
+SET @Character = 'Nader';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shahab Hosseini';
+SET @Character = 'Hojjat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sareh Bayat';
+SET @Character = 'Razieh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sarina Farhadi';
+SET @Character = 'Termeh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Babak Karimi';
+SET @Character = 'Interrogator';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ali-Asghar Shahbazi';
+SET @Character = 'Nader''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kimia Hosseini';
+SET @Character = 'Somayeh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shirin Yazdanbakhsh';
+SET @Character = 'Simin''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Merila Zare''i';
+SET @Character = 'Miss Ghahrayi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('emigration', 'class', 'alzheimer''s disease', 'teheran (tehran)', 'iran', 'money', 'maid', 'divorce', 'iran', 'caregiver', 'marital separation', 'family argument');
+
+GO
+-- ============================================
+
+-- Movie: The Salesman
+DECLARE @MovieTitle VARCHAR(255) = 'The Salesman';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Asghar Farhadi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Asghar Farhadi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shahab Hosseini';
+SET @Character = 'Emad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taraneh Alidoosti';
+SET @Character = 'Rana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mina Sadati';
+SET @Character = 'Sanam';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Babak Karimi';
+SET @Character = 'Babak';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maral Baniadam';
+SET @Character = 'Kati';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mojtaba Pirzadeh';
+SET @Character = 'Majid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Farid Sajjadi Hosseini';
+SET @Character = 'Piremard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mehdi Koushki';
+SET @Character = 'Siavash';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ehteram Boroumand';
+SET @Character = 'Mrs. Shahnazari';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sahra Asadollahi';
+SET @Character = 'Mojgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rape', 'trauma', 'assault', 'theater play', 'teheran (tehran)', 'iran', 'attack', 'iran', 'rape and revenge', 'death of a salesman');
+
+GO
+-- ============================================
+
+-- Movie: Airplane!
+DECLARE @MovieTitle VARCHAR(255) = 'Airplane!';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Jim Abrahams', 'David Zucker', 'Jerry Zucker');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jim Abrahams', 'David Zucker', 'Jerry Zucker',  'Hall Bartlett',  'John C. Champion',  'Arthur Hailey',  'Arthur Hailey');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Kareem Abdul-Jabbar';
+SET @Character = 'Roger Murdock';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lloyd Bridges';
+SET @Character = 'Steve McCroskey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Graves';
+SET @Character = 'Captain Clarence Oveur';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julie Hagerty';
+SET @Character = 'Elaine Dickinson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Hays';
+SET @Character = 'Ted Striker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leslie Nielsen';
+SET @Character = 'Dr. Rumack';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lorna Patterson';
+SET @Character = 'Randy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Stack';
+SET @Character = 'Captain Rex Kramer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Stucker';
+SET @Character = 'Johnny Henshaw-Jacobs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Otto';
+SET @Character = 'Otto';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('chicago', 'illinois', 'post-traumatic stress disorder (ptsd)', 'airplane', 'cataclysm', 'guitar', 'alcohol', 'stewardess', 'taxi driver', 'passenger', 'fear of flying', 'pilot', 'medicine', 'air controller', 'landing', 'saxophone', 'autopilot', 'parody', 'spoof', 'food poisoning', 'los angeles', 'california', 'alcohol abuse', 'aftercreditsstinger', 'inflatable life raft', 'anarchic comedy');
+
+GO
+-- ============================================
+
+-- Movie: The Sixth Sense
+DECLARE @MovieTitle VARCHAR(255) = 'The Sixth Sense';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('M. Night Shyamalan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('M. Night Shyamalan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Bruce Willis';
+SET @Character = 'Malcolm Crowe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Haley Joel Osment';
+SET @Character = 'Cole Sear';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Toni Collette';
+SET @Character = 'Lynn Sear';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Olivia Williams';
+SET @Character = 'Anna Crowe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Trevor Morgan';
+SET @Character = 'Tommy Tammisimo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Donnie Wahlberg';
+SET @Character = 'Vincent Gray';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Anthony Tambakis';
+SET @Character = 'Darren';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Zubernis';
+SET @Character = 'Bobby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bruce Norris';
+SET @Character = 'Stanley Cunningham';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Glenn Fitzgerald';
+SET @Character = 'Sean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('dying and death', 'child abuse', 'philadelphia', 'pennsylvania', 'sense of guilt', 'afterlife', 'marriage crisis', 'loss of loved one', 'confidence', 'psychology', 'paranormal phenomena', 'single', 'psychological thriller', 'cowardliness', 'single mother', 'school play', 'ghost', 'child', 'spiritism', 'ghost child', 'supernatural thriller');
+
+GO
+-- ============================================
+
+-- Movie: Stranger Than Fiction
+DECLARE @MovieTitle VARCHAR(255) = 'Stranger Than Fiction';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Fantasy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Marc Forster');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Zach Helm');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Will Ferrell';
+SET @Character = 'Harold Crick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'William Dick';
+SET @Character = 'IRS Co-Worker #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Guy Massey';
+SET @Character = 'IRS Co-Worker #2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martha Espinoza';
+SET @Character = 'IRS Co-Worker #3';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'T.J. Jagodowski';
+SET @Character = 'IRS Co-Worker #4';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Grosz';
+SET @Character = 'IRS Co-Worker #5';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ricky Adams';
+SET @Character = 'Young Boy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Stolte';
+SET @Character = 'Young Boy''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Denise Hughes';
+SET @Character = 'Kronecker Bus Driver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peggy Roeder';
+SET @Character = 'Polish Woman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('literature', 'professor', 'writer''s block', 'love', 'fate', 'author', 'death', 'dying', 'novelist', 'publisher', 'what if', 'book', 'narrator');
+
+GO
+-- ============================================
+
+-- Movie: Haider
+DECLARE @MovieTitle VARCHAR(255) = 'Haider';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Vishal Bhardwaj');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('William Shakespeare',  'Basharat Peer', 'Vishal Bhardwaj',  'Vishal Bhardwaj');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tabu';
+SET @Character = 'Ghazala Meer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shahid Kapoor';
+SET @Character = 'Haider Meer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shraddha Kapoor';
+SET @Character = 'Arshia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kay Kay Menon';
+SET @Character = 'Khurram Meer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Narendra Jha';
+SET @Character = 'Dr. Hilal Meer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kulbhushan Kharbanda';
+SET @Character = 'Hussain Meer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lalit Parimoo';
+SET @Character = 'Pervez Lone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashish Vidyarthi';
+SET @Character = 'Brigadier T.S Murthy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aamir Bashir';
+SET @Character = 'Liyaqat, Arshia''s brother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sumit Kaul';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('death of father', 'revenge', 'kashmir conflict', 'hamlet', 'avenge', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Seven
+DECLARE @MovieTitle VARCHAR(255) = 'Seven';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Fincher');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Andrew Kevin Walker');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Morgan Freeman';
+SET @Character = 'Somerset';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Kevin Walker';
+SET @Character = 'Dead Man at 1st Crime Scene';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Zacapa';
+SET @Character = 'Detective Taylor at First Murder';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brad Pitt';
+SET @Character = 'Mills';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gwyneth Paltrow';
+SET @Character = 'Tracy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Cassini';
+SET @Character = 'Officer Davis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Mack';
+SET @Character = 'Gluttony Victim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Crombie';
+SET @Character = 'Dr. O''Neill';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Reg E. Cathey';
+SET @Character = 'Dr. Santiago';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'R. Lee Ermey';
+SET @Character = 'Police Captain';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rage and hate', 'police', 's.w.a.t.', 'sadism', 'self-fulfilling prophecy', 'psychopath', 'detective', 'investigation', 'insomnia', 'murder', 'serial killer', 'religion', 'shootout', 'corpse', 'macabre', 'seven deadly sins', 'depravity', 'neo-noir', 'sinister', 'ambiguous', 'ominous', 'seven: los siete pecados capitales');
+
+GO
+-- ============================================
+
+-- Movie: The Truman Show
+DECLARE @MovieTitle VARCHAR(255) = 'The Truman Show';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Peter Weir');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Andrew Niccol');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jim Carrey';
+SET @Character = 'Truman Burbank';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laura Linney';
+SET @Character = 'Meryl Burbank / Hannah Gill';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Noah Emmerich';
+SET @Character = 'Marlon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Natascha McElhone';
+SET @Character = 'Lauren / Sylvia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Holland Taylor';
+SET @Character = 'Truman''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Delate';
+SET @Character = 'Truman''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Blair Slater';
+SET @Character = 'Young Truman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Krause';
+SET @Character = 'Lawrence';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Heidi Schanz';
+SET @Character = 'Vivien';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ron Taylor';
+SET @Character = 'Ron';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('escape', 'paranoia', 'dystopia', 'suspicion', 'video surveillance', 'deception', 'hidden camera', 'simulated reality', 'television producer', 'tv show in film', 'questioning', 'make believe', 'reflective', 'actor', 'tv show', 'dignified', 'allegory of the cave');
+
+GO
+-- ============================================
+
+-- Movie: The Greatest Showman
+DECLARE @MovieTitle VARCHAR(255) = 'The Greatest Showman';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'Musical');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Michael Gracey');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jenny Bicks', 'Bill Condon',  'Jenny Bicks');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Hugh Jackman';
+SET @Character = 'P.T. Barnum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Williams';
+SET @Character = 'Charity Barnum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zac Efron';
+SET @Character = 'Phillip Carlyle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zendaya';
+SET @Character = 'Anne Wheeler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca Ferguson';
+SET @Character = 'Jenny Lind';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Austyn Johnson';
+SET @Character = 'Caroline Barnum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cameron Seely';
+SET @Character = 'Helen Barnum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keala Settle';
+SET @Character = 'Lettie Lutz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sam Humphrey';
+SET @Character = 'Tom Thumb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yahya Abdul-Mateen II';
+SET @Character = 'W.D. Wheeler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('adultery', 'circus', 'musical', 'biography', 'rags to riches', 'based on true story', 'outcast', 'singing', 'dreamer', 'freak show', 'absurd', 'cliché', 'complicated');
+
+GO
+-- ============================================
+
+-- Movie: Kapoor & Sons
+DECLARE @MovieTitle VARCHAR(255) = 'Kapoor & Sons';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime', 'Drama', 'Family', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shakun Batra');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Shakun Batra',  'Ayesha DeVitre',  'Spandan Mishra');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Rishi Kapoor';
+SET @Character = 'Amarjeet Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rajat Kapoor';
+SET @Character = 'Harsh Kapoor - Dad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ratna Pathak Shah';
+SET @Character = 'Sunita Kapoor - Mom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Fawad Khan';
+SET @Character = 'Rahul Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sidharth Malhotra';
+SET @Character = 'Arjun Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alia Bhatt';
+SET @Character = 'Tia Malik';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anuradha Chandan';
+SET @Character = 'Anu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vikram Kapadia';
+SET @Character = 'Shashi Chacha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anahita Oberoi';
+SET @Character = 'Neetu Chachi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aakriti Dobhal';
+SET @Character = 'Bunkoo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('coming out', 'loneliness', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Laila Majnu
+DECLARE @MovieTitle VARCHAR(255) = 'Laila Majnu';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Sajid Ali');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Imtiaz Ali',  'Sajid Ali');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Avinash Tiwary';
+SET @Character = 'Qais Bhat / Majnu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Triptii Dimri';
+SET @Character = 'Laila';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sumit Kaul';
+SET @Character = 'Ibban / Javed Parray';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Abrar Qazi';
+SET @Character = 'Zaid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sahiba Bali';
+SET @Character = 'Ambreen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mir Sarwar';
+SET @Character = 'Qais''s Brother-in-law';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Benjamin Gilani';
+SET @Character = 'Ghulam Sarwar Bhat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Parmeet Sethi';
+SET @Character = 'Masood Ahmed Shahmiri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Farhana Bhat';
+SET @Character = 'Jasmeet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shagufta Ali';
+SET @Character = 'Pufu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('romance', 'love', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Prisoners
+DECLARE @MovieTitle VARCHAR(255) = 'Prisoners';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Denis Villeneuve');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Aaron Guzikowski');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Hugh Jackman';
+SET @Character = 'Keller Dover';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jake Gyllenhaal';
+SET @Character = 'Detective Loki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Viola Davis';
+SET @Character = 'Nancy Birch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maria Bello';
+SET @Character = 'Grace Dover';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terrence Howard';
+SET @Character = 'Franklin Birch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Melissa Leo';
+SET @Character = 'Holly Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Dano';
+SET @Character = 'Alex Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dylan Minnette';
+SET @Character = 'Ralph Dover';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zoë Soul';
+SET @Character = 'Eliza Birch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Erin Gerasimovich';
+SET @Character = 'Anna Dover';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('pennsylvania', 'usa', 'kidnapping', 'hostage', 'detective', 'maze', 'symbolism', 'investigation', 'georgia', 'beating', 'god', 'revenge', 'vigilante', 'rural area', 'crime scene', 'brutality', 'candlelight vigil', 'aggressive', 'animal cruelty', 'neo-noir', 'sex offender', 'child abduction');
+
+GO
+-- ============================================
+
+-- Movie: What If
+DECLARE @MovieTitle VARCHAR(255) = 'What If';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Michael Dowse');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Elan Mastai',  'T.J. Dawe', 'Michael Rinaldi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Daniel Radcliffe';
+SET @Character = 'Wallace';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zoe Kazan';
+SET @Character = 'Chantry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Megan Park';
+SET @Character = 'Dalia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Driver';
+SET @Character = 'Allan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mackenzie Davis';
+SET @Character = 'Nicole';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rafe Spall';
+SET @Character = 'Ben';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lucius Hoyos';
+SET @Character = 'Felix';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jemima Rooper';
+SET @Character = 'Ellie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tommie-Amber Pirie';
+SET @Character = 'Gretchen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Meghan Heffern';
+SET @Character = 'Tabby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('beach', 'hope', 'toronto', 'canada', 'cousin', 'dublin', 'ireland', 'travel', 'best friend', 'falling in love', 'boyfriend', 'job promotion', 'multiple perspectives', 'medical school', 'living with sibling', 'papercut animation', 'long term relationship', 'brother sister relationship', 'sister sister relationship', 'loving', 'college dropout', 'casual', 'animator', 'crush on friend', 'friend zone', 'comforting');
+
+GO
+-- ============================================
+
+-- Movie: Vice Principals
+DECLARE @MovieTitle VARCHAR(255) = 'Vice Principals';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jody Hill', 'Jody Hill', 'Danny McBride');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Danny McBride';
+SET @Character = 'Neal Gamby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Walton Goggins';
+SET @Character = 'Lee Russell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Georgia King';
+SET @Character = 'Amanda Snodgrass';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shea Whigham';
+SET @Character = 'Ray Liptrapp';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maya G. Love';
+SET @Character = 'Janelle Gamby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sheaun McKinney';
+SET @Character = 'Dayshawn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Edi Patterson';
+SET @Character = 'Ms. Abbott';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Busy Philipps';
+SET @Character = 'Gale Liptrapp';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashley Rae Spillers';
+SET @Character = 'Janice Swift';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James M. Connor';
+SET @Character = 'Seychelles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Killers of the Flower Moon
+DECLARE @MovieTitle VARCHAR(255) = 'Killers of the Flower Moon';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'History', 'Mystery', 'Romance', 'Western');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Martin Scorsese');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Eric Roth', 'Martin Scorsese',  'David Grann');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Leonardo DiCaprio';
+SET @Character = 'Ernest Burkhart';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert De Niro';
+SET @Character = 'William Hale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lily Gladstone';
+SET @Character = 'Mollie Burkhart';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jesse Plemons';
+SET @Character = 'Tom White';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tantoo Cardinal';
+SET @Character = 'Lizzie Q';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Lithgow';
+SET @Character = 'Prosecutor Peter Leaward';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brendan Fraser';
+SET @Character = 'W.S. Hamilton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cara Jade Myers';
+SET @Character = 'Anna';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Janae Collins';
+SET @Character = 'Reta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jillian Dion';
+SET @Character = 'Minnie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('husband wife relationship', 'based on novel or book', 'war veteran', 'fbi', 'greed', 'oklahoma', 'manipulation', 'native american', 'based on true story', 'murder', 'racism', 'series of murders', 'genocide', 'period drama', 'courtroom', 'guilt', 'true crime', 'oil industry', 'death of sister', 'catholicism', 'uncle nephew relationship', 'catholic guilt', 'shocking', '1920s', 'candid', 'grim', 'osage indian', 'gullibility', 'poisoning', 'complex', 'diabetes', 'revisionist western', 'cautionary', 'meta', 'grand', 'factual', 'western', 'depressing', 'empathetic', 'harsh', 'tragic');
+
+GO
+-- ============================================
+
+-- Movie: Inside Llewyn Davis
+DECLARE @MovieTitle VARCHAR(255) = 'Inside Llewyn Davis';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Music');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Ethan Coen', 'Joel Coen');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Joel Coen', 'Ethan Coen');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Oscar Isaac';
+SET @Character = 'Llewyn Davis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carey Mulligan';
+SET @Character = 'Jean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin Timberlake';
+SET @Character = 'Jim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ethan Phillips';
+SET @Character = 'Mitch Gorfein';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robin Bartlett';
+SET @Character = 'Lillian Gorfein';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Max Casella';
+SET @Character = 'Pappi Corsicato';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jerry Grayson';
+SET @Character = 'Mel Novikoff';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeanine Serralles';
+SET @Character = 'Joy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Driver';
+SET @Character = 'Al Cody';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stark Sands';
+SET @Character = 'Troy Nelson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('depression', 'new york city', 'guitar', 'winter', 'cat', 'subway', 'pregnancy', 'overdose', 'dark comedy', 'melancholy', 'folk music', 'aspiring singer', 'grief', 'hitchhiker', 'cafe', 'recording', 'self expression', 'greenwich village', 'merchant marine', '1960s', 'couchsurfing', 'bleak', 'struggling musician', 'death of friend');
+
+GO
+-- ============================================
+
+-- Movie: My Name Is Khan
+DECLARE @MovieTitle VARCHAR(255) = 'My Name Is Khan';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Karan Johar');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Shibani Bathija',  'Shibani Bathija', 'Niranjan Iyengar');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shah Rukh Khan';
+SET @Character = 'Rizvan Khan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kajol';
+SET @Character = 'Mandira Khan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Katie Amanda Keane';
+SET @Character = 'Sarah Garrick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kenton Duty';
+SET @Character = 'Reese Garrick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Benny Nieves';
+SET @Character = 'Detective Garcia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher B. Duncan';
+SET @Character = 'President Barack Obama';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jimmy Shergill';
+SET @Character = 'Zakir Khan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sonya Jehan';
+SET @Character = 'Hasina Khan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Parvin Dabas';
+SET @Character = 'Bobby Ahuja';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Arjun Mathur';
+SET @Character = 'Raj Burman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('autism', 'mumbai (bombay)', 'india', 'based on true story', 'prejudice', 'religion', 'disability', 'asperger''s syndrome', 'asian american', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Hera Pheri
+DECLARE @MovieTitle VARCHAR(255) = 'Hera Pheri';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Priyadarshan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Siddique', 'Lal',  'Neeraj Vora',  'Neeraj Vora',  'Anand S. Vardhan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Akshay Kumar';
+SET @Character = 'Raju';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Suniel Shetty';
+SET @Character = 'Ghanshyam';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paresh Rawal';
+SET @Character = 'Baburao Ganpatrao Apte';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tabu';
+SET @Character = 'Anuradha Shivshankar Panikar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Om Puri';
+SET @Character = 'Khadak Singh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gulshan Grover';
+SET @Character = 'Kabira';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kulbhushan Kharbanda';
+SET @Character = 'Devi Prasad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mukesh Khanna';
+SET @Character = 'Sub-Inspector Prakash';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Govardhan Asrani';
+SET @Character = 'Bank Manager';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Razak Khan';
+SET @Character = 'Chhota Chetan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('bollywood', 'classic bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Om Shanti Om
+DECLARE @MovieTitle VARCHAR(255) = 'Om Shanti Om';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Drama', 'Fantasy', 'Musical', 'Romance', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Farah Khan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Farah Khan',  'Mushtaq Shiekh', 'Farah Khan',  'Mayur Puri');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shah Rukh Khan';
+SET @Character = 'Om Prakash Makhija / Om Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Arjun Rampal';
+SET @Character = 'Mukesh ''Mike'' Mehra';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kirron Kher';
+SET @Character = 'Bela Makhija';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shreyas Talpade';
+SET @Character = 'Pappu Master';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Deepika Padukone';
+SET @Character = 'Shantipriya / Sandy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bindu Desai';
+SET @Character = 'Kamini';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jawed Sheikh';
+SET @Character = 'Rajesh Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Satish Shah';
+SET @Character = 'Partho Roy - Film director';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yuvika Chaudhary';
+SET @Character = 'Dolly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shawar Ali';
+SET @Character = 'Self';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('psychopath', '1970s', 'musical', 'reincarnation', 'sociopath', 'revenge', 'betrayal', 'disco', 'predator turns victim', 'unlikely lovers', 'woman director', 'desire for fame', '2000s', 'crossover', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: 17 Again
+DECLARE @MovieTitle VARCHAR(255) = '17 Again';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Fantasy', 'Romance', 'Sport');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Burr Steers');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jason Filardi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Zac Efron';
+SET @Character = 'Mike O''Donnell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leslie Mann';
+SET @Character = 'Scarlet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomas Lennon';
+SET @Character = 'Ned Gold';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Perry';
+SET @Character = 'Mike O''Donnell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tyler Steelman';
+SET @Character = 'Ned Gold';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Allison Miller';
+SET @Character = 'Scarlet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sterling Knight';
+SET @Character = 'Alex';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Trachtenberg';
+SET @Character = 'Maggie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Gregory';
+SET @Character = 'Dom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hunter Parrish';
+SET @Character = 'Stan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'affectation', 'fake identity', 'bullying', 'high school sports', 'adult as a child', 'do over', 'age change', 'lighthearted', 'amused', 'enchant');
+
+GO
+-- ============================================
+
+-- Movie: Tenet
+DECLARE @MovieTitle VARCHAR(255) = 'Tenet';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Christopher Nolan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Juhan Ulfsak';
+SET @Character = 'Passenger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jefferson Hall';
+SET @Character = 'Well-Dressed Man';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ivo Uukkivi';
+SET @Character = 'Uniformed Official';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Howard';
+SET @Character = 'Driver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John David Washington';
+SET @Character = 'Protagonist';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rich Ceraulo Ko';
+SET @Character = 'SWAT / Target';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Camp';
+SET @Character = 'SWAT 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wes Chatham';
+SET @Character = 'SWAT 3';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sander Rebane';
+SET @Character = 'Ukrainian SWAT';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Donovan';
+SET @Character = 'Fay';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('assassin', 'espionage', 'spy', 'time travel', 'mumbai (bombay)', 'india', 'arms dealer', 'terrorism', 'terrorist attack', 'nuclear weapons', 'terrorist plot', 'backwards', 'alternate timeline', 'oslo', 'norway', 'time paradox', 'kyiv (kiev)', 'ukraine');
+
+GO
+-- ============================================
+
+-- Movie: Swiss Army Man
+DECLARE @MovieTitle VARCHAR(255) = 'Swiss Army Man';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Fantasy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Daniel Kwan', 'Daniel Scheinert');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Daniel Scheinert', 'Daniel Kwan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Paul Dano';
+SET @Character = 'Hank';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Radcliffe';
+SET @Character = 'Manny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mary Elizabeth Winstead';
+SET @Character = 'Sarah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Antonia Ribero';
+SET @Character = 'Crissie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Timothy Eulich';
+SET @Character = 'Preston';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Gross';
+SET @Character = 'Hank''s Dad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marika Casteel';
+SET @Character = 'Reporter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andy Hull';
+SET @Character = 'Cameraman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Marshall';
+SET @Character = 'Officer #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shane Carruth';
+SET @Character = 'Coroner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('beach', 'friends', 'survival', 'dead body', 'corpse', 'deserted island', 'buddy comedy', 'fart');
+
+GO
+-- ============================================
+
+-- Movie: Catch Me If You Can
+DECLARE @MovieTitle VARCHAR(255) = 'Catch Me If You Can';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Steven Spielberg');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Frank Abagnale Jr.', 'Stan Redding',  'Jeff Nathanson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Leonardo DiCaprio';
+SET @Character = 'Frank Abagnale Jr.';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Hanks';
+SET @Character = 'Carl Hanratty';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Walken';
+SET @Character = 'Frank Abagnale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Sheen';
+SET @Character = 'Roger Strong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nathalie Baye';
+SET @Character = 'Paula Abagnale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Adams';
+SET @Character = 'Brenda Strong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Brolin';
+SET @Character = 'Jack Barnes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Howe';
+SET @Character = 'Earl Amdursky';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frank John Hughes';
+SET @Character = 'Tom Fox';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Eastin';
+SET @Character = 'Paul Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('fbi', 'con man', 'biography', 'based on true story', 'con artist', 'attempted jailbreak', 'engagement party', 'mislaid trust', 'christmas', 'bank fraud', 'conman', 'suspenseful', 'fraudster');
+
+GO
+-- ============================================
+
+-- Movie: Mrs. Doubtfire
+DECLARE @MovieTitle VARCHAR(255) = 'Mrs. Doubtfire';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Chris Columbus');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Anne Fine',  'Randi Mayem Singer', 'Leslie Dixon');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Robin Williams';
+SET @Character = 'Daniel Hillard / Mrs. Doubtfire';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sally Field';
+SET @Character = 'Miranda Hillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pierce Brosnan';
+SET @Character = 'Stuart Dunmeyer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harvey Fierstein';
+SET @Character = 'Frank Hillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Polly Holliday';
+SET @Character = 'Gloria Chaney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Jakub';
+SET @Character = 'Lydia Hillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Lawrence';
+SET @Character = 'Chris Hillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mara Wilson';
+SET @Character = 'Natalie Hillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Prosky';
+SET @Character = 'Jonathan Lundy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Haney';
+SET @Character = 'Mrs. Sellner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('mask', 'parent child relationship', 'san francisco', 'california', 'social worker', 'transvestite', 'nanny', 'restaurant', 'fake identity', 'custody battle', 'responsibility', 'voice acting', 'divorced couple');
+
+GO
+-- ============================================
+
+-- Movie: Split
+DECLARE @MovieTitle VARCHAR(255) = 'Split';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Horror', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('M. Night Shyamalan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('M. Night Shyamalan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'James McAvoy';
+SET @Character = 'Dennis / Patricia / Hedwig / The Beast / Kevin Wendell Crumb / Barry / Orwell / Jade';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anya Taylor-Joy';
+SET @Character = 'Casey Cooke';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Betty Buckley';
+SET @Character = 'Dr. Karen Fletcher';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Haley Lu Richardson';
+SET @Character = 'Claire Benoit';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Sula';
+SET @Character = 'Marcia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Izzie Coffey';
+SET @Character = 'Five-Year-Old Casey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brad William Henke';
+SET @Character = 'Uncle John';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sebastian Arcelus';
+SET @Character = 'Casey''s Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Neal Huff';
+SET @Character = 'Mr. Benoit';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ukee Washington';
+SET @Character = 'News Anchor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('child abuse', 'philadelphia', 'pennsylvania', 'kidnapping', 'gore', 'sequel', 'stalking', 'teenage girl', 'super power', 'mental illness', 'split personality', 'multiple personality', 'traumatic childhood', 'dissociative identity disorder', 'defiant');
+
+GO
+-- ============================================
+
+-- Movie: Signs
+DECLARE @MovieTitle VARCHAR(255) = 'Signs';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('M. Night Shyamalan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('M. Night Shyamalan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Mel Gibson';
+SET @Character = 'Graham Hess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joaquin Phoenix';
+SET @Character = 'Merrill Hess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rory Culkin';
+SET @Character = 'Morgan Hess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Abigail Breslin';
+SET @Character = 'Bo Hess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cherry Jones';
+SET @Character = 'Officer Paski';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'M. Night Shyamalan';
+SET @Character = 'Ray Reddy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patricia Kalember';
+SET @Character = 'Colleen Hess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ted Sutton';
+SET @Character = 'SFC Cunningham';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Merritt Wever';
+SET @Character = 'Tracey Abernathy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lanny Flaherty';
+SET @Character = 'Mr. Nathan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('farm', 'faith', 'symbolism', 'miracle', 'family relationships', 'alien', 'grief', 'rural area', 'alien invasion', 'crop circle', 'alien attack', 'death of wife', 'loss of faith', 'alien encounter', 'anxious', 'suspenseful', 'foreboding');
+
+GO
+-- ============================================
+
+-- Movie: The Gentlemen
+DECLARE @MovieTitle VARCHAR(255) = 'The Gentlemen';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Guy Ritchie', 'Guy Ritchie', 'Matthew Read');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Theo James';
+SET @Character = 'Eddie Horniman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kaya Scodelario';
+SET @Character = 'Susie Glass';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Ings';
+SET @Character = 'Freddy Horniman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joely Richardson';
+SET @Character = 'Lady Sabrina';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vinnie Jones';
+SET @Character = 'Geoff Seacombe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Vu';
+SET @Character = 'Jimmy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harry Goodwins';
+SET @Character = 'Jack Glass';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephane Fichet';
+SET @Character = 'Mr. Lawrence';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Logan Dean';
+SET @Character = 'Blanket';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chanel Cresswell';
+SET @Character = 'Tammy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Green Book
+DECLARE @MovieTitle VARCHAR(255) = 'Green Book';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Comedy', 'Drama', 'Music');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Peter Farrelly');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Nick Vallelonga', 'Brian Hayes Currie', 'Peter Farrelly');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Viggo Mortensen';
+SET @Character = 'Tony Lip';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mahershala Ali';
+SET @Character = 'Dr. Donald Shirley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Linda Cardellini';
+SET @Character = 'Dolores';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sebastian Maniscalco';
+SET @Character = 'Johnny Venere';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dimiter D. Marinov';
+SET @Character = 'Oleg';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mike Hatton';
+SET @Character = 'George';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'P.J. Byrne';
+SET @Character = 'Record Exec';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Cortese';
+SET @Character = 'Gio Loscudo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mary Agnes Nixon';
+SET @Character = 'Copa Coat Check Girl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Von Lewis';
+SET @Character = 'Bobby Rydell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('friendship', 'southern usa', 'road trip', 'racism', 'pianist', 'driver', 'lgbt', 'road movie', 'music tour', '1960s', 'roadtrip', 'gay theme', 'feel good');
+
+GO
+-- ============================================
+
+-- Movie: The Fundamentals of Caring
+DECLARE @MovieTitle VARCHAR(255) = 'The Fundamentals of Caring';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Rob Burnett');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Rob Burnett',  'Jonathan Evison');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Alex Huff';
+SET @Character = 'Jodi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Donna Biscoe';
+SET @Character = 'Caregiving Instructor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Rudd';
+SET @Character = 'Ben Benjamin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Denton';
+SET @Character = 'Janet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Ehle';
+SET @Character = 'Elsa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Craig Roberts';
+SET @Character = 'Trevor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashley White';
+SET @Character = 'Cute Travel Channel Girl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Pruitt';
+SET @Character = 'TV Reporter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alan Boell';
+SET @Character = 'Courier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Selena Gomez';
+SET @Character = 'Dot';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('wheelchair', 'affectation', 'road trip', 'caregiver', 'disability', 'muscular dystrophy', 'approving', 'comforting');
+
+GO
+-- ============================================
+
+-- Movie: The Peanut Butter Falcon
+DECLARE @MovieTitle VARCHAR(255) = 'The Peanut Butter Falcon';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Tyler Nilson', 'Michael Schwartz');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Tyler Nilson', 'Michael Schwartz');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Zack Gottsagen';
+SET @Character = 'Zak';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ann Pierce';
+SET @Character = 'Rosemary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dakota Johnson';
+SET @Character = 'Eleanor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bruce Dern';
+SET @Character = 'Carl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shia LaBeouf';
+SET @Character = 'Tyler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomas Haden Church';
+SET @Character = 'Salt Water Redneck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Thomas';
+SET @Character = 'Winkie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Bernthal';
+SET @Character = 'Mark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tim Zajaros';
+SET @Character = 'Orderly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Hawkes';
+SET @Character = 'Duncan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('escape', 'runaway', 'wrestling', 'down syndrome', 'on the run', 'wrestling coach', 'raft', 'nursing home', 'disability', 'dream come true', 'escape plan', 'southern gothic');
+
+GO
+-- ============================================
+
+-- Movie: Chennai Express
+DECLARE @MovieTitle VARCHAR(255) = 'Chennai Express';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Rohit Shetty');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('K. Subhash',  'Yunus Sajawal',  'Robin Bhatt',  'Farhad Samji', 'Sajid',  'Madhiyalagan Subbaiah');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Deepika Padukone';
+SET @Character = 'Meenalochni ''Meenamma'' Azhagusundaram';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shah Rukh Khan';
+SET @Character = 'Rahul Mithaiwala';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nikitin Dheer';
+SET @Character = 'Tangaballi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sathyaraj';
+SET @Character = 'Durgeshwara ''Durgesh'' Azhagusundaram';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mukesh Tiwari';
+SET @Character = 'Inspector Shamsher Singh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lekh Tandon';
+SET @Character = 'Bhishambhar Mithaiwala';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kamini Kaushal';
+SET @Character = 'Neetu Bhishambhar Mithaiwala';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Puvisha Manoharan';
+SET @Character = 'Radhika ''Radha'' Azhagusundaram';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Manu Malik';
+SET @Character = 'Baman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rakesh Kukreti';
+SET @Character = 'Bobby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('temple', 'grandfather', 'romantic rivalry', 'ashes', 'journey', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: The Dark Knight Rises
+DECLARE @MovieTitle VARCHAR(255) = 'The Dark Knight Rises';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jonathan Nolan', 'Christopher Nolan',  'Christopher Nolan', 'David S. Goyer',  'Bob Kane');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Christian Bale';
+SET @Character = 'Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gary Oldman';
+SET @Character = 'Commissioner Gordon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Hardy';
+SET @Character = 'Bane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Gordon-Levitt';
+SET @Character = 'Blake';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Hathaway';
+SET @Character = 'Selina';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marion Cotillard';
+SET @Character = 'Miranda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morgan Freeman';
+SET @Character = 'Fox';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Caine';
+SET @Character = 'Alfred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Modine';
+SET @Character = 'Foley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alon Aboutboul';
+SET @Character = 'Dr. Pavel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('airplane', 'fight', 'burglar', 'hostage', 'secret identity', 'crime fighter', 'superhero', 'villainess', 'time bomb', 'based on comic', 'cover-up', 'vigilante', 'tragic hero', 'mobile', 'terrorism', 'destruction', 'fighting', 'criminal underworld', 'cat burglar', 'flood');
+
+GO
+-- ============================================
+
+-- Movie: Rush Hour
+DECLARE @MovieTitle VARCHAR(255) = 'Rush Hour';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Brett Ratner');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ross LaManna',  'Jim Kouf', 'Ross LaManna');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ken Leung';
+SET @Character = 'Sang';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jackie Chan';
+SET @Character = 'Lee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Wilkinson';
+SET @Character = 'Griffin / Juntao';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tzi Ma';
+SET @Character = 'Consul Han';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Littman';
+SET @Character = 'First Caucasian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Chow';
+SET @Character = 'Dinner Guest';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Hsu';
+SET @Character = 'Soo Yung';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Tucker';
+SET @Character = 'Carter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Penn';
+SET @Character = 'Clive';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kai Lennox';
+SET @Character = 'Cop at Diner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('martial arts', 'fbi', 'two man army', 'chinese mafia', 'cop', 'los angeles', 'california', 'east asian lead', 'buddy cop', 'consul', 'crime lord', 'art treasures', 'child kidnapping', 'duringcreditsstinger', 'action hero');
+
+GO
+-- ============================================
+
+-- Movie: Watchmen
+DECLARE @MovieTitle VARCHAR(255) = 'Watchmen';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Drama', 'Mystery', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Zack Snyder');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Dave Gibbons',  'David Hayter', 'Alex Tse');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Malin Akerman';
+SET @Character = 'Laurie Jupiter / Silk Spectre II';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Billy Crudup';
+SET @Character = 'Dr. Manhattan / Jon Osterman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Goode';
+SET @Character = 'Adrian Veidt / Ozymandias';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jackie Earle Haley';
+SET @Character = 'Rorschach';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Dean Morgan';
+SET @Character = 'Edward Blake / Comedian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patrick Wilson';
+SET @Character = 'Dan Dreiberg / Nite Owl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carla Gugino';
+SET @Character = 'Sally Jupiter / Silk Spectre';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Frewer';
+SET @Character = 'Moloch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen McHattie';
+SET @Character = 'Hollis Mason';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laura Mennell';
+SET @Character = 'Janey Slater';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('usa president', 'nuclear war', 'mass murder', 'secret identity', 'narration', 'soviet union', 'melancholy', 'retirement', 'based on comic', 'conspiracy', 'animated scene', 'doomsday', 'masked vigilante', 'doomsday clock', 'red square', '1980s', 'intense', 'admiring', 'assertive');
+
+GO
+-- ============================================
+
+-- Movie: Sucker Punch
+DECLARE @MovieTitle VARCHAR(255) = 'Sucker Punch';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Fantasy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Zack Snyder');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Zack Snyder', 'Steve Shibuya',  'Zack Snyder');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Emily Browning';
+SET @Character = 'Babydoll';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Abbie Cornish';
+SET @Character = 'Sweet Pea';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jena Malone';
+SET @Character = 'Rocket';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vanessa Hudgens';
+SET @Character = 'Blondie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamie Chung';
+SET @Character = 'Amber';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carla Gugino';
+SET @Character = 'Dr. Vera Gorski';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oscar Isaac';
+SET @Character = 'Blue Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Hamm';
+SET @Character = 'High Roller / Doctor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Glenn';
+SET @Character = 'Wise Man';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Cetrone';
+SET @Character = 'CJ';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('samurai', 'escape', 'asylum', 'brothel', 'sword fight', 'dragon', 'robot', 'inmate', 'lobotomy', 'war zone', 'abusive stepfather', 'rape culture', 'alternate reality');
+
+GO
+-- ============================================
+
+-- Movie: The Theory of Everything
+DECLARE @MovieTitle VARCHAR(255) = 'The Theory of Everything';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('James Marsh');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Anthony McCarten',  'Jane Hawking');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Eddie Redmayne';
+SET @Character = 'Stephen Hawking';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Felicity Jones';
+SET @Character = 'Jane Hawking';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Prior';
+SET @Character = 'Robert Hawking - Age 17';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sophie Perry';
+SET @Character = 'Lucy Hawking - Age 14';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Finlay Wright-Stephens';
+SET @Character = 'Timothy Hawking - Age 8';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harry Lloyd';
+SET @Character = 'Brian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alice Orr-Ewing';
+SET @Character = 'Diana King';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Thewlis';
+SET @Character = 'Dennis Sciama';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomas Morrison';
+SET @Character = 'Carter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Marcus';
+SET @Character = 'Ellis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('husband wife relationship', 'biography', 'based on true story', 'physicist', 'based on memoir or autobiography', 'fictional biography', 'motor neuron disease', 'als', 'cambridge university', 'inspirational', 'admiring');
+
+GO
+-- ============================================
+
+-- Movie: Hacksaw Ridge
+DECLARE @MovieTitle VARCHAR(255) = 'Hacksaw Ridge';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'History', 'War');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Mel Gibson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Robert Schenkkan', 'Andrew Knight');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Andrew Garfield';
+SET @Character = 'Desmond Doss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Pyros';
+SET @Character = 'Teach';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jacob Warner';
+SET @Character = 'James Pinnick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Milo Gibson';
+SET @Character = 'Lucky Ford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Darcy Bryce';
+SET @Character = 'Young Desmond';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Roman Guerriero';
+SET @Character = 'Young ''Hal'' Doss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Lugton';
+SET @Character = 'Hiker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kasia Stelmach';
+SET @Character = 'Hiker''s Friend';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hugo Weaving';
+SET @Character = 'Tom Doss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachel Griffiths';
+SET @Character = 'Bertha Doss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('japan', 'hero', 'world war ii', 'abusive father', 'affectation', 'pacifism', 'bible', 'gore', 'vegetarian', 'biography', 'based on true story', 'okinawa', 'conscientious objector', 'religion', 'soldier', 'alcoholic', 'war hero', 'pacifist', 'medic', 'us military', 'battle of okinawa', 'congressional medal of honor', 'amused', 'combat medic', 'weaponless', 'seventh-day adventists');
+
+GO
+-- ============================================
+
+-- Movie: Ali
+DECLARE @MovieTitle VARCHAR(255) = 'Ali';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'Sport');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Michael Mann');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Gregory Allen Howard',  'Stephen J. Rivele', 'Christopher Wilkinson', 'Eric Roth', 'Michael Mann');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Will Smith';
+SET @Character = 'Cassius Clay / Muhammad Ali';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamie Foxx';
+SET @Character = 'Drew ''Bundini'' Brown';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Voight';
+SET @Character = 'Howard Cosell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mario Van Peebles';
+SET @Character = 'Malcolm X';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ron Silver';
+SET @Character = 'Angelo Dundee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Wright';
+SET @Character = 'Howard Bingham';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mykelti Williamson';
+SET @Character = 'Don King';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jada Pinkett Smith';
+SET @Character = 'Sonji';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nona Gaye';
+SET @Character = 'Belinda Ali';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Michele';
+SET @Character = 'Veronica Porche';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('transporter', 'boxer', 'affectation', 'biography', 'angry', 'detached', 'boxing', 'candid', 'dramatic', 'admiring', 'adoring', 'ambivalent', 'antagonistic', 'approving', 'assertive', 'celebratory', 'empathetic');
+
+GO
+-- ============================================
+
+-- Movie: BlacKkKlansman
+DECLARE @MovieTitle VARCHAR(255) = 'BlacKkKlansman';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Comedy', 'Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Spike Lee');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Charlie Wachtel', 'David Rabinowitz', 'Kevin Willmott', 'Spike Lee',  'Ron Stallworth');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Alec Baldwin';
+SET @Character = 'Dr. Kennebrew Beauregard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John David Washington';
+SET @Character = 'Ron Stallworth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Isiah Whitlock Jr.';
+SET @Character = 'Mr. Turrentine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert John Burke';
+SET @Character = 'Chief Bridges';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Tarantina';
+SET @Character = 'Officer Clay Mulaney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Arthur J. Nascarella';
+SET @Character = 'Officer Wheaton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ken Garito';
+SET @Character = 'Sergeant Trapp';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frederick Weller';
+SET @Character = 'Master Patrolman Andy Landers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Driver';
+SET @Character = 'Flip Zimmerman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Buscemi';
+SET @Character = 'Jimmy Creek';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on novel or book', 'ku klux klan', '1970s', 'black panther party', 'biography', 'based on true story', 'undercover cop', 'racism', 'based on memoir or autobiography', 'revisionist history', 'white supremacy', 'thoughtful', 'defiant', 'kkk', 'kkk rally');
+
+GO
+-- ============================================
+
+-- Movie: The Trial of the Chicago 7
+DECLARE @MovieTitle VARCHAR(255) = 'The Trial of the Chicago 7';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'History', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Aaron Sorkin');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Aaron Sorkin');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Eddie Redmayne';
+SET @Character = 'Tom Hayden';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alex Sharp';
+SET @Character = 'Rennie Davis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sacha Baron Cohen';
+SET @Character = 'Abbie Hoffman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Strong';
+SET @Character = 'Jerry Rubin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Carroll Lynch';
+SET @Character = 'David Dellinger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yahya Abdul-Mateen II';
+SET @Character = 'Bobby Seale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Rylance';
+SET @Character = 'William Kunstler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Gordon-Levitt';
+SET @Character = 'Richard Schultz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ben Shenkman';
+SET @Character = 'Leonard Weinglass';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J.C. MacKenzie';
+SET @Character = 'Thomas Foran';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('chicago', 'illinois', 'right and justice', 'political activism', 'black panther party', 'based on true story', 'black activist', 'counter-culture', 'historical fiction', 'activist', '1960s', 'courtroom drama');
+
+GO
+-- ============================================
+
+-- Movie: Palm Springs
+DECLARE @MovieTitle VARCHAR(255) = 'Palm Springs';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Fantasy', 'Mystery', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Max Barbakow');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Andy Siara',  'Max Barbakow',  'Andy Siara');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Andy Samberg';
+SET @Character = 'Nyles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cristin Milioti';
+SET @Character = 'Sarah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J.K. Simmons';
+SET @Character = 'Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Gallagher';
+SET @Character = 'Howard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Meredith Hagner';
+SET @Character = 'Misty';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Camila Mendes';
+SET @Character = 'Tala';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tyler Hoechlin';
+SET @Character = 'Abe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Pang';
+SET @Character = 'Trevor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jacqueline Obradors';
+SET @Character = 'Pia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'June Squibb';
+SET @Character = 'Nana Schlieffen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('alcohol', 'cave', 'time travel', 'earthquake', 'swimming pool', 'drug use', 'palm springs', 'time loop', 'nemesis', 'wedding', 'maid of honor', 'carefree', 'older sister', 'groundhog day', 'stuck', 'absurd', 'sister''s wedding', 'chance encounter');
+
+GO
+-- ============================================
+
+-- Movie: Liar Liar
+DECLARE @MovieTitle VARCHAR(255) = 'Liar Liar';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Fantasy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Tom Shadyac');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Paul Guay', 'Stephen Mazur');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jim Carrey';
+SET @Character = 'Fletcher Reede';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maura Tierney';
+SET @Character = 'Audrey Reede';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin Cooper';
+SET @Character = 'Max Reede';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cary Elwes';
+SET @Character = 'Jerry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Haney';
+SET @Character = 'Greta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Tilly';
+SET @Character = 'Samantha Cole';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Donohoe';
+SET @Character = 'Miranda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Bernard';
+SET @Character = 'Judge Marshall Stevens';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Swoosie Kurtz';
+SET @Character = 'Dana Appleton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mitchell Ryan';
+SET @Character = 'Mr. Allan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('california', 'workaholic', 'birthday', 'truth', 'lie', 'wish', 'legal drama');
+
+GO
+-- ============================================
+
+-- Movie: Solo Leveling
+DECLARE @MovieTitle VARCHAR(255) = 'Solo Leveling';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Chugong', 'Chugong', 'H-Goon');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Taito Ban';
+SET @Character = 'Jin-woo Sung / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jimmy Tandel';
+SET @Character = 'Classmate';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Makoto Furukawa';
+SET @Character = 'Jin-chul Woo / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Haruna Mikawa';
+SET @Character = 'Jin-ah Sung / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daisuke Hirakawa';
+SET @Character = 'Choi Jong-in / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ryosuke Higa';
+SET @Character = 'Jeong-ho Kang / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Banjô Ginga';
+SET @Character = 'Go Gun-hee / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Genta Nakamura';
+SET @Character = 'Jin-ho Yoo / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ikuto Kanemasa';
+SET @Character = 'Additional Voice / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Reina Ueda';
+SET @Character = 'Hae-in Cha / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Teen Titans GO! To the Movies
+DECLARE @MovieTitle VARCHAR(255) = 'Teen Titans GO! To the Movies';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Family', 'Fantasy', 'Musical', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Aaron Horvath', 'Peter Rida Michail');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Michael Jelenic', 'Aaron Horvath',  'Jerry Siegel', 'Joe Shuster',  'Marv Wolfman', 'George Pérez', 'Arnold Drake',  'Bob Kane', 'Bill Finger',  'William Moulton Marston');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Greg Cipes';
+SET @Character = 'Beast Boy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Menville';
+SET @Character = 'Robin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Khary Payton';
+SET @Character = 'Cyborg';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tara Strong';
+SET @Character = 'Raven';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hynden Walch';
+SET @Character = 'Starfire';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Will Arnett';
+SET @Character = 'Slade';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kristen Bell';
+SET @Character = 'Jade Wilson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eric Bauza';
+SET @Character = 'Aquaman / Stan Lee''s Assistant';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Bolton';
+SET @Character = 'Tiger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kal-El Cage';
+SET @Character = 'Young Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('movie business', 'dc comics', 'superhero', 'time travel', 'slapstick comedy', 'hollywood', 'super power', 'aftercreditsstinger', 'duringcreditsstinger', 'based on tv series');
+
+GO
+-- ============================================
+
+-- Movie: Ford v Ferrari
+DECLARE @MovieTitle VARCHAR(255) = 'Ford v Ferrari';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Biography', 'Drama', 'Sport');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('James Mangold');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jez Butterworth', 'John-Henry Butterworth', 'Jason Keller');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Matt Damon';
+SET @Character = 'Carroll Shelby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Bale';
+SET @Character = 'Ken Miles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Bernthal';
+SET @Character = 'Lee Iacocca';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Caitríona Balfe';
+SET @Character = 'Mollie Miles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Lucas';
+SET @Character = 'Leo Beebe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Noah Jupe';
+SET @Character = 'Peter Miles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tracy Letts';
+SET @Character = 'Henry Ford II';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Remo Girone';
+SET @Character = 'Enzo Ferrari';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ray McKinnon';
+SET @Character = 'Phil Remington';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'JJ Feild';
+SET @Character = 'Roy Lunn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on novel or book', 'car race', 'sports', 'car mechanic', 'biography', 'based on true story', 'le mans', 'racing', 'race car driver', 'aggressive', '1960s', 'powerful');
+
+GO
+-- ============================================
+
+-- Movie: Do Revenge
+DECLARE @MovieTitle VARCHAR(255) = 'Do Revenge';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Jennifer Kaytin Robinson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Celeste Ballard', 'Jennifer Kaytin Robinson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Camila Mendes';
+SET @Character = 'Drea';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maya Hawke';
+SET @Character = 'Eleanor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Austin Abrams';
+SET @Character = 'Max';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rish Shah';
+SET @Character = 'Russ';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Talia Ryder';
+SET @Character = 'Gabbi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alisha Boe';
+SET @Character = 'Tara';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ava Capri';
+SET @Character = 'Carissa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J.D.';
+SET @Character = 'Elliot';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paris Berelc';
+SET @Character = 'Meghan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maia Reficco';
+SET @Character = 'Montana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'friendship', 'female friendship', 'female protagonist', 'campy', 'teen comedy', 'lgbt', 'lgbt teen', 'teenage romance', 'teen drama', 'satirical', 'generation z', 'gay theme', 'lesbian', 'sapphic', 'amused');
+
+GO
+-- ============================================
+
+-- Movie: All the Bright Places
+DECLARE @MovieTitle VARCHAR(255) = 'All the Bright Places';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Brett Haley');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jennifer Niven', 'Liz Hannah',  'Jennifer Niven');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Elle Fanning';
+SET @Character = 'Violet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justice Smith';
+SET @Character = 'Finch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexandra Shipp';
+SET @Character = 'Kate';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kelli O''Hara';
+SET @Character = 'Sheryl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lamar Johnson';
+SET @Character = 'Charlie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Virginia Gardner';
+SET @Character = 'Amanda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Felix Mallard';
+SET @Character = 'Roamer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sofia Hasmik';
+SET @Character = 'Brenda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keegan-Michael Key';
+SET @Character = 'Embry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luke Wilson';
+SET @Character = 'James';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('suicide', 'indiana', 'usa', 'based on novel or book', 'based on young adult novel');
+
+GO
+-- ============================================
+
+-- Movie: Seeking a Friend for the End of the World
+DECLARE @MovieTitle VARCHAR(255) = 'Seeking a Friend for the End of the World';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Comedy', 'Drama', 'Romance', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Lorene Scafaria');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Lorene Scafaria');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Steve Carell';
+SET @Character = 'Dodge';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keira Knightley';
+SET @Character = 'Penny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Brody';
+SET @Character = 'Owen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Connie Britton';
+SET @Character = 'Diane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Roger Aaron Brown';
+SET @Character = 'Alfred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Huebel';
+SET @Character = 'Jeremy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Trisha Gorman';
+SET @Character = 'Crying Woman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nancy Carell';
+SET @Character = 'Linda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Moses';
+SET @Character = 'Anchorman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tonita Castro';
+SET @Character = 'Elsa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('asteroid', 'road trip', 'end of the world', 'woman director');
+
+GO
+-- ============================================
+
+-- Movie: Bruce Almighty
+DECLARE @MovieTitle VARCHAR(255) = 'Bruce Almighty';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Fantasy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Tom Shadyac');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steve Koren', 'Mark O''Keefe',  'Steve Koren', 'Mark O''Keefe', 'Steve Oedekerk');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jim Carrey';
+SET @Character = 'Bruce Nolan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morgan Freeman';
+SET @Character = 'God';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Aniston';
+SET @Character = 'Grace Connelly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Philip Baker Hall';
+SET @Character = 'Jack Baylor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Catherine Bell';
+SET @Character = 'Susan Ortega';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Ann Walter';
+SET @Character = 'Debbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Carell';
+SET @Character = 'Evan Baxter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nora Dunn';
+SET @Character = 'Ally Loman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eddie Jemison';
+SET @Character = 'Bobby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Satterfield';
+SET @Character = 'Dallas Coleman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new love', 'lovesickness', 'moon', 'street gang', 'moses', 'faith', 'prayer', 'christianity', 'journalism', 'car crash', 'god', 'religion', 'relationship', 'news reporter', 'female journalist', 'religious conflict', 'responsibility', 'praying', 'almighty');
+
+GO
+-- ============================================
+
+-- Movie: Central Intelligence
+DECLARE @MovieTitle VARCHAR(255) = 'Central Intelligence';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Rawson Marshall Thurber');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ike Barinholtz', 'David Stassen', 'Rawson Marshall Thurber',  'Ike Barinholtz', 'David Stassen');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Dwayne Johnson';
+SET @Character = 'Bob Stone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Hart';
+SET @Character = 'Calvin Joyner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Ryan';
+SET @Character = 'Agent Pamela Harris';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Danielle Nicolet';
+SET @Character = 'Maggie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Bateman';
+SET @Character = 'Trevor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Paul';
+SET @Character = 'Phil';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ryan Hansen';
+SET @Character = 'Steve';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tim Griffin';
+SET @Character = 'Agent Stan Mitchell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Timothy John Smith';
+SET @Character = 'Agent Nick Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sione Kelepi';
+SET @Character = 'Young Robbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('central intelligence agency (cia)', 'espionage', 'spy', 'secret agent', 'high school reunion', 'reconnect', 'accountant', 'radical transformation', 'high school classmates', 'glory days');
+
+GO
+-- ============================================
+
+-- Movie: The Lego Batman Movie
+DECLARE @MovieTitle VARCHAR(255) = 'The Lego Batman Movie';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Family', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Chris McKay');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Seth Grahame-Smith', 'Chris McKenna', 'Erik Sommers', 'Jared Stern', 'John Whittington',  'Seth Grahame-Smith',  'Bob Kane', 'Bill Finger',  'Jerry Siegel', 'Joe Shuster',  'William Moulton Marston',  'Ole Kirk Christiansen', 'Godtfred Kirk Christiansen', 'Jens Nygaard Knudsen',  'Harry G. Peter');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Will Arnett';
+SET @Character = 'Batman / Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Cera';
+SET @Character = 'Robin / Dick Grayson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rosario Dawson';
+SET @Character = 'Batgirl / Barbara Gordon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ralph Fiennes';
+SET @Character = 'Alfred Pennyworth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Siri';
+SET @Character = '''Puter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zach Galifianakis';
+SET @Character = 'Joker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jenny Slate';
+SET @Character = 'Harley Quinn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Mantzoukas';
+SET @Character = 'Scarecrow';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Conan O''Brien';
+SET @Character = 'The Riddler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Doug Benson';
+SET @Character = 'Bane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('superhero', 'based on comic', 'based on toy', 'spin off', 'super power', 'lego', 'sarcastic', 'sardonic', 'wry');
+
+GO
+-- ============================================
+
+-- Movie: Anand
+DECLARE @MovieTitle VARCHAR(255) = 'Anand';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Sekhar Kammula');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Sekhar Kammula');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Raja';
+SET @Character = 'Anand';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kamalinee Mukherjee';
+SET @Character = 'Roopa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anuj Gurwara';
+SET @Character = 'Rahul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Master Abhijit';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Baby Bakita';
+SET @Character = 'Samata';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Satya Krishnan';
+SET @Character = 'Anita';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gopichand Lagadapati';
+SET @Character = 'Ram';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gururaj Manepalli';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Melkote';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Srikanth Polisetti';
+SET @Character = 'Young Roopa''s brother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+GO
+-- ============================================
+
+-- Movie: Zombieland
+DECLARE @MovieTitle VARCHAR(255) = 'Zombieland';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Horror');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Ruben Fleischer');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Rhett Reese', 'Paul Wernick');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jesse Eisenberg';
+SET @Character = 'Columbus';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Woody Harrelson';
+SET @Character = 'Tallahassee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Wichita';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Abigail Breslin';
+SET @Character = 'Little Rock';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amber Heard';
+SET @Character = '406';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Murray';
+SET @Character = 'Bill Murray';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Derek Graf';
+SET @Character = 'Clown Zombie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cesar Aguirre';
+SET @Character = 'Customer at the Pump';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jacob G. Akins';
+SET @Character = 'Banjo Zombie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hunter Aldridge';
+SET @Character = 'Best Man';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('washington dc', 'usa', 'sibling relationship', 'circus', 'post-apocalyptic future', 'gore', 'parody', 'road trip', 'zombie', 'survival horror', 'amusement park', 'twinkie', 'body count', 'zombification', 'disposing of a dead body', 'loner', 'aftercreditsstinger', 'zombie apocalypse', 'fear of clowns', 'absurd', 'dramatic', 'enthusiastic', 'foreboding', 'frightened', 'sarcastic');
+
+GO
+-- ============================================
+
+-- Movie: Piku
+DECLARE @MovieTitle VARCHAR(255) = 'Piku';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shoojit Sircar');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Juhi Chaturvedi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Deepika Padukone';
+SET @Character = 'Piku Banerjee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amitabh Bachchan';
+SET @Character = 'Bhaskor Banerjee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Irrfan Khan';
+SET @Character = 'Rana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Moushumi Chatterjee';
+SET @Character = 'Chhobi Maashi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Raghubir Yadav';
+SET @Character = 'Dr. Srivastava';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jisshu Sengupta';
+SET @Character = 'Syed';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Balendar Singh';
+SET @Character = 'Budhan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Swaroopa Ghosh';
+SET @Character = 'Moni Kaki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sajal Bhattacharya';
+SET @Character = 'Binod Kaka';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rupsa Banerjee';
+SET @Character = 'Eisha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Man of Steel
+DECLARE @MovieTitle VARCHAR(255) = 'Man of Steel';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Zack Snyder');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('David S. Goyer',  'David S. Goyer', 'Christopher Nolan',  'Jerry Siegel', 'Joe Shuster');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Henry Cavill';
+SET @Character = 'Clark Kent / Kal-El';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Adams';
+SET @Character = 'Lois Lane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Shannon';
+SET @Character = 'General Zod';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diane Lane';
+SET @Character = 'Martha Kent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Russell Crowe';
+SET @Character = 'Jor-El';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Antje Traue';
+SET @Character = 'Faora-Ul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harry Lennix';
+SET @Character = 'General Swanwick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Schiff';
+SET @Character = 'Dr. Emil Hamilton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Meloni';
+SET @Character = 'Colonel Nathan Hardy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Costner';
+SET @Character = 'Jonathan Kent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('saving the world', 'flying', 'hope', 'superhero', 'based on comic', 'alien planet', 'superhuman', 'alien invasion', 'super power', 'mysterious force', 'reboot', 'save the day', 'dc extended universe (dceu)', 'save the planet', 'origin story', 'alien spaceship');
+
+GO
+-- ============================================
+
+-- Movie: Batman v Superman: Dawn of Justice
+DECLARE @MovieTitle VARCHAR(255) = 'Batman v Superman: Dawn of Justice';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Zack Snyder');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bob Kane', 'Bill Finger',  'Jerry Siegel', 'Joe Shuster',  'William Moulton Marston',  'Chris Terrio',  'David S. Goyer');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ben Affleck';
+SET @Character = 'Bruce Wayne / Batman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Henry Cavill';
+SET @Character = 'Clark Kent / Superman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Adams';
+SET @Character = 'Lois';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jesse Eisenberg';
+SET @Character = 'Lex Luthor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diane Lane';
+SET @Character = 'Martha Kent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laurence Fishburne';
+SET @Character = 'Perry White';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Irons';
+SET @Character = 'Alfred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Holly Hunter';
+SET @Character = 'Senator Finch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gal Gadot';
+SET @Character = 'Diana Prince / Wonder Woman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scoot McNairy';
+SET @Character = 'Wallace Keefe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('superhero', 'based on comic', 'revenge', 'vigilante', 'leading man', 'super power', 'dc extended universe (dceu)', 'man vs man', 'leading men');
+
+GO
+-- ============================================
+
+-- Movie: Zack Snyder''s Justice League
+DECLARE @MovieTitle VARCHAR(255) = 'Zack Snyder''s Justice League';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Zack Snyder');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jerry Siegel', 'Joe Shuster',  'Zack Snyder', 'Chris Terrio', 'Will Beall',  'Chris Terrio',  'Gardner Fox',  'Bob Kane', 'Bill Finger',  'William Moulton Marston',  'Jack Kirby');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ben Affleck';
+SET @Character = 'Batman / Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Henry Cavill';
+SET @Character = 'Superman / Clark Kent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Adams';
+SET @Character = 'Lois Lane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gal Gadot';
+SET @Character = 'Wonder Woman / Diana Prince';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ray Fisher';
+SET @Character = 'Cyborg / Victor Stone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Momoa';
+SET @Character = 'Aquaman / Arthur Curry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ezra Miller';
+SET @Character = 'The Flash / Barry Allen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Willem Dafoe';
+SET @Character = 'Vulko';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jesse Eisenberg';
+SET @Character = 'Lex Luthor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Irons';
+SET @Character = 'Alfred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('saving the world', 'superhero', 'resurrection', 'based on comic', 'superhero team', 'planet invasion', 'action hero', 'dc extended universe (dceu)', 'superhero teamup');
+
+GO
+-- ============================================
+
+-- Movie: Alita: Battle Angel
+DECLARE @MovieTitle VARCHAR(255) = 'Alita: Battle Angel';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Robert Rodriguez');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('James Cameron', 'Laeta Kalogridis',  'Yukito Kishiro');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Rosa Salazar';
+SET @Character = 'Alita';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christoph Waltz';
+SET @Character = 'Dr. Dyson Ido';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Connelly';
+SET @Character = 'Chiren';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mahershala Ali';
+SET @Character = 'Vector';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ed Skrein';
+SET @Character = 'Zapan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jackie Earle Haley';
+SET @Character = 'Grewishka';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keean Johnson';
+SET @Character = 'Hugo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jorge Lendeborg Jr.';
+SET @Character = 'Tanji';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lana Condor';
+SET @Character = 'Koyomi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Idara Victor';
+SET @Character = 'Nurse Gerhad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('martial arts', 'bounty hunter', 'dystopia', 'extreme sports', 'superhero', 'cyberpunk', 'based on manga', 'female cyborg', 'live action remake', 'floating city', 'gunnm', 'suspenseful', 'assertive', 'enraged', 'straightforward');
+
+GO
+-- ============================================
+
+-- Movie: The Martian
+DECLARE @MovieTitle VARCHAR(255) = 'The Martian';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Ridley Scott');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Drew Goddard',  'Andy Weir');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Matt Damon';
+SET @Character = 'Mark Watney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Chastain';
+SET @Character = 'Melissa Lewis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kristen Wiig';
+SET @Character = 'Annie Montrose';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeff Daniels';
+SET @Character = 'Teddy Sanders';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Peña';
+SET @Character = 'Rick Martinez';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sean Bean';
+SET @Character = 'Mitch Henderson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate Mara';
+SET @Character = 'Beth Johanssen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sebastian Stan';
+SET @Character = 'Chris Beck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aksel Hennie';
+SET @Character = 'Alex Vogel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chiwetel Ejiofor';
+SET @Character = 'Vincent Kapoor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('spacecraft', 'planet mars', 'based on novel or book', 'nasa', 'isolation', 'botanist', 'alone', 'survival', 'space', 'engineering', 'stranded', 'astronaut', 'struggle for survival', 'duringcreditsstinger', 'deep space', 'potatoes', '2030s', 'mars', 'awestruck', 'defiant');
+
+GO
+-- ============================================
+
+-- Movie: Meet Joe Black
+DECLARE @MovieTitle VARCHAR(255) = 'Meet Joe Black';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Fantasy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Martin Brest');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ron Osborn', 'Jeff Reno', 'Kevin Wade', 'Bo Goldman',  'Alberto Casella',  'Walter Ferris',  'Maxwell Anderson', 'Gladys Lehman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Brad Pitt';
+SET @Character = 'Joe Black / Young Man in Coffee Shop';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anthony Hopkins';
+SET @Character = 'William Parrish';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Claire Forlani';
+SET @Character = 'Susan Parrish';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jake Weber';
+SET @Character = 'Drew';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marcia Gay Harden';
+SET @Character = 'Allison';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Tambor';
+SET @Character = 'Quince';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David S. Howard';
+SET @Character = 'Eddie Sloane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lois Kelly-Miller';
+SET @Character = 'Jamaican Woman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jahnni St. John';
+SET @Character = 'Jamaican Woman''s Daughter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Clarke';
+SET @Character = 'Butler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('life and death', 'broken engagement', 'love at first sight', 'fireworks', 'religion and supernatural', 'based on play or musical', 'fate', 'teenage crush', 'grim reaper', 'doctor', 'millionaire', 'death personified', 'death incarnate', 'angel of death', 'encontro marcado', 'romantic', 'appreciative', 'compassionate');
+
+GO
+-- ============================================
+
+-- Movie: Forrest Gump
+DECLARE @MovieTitle VARCHAR(255) = 'Forrest Gump';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Robert Zemeckis');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Winston Groom',  'Eric Roth');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tom Hanks';
+SET @Character = 'Forrest Gump';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca Williams';
+SET @Character = 'Nurse at Park Bench';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sally Field';
+SET @Character = 'Mrs. Gump';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Conner Humphreys';
+SET @Character = 'Young Forrest';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harold G. Herthum';
+SET @Character = 'Doctor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'George Kelly';
+SET @Character = 'Barber';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Penny';
+SET @Character = 'Crony';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Randall';
+SET @Character = 'Crony';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sam Anderson';
+SET @Character = 'Principal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Margo Moorer';
+SET @Character = 'Louise';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new year''s eve', 'vietnam war', 'vietnam veteran', 'mentally disabled', 'friendship', 'usa president', 'washington dc', 'usa', 'post-traumatic stress disorder (ptsd)', 'waitress', 'based on novel or book', 'hippie', 'single parent', 'parent child relationship', 'optimism', '1970s', 'drug addiction', 'autism', 'alabama', 'black panther party', 'bus stop', 'family relationships', 'chameleon', 'single mother', 'military', 'anti war protest', '1960s', 'college american football', 'mother son relationship', 'america', 'feel-good');
+
+GO
+-- ============================================
+
+-- Movie: Rockstar
+DECLARE @MovieTitle VARCHAR(255) = 'Rockstar';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Music', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Imtiaz Ali');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Imtiaz Ali',  'Muazzam Beg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ranbir Kapoor';
+SET @Character = 'Janardan Jakhar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nargis Fakhri';
+SET @Character = 'Heer Kaul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shammi Kapoor';
+SET @Character = 'Ustad Jameel Khan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kumud Mishra';
+SET @Character = 'Khatana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Piyush Mishra';
+SET @Character = 'Dhingra';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shernaz Patel';
+SET @Character = 'Neena Kaul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aditi Rao Hydari';
+SET @Character = 'Sheena';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sanjana Sanghi';
+SET @Character = 'Mandy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shikha Jain';
+SET @Character = 'Meena';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jaideep Ahlawat';
+SET @Character = 'Jordan''s brother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('adultery', 'musical', 'terminal illness', 'rebellious youth', 'heartbreak', 'rock musical', 'rockstar', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Slumdog Millionaire
+DECLARE @MovieTitle VARCHAR(255) = 'Slumdog Millionaire';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Danny Boyle', 'Loveleen Tandan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Simon Beaufoy',  'Vikas Swarup');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Dev Patel';
+SET @Character = 'Older Jamal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Saurabh Shukla';
+SET @Character = 'Sergeant Srinivas';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anil Kapoor';
+SET @Character = 'Prem';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Raj Zutshi';
+SET @Character = 'Director';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeneva Talwar';
+SET @Character = 'Vision Mixer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Freida Pinto';
+SET @Character = 'Older Latika';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Irrfan Khan';
+SET @Character = 'Police Inspector';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Azharuddin Mohammed Ismail';
+SET @Character = 'Youngest Salim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ayush Mahesh Khedekar';
+SET @Character = 'Youngest Jamal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jira Banjara';
+SET @Character = 'Airport Security Guard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on novel or book', 'slum', 'cheating', 'suspicion', 'mumbai (bombay)', 'india', 'game show', 'quiz', 'orphan', 'duringcreditsstinger', 'taj mahal', 'india');
+
+GO
+-- ============================================
+
+-- Movie: Crazy, Stupid, Love.
+DECLARE @MovieTitle VARCHAR(255) = 'Crazy, Stupid, Love.';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Glenn Ficarra', 'John Requa');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Dan Fogelman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Steve Carell';
+SET @Character = 'Cal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ryan Gosling';
+SET @Character = 'Jacob';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julianne Moore';
+SET @Character = 'Emily';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Hannah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lio Tipton';
+SET @Character = 'Jessica';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonah Bobo';
+SET @Character = 'Robbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joey King';
+SET @Character = 'Molly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marisa Tomei';
+SET @Character = 'Kate';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Beth Littleford';
+SET @Character = 'Claire';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Carroll Lynch';
+SET @Character = 'Bernie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('friendship', 'soulmates', 'marriage crisis', 'midlife crisis', 'babysitter', 'womanizer', 'law school', 'los angeles', 'california', 'middle school', 'relationship', 'love affair', 'divorcee', 'teenage love');
+
+GO
+-- ============================================
+
+-- Movie: Silver Linings Playbook
+DECLARE @MovieTitle VARCHAR(255) = 'Silver Linings Playbook';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David O. Russell');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('David O. Russell',  'Matthew Quick');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Bradley Cooper';
+SET @Character = 'Pat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Lawrence';
+SET @Character = 'Tiffany Maxwell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert De Niro';
+SET @Character = 'Pat Sr.';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jacki Weaver';
+SET @Character = 'Dolores Solitano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Tucker';
+SET @Character = 'Danny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anupam Kher';
+SET @Character = 'Dr. Cliff Patel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Ortiz';
+SET @Character = 'Ronnie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shea Whigham';
+SET @Character = 'Jake';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Stiles';
+SET @Character = 'Veronica';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Herman';
+SET @Character = 'Randy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('depression', 'infidelity', 'dancing', 'friendship', 'philadelphia', 'pennsylvania', 'based on novel or book', 'widow', 'letter', 'neighbor', 'mental illness', 'ex-wife', 'institutionalization', 'death of husband', 'bipolar', 'restraining order', 'father son relationship', 'male mental health');
+
+GO
+-- ============================================
+
+-- Movie: Punch-Drunk Love
+DECLARE @MovieTitle VARCHAR(255) = 'Punch-Drunk Love';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Paul Thomas Anderson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Paul Thomas Anderson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Adam Sandler';
+SET @Character = 'Barry Egan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Andrews';
+SET @Character = 'Operator Carter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Don McManus';
+SET @Character = 'Plastic';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emily Watson';
+SET @Character = 'Lena Leonard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luis Guzmán';
+SET @Character = 'Lance';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Schrempf';
+SET @Character = 'Customer #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Seann Conway';
+SET @Character = 'Customer #2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rico Bueno';
+SET @Character = 'Rico';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hazel Mailloux';
+SET @Character = 'Rhonda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karen Kilgariff';
+SET @Character = 'Anna';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('depression', 'sibling relationship', 'businessman', 'shyness', 'hawaii', 'dysfunctional family', 'psychological abuse', 'los angeles', 'california', 'scam artist', 'telephone sex', 'pudding', 'sweepstakes', 'harmonium', 'absurdist', 'social anxiety', 'emotional abuse', 'anxious', 'provo utah', 'scam call center', 'overbearing sister', 'romantic');
+
+GO
+-- ============================================
+
+-- Movie: Dan in Real Life
+DECLARE @MovieTitle VARCHAR(255) = 'Dan in Real Life';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Peter Hedges');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Pierce Gardner', 'Peter Hedges');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Steve Carell';
+SET @Character = 'Dan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Juliette Binoche';
+SET @Character = 'Marie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dane Cook';
+SET @Character = 'Mitch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alison Pill';
+SET @Character = 'Jane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Britt Robertson';
+SET @Character = 'Cara';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marlene Lawston';
+SET @Character = 'Lilly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dianne Wiest';
+SET @Character = 'Nana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Mahoney';
+SET @Character = 'Poppy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Norbert Leo Butz';
+SET @Character = 'Clay';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amy Ryan';
+SET @Character = 'Eileen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('daughter', 'bookshop', 'relationship', 'widower', 'shore', 'advice columnist', 'single father', 'duringcreditsstinger');
+
+GO
+-- ============================================
+
+-- Movie: A Walk to Remember
+DECLARE @MovieTitle VARCHAR(255) = 'A Walk to Remember';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Adam Shankman');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Nicholas Sparks',  'Karen Janszen');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shane West';
+SET @Character = 'Landon Carter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mandy Moore';
+SET @Character = 'Jamie Sullivan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Coyote';
+SET @Character = 'Reverend Sullivan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daryl Hannah';
+SET @Character = 'Cynthia Carter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lauren German';
+SET @Character = 'Belinda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Clayne Crawford';
+SET @Character = 'Dean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Al Thompson';
+SET @Character = 'Eric';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paz de la Huerta';
+SET @Character = 'Tracie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Parks Jordan';
+SET @Character = 'Walker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Lutz';
+SET @Character = 'Clay Gephardt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'based on novel or book', 'theatre group', 'north carolina', 'romance', 'coming of age', 'cancer', 'tragic love', 'valentine''s day', 'nostalgic', 'star crossed lovers', 'teen drama', 'sentimental', 'romantic', 'adoring', 'distressing', 'empathetic', 'hopeful');
+
+GO
+-- ============================================
+
+-- Movie: Barbie
+DECLARE @MovieTitle VARCHAR(255) = 'Barbie';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Comedy', 'Fantasy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Greta Gerwig');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greta Gerwig', 'Noah Baumbach');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Margot Robbie';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Issa Rae';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate McKinnon';
+SET @Character = 'Weird Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexandra Shipp';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Mackey';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hari Nef';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sharon Rooney';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ana Cruz Kayne';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ritu Arya';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dua Lipa';
+SET @Character = 'Barbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('feminism', 'satire', 'patriarchy', 'based on toy', 'female protagonist', 'doll', 'fantasy world', 'motherhood', 'existentialism', 'woman director', 'mother daughter relationship', 'playful', 'gender discrimination', 'sentimental', 'hilarious', 'secret world', 'whimsical', 'amused', 'audacious', 'celebratory', 'sarcastic', 'sympathetic', 'matel');
+
+GO
+-- ============================================
+
+-- Movie: Barfi!
+DECLARE @MovieTitle VARCHAR(255) = 'Barfi!';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Anurag Basu');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Anurag Basu', 'Tani Basu',  'Sanjeev Dutta');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ranbir Kapoor';
+SET @Character = 'Murphy / Barfi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Priyanka Chopra Jonas';
+SET @Character = 'Jhilmil Chatterjee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ileana D''Cruz';
+SET @Character = 'Shruti Ghosh Sengupta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amar Gupta';
+SET @Character = 'Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Saurabh Shukla';
+SET @Character = 'Sudhanshu Dutta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Roopa Ganguly';
+SET @Character = 'Shruti''s mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashish Vidyarthi';
+SET @Character = 'Mr. Chatterjee';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bholaraj Sapkota';
+SET @Character = 'Bhola';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jisshu Sengupta';
+SET @Character = 'Ranjeet Sengupta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Haradhan Bannerjee';
+SET @Character = 'Daju';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('deaf-mute', 'autism', 'love', 'wedding', 'handicapped', 'bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Les Misérables
+DECLARE @MovieTitle VARCHAR(255) = 'Les Misérables';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Musical', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Tom Hooper');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('William Nicholson', 'Alain Boublil', 'Claude-Michel Schönberg', 'Herbert Kretzmer',  'Alain Boublil', 'Claude-Michel Schönberg',  'Victor Hugo');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Hugh Jackman';
+SET @Character = 'Jean Valjean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Russell Crowe';
+SET @Character = 'Javert';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Hathaway';
+SET @Character = 'Fantine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Seyfried';
+SET @Character = 'Cosette';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sacha Baron Cohen';
+SET @Character = 'Thénardier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Helena Bonham Carter';
+SET @Character = 'Madame Thénardier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eddie Redmayne';
+SET @Character = 'Marius';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Tveit';
+SET @Character = 'Enjolras';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samantha Barks';
+SET @Character = 'Éponine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Huttlestone';
+SET @Character = 'Gavroche';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rebellion', 'army', 'robbery', 'france', 'based on novel or book', 'love triangle', 'love at first sight', 'brothel', 'mayor', 'french revolution', 'musical', 'arrest', 'based on play or musical', 'barricade', 'wedding', 'prostitution', 'falling in love', 'corpse', 'parole', 'convict', 'forced prostitution', 'police inspector', 'girl disguised as boy', 'historical drama', '19th century', 'out of wedlock child', 'historical romance', 'death of a child', 'abusive family', 'corrupt businessman', 'indifferent');
+
+GO
+-- ============================================
+
+-- Movie: 21 Jump Street
+DECLARE @MovieTitle VARCHAR(255) = '21 Jump Street';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Phil Lord', 'Christopher Miller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Michael Bacall',  'Michael Bacall', 'Jonah Hill',  'Patrick Hasburgh', 'Stephen J. Cannell');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jonah Hill';
+SET @Character = 'Schmidt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Channing Tatum';
+SET @Character = 'Jenko';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brie Larson';
+SET @Character = 'Molly Tracey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dave Franco';
+SET @Character = 'Eric Molson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Riggle';
+SET @Character = 'Mr. Walters';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'DeRay Davis';
+SET @Character = 'Domingo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ice Cube';
+SET @Character = 'Captain Dickson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dax Flame';
+SET @Character = 'Zack';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Parnell';
+SET @Character = 'Mr. Gordon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ellie Kemper';
+SET @Character = 'Ms. Griggs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('drug dealer', 'high school', 'investigation', 'nerd', 'male friendship', 'parody', 'jock', 'crude humor', 'undercover cop', 'high school student', 'police academy', 'buddy cop', 'buddy comedy', 'duringcreditsstinger', 'high school rivalry', 'bicycle cop', 'based on tv series', 'cops', 'party drugs', 'high school classmates');
+
+GO
+-- ============================================
+
+-- Movie: Superbad
+DECLARE @MovieTitle VARCHAR(255) = 'Superbad';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Greg Mottola');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Seth Rogen', 'Evan Goldberg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jonah Hill';
+SET @Character = 'Seth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Cera';
+SET @Character = 'Evan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Mintz-Plasse';
+SET @Character = 'Fogell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Hader';
+SET @Character = 'Officer Slater';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Seth Rogen';
+SET @Character = 'Officer Michaels';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martha MacIsaac';
+SET @Character = 'Becca';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Jules';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aviva Baumann';
+SET @Character = 'Nicola';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Lo Truglio';
+SET @Character = 'Francis the Driver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Corrigan';
+SET @Character = 'Mark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'police', 'alcohol', 'chaos', 'nerd', 'coming of age', 'school', 'los angeles', 'california', 'drugs', 'buddy', 'one night', 'fake id', 'serene', 'hilarious');
+
+GO
+-- ============================================
+
+-- Movie: Easy A
+DECLARE @MovieTitle VARCHAR(255) = 'Easy A';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Will Gluck');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bert V. Royal');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Olive';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Penn Badgley';
+SET @Character = 'Woodchuck Todd';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Bynes';
+SET @Character = 'Marianne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dan Byrd';
+SET @Character = 'Brandon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomas Haden Church';
+SET @Character = 'Mr. Griffith';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patricia Clarkson';
+SET @Character = 'Rosemary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cam Gigandet';
+SET @Character = 'Micah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Kudrow';
+SET @Character = 'Mrs. Griffith';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Malcolm McDowell';
+SET @Character = 'Principal Gibbons';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aly Michalka';
+SET @Character = 'Rhiannon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'small town', 'lie', 'loss of virginity', 'coming of age', 'teen movie', 'school', 'female protagonist', 'high school student', 'teen comedy', 'intelligent', 'duringcreditsstinger', 'small town girl', 'rumor', 'teen drama', 'pretend relationship', 'gay friend', 'teenager');
+
+GO
+-- ============================================
+
+-- Movie: Uncut Gems
+DECLARE @MovieTitle VARCHAR(255) = 'Uncut Gems';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Benny Safdie', 'Josh Safdie');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ronald Bronstein', 'Josh Safdie', 'Benny Safdie');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Mesfin Lamengo';
+SET @Character = 'Wounded Miner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sun Zhi Hua-Hilton';
+SET @Character = 'Mine Foreman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Liang Wei-Hui-Duncan';
+SET @Character = 'Mine Management 1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sunny Wu Jin Zahao';
+SET @Character = 'Mine Management 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Deneke Muhugeta';
+SET @Character = 'Lead Miner 1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Habtunu Africho';
+SET @Character = 'Lead Miner 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Warren Finkelstein';
+SET @Character = 'Dr. Blauman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Sandler';
+SET @Character = 'Howard Ratner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith William Richards';
+SET @Character = 'Phil';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tommy Kominik';
+SET @Character = 'Nico';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('bet', 'infidelity', 'new york city', 'gambling', 'auction', 'ethiopia', 'dark comedy', 'basketball', 'money', 'art house', 'debt', 'apartment building', 'opal', 'pawnshop', 'character study', 'jeweler', 'city life', 'neo-noir', 'independent film', 'black opal', 'suspenseful');
+
+GO
+-- ============================================
+
+-- Movie: Begin Again
+DECLARE @MovieTitle VARCHAR(255) = 'Begin Again';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Music', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('John Carney');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('John Carney');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'James Corden';
+SET @Character = 'Steve';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keira Knightley';
+SET @Character = 'Gretta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Ruffalo';
+SET @Character = 'Dan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hailee Steinfeld';
+SET @Character = 'Violet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yasiin Bey';
+SET @Character = 'Saul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karen Pittman';
+SET @Character = 'Business Woman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Romero';
+SET @Character = 'Bartender';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Catherine Keener';
+SET @Character = 'Miriam';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Sellon';
+SET @Character = 'Christian Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ed Renninger';
+SET @Character = 'Barman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'music recording', 'singer-songwriter', 'street musician', 'city life', 'recording session', 'street singer', 'inspirational');
+
+GO
+-- ============================================
+
+-- Movie: Zodiac
+DECLARE @MovieTitle VARCHAR(255) = 'Zodiac';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Fincher');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('James Vanderbilt',  'Robert Graysmith');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jake Gyllenhaal';
+SET @Character = 'Robert Graysmith';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Ruffalo';
+SET @Character = 'Inspector David Toschi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anthony Edwards';
+SET @Character = 'Inspector William Armstrong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Downey Jr.';
+SET @Character = 'Paul Avery';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Cox';
+SET @Character = 'Melvin Belli';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Carroll Lynch';
+SET @Character = 'Arthur Leigh Allen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richmond Arquette';
+SET @Character = 'Zodiac 1 / Zodiac 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Stephenson';
+SET @Character = 'Zodiac 3';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Lacy';
+SET @Character = 'Zodiac 4';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chloë Sevigny';
+SET @Character = 'Melanie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('newspaper', 'journalist', 'california', 'based on novel or book', 'police', 'san francisco', 'california', 'killing', 'detective', '1970s', 'investigation', 'victim', 'code', 'murder', 'serial killer', 'crime scene', 'reporter', 'whodunit', 'alcoholic', 'young man', 'fourth of july', 'newspaper article', 'curious', 'cartoonist', '1960s', 'zodiac killer', 'clinical', 'bar', 'ambiguous', 'foreboding', 'ominous');
+
+GO
+-- ============================================
+
+-- Movie: Free Guy
+DECLARE @MovieTitle VARCHAR(255) = 'Free Guy';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Comedy', 'Fantasy', 'Romance', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shawn Levy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Matt Lieberman', 'Zak Penn',  'Matt Lieberman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ryan Reynolds';
+SET @Character = 'Guy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jodie Comer';
+SET @Character = 'Millie / Molotovgirl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lil Rel Howery';
+SET @Character = 'Buddy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Keery';
+SET @Character = 'Keys';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Utkarsh Ambudkar';
+SET @Character = 'Mouser';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taika Waititi';
+SET @Character = 'Antwan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Channing Tatum';
+SET @Character = 'Revenjamin Buttons';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron W Reed';
+SET @Character = 'Dude';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Britne Oldford';
+SET @Character = 'Barista';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Camille Kostek';
+SET @Character = 'Bombshell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('hero', 'artificial intelligence (a.i.)', 'video game', 'virtual reality', 'gun', 'code', 'gamer', 'bank robbery', 'bank teller', 'programmer', 'mmorpg', 'heroic', 'vrmmo');
+
+GO
+-- ============================================
+
+-- Movie: Guardians of the Galaxy Vol. 3
+DECLARE @MovieTitle VARCHAR(255) = 'Guardians of the Galaxy Vol. 3';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Comedy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('James Gunn');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('James Gunn',  'Jim Starlin',  'Stan Lee', 'Larry Lieber', 'Jack Kirby',  'Steve Englehart', 'Don Heck',  'Roger Stern', 'John Buscema', 'Sal Buscema',  'Bill Mantlo', 'Keith Giffen',  'Steve Englehart', 'Steve Gan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Chukwudi Iwuji';
+SET @Character = 'The High Evolutionary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bradley Cooper';
+SET @Character = 'Rocket';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pom Klementieff';
+SET @Character = 'Mantis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dave Bautista';
+SET @Character = 'Drax';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karen Gillan';
+SET @Character = 'Nebula';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vin Diesel';
+SET @Character = 'Groot';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Austin Freeman';
+SET @Character = 'On-Set Groot / Phlektik Guard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Blackehart';
+SET @Character = 'Steemie Blueliver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terence Rosemore';
+SET @Character = 'Xlomo Smeth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maria Bakalova';
+SET @Character = 'Cosmo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('hero', 'superhero', 'melancholy', 'mad scientist', 'based on comic', 'sequel', 'superhero team', 'space opera', 'raccoon', 'aftercreditsstinger', 'duringcreditsstinger', 'marvel cinematic universe (mcu)', 'hopeless', 'cosmic', 'outer space', 'chosen family', 'lighthearted', 'hilarious', 'cheerful', 'disheartening', 'empathetic', 'enthusiastic', 'euphoric', 'hopeful', 'straightforward', 'sympathetic');
+
+GO
+-- ============================================
+
+-- Movie: Date Night
+DECLARE @MovieTitle VARCHAR(255) = 'Date Night';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime', 'Romance', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shawn Levy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Josh Klausner');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Steve Carell';
+SET @Character = 'Phil Foster';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tina Fey';
+SET @Character = 'Claire Foster';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Wahlberg';
+SET @Character = 'Holbrooke';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taraji P. Henson';
+SET @Character = 'Detective Arroyo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jimmi Simpson';
+SET @Character = 'Armstrong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Common';
+SET @Character = 'Collins';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'William Fichtner';
+SET @Character = 'DA Frank Crenshaw';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leighton Meester';
+SET @Character = 'Katy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J.B. Smoove';
+SET @Character = 'Cabbie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kristen Wiig';
+SET @Character = 'Haley Sullivan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'taxi', 'husband wife relationship', 'corruption', 'new jersey', 'expensive restaurant', 'taxi driver', 'blackmail', 'mistaken identity', 'stripper', 'mafia boss', 'muscleman', 'district attorney', 'manhattan', 'new york city', 'aftercreditsstinger', 'duringcreditsstinger', 'outtakes', 'detectives', 'breaking in', 'thieves', 'married couple with children', 'reservation');
+
+GO
+-- ============================================
+
+-- Movie: Tag
+DECLARE @MovieTitle VARCHAR(255) = 'Tag';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Jeff Tomsic');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Rob McKittrick', 'Mark Steilen',  'Mark Steilen',  'Russell Adams');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ed Helms';
+SET @Character = 'Hogan ''Hoagie'' Malloy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lil Rel Howery';
+SET @Character = 'Reggie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Hamm';
+SET @Character = 'Bob Callahan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Annabelle Wallis';
+SET @Character = 'Rebecca Crosby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jake Johnson';
+SET @Character = 'Randy ''Chilli'' Cilliano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Isla Fisher';
+SET @Character = 'Anna Malloy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hannibal Buress';
+SET @Character = 'Kevin Sable';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nora Dunn';
+SET @Character = 'Linda Malloy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Berg';
+SET @Character = 'Lou Seibert';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Renner';
+SET @Character = 'Jerry Pierce';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on true story', 'travel', 'game', 'group of friends', 'classmates');
+
+GO
+-- ============================================
+
+-- Movie: The Nice Guys
+DECLARE @MovieTitle VARCHAR(255) = 'The Nice Guys';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shane Black');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Shane Black', 'Anthony Bagarozzi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Russell Crowe';
+SET @Character = 'Jackson Healy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ryan Gosling';
+SET @Character = 'Holland March';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Angourie Rice';
+SET @Character = 'Holly March';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Bomer';
+SET @Character = 'John Boy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Margaret Qualley';
+SET @Character = 'Amelia Kuttner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yaya DaCosta';
+SET @Character = 'Tally';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith David';
+SET @Character = 'Older Guy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Beau Knapp';
+SET @Character = 'Blueface';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lois Smith';
+SET @Character = 'Mrs. Glenn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Murielle Telio';
+SET @Character = 'Misty Mountains';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('daughter', 'pornography', 'detective', '1970s', 'investigation', 'alcoholism', 'private investigator', 'conspiracy', 'whodunit', 'alcoholic', 'buddy cop', 'private eye', 'neo-noir', 'father daughter relationship', 'lighthearted', 'hilarious', 'amused', 'earnest', 'vibrant');
+
+GO
+-- ============================================
+
+-- Movie: The Big Sick
+DECLARE @MovieTitle VARCHAR(255) = 'The Big Sick';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Michael Showalter');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Emily V. Gordon', 'Kumail Nanjiani');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Kumail Nanjiani';
+SET @Character = 'Kumail';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zoe Kazan';
+SET @Character = 'Emily';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Holly Hunter';
+SET @Character = 'Beth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ray Romano';
+SET @Character = 'Terry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anupam Kher';
+SET @Character = 'Azmat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zenobia Shroff';
+SET @Character = 'Sharmeen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adeel Akhtar';
+SET @Character = 'Naveed';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bo Burnham';
+SET @Character = 'CJ';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aidy Bryant';
+SET @Character = 'Mary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kurt Braunohler';
+SET @Character = 'Chris';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('chicago', 'illinois', 'new york city', 'immigrant', 'muslim', 'roommates', 'sadness', 'sarcasm', 'comedian', 'based on true story', 'one-man show', 'pakistan', 'family relationships', 'film in film', 'matchmaking', 'cultural difference', 'hospital', 'falling in love', 'family', 'illness', 'group of friends', 'intercultural relationship', 'aftercreditsstinger', 'college student', 'uber', 'traditional family', 'comedy club', 'stand-up comedian', 'grad school');
+
+GO
+-- ============================================
+
+-- Movie: Oppenheimer
+DECLARE @MovieTitle VARCHAR(255) = 'Oppenheimer';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'History');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Christopher Nolan',  'Kai Bird', 'Martin Sherwin');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Cillian Murphy';
+SET @Character = 'J. Robert Oppenheimer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emily Blunt';
+SET @Character = 'Kitty Oppenheimer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Downey Jr.';
+SET @Character = 'Lewis Strauss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alden Ehrenreich';
+SET @Character = 'Senate Aide';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Grimes';
+SET @Character = 'Counsel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Clarke';
+SET @Character = 'Roger Robb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kurt Koehler';
+SET @Character = 'Thomas Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Goldwyn';
+SET @Character = 'Gordon Gray';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Gowans';
+SET @Character = 'Ward Evans';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Macon Blair';
+SET @Character = 'Lloyd Garrison';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('husband wife relationship', 'based on novel or book', 'atomic bomb', 'patriotism', 'new mexico', 'world war ii', 'atomic bomb test', 'physics', 'biography', 'based on true story', 'interrogation', 'guilt', 'historical event', 'nuclear weapons', 'communism', 'red scare', 'mccarthyism', 'top secret project', 'moral dilemma', 'usa politics', '1940s', 'antisemitism', '20th century', 'manhattan project', 'los alamos');
+
+GO
+-- ============================================
+
+-- Movie: The Pianist
+DECLARE @MovieTitle VARCHAR(255) = 'The Pianist';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'Music', 'War');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Roman Polanski');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ronald Harwood',  'Wladyslaw Szpilman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Adrien Brody';
+SET @Character = 'Wladyslaw Szpilman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emilia Fox';
+SET @Character = 'Dorota';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michal Zebrowski';
+SET @Character = 'Jurek';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ed Stoppard';
+SET @Character = 'Henryk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maureen Lipman';
+SET @Character = 'Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frank Finlay';
+SET @Character = 'Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Kate Meyer';
+SET @Character = 'Halina';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Rayner';
+SET @Character = 'Regina';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wanja Mues';
+SET @Character = 'SS Slapping Father';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Ridings';
+SET @Character = 'Mr. Lipa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('concert', 'nazi', 'resistance', 'warsaw ghetto', 'polish resistance', 'homeland', 'holocaust (shoah)', 'hunger', 'world war ii', 'prisoner of war', 'ghetto', 'deportation', 'jew persecution', 'liberation', 'biography', 'survival', 'based on memoir or autobiography', 'pianist', 'poland');
+
+GO
+-- ============================================
+
+-- Movie: Marriage Story
+DECLARE @MovieTitle VARCHAR(255) = 'Marriage Story';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Noah Baumbach');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Noah Baumbach');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Adam Driver';
+SET @Character = 'Charlie Barber';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scarlett Johansson';
+SET @Character = 'Nicole Barber';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Greer';
+SET @Character = 'Street Solicitor #1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Azhy Robertson';
+SET @Character = 'Henry Barber';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wallace Shawn';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Maher';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eric Berryman';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mickey Sumner';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Turner';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gideon Glick';
+SET @Character = 'Theater Actor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('infidelity', 'new york city', 'husband wife relationship', 'parent child relationship', 'theatre group', 'theater director', 'lawyer', 'los angeles', 'california', 'divorce', 'divorce lawyer', 'thoughtful', 'complex', 'intense', 'sincere');
+
+GO
+-- ============================================
+
+-- Movie: Babylon
+DECLARE @MovieTitle VARCHAR(255) = 'Babylon';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'History');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Damien Chazelle');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Damien Chazelle');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'J.C. Currais';
+SET @Character = 'Truck Driver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diego Calva';
+SET @Character = 'Manny Torres';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jimmy Ortega';
+SET @Character = 'Elephant Wrangler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marcos A. Ferraez';
+SET @Character = 'Police Officer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shane Powers';
+SET @Character = 'Dale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Phoebe Tonkin';
+SET @Character = 'Jane Thornton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Troy Metcalf';
+SET @Character = 'Orville Pickwick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jovan Adepo';
+SET @Character = 'Sidney Palmer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hansford Prince';
+SET @Character = 'Joe Holiday';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Telvin Griffin';
+SET @Character = 'Reggie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('elephant', 'gambling', 'gambling debt', 'movie business', 'orgy', 'cocaine', 'champagne', 'alcoholism', 'hollywood', 'alcoholic', 'filmmaking', 'movie star', 'silent film star', '1920s', 'old hollywood', 'fading star', 'sex');
+
+GO
+-- ============================================
+
+-- Movie: Manchester by the Sea
+DECLARE @MovieTitle VARCHAR(255) = 'Manchester by the Sea';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Kenneth Lonergan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Kenneth Lonergan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Casey Affleck';
+SET @Character = 'Lee Chandler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ivy O''Brien';
+SET @Character = 'Young Patrick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kyle Chandler';
+SET @Character = 'Joe Chandler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Donelly';
+SET @Character = 'Mr. Martinez';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Virginia Loring Cooke';
+SET @Character = 'Mrs. Groom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Quincy Tyler Bernstine';
+SET @Character = 'Marianne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Missy Yager';
+SET @Character = 'Mrs. Olsen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen McKinley Henderson';
+SET @Character = 'Mr. Emery';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ben Hanson';
+SET @Character = 'Lenny - the bartender';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mary Mallen';
+SET @Character = 'Sharon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('funeral', 'boston', 'massachusetts', 'brother', 'boat', 'sadness', 'massachusetts', 'loss', 'dysfunctional family', 'grief', 'hospital', 'house fire', 'death', 'nephew', 'ex-wife', 'nonlinear timeline', 'mental health', 'ex-husband ex-wife relationship', 'legal guardian', 'dysfunctional life', 'depressed');
+
+GO
+-- ============================================
+
+-- Movie: Birdman or (The Unexpected Virtue of Ignorance)
+DECLARE @MovieTitle VARCHAR(255) = 'Birdman or (The Unexpected Virtue of Ignorance)';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Alejandro G. Iñárritu');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Alejandro G. Iñárritu', 'Nicolás Giacobone', 'Alexander Dinelaris', 'Armando Bo',  'Raymond Carver');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Michael Keaton';
+SET @Character = 'Riggan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Sam';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kenny Chin';
+SET @Character = 'Korean Grocer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamahl Garrison-Lowe';
+SET @Character = 'Stagehand';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zach Galifianakis';
+SET @Character = 'Jake';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Naomi Watts';
+SET @Character = 'Lesley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Shamos';
+SET @Character = 'Ralph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrea Riseborough';
+SET @Character = 'Laura';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Katherine O''Sullivan';
+SET @Character = 'Costume Assistant';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Damian Young';
+SET @Character = 'Gabriel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'midlife crisis', 'superhero', 'dark comedy', 'times square', 'marijuana', 'broadway', 'magic realism', 'meditative', 'city life', 'father daughter relationship');
+
+GO
+-- ============================================
+
+-- Movie: 500 Days of Summer
+DECLARE @MovieTitle VARCHAR(255) = '500 Days of Summer';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Marc Webb');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Scott Neustadter', 'Michael H. Weber');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Joseph Gordon-Levitt';
+SET @Character = 'Tom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zooey Deschanel';
+SET @Character = 'Summer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Geoffrey Arend';
+SET @Character = 'McKenzie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chloë Grace Moretz';
+SET @Character = 'Rachel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Gray Gubler';
+SET @Character = 'Paul';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Clark Gregg';
+SET @Character = 'Vance';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patricia Belcher';
+SET @Character = 'Millie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachel Boston';
+SET @Character = 'Alison';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Minka Kelly';
+SET @Character = 'Autumn - Girl at Interview';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charles Walker';
+SET @Character = 'Millie''s New Husband';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('jealousy', 'gallery', 'fight', 'date', 'architect', 'interview', 'sister', 'love', 'friends', 'fate', 'los angeles', 'california', 'summer', 'year', 'heartache', 'romantic', 'assertive');
+
+GO
+-- ============================================
+
+-- Movie: The Prestige
+DECLARE @MovieTitle VARCHAR(255) = 'The Prestige';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jonathan Nolan', 'Christopher Nolan',  'Christopher Priest');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Hugh Jackman';
+SET @Character = 'Robert Angier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Bale';
+SET @Character = 'Alfred Borden';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Caine';
+SET @Character = 'Cutter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Piper Perabo';
+SET @Character = 'Julia McCullough';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca Hall';
+SET @Character = 'Sarah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scarlett Johansson';
+SET @Character = 'Olivia Wenscombe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samantha Mahurin';
+SET @Character = 'Jess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Bowie';
+SET @Character = 'Tesla';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andy Serkis';
+SET @Character = 'Alley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Davis';
+SET @Character = 'Judge';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('dying and death', 'suicide', 'class society', 'london', 'england', 'magic', 'competition', 'obsession', 'hostility', 'class', 'diary', 'twist', 'tricks', 'illusion', 'rivalry', 'partner', 'steampunk', 'cruelty', 'hanging', 'jail cell', '19th century', 'nikola tesla', 'magician', 'tesla coil', 'bittersweet', 'secret', 'absurd', 'suspenseful', 'tense', 'mind-blowing');
+
+GO
+-- ============================================
+
+-- Movie: Jojo Rabbit
+DECLARE @MovieTitle VARCHAR(255) = 'Jojo Rabbit';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'War');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Taika Waititi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Christine Leunens',  'Taika Waititi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Roman Griffin Davis';
+SET @Character = 'Jojo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomasin McKenzie';
+SET @Character = 'Elsa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scarlett Johansson';
+SET @Character = 'Rosie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taika Waititi';
+SET @Character = 'Adolf';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sam Rockwell';
+SET @Character = 'Captain Klenzendorf';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebel Wilson';
+SET @Character = 'Fraulein Rahm';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alfie Allen';
+SET @Character = 'Finkel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Merchant';
+SET @Character = 'Deertz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Archie Yates';
+SET @Character = 'Yorki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luke Brandon Field';
+SET @Character = 'Christoph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on novel or book', 'world war ii', 'jew persecution', 'affectation', 'satire', 'imaginary friend', 'hitler youth', 'single mother', 'nazism', '1940s', 'satirical', 'child protagonist', 'adolf hitler', 'children in wartime', 'lighthearted');
+
+GO
+-- ============================================
+
+-- Movie: Get Out
+DECLARE @MovieTitle VARCHAR(255) = 'Get Out';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Horror', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Jordan Peele');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jordan Peele');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Daniel Kaluuya';
+SET @Character = 'Chris Washington';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Allison Williams';
+SET @Character = 'Rose Armitage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Catherine Keener';
+SET @Character = 'Missy Armitage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bradley Whitford';
+SET @Character = 'Dean Armitage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Caleb Landry Jones';
+SET @Character = 'Jeremy Armitage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marcus Henderson';
+SET @Character = 'Walter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Betty Gabriel';
+SET @Character = 'Georgina';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'LaKeith Stanfield';
+SET @Character = 'Andre Logan King';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Root';
+SET @Character = 'Jim Hudson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lil Rel Howery';
+SET @Character = 'Rod Williams';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('kidnapping', 'externally controlled action', 'manipulation', 'dark comedy', 'hypnosis', 'parents-in-law', 'satire', 'racist', 'revenge', 'interracial relationship', 'disappearance', 'racism', 'psychological thriller', 'biting', 'blunt', 'neurosurgeon', 'missing person', 'stereotype', 'brain surgery', 'race-conscious');
+
+GO
+-- ============================================
+
+-- Movie: Baby Driver
+DECLARE @MovieTitle VARCHAR(255) = 'Baby Driver';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Music');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Edgar Wright');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Edgar Wright');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ansel Elgort';
+SET @Character = 'Baby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Bernthal';
+SET @Character = 'Griff';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Hamm';
+SET @Character = 'Buddy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eiza González';
+SET @Character = 'Darling';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Micah Howard';
+SET @Character = 'Barista';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lily James';
+SET @Character = 'Debora';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morgan Brown';
+SET @Character = 'Street Preacher';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Spacey';
+SET @Character = 'Doc';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morse Diggs';
+SET @Character = 'Morse Diggs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'CJ Jones';
+SET @Character = 'Joseph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('robbery', 'waitress', 'atlanta', 'crime boss', 'romance', 'heist', 'getaway car', 'on the run', 'shootout', 'bank robbery', 'getaway driver', 'sign languages', 'armed robbery', 'aggressive', 'hearing impaired', 'intense', 'joyful', 'urgent');
+
+GO
+-- ============================================
+
+-- Movie: The Social Network
+DECLARE @MovieTitle VARCHAR(255) = 'The Social Network';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Fincher');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Aaron Sorkin',  'Ben Mezrich');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jesse Eisenberg';
+SET @Character = 'Mark Zuckerberg';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rooney Mara';
+SET @Character = 'Erica Albright';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bryan Barter';
+SET @Character = 'Billy Olson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dustin Fitzsimons';
+SET @Character = 'Phoenix Club President';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Mazzello';
+SET @Character = 'Dustin Moskovitz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patrick Mapel';
+SET @Character = 'Chris Hughes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Garfield';
+SET @Character = 'Eduardo Saverin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Toby Meuli';
+SET @Character = 'Phoenix Member Playing Facemash';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alecia Svensen';
+SET @Character = 'Girl at Phoenix Club';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jami Owen';
+SET @Character = 'Student Playing Facemash';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('hacker', 'based on novel or book', 'boston', 'massachusetts', 'ex-girlfriend', 'harvard university', 'narcissism', 'based on true story', 'hacking', 'historical fiction', 'twins', 'double cross', 'creator', 'frat party', 'social network', 'deposition', 'intellectual property', 'entrepreneur', 'arrogance', 'social media', 'meditative', 'young entrepreneur', 'facebook', 'legal drama', 'critical', 'tense', 'antagonistic', 'callous', 'wry');
+
+GO
+-- ============================================
+
+-- Movie: Inglourious Basterds
+DECLARE @MovieTitle VARCHAR(255) = 'Inglourious Basterds';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Drama', 'War');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Quentin Tarantino');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Quentin Tarantino');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Brad Pitt';
+SET @Character = 'Lt. Aldo Raine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mélanie Laurent';
+SET @Character = 'Shosanna Dreyfus';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christoph Waltz';
+SET @Character = 'Col. Hans Landa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eli Roth';
+SET @Character = 'Sgt. Donny Donowitz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Fassbender';
+SET @Character = 'Lt. Archie Hicox';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diane Kruger';
+SET @Character = 'Bridget von Hammersmark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Brühl';
+SET @Character = 'Fredrick Zoller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Til Schweiger';
+SET @Character = 'Sgt. Hugo Stiglitz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gedeon Burkhard';
+SET @Character = 'Cpl. Wilhelm Wicki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jacky Ido';
+SET @Character = 'Marcel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('guerrilla warfare', 'swastika', 'paris', 'france', 'nazi', 'self sacrifice', 'sadism', 'dynamite', 'mexican standoff', 'world war ii', 'jew persecution', 'masochism', 'anti-semitism', 'german occupation of france', 'british politics', 'revisionist history', 'adolf hitler');
+
+GO
+-- ============================================
+
+-- Movie: Lady Bird
+DECLARE @MovieTitle VARCHAR(255) = 'Lady Bird';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Greta Gerwig');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greta Gerwig');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Saoirse Ronan';
+SET @Character = 'Lady Bird McPherson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laurie Metcalf';
+SET @Character = 'Marion McPherson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tracy Letts';
+SET @Character = 'Larry McPherson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lucas Hedges';
+SET @Character = 'Danny O''Neill';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Kyle Scheible';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Beanie Feldstein';
+SET @Character = 'Julie Steffans';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lois Smith';
+SET @Character = 'Sister Sarah Joan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen McKinley Henderson';
+SET @Character = 'Father Leviatch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Odeya Rush';
+SET @Character = 'Jenna Walton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jordan Rodrigues';
+SET @Character = 'Miguel McPherson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('friendship', 'loss of virginity', 'coming of age', 'teen angst', 'high school graduation', 'teenage girl', 'best friend', 'loss of job', 'high school student', 'catholic school', 'first love', 'semi autobiographical', 'sacramento', 'woman director', 'father daughter relationship', 'mother daughter relationship', 'college applications', '2000s');
+
+GO
+-- ============================================
+
+-- Movie: 10 Things I Hate About You
+DECLARE @MovieTitle VARCHAR(255) = '10 Things I Hate About You';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Gil Junger');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Karen McCullah', 'Kirsten Smith',  'William Shakespeare');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Heath Ledger';
+SET @Character = 'Patrick Verona';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Stiles';
+SET @Character = 'Kat Stratford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Gordon-Levitt';
+SET @Character = 'Cameron James';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Larisa Oleynik';
+SET @Character = 'Bianca Stratford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Krumholtz';
+SET @Character = 'Michael Eckman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Keegan';
+SET @Character = 'Joey Donner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Susan May Pratt';
+SET @Character = 'Mandella';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gabrielle Union';
+SET @Character = 'Chastity';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Larry Miller';
+SET @Character = 'Walter Stratford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daryl Mitchell';
+SET @Character = 'Mr. Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('high school', 'deception', 'based on play or musical', 'coming of age', 'teen movie', 'shrew', 'valentine''s day', 'shakespeare in modern dress', 'opposites attract', 'duringcreditsstinger', 'teenage romance', 'overprotective father', 'romantic');
+
+GO
+-- ============================================
+
+-- Movie: Scott Pilgrim vs. the World
+DECLARE @MovieTitle VARCHAR(255) = 'Scott Pilgrim vs. the World';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Fantasy', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Edgar Wright');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Michael Bacall', 'Edgar Wright',  'Bryan Lee O''Malley');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Michael Cera';
+SET @Character = 'Scott Pilgrim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kieran Culkin';
+SET @Character = 'Wallace Wells';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Kendrick';
+SET @Character = 'Stacey Pilgrim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alison Pill';
+SET @Character = 'Kim Pine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aubrey Plaza';
+SET @Character = 'Julie Powers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mary Elizabeth Winstead';
+SET @Character = 'Ramona Flowers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Schwartzman';
+SET @Character = 'Gideon Graves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Johnny Simmons';
+SET @Character = 'Young Neil';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Webber';
+SET @Character = 'Stephen Stills';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ellen Wong';
+SET @Character = 'Knives Chau';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('video game', 'skateboarding', 'ex-boyfriend', 'ex-girlfriend', 'toronto', 'canada', 'animated scene', 'dating', 'guitar player', 'break-up', 'based on graphic novel', 'group of friends', 'whipping', 'hipster', 'underage girlfriend', 'unconsciousness', 'girl fight', 'vegan', 'aftercreditsstinger', 'garage band', 'band competition');
+
+GO
+-- ============================================
+
+-- Movie: Inception
+DECLARE @MovieTitle VARCHAR(255) = 'Inception';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Christopher Nolan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Leonardo DiCaprio';
+SET @Character = 'Cobb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joseph Gordon-Levitt';
+SET @Character = 'Arthur';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elliot Page';
+SET @Character = 'Ariadne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Hardy';
+SET @Character = 'Eames';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ken Watanabe';
+SET @Character = 'Saito';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dileep Rao';
+SET @Character = 'Yusuf';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cillian Murphy';
+SET @Character = 'Robert Fischer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Berenger';
+SET @Character = 'Browning';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marion Cotillard';
+SET @Character = 'Mal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pete Postlethwaite';
+SET @Character = 'Maurice Fischer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rescue', 'mission', 'dreams', 'airplane', 'paris', 'france', 'virtual reality', 'kidnapping', 'philosophy', 'spy', 'allegory', 'manipulation', 'car crash', 'heist', 'memory', 'architecture', 'los angeles', 'california', 'dream world', 'subconscious', 'awestruck', 'complicated', 'powerful');
+
+GO
+-- ============================================
+
+-- Movie: The Grand Budapest Hotel
+DECLARE @MovieTitle VARCHAR(255) = 'The Grand Budapest Hotel';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Wes Anderson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Stefan Zweig',  'Wes Anderson',  'Wes Anderson', 'Hugo Guinness');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ralph Fiennes';
+SET @Character = 'M. Gustave';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'F. Murray Abraham';
+SET @Character = 'Mr. Moustafa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mathieu Amalric';
+SET @Character = 'Serge X.';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adrien Brody';
+SET @Character = 'Dmitri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Willem Dafoe';
+SET @Character = 'Jopling';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeff Goldblum';
+SET @Character = 'Deputy Kovacs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harvey Keitel';
+SET @Character = 'Ludwig';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jude Law';
+SET @Character = 'Young Writer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Murray';
+SET @Character = 'M. Ivan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Edward Norton';
+SET @Character = 'Henckels';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('hotel', 'painting', 'wartime', 'affectation', 'eastern europe', 'author', 'gunfight', 'theft', 'bellboy', 'mentor protégé relationship', 'european', 'hotel lobby', 'renaissance painting', '1960s', '1930s', 'ironic', 'complex', 'loving', 'joyous', 'admiring', 'adoring', 'celebratory', 'cheerful', 'comforting', 'conceited', 'euphoric', 'forceful', 'joyful');
+
+GO
+-- ============================================
+
+-- Movie: The Dark Knight
+DECLARE @MovieTitle VARCHAR(255) = 'The Dark Knight';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jonathan Nolan', 'Christopher Nolan',  'Christopher Nolan', 'David S. Goyer',  'Bob Kane');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Christian Bale';
+SET @Character = 'Bruce Wayne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Heath Ledger';
+SET @Character = 'Joker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Eckhart';
+SET @Character = 'Harvey Dent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Caine';
+SET @Character = 'Alfred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maggie Gyllenhaal';
+SET @Character = 'Rachel';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gary Oldman';
+SET @Character = 'Gordon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morgan Freeman';
+SET @Character = 'Lucius Fox';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Monique Gabriela Curnen';
+SET @Character = 'Ramirez';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ron Dean';
+SET @Character = 'Wuertz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cillian Murphy';
+SET @Character = 'Scarecrow';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('joker', 'sadism', 'chaos', 'secret identity', 'crime fighter', 'superhero', 'anti hero', 'scarecrow', 'based on comic', 'vigilante', 'organized crime', 'tragic hero', 'anti villain', 'criminal mastermind', 'district attorney', 'super power', 'super villain', 'neo-noir', 'bold');
+
+GO
+-- ============================================
+
+-- Movie: Eternal Sunshine of the Spotless Mind
+DECLARE @MovieTitle VARCHAR(255) = 'Eternal Sunshine of the Spotless Mind';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Michel Gondry');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Charlie Kaufman', 'Michel Gondry', 'Pierre Bismuth',  'Charlie Kaufman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jim Carrey';
+SET @Character = 'Joel Barish';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate Winslet';
+SET @Character = 'Clementine Kruczynski';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gerry Robert Byrne';
+SET @Character = 'Train Conductor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elijah Wood';
+SET @Character = 'Patrick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thomas Jay Ryan';
+SET @Character = 'Frank';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Ruffalo';
+SET @Character = 'Stan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jane Adams';
+SET @Character = 'Carrie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Cross';
+SET @Character = 'Rob';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kirsten Dunst';
+SET @Character = 'Mary';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Wilkinson';
+SET @Character = 'Dr. Mierzwiak';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'regret', 'jealousy', 'deja vu', 'amnesia', 'dreams', 'operation', 'relationship problems', 'love', 'memory', 'brainwashing', 'relationship', 'heartbreak', 'nonlinear timeline', '2000s', 'memory manipulation', 'joyful');
+
+GO
+-- ============================================
+
+-- Movie: Spider-Man: Into the Spider-Verse
+DECLARE @MovieTitle VARCHAR(255) = 'Spider-Man: Into the Spider-Verse';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Family', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Bob Persichetti', 'Peter Ramsey', 'Rodney Rothman');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Phil Lord', 'Rodney Rothman',  'Phil Lord');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Shameik Moore';
+SET @Character = 'Miles Morales';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jake Johnson';
+SET @Character = 'Peter B. Parker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hailee Steinfeld';
+SET @Character = 'Gwen Stacy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mahershala Ali';
+SET @Character = 'Uncle Aaron';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Tyree Henry';
+SET @Character = 'Jefferson Davis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lily Tomlin';
+SET @Character = 'Aunt May';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luna Lauren Velez';
+SET @Character = 'Rio Morales';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zoë Kravitz';
+SET @Character = 'Mary Jane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Mulaney';
+SET @Character = 'Spider-Ham';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kimiko Glenn';
+SET @Character = 'Peni Parker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('superhero', 'based on comic', 'aftercreditsstinger', 'alternate universe');
+
+GO
+-- ============================================
+
+-- Movie: Interstellar
+DECLARE @MovieTitle VARCHAR(255) = 'Interstellar';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Christopher Nolan');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jonathan Nolan', 'Christopher Nolan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ellen Burstyn';
+SET @Character = 'Murph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew McConaughey';
+SET @Character = 'Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mackenzie Foy';
+SET @Character = 'Murph';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Lithgow';
+SET @Character = 'Donald';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Tom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Oyelowo';
+SET @Character = 'School Principal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Collette Wolfe';
+SET @Character = 'Ms. Hanley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Francis X. McCarthy';
+SET @Character = 'Boots';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bill Irwin';
+SET @Character = 'TARS';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anne Hathaway';
+SET @Character = 'Brand';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('rescue', 'future', 'spacecraft', 'race against time', 'artificial intelligence (a.i.)', 'nasa', 'time warp', 'dystopia', 'expedition', 'space travel', 'wormhole', 'famine', 'hibernation', 'black hole', 'quantum mechanics', 'family relationships', 'space', 'robot', 'astronaut', 'scientist', 'single father', 'farmer', 'space station', 'space adventure', 'time paradox', 'cryonics', 'father daughter relationship', '2060s', 'cornfield', 'time manipulation', 'amused');
+
+GO
+-- ============================================
+
+-- Movie: tick, tick... BOOM!
+DECLARE @MovieTitle VARCHAR(255) = 'tick, tick... BOOM!';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Comedy', 'Drama', 'Musical');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Lin-Manuel Miranda');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steven Levenson',  'Jonathan Larson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Andrew Garfield';
+SET @Character = 'Jonathan Larson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexandra Shipp';
+SET @Character = 'Susan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robin de Jesus';
+SET @Character = 'Michael';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vanessa Hudgens';
+SET @Character = 'Karessa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joshua Henry';
+SET @Character = 'Roger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Marc Sherman';
+SET @Character = 'Ira Weitzman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michaela Jaé  Rodriguez';
+SET @Character = 'Carolyn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ben Levi Ross';
+SET @Character = 'Freddy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Judith Light';
+SET @Character = 'Rosa Stevens';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bradley Whitford';
+SET @Character = 'Stephen Sondheim';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new york city', 'composer', 'artist', 'melancholy', 'musical', 'based on true story', 'based on play or musical', 'singing', 'boyfriend girlfriend relationship', 'struggling artist', '1990s', 'portrait of an artist', 'hiv/aids epidemic', 'inspirational', 'theater');
+
+GO
+-- ============================================
+
+-- Movie: La La Land
+DECLARE @MovieTitle VARCHAR(255) = 'La La Land';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Music', 'Musical', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Damien Chazelle');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Damien Chazelle');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ryan Gosling';
+SET @Character = 'Sebastian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Stone';
+SET @Character = 'Mia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amiee Conn';
+SET @Character = 'Famous Actress';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terry Walters';
+SET @Character = 'Linda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thom Shelton';
+SET @Character = 'Coffee Spiller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cinda Adams';
+SET @Character = 'Casting Director';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Callie Hernandez';
+SET @Character = 'Tracy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Rothe';
+SET @Character = 'Alexis';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sonoya Mizuno';
+SET @Character = 'Caitlin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rosemarie DeWitt';
+SET @Character = 'Laura';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('dancing', 'dance', 'jazz', 'musical', 'ambition', 'casting', 'coffee shop', 'jazz club', 'traffic jam', 'hollywood', 'los angeles', 'california', 'pianist', 'pier', 'audition', 'valentine''s day', 'planetarium', 'aspiring actor', 'movie set', 'sunset', 'one woman show', 'pool party', 'griffith observatory', 'romantic', 'exuberant', 'tragic');
+
+GO
+-- ============================================
+
+-- Movie: Nope
+DECLARE @MovieTitle VARCHAR(255) = 'Nope';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Horror', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Jordan Peele');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jordan Peele');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Daniel Kaluuya';
+SET @Character = 'OJ Haywood';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keke Palmer';
+SET @Character = 'Emerald Haywood';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brandon Perea';
+SET @Character = 'Angel Torres';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Wincott';
+SET @Character = 'Antlers Holst';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steven Yeun';
+SET @Character = 'Ricky ''Jupe'' Park';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wrenn Schmidt';
+SET @Character = 'Amber Park';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Keith David';
+SET @Character = 'Otis Haywood Sr.';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Devon Graye';
+SET @Character = 'Ryder Muybridge';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terry Notary';
+SET @Character = 'Gordy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Barbie Ferreira';
+SET @Character = 'Nessie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('california', 'horse', 'exploitation', 'video surveillance', 'death of father', 'alien', 'ufo', 'social commentary', 'psychological thriller', 'alien invasion', 'child star', 'chimpanzee', 'aftercreditsstinger', 'horse farm', 'african american man', 'racial issues', 'brother sister relationship');
+
+GO
+-- ============================================
+
+-- Movie: Bullet Train
+DECLARE @MovieTitle VARCHAR(255) = 'Bullet Train';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('David Leitch');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Zak Olkewicz',  'Kôtarô Isaka');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Brad Pitt';
+SET @Character = 'Ladybug';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joey King';
+SET @Character = 'Prince';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Taylor-Johnson';
+SET @Character = 'Tangerine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Tyree Henry';
+SET @Character = 'Lemon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Koji';
+SET @Character = 'Kimura';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hiroyuki Sanada';
+SET @Character = 'The Elder';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Shannon';
+SET @Character = 'White Death';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sandra Bullock';
+SET @Character = 'Maria';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bad Bunny';
+SET @Character = 'Wolf';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Logan Lerman';
+SET @Character = 'The Son';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('mission', 'japan', 'assassin', 'based on novel or book', 'train', 'luck', 'deadly snake', 'duringcreditsstinger', 'shinkansen');
+
+GO
+-- ============================================
+
+-- Movie: Everything Everywhere All at Once
+DECLARE @MovieTitle VARCHAR(255) = 'Everything Everywhere All at Once';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Daniel Kwan', 'Daniel Scheinert');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Daniel Kwan', 'Daniel Scheinert');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Michelle Yeoh';
+SET @Character = 'Evelyn Wang';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Hsu';
+SET @Character = 'Joy Wang / Jobu Tupaki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ke Huy Quan';
+SET @Character = 'Waymond Wang';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Hong';
+SET @Character = 'Gong Gong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamie Lee Curtis';
+SET @Character = 'Deirdre Beaubeirdre';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tallie Medel';
+SET @Character = 'Becky Sregor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jenny Slate';
+SET @Character = 'Debbie the Dog Mom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harry Shum Jr.';
+SET @Character = 'Chad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Biff Wiff';
+SET @Character = 'Rick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sunita Mani';
+SET @Character = 'TV Musical - Queen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('mother', 'martial arts', 'kung fu', 'philosophy', 'generations conflict', 'chinese woman', 'surrealism', 'laundromat', 'chinese', 'east asian lead', 'divorce', 'family', 'lgbt', 'hot dog', 'asian woman', 'chinese immigrant', 'imaginative', 'mother daughter relationship', 'action comedy', 'asian american', 'intergenerational trauma', 'internal revenue service', 'interdimensional travel', 'absurd', '瞬息全宇宙');
+
+GO
+-- ============================================
+
+-- Movie: The Banshees of Inisherin
+DECLARE @MovieTitle VARCHAR(255) = 'The Banshees of Inisherin';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Martin McDonagh');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Martin McDonagh');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Colin Farrell';
+SET @Character = 'Pádraic Súilleabháin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brendan Gleeson';
+SET @Character = 'Colm Doherty';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kerry Condon';
+SET @Character = 'Siobhán Súilleabháin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pat Shortt';
+SET @Character = 'Jonjo Devine';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gary Lydon';
+SET @Character = 'Peadar Kearney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Kenny';
+SET @Character = 'Gerry';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Barry Keoghan';
+SET @Character = 'Dominic Kearney';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sheila Flitton';
+SET @Character = 'Mrs. McCormick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Carty';
+SET @Character = 'Older Musician 1';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oliver Farrelly';
+SET @Character = 'Older Musician 2';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('friendship', 'island', 'donkey', 'dark comedy', 'irish civil war (1922-23)', 'church', 'ireland', 'drinking', 'former best friend', 'self mutilation', 'fiddle', '1920s', 'brother sister relationship', 'pub');
+
+GO
+-- ============================================
+
+-- Movie: Knives Out
+DECLARE @MovieTitle VARCHAR(255) = 'Knives Out';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Rian Johnson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Rian Johnson');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Daniel Craig';
+SET @Character = 'Benoit Blanc';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Evans';
+SET @Character = 'Ransom Drysdale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ana de Armas';
+SET @Character = 'Marta Cabrera';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamie Lee Curtis';
+SET @Character = 'Linda Drysdale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Shannon';
+SET @Character = 'Walt Thrombey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Don Johnson';
+SET @Character = 'Richard Drysdale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Toni Collette';
+SET @Character = 'Joni Thrombey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'LaKeith Stanfield';
+SET @Character = 'Lieutenant Elliott';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Plummer';
+SET @Character = 'Harlan Thrombey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Katherine Langford';
+SET @Character = 'Meg Thrombey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('immigrant', 'detective', 'massachusetts', 'investigation', 'big family', 'mansion', 'whodunit', 'family home', 'murder mystery', 'neo-noir', 'privilege', 'absurd', 'suspenseful');
+
+GO
+-- ============================================
+
+-- Movie: Chungking Express
+DECLARE @MovieTitle VARCHAR(255) = 'Chungking Express';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime', 'Drama', 'Mystery', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Wong Kar-Wai');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Wong Kar-Wai');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Brigitte Lin';
+SET @Character = 'Woman in Blonde Wig';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Leung Chiu-wai';
+SET @Character = 'Cop 663';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Faye Wong';
+SET @Character = 'Faye';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Takeshi Kaneshiro';
+SET @Character = 'He Zhiwu, Cop 223';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Valerie Chow';
+SET @Character = 'Air Hostess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Piggy Chan';
+SET @Character = 'Manager of ''Midnight Express''';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lee-Na Kwan';
+SET @Character = 'Richard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zhiming Huang';
+SET @Character = 'Man';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Liang Zhen';
+SET @Character = 'The 2nd May';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Songshen Zuo';
+SET @Character = 'Man';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('drug smuggling', 'police', 'ex-girlfriend', 'girlfriend', 'snack bar', 'romance', 'hong kong', 'expiration date', 'flight attendant', 'cleaning');
+
+GO
+-- ============================================
+
+-- Movie: The Pursuit of Happyness
+DECLARE @MovieTitle VARCHAR(255) = 'The Pursuit of Happyness';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Gabriele Muccino');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steve Conrad');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Will Smith';
+SET @Character = 'Chris Gardner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jaden Smith';
+SET @Character = 'Christopher';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Thandiwe Newton';
+SET @Character = 'Linda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Howe';
+SET @Character = 'Jay Twistle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Karen';
+SET @Character = 'Martin Frohm';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dan Castellaneta';
+SET @Character = 'Alan Frakesh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kurt Fuller';
+SET @Character = 'Walter Ribbon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Takayo Fischer';
+SET @Character = 'Mrs. Chu';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin West';
+SET @Character = 'World''s Greatest Dad';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'George Cheung';
+SET @Character = 'Chinese Maintenance Worker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('work', 'worker', 'homeless person', 'single parent', 'san francisco', 'california', 'bus', 'homelessness', 'church service', 'bad luck', 'biography', 'based on true story', 'salesman', 'stockbroker', 'single father', 'inspiring story', 'poor', 'working life', 'inspirational', 'happiness');
+
+GO
+-- ============================================
+
+-- Movie: The Substance
+DECLARE @MovieTitle VARCHAR(255) = 'The Substance';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Horror', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Coralie Fargeat');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Coralie Fargeat');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Demi Moore';
+SET @Character = 'Elisabeth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Margaret Qualley';
+SET @Character = 'Sue';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dennis Quaid';
+SET @Character = 'Harvey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Edward Hamilton-Clark';
+SET @Character = 'Fred';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gore Abrams';
+SET @Character = 'Oliver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oscar Lesage';
+SET @Character = 'Troy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Erickson';
+SET @Character = 'Man at Diner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robin Greer';
+SET @Character = 'Male Nurse';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Morton';
+SET @Character = 'Doctor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hugo Diego Garcia';
+SET @Character = 'Diego - Boyfriend';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('new year''s eve', 'capitalism', 'black market', 'identity', 'beauty', 'satire', 'aging', 'celebrity', 'female protagonist', 'los angeles', 'california', 'has been', 'aerobics', 'disfigurement', 'woman director', 'beauty standards', 'insecure woman', 'toxic masculinity', 'drug', 'body horror', 'female rage', 'youth', 'actress', 'distressing');
+
+GO
+-- ============================================
+
+-- Movie: Joyland
+DECLARE @MovieTitle VARCHAR(255) = 'Joyland';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Saim Sadiq');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Saim Sadiq',  'Maggie Briggs');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ali Junejo';
+SET @Character = 'Haider';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rasti Farooq';
+SET @Character = 'Mumtaz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alina Khan';
+SET @Character = 'Biba';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sarwat Gilani';
+SET @Character = 'Nucchi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Salmaan Peerzada';
+SET @Character = 'Father Aman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sohail Sameer';
+SET @Character = 'Saleem';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sania Saeed';
+SET @Character = 'Fayyaz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ramiz Law';
+SET @Character = 'Qaiser';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Honey Albela';
+SET @Character = 'Ashfaq Saab';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Priya Usman Khan';
+SET @Character = 'Shagnam Rani';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('dance', 'husband wife relationship', 'dancer', 'love', 'attraction', 'lgbt', 'pakistani culture', 'gay theme', 'transgender', 'tragic');
+
+GO
+-- ============================================
+
+-- Movie: Circus of Life
+DECLARE @MovieTitle VARCHAR(255) = 'Circus of Life';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Sarmad Sultan Khoosat');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Nirmal Bano');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Arif Hassan';
+SET @Character = 'Rahat Khawaja';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samiya Mumtaz';
+SET @Character = 'Farkhanda';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eman Suleman';
+SET @Character = 'Sadaf';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ali Kureshi';
+SET @Character = 'Danish';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nadia Afgan';
+SET @Character = 'TV Show Hostess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adeel Afzal';
+SET @Character = 'Usman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mehar Bano';
+SET @Character = 'Cousin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hammad Haider Butt';
+SET @Character = 'Cleric';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Agha Haider';
+SET @Character = '';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ali Hasnain';
+SET @Character = 'DJ';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('circus', 'social life', 'social justice', 'social');
+
+GO
+-- ============================================
+
+-- Movie: The Godfather
+DECLARE @MovieTitle VARCHAR(255) = 'The Godfather';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Francis Ford Coppola');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Mario Puzo', 'Francis Ford Coppola',  'Mario Puzo');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Marlon Brando';
+SET @Character = 'Don Vito Corleone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Al Pacino';
+SET @Character = 'Michael';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Caan';
+SET @Character = 'Sonny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard S. Castellano';
+SET @Character = 'Clemenza';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Duvall';
+SET @Character = 'Tom Hagen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sterling Hayden';
+SET @Character = 'Capt. McCluskey';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Marley';
+SET @Character = 'Jack Woltz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Conte';
+SET @Character = 'Barzini';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Al Lettieri';
+SET @Character = 'Sollozzo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diane Keaton';
+SET @Character = 'Kay Adams';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('based on novel or book', 'loss of loved one', 'love at first sight', 'italy', 'symbolism', 'patriarch', 'europe', 'organized crime', 'mafia', 'religion', 'lawyer', 'revenge motive', 'crime family', 'sicilian mafia', 'religious hypocrisy', 'macabre', 'gun violence', 'rise to power', 'dead horse', 'gang violence', 'aggressive', '1940s', '1950s', 'mafia war', 'vindictive', 'suspenseful', 'tense', 'admiring', 'audacious', 'commanding');
+
+GO
+-- ============================================
+
+-- Movie: Pulp Fiction
+DECLARE @MovieTitle VARCHAR(255) = 'Pulp Fiction';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Quentin Tarantino');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Quentin Tarantino', 'Roger Avary',  'Quentin Tarantino');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tim Roth';
+SET @Character = 'Pumpkin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Plummer';
+SET @Character = 'Honey Bunny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laura Lovelace';
+SET @Character = 'Waitress';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Travolta';
+SET @Character = 'Vincent Vega';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samuel L. Jackson';
+SET @Character = 'Jules Winnfield';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Phil LaMarr';
+SET @Character = 'Marvin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frank Whaley';
+SET @Character = 'Brett';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Burr Steers';
+SET @Character = 'Roger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bruce Willis';
+SET @Character = 'Butch Coolidge';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ving Rhames';
+SET @Character = 'Marsellus Wallace';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('drug dealer', 'boxer', 'massage', 'stolen money', 'briefcase', 'crime boss', 'redemption', 'heirloom', 'dance competition', 'los angeles', 'california', 'theft', 'blunt', 'nonlinear timeline', 'multiple storylines', 'aggressive', 'neo-noir', 'philosophical', 'grand', 'ambiguous', 'vibrant');
+
+GO
+-- ============================================
+
+-- Movie: October
+DECLARE @MovieTitle VARCHAR(255) = 'October';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Romance');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Shoojit Sircar');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Juhi Chaturvedi',  'Juhi Chaturvedi',  'Juhi Chaturvedi',  'Juhi Chaturvedi',  'Wajid Shaikh');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Varun Dhawan';
+SET @Character = 'Danish Walia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Banita Sandhu';
+SET @Character = 'Shiuli Iyer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gitanjali Rao';
+SET @Character = 'Prof. Vidya Iyer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sahil Vedoliyaa';
+SET @Character = 'Manjeet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Isha Chaturvedi';
+SET @Character = 'Ishani';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Prateek Kapoor';
+SET @Character = 'Asthana';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Iteeva Pande';
+SET @Character = 'Kaveri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karamveer Kanwar';
+SET @Character = 'Kunal';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashish Ghosh';
+SET @Character = 'Dr. Ghosh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachica Oswal';
+SET @Character = 'Danish''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('bollywood');
+
+GO
+-- ============================================
+
+-- Movie: Dune: Part One
+DECLARE @MovieTitle VARCHAR(255) = 'Dune: Part One';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Denis Villeneuve');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jon Spaihts', 'Denis Villeneuve', 'Eric Roth',  'Frank Herbert');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Timothée Chalamet';
+SET @Character = 'Paul Atreides';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca Ferguson';
+SET @Character = 'Lady Jessica Atreides';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oscar Isaac';
+SET @Character = 'Duke Leto Atreides';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Momoa';
+SET @Character = 'Duncan Idaho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stellan Skarsgård';
+SET @Character = 'Baron Vladimir Harkonnen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen McKinley Henderson';
+SET @Character = 'Thufir Hawat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Brolin';
+SET @Character = 'Gurney Halleck';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Javier Bardem';
+SET @Character = 'Stilgar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sharon Duncan-Brewster';
+SET @Character = 'Dr. Liet Kynes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chang Chen';
+SET @Character = 'Dr. Wellington Yueh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('empire', 'future', 'epic', 'army', 'based on novel or book', 'prophecy', 'dystopia', 'emperor', 'sand', 'spice', 'hallucinogen', 'treason', 'baron', 'revenge', 'premonition', 'betrayal', 'space', 'water shortage', 'creature', 'desert', 'knife fight', 'destiny', 'giant worm', 'space opera', 'sand dune', 'messiah', 'domineering', 'mother son relationship', 'wonder', 'giant creature', 'suspenseful', 'intense', 'bold', 'commanding', 'foreboding', 'powerful');
+
+GO
+
+-- ============================================
+
+-- Movie: Up
+DECLARE @MovieTitle VARCHAR(255) = 'Up';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Adventure', 'Comedy', 'Drama', 'Family');
+
+-- ========== Directors ==========
+INSERT INTO MovieDirectors (MovieID, DirectorID)
+SELECT @MovieID, DirectorID FROM Directors
+WHERE DirectorName IN ('Pete Docter', 'Bob Peterson');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Pete Docter', 'Bob Peterson', 'Tom McCarthy',  'Bob Peterson', 'Pete Docter');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Edward Asner';
+SET @Character = 'Carl Fredricksen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christopher Plummer';
+SET @Character = 'Charles Muntz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jordan Nagai';
+SET @Character = 'Russell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Peterson';
+SET @Character = 'Dug / Alpha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Delroy Lindo';
+SET @Character = 'Beta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jerome Ranft';
+SET @Character = 'Gamma';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Ratzenberger';
+SET @Character = 'Construction Foreman Tom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Kaye';
+SET @Character = 'Newsreel Announcer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elie Docter';
+SET @Character = 'Young Ellie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Leary';
+SET @Character = 'Young Carl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+INSERT INTO MovieKeywords (MovieID, KeywordID)
+SELECT @MovieID, KeywordID FROM Keywords
+WHERE KeywordName IN ('central and south america', 'age difference', 'villain', 'balloon', 'travel', 'dog', 'duringcreditsstinger', 'pets', 'exploring', 'senior', 'sentimental');
+
+GO
+-- ============================================
+
+-- Movie: Dragon Ball Daima
+DECLARE @MovieTitle VARCHAR(255) = 'Dragon Ball Daima';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Yûko Kakihara', 'Yûko Kakihara', 'Akira Toriyama');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Masako Nozawa';
+SET @Character = 'Son Goku / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kôki Uchiyama';
+SET @Character = 'Gurorio';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Dismuke';
+SET @Character = 'Glorio';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Nadolny';
+SET @Character = 'Goku';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yumiko Kobayashi';
+SET @Character = 'Kaiôshin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nia Celeste';
+SET @Character = 'Supreme Kai';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ai Fairouz';
+SET @Character = 'Panji';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Shôtarô Morikubo';
+SET @Character = 'King Gomâ';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Laflin';
+SET @Character = 'King Gomah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Veronica Laux';
+SET @Character = 'Panzy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Dragon Ball GT
+DECLARE @MovieTitle VARCHAR(255) = 'Dragon Ball GT';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Fantasy', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Akira Toriyama', 'Akira Toriyama', 'Atsushi Maekawa');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Elise Baughman';
+SET @Character = 'Pan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Chandler';
+SET @Character = 'Narrator / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Masako Nozawa';
+SET @Character = 'Son Gokû / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yûko Minaguchi';
+SET @Character = 'Pan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jôji Yanami';
+SET @Character = 'Narrator / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Caitlynne Medrek';
+SET @Character = 'Pan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremiah Yurk';
+SET @Character = 'Adult Goku / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Nadolny';
+SET @Character = 'Young Goku / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eric Vale';
+SET @Character = 'Trunks / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Erickson';
+SET @Character = 'Gill / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: My Hero Academia
+DECLARE @MovieTitle VARCHAR(255) = 'My Hero Academia';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Kôhei Horikoshi', 'Kôhei Horikoshi', 'Kôhei Horikoshi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Daiki Yamashita';
+SET @Character = 'Izuku Midoriya';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin Briner';
+SET @Character = 'Izuku Midoriya';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nobuhiko Okamoto';
+SET @Character = 'Katsuki Bakugou';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ayane Sakura';
+SET @Character = 'Ochako Uraraka / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yûki Kaji';
+SET @Character = 'Shouto Todoroki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kaito Ishikawa';
+SET @Character = 'Tenya Iida / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Clifford Chapin';
+SET @Character = 'Katsuki Bakugo / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Toshiki Masuda';
+SET @Character = 'Eijirou Kirishima / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jun''ichi Suwabe';
+SET @Character = 'Shouta Aizawa / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luci Christian';
+SET @Character = 'Ochaco Uraraka / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Attack on Titan
+DECLARE @MovieTitle VARCHAR(255) = 'Attack on Titan';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Drama', 'Fantasy', 'Horror');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Hajime Isayama', 'Hajime Isayama', 'Yasuko Kobayashi');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jessie James Grelle';
+SET @Character = 'Armin Arlert / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bryce Papenbrook';
+SET @Character = 'Eren Jaeger / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Trina Nishimura';
+SET @Character = 'Mikasa Ackermann / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yûki Kaji';
+SET @Character = 'Eren Yeager';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yui Ishikawa';
+SET @Character = 'Mikasa Ackerman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marina Inoue';
+SET @Character = 'Armin Arlert / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kishô Taniyama';
+SET @Character = 'Jean Kirstein';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hiro Shimono';
+SET @Character = 'Connie Springer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Clifford Chapin';
+SET @Character = 'Conny Springer / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mike McFarland';
+SET @Character = 'Jean Kirschtein / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Naruto
+DECLARE @MovieTitle VARCHAR(255) = 'Naruto';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Masashi Kishimoto', 'Masashi Kishimoto', 'Masashi Kishimoto');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Junko Takeuchi';
+SET @Character = 'Naruto Uzumaki / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maile Flanagan';
+SET @Character = 'Naruto Uzumaki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate Higgins';
+SET @Character = 'Sakura Haruno / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chie Nakamura';
+SET @Character = 'Sakura Haruno';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Noriaki Sugiyama';
+SET @Character = 'Sasuke Uchiha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yuri Lowenthal';
+SET @Character = 'Sasuke Uchiha / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dave Wittenberg';
+SET @Character = 'Kakashi Hatake / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Beck';
+SET @Character = 'Gaara';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laurent Vernin';
+SET @Character = 'Itachi Uchiha';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colleen O''Shaughnessey';
+SET @Character = 'Ino Yamanaka / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: One Piece
+DECLARE @MovieTitle VARCHAR(255) = 'One Piece';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Eiichirô Oda', 'Eiichirô Oda', 'Eiichirô Oda');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Mayumi Tanaka';
+SET @Character = 'Monkey D. Luffy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Akemi Okamura';
+SET @Character = 'Nami / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laurent Vernin';
+SET @Character = 'Mr. 7';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Beck';
+SET @Character = 'Roronoa Zoro';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kazuya Nakai';
+SET @Character = 'Roronoa Zoro / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kappei Yamaguchi';
+SET @Character = 'Usopp / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hiroaki Hirata';
+SET @Character = 'Sanji / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ikue Ôtani';
+SET @Character = 'Tony Tony Chopper / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colleen Clinkenbeard';
+SET @Character = 'Monkey D. Luffy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yuriko Yamaguchi';
+SET @Character = 'Nico Robin / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Bleach
+DECLARE @MovieTitle VARCHAR(255) = 'Bleach';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Animation', 'Action', 'Adventure', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Tite Kubo', 'Tite Kubo', 'Masashi Sogo');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Johnny Yong Bosch';
+SET @Character = 'Ichigo Kurosaki / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Ruff';
+SET @Character = 'Rukia Kuchiki / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Sheh';
+SET @Character = 'Orihime Inoue / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamieson Price';
+SET @Character = 'Yasutora ''Chad'' Sado / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Prince';
+SET @Character = 'Uryu Ishida / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wally Wingert';
+SET @Character = 'Renji Abarai / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kirk Thornton';
+SET @Character = 'Narrator / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Staley';
+SET @Character = 'Toshiro Hitsugaya / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wendee Lee';
+SET @Character = 'Yoruichi Shihoin / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Masakazu Morita';
+SET @Character = 'Ichigo Kurosaki / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Breaking Bad
+DECLARE @MovieTitle VARCHAR(255) = 'Breaking Bad';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Vince Gilligan', 'Vince Gilligan', 'Peter Gould');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Bryan Cranston';
+SET @Character = 'Walter White';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Gunn';
+SET @Character = 'Skyler White';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Paul';
+SET @Character = 'Jesse Pinkman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Betsy Brandt';
+SET @Character = 'Marie Schrader';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'RJ Mitte';
+SET @Character = 'Walter White, Jr.';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dean Norris';
+SET @Character = 'Hank Schrader';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bob Odenkirk';
+SET @Character = 'Saul Goodman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steven Michael Quezada';
+SET @Character = 'Steven Gomez / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Banks';
+SET @Character = 'Mike Ehrmantraut';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Giancarlo Esposito';
+SET @Character = 'Gus Fring';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Better Call Saul
+DECLARE @MovieTitle VARCHAR(255) = 'Better Call Saul';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Vince Gilligan', 'Vince Gilligan', 'Peter Gould');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Bob Odenkirk';
+SET @Character = 'Jimmy McGill';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Banks';
+SET @Character = 'Mike Ehrmantraut';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rhea Seehorn';
+SET @Character = 'Kim Wexler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Patrick Fabian';
+SET @Character = 'Howard Hamlin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Mando';
+SET @Character = 'Nacho Varga';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Giancarlo Esposito';
+SET @Character = 'Gus Fring';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael McKean';
+SET @Character = 'Chuck McGill';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Dalton';
+SET @Character = 'Lalo Salamanca';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Margolis';
+SET @Character = 'Hector Salamanca';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kerry Condon';
+SET @Character = 'Stacey Ehrmantraut';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: After Life
+DECLARE @MovieTitle VARCHAR(255) = 'After Life';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ricky Gervais', 'Ricky Gervais', 'Ricky Gervais');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ricky Gervais';
+SET @Character = 'Tony';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Basden';
+SET @Character = 'Matt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Way';
+SET @Character = 'Lenny';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Diane Morgan';
+SET @Character = 'Kath';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kerry Godliman';
+SET @Character = 'Lisa';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ashley Jensen';
+SET @Character = 'Nurse / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anti';
+SET @Character = 'Brandy the Dog';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Greenidge';
+SET @Character = 'Valerie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Wilkinson';
+SET @Character = 'Pat';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Penelope Wilton';
+SET @Character = 'Anne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Ted Lasso
+DECLARE @MovieTitle VARCHAR(255) = 'Ted Lasso';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Sport');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Brendan Hunt', 'Brendan Hunt', 'Brendan Hunt');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jeremy Swift';
+SET @Character = 'Leslie Higgins';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Sudeikis';
+SET @Character = 'Ted Lasso';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hannah Waddingham';
+SET @Character = 'Rebecca Welton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brett Goldstein';
+SET @Character = 'Roy Kent';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Juno Temple';
+SET @Character = 'Keeley Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Phil Dunster';
+SET @Character = 'Jamie Tartt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brendan Hunt';
+SET @Character = 'Coach Beard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nick Mohammed';
+SET @Character = 'Nathan Shelley';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Toheeb Jimoh';
+SET @Character = 'Sam Obisanya';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kola Bokinni';
+SET @Character = 'Isaac McAdoo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Money Heist
+DECLARE @MovieTitle VARCHAR(255) = 'Money Heist';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Álex Pina', 'Álex Pina', 'Álex Pina');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Úrsula Corberó';
+SET @Character = 'Tokio';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Álvaro Morte';
+SET @Character = 'El Profesor';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Itziar Ituño';
+SET @Character = 'Raquel Murillo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Pedro Alonso';
+SET @Character = 'Berlín';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Miguel Herrán';
+SET @Character = 'Río';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jaime Lorente';
+SET @Character = 'Denver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Esther Acebo';
+SET @Character = 'Mónica Gaztambide';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Darko Peric';
+SET @Character = 'Helsinki';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mike Manning';
+SET @Character = 'Denver';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Enrique Arce';
+SET @Character = 'Arturo Román';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Squid Game
+DECLARE @MovieTitle VARCHAR(255) = 'Squid Game';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Hwang Dong-hyuk');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Lee Jung-jae';
+SET @Character = 'Seong Gi-hun';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Choi';
+SET @Character = 'Front Man / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Greg Chun';
+SET @Character = 'Choi Seung-hyun / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wi Ha-joon';
+SET @Character = 'Hwang Jun-ho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lee Byung-hun';
+SET @Character = 'Front Man / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeon Young-soo';
+SET @Character = 'Game Guide / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Park Hae-soo';
+SET @Character = 'Cho Sang-woo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hoyeon';
+SET @Character = 'Kang Sae-byeok / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kim Byung-cheol';
+SET @Character = 'Instructions Guard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yasushi Iwaki';
+SET @Character = 'Others';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Office
+DECLARE @MovieTitle VARCHAR(255) = 'The Office';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greg Daniels', 'Greg Daniels', 'Greg Daniels');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Rainn Wilson';
+SET @Character = 'Dwight Schrute';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Krasinski';
+SET @Character = 'Jim Halpert';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jenna Fischer';
+SET @Character = 'Pam Beesly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leslie David Baker';
+SET @Character = 'Stanley Hudson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Baumgartner';
+SET @Character = 'Kevin Malone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Angela Kinsey';
+SET @Character = 'Angela Martin / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kate Flannery';
+SET @Character = 'Meredith Palmer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Phyllis Smith';
+SET @Character = 'Phyllis Vance / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Creed Bratton';
+SET @Character = 'Creed Bratton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oscar Nuñez';
+SET @Character = 'Oscar Martinez';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Friends
+DECLARE @MovieTitle VARCHAR(255) = 'Friends';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('David Crane', 'David Crane', 'David Crane');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jennifer Aniston';
+SET @Character = 'Rachel Green';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Courteney Cox';
+SET @Character = 'Monica Geller / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Kudrow';
+SET @Character = 'Phoebe Buffay / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt LeBlanc';
+SET @Character = 'Joey Tribbiani';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Perry';
+SET @Character = 'Chandler Bing';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Schwimmer';
+SET @Character = 'Dr. Ross Geller / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Michael Tyler';
+SET @Character = 'Gunther';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elliott Gould';
+SET @Character = 'Jack Geller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christina Pickles';
+SET @Character = 'Judy Geller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maggie Wheeler';
+SET @Character = 'Janice';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Stranger Things
+DECLARE @MovieTitle VARCHAR(255) = 'Stranger Things';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Fantasy', 'Horror', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Matt Duffer', 'Matt Duffer', 'Matt Duffer');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Winona Ryder';
+SET @Character = 'Joyce Byers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Harbour';
+SET @Character = 'Jim Hopper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Finn Wolfhard';
+SET @Character = 'Mike Wheeler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gaten Matarazzo';
+SET @Character = 'Dustin Henderson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Caleb McLaughlin';
+SET @Character = 'Lucas Sinclair';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Natalia Dyer';
+SET @Character = 'Nancy Wheeler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charlie Heaton';
+SET @Character = 'Jonathan Byers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Keery';
+SET @Character = 'Steve Harrington';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Millie Bobby Brown';
+SET @Character = 'Eleven / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Noah Schnapp';
+SET @Character = 'Will Byers';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Game of Thrones
+DECLARE @MovieTitle VARCHAR(255) = 'Game of Thrones';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('David Benioff', 'David Benioff', 'David Benioff');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Peter Dinklage';
+SET @Character = 'Tyrion Lannister';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lena Headey';
+SET @Character = 'Cersei Lannister';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kit Harington';
+SET @Character = 'Jon Snow';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emilia Clarke';
+SET @Character = 'Daenerys Targaryen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sophie Turner';
+SET @Character = 'Sansa Stark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maisie Williams';
+SET @Character = 'Arya Stark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nikolaj Coster-Waldau';
+SET @Character = 'Jaime Lannister';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Iain Glen';
+SET @Character = 'Jorah Mormont';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Bradley';
+SET @Character = 'Samwell Tarly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alfie Allen';
+SET @Character = 'Theon Greyjoy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: House of the Dragon
+DECLARE @MovieTitle VARCHAR(255) = 'House of the Dragon';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Fantasy', 'Romance');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Ryan J. Condal', 'Ryan J. Condal', 'Ryan J. Condal');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Matt Smith';
+SET @Character = 'Prince Daemon Targaryen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Fabien Frankel';
+SET @Character = 'Ser Criston Cole';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steve Toussaint';
+SET @Character = 'Lord Corlys ''The Sea Snake'' Velaryon / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma D''Arcy';
+SET @Character = 'Queen Rhaenyra Targaryen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rhys Ifans';
+SET @Character = 'Ser Otto Hightower';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Olivia Cooke';
+SET @Character = 'Queen Alicent Hightower';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jefferson Hall';
+SET @Character = 'Ser Tyland Lannister / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sonoya Mizuno';
+SET @Character = 'Mysaria ''The White Worm''';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kurt Egyiawan';
+SET @Character = 'Grand Maester Orwyle / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Needham';
+SET @Character = 'Lord Larys ''The Clubfoot'' Strong / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Peaky Blinders
+DECLARE @MovieTitle VARCHAR(255) = 'Peaky Blinders';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steven Knight', 'Steven Knight', 'Steven Knight');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Cillian Murphy';
+SET @Character = 'Thomas Shelby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Anderson';
+SET @Character = 'Arthur Shelby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sophie Rundle';
+SET @Character = 'Ada Shelby / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Helen McCrory';
+SET @Character = 'Polly Gray / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ned Dennehy';
+SET @Character = 'Charlie Strong';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Finn Cole';
+SET @Character = 'Michael Gray';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Natasha O''Keeffe';
+SET @Character = 'Lizzie Stark';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ian Peck';
+SET @Character = 'Curly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Harry Kirton';
+SET @Character = 'Finn Shelby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Packy Lee';
+SET @Character = 'Johnny Dogs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Black Mirror
+DECLARE @MovieTitle VARCHAR(255) = 'Black Mirror';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Charlie Brooker', 'Charlie Brooker', 'Charlie Brooker');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Cristin Milioti';
+SET @Character = 'Nanette Cole';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jimmi Simpson';
+SET @Character = 'Walton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Billy Magnussen';
+SET @Character = 'Karl / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wunmi Mosaku';
+SET @Character = 'Katie / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Monica Dolan';
+SET @Character = 'CS Linda Grace / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Milanka Brooks';
+SET @Character = 'Elena Tulaska';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Osy Ikhile';
+SET @Character = 'Nate Packer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Lapaine';
+SET @Character = 'Dawson / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hannah John-Kamen';
+SET @Character = 'Selma Telse / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michaela Coel';
+SET @Character = 'Airport Stewardess / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Crown
+DECLARE @MovieTitle VARCHAR(255) = 'The Crown';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Drama', 'History');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Peter Morgan', 'Peter Morgan', 'Peter Morgan');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Claire Foy';
+SET @Character = 'Queen Elizabeth II / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Olivia Colman';
+SET @Character = 'Queen Elizabeth II';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Imelda Staunton';
+SET @Character = 'Queen Elizabeth II';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matt Smith';
+SET @Character = 'Philip, Duke of Edinburgh / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tobias Menzies';
+SET @Character = 'Prince Philip, Duke of Edinburgh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dominic West';
+SET @Character = 'Prince Charles';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charles Edwards';
+SET @Character = 'Martin Charteris';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Pryce';
+SET @Character = 'Prince Philip, Duke of Edinburgh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vanessa Kirby';
+SET @Character = 'Princess Margaret / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marion Bailey';
+SET @Character = 'Queen Elizabeth the Queen Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Sherlock
+DECLARE @MovieTitle VARCHAR(255) = 'Sherlock';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Mark Gatiss', 'Mark Gatiss', 'Mark Gatiss');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Benedict Cumberbatch';
+SET @Character = 'Sherlock Holmes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Freeman';
+SET @Character = 'Dr. John Watson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Una Stubbs';
+SET @Character = 'Mrs. Hudson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rupert Graves';
+SET @Character = 'DI Lestrade / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Louise Brealey';
+SET @Character = 'Molly Hooper / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Gatiss';
+SET @Character = 'Mycroft Holmes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andrew Scott';
+SET @Character = 'Jim Moriarty / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amanda Abbington';
+SET @Character = 'Mary Morstan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jonathan Aris';
+SET @Character = 'Anderson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vinette Robinson';
+SET @Character = 'Sgt Sally Donovan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Westworld
+DECLARE @MovieTitle VARCHAR(255) = 'Westworld';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Mystery', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Michael Crichton', 'Michael Crichton', 'Lisa Joy');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Thandiwe Newton';
+SET @Character = 'Maeve Millay';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeffrey Wright';
+SET @Character = 'Bernard Lowe';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ed Harris';
+SET @Character = 'Man in Black';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Evan Rachel Wood';
+SET @Character = 'Dolores Abernathy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tessa Thompson';
+SET @Character = 'Charlotte Hale';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Marsden';
+SET @Character = 'Teddy Flood';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luke Hemsworth';
+SET @Character = 'Ashley Stubbs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Angela Sarafyan';
+SET @Character = 'Clementine Pennyfeather';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anthony Hopkins';
+SET @Character = 'Dr. Robert Ford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Paul';
+SET @Character = 'Caleb Nichols';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: True Detective
+DECLARE @MovieTitle VARCHAR(255) = 'True Detective';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Nic Pizzolatto', 'Nic Pizzolatto', 'Nic Pizzolatto');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Matthew McConaughey';
+SET @Character = 'Detective Rust Cohle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colin Farrell';
+SET @Character = 'Detective Ray Velcoro';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mahershala Ali';
+SET @Character = 'Detective Wayne Hays';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Woody Harrelson';
+SET @Character = 'Detective Marty Hart';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachel McAdams';
+SET @Character = 'Detective Ani Bezzerides';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carmen Ejogo';
+SET @Character = 'Amelia Reardon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michelle Monaghan';
+SET @Character = 'Maggie Hart';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Taylor Kitsch';
+SET @Character = 'Officer Paul Woodrugh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Dorff';
+SET @Character = 'Detective Roland West';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Potts';
+SET @Character = 'Detective Maynard Gilbough';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Boys
+DECLARE @MovieTitle VARCHAR(255) = 'The Boys';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Comedy', 'Crime', 'Drama', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Garth Ennis', 'Garth Ennis', 'Garth Ennis');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Karl Urban';
+SET @Character = 'Billy Butcher';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jack Quaid';
+SET @Character = 'Hughie Campbell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Antony Starr';
+SET @Character = 'Homelander';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Erin Moriarty';
+SET @Character = 'Starlight / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessie T. Usher';
+SET @Character = 'A-Train / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laz Alonso';
+SET @Character = 'Mother''s Milk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chace Crawford';
+SET @Character = 'The Deep / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tomer Capone';
+SET @Character = 'Frenchie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karen Fukuhara';
+SET @Character = 'Kimiko Miyashiro';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nathan Mitchell';
+SET @Character = 'Black Noir / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Fargo
+DECLARE @MovieTitle VARCHAR(255) = 'Fargo';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Noah Hawley', 'Noah Hawley', 'Lee Edward Colston');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Allison Tolman';
+SET @Character = 'Molly Solverson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Billy Bob Thornton';
+SET @Character = 'Lorne Malvo / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colin Hanks';
+SET @Character = 'Gus Grimly';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Schwartzman';
+SET @Character = 'Josto Fadda / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Freeman';
+SET @Character = 'Lester Nygaard / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Russell Harvard';
+SET @Character = 'Mr. Wrench';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bokeem Woodbine';
+SET @Character = 'Mike Milligan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brad Mann';
+SET @Character = 'Gale Kitchen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kirsten Dunst';
+SET @Character = 'Peggy Blumquist';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ewan McGregor';
+SET @Character = 'Emmit Stussy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Dark
+DECLARE @MovieTitle VARCHAR(255) = 'Dark';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Baran bo Odar', 'Jantje Friese', 'Jantje Friese');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Louis Hofmann';
+SET @Character = 'Jonas Kahnwald';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karoline Eichhorn';
+SET @Character = 'Charlotte Doppler / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Vicari';
+SET @Character = 'Martha Nielsen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Maja Schöne';
+SET @Character = 'Hannah Kahnwald / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jördis Triebel';
+SET @Character = 'Katharina Nielsen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andreas Pietschmann';
+SET @Character = 'The Stranger / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephan Kampwirth';
+SET @Character = 'Peter Doppler / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Lux';
+SET @Character = 'Bartosz Tiedemann / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Oliver Masucci';
+SET @Character = 'Ulrich Nielsen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Moritz Jahn';
+SET @Character = 'Magnus Nielsen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Ozark
+DECLARE @MovieTitle VARCHAR(255) = 'Ozark';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bill Dubuque', 'Bill Dubuque', 'Bill Dubuque');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jason Bateman';
+SET @Character = 'Martin ''Marty'' Byrde';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laura Linney';
+SET @Character = 'Wendy Byrde';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sofia Hublitz';
+SET @Character = 'Charlotte Byrde';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Skylar Gaertner';
+SET @Character = 'Jonah Byrde';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julia Garner';
+SET @Character = 'Ruth Langmore';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Charlie Tahan';
+SET @Character = 'Wyatt Langmore / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lisa Emery';
+SET @Character = 'Darlene Snell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carson Holmes';
+SET @Character = 'Three Langmore / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jordana Spiro';
+SET @Character = 'Rachel / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Frances Dukes';
+SET @Character = 'Special Agent Maya Miller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Succession
+DECLARE @MovieTitle VARCHAR(255) = 'Succession';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jesse Armstrong', 'Jesse Armstrong', 'Jamie Carragher');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Nicholas Braun';
+SET @Character = 'Greg Hirsch';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brian Cox';
+SET @Character = 'Logan Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kieran Culkin';
+SET @Character = 'Roman Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Peter Friedman';
+SET @Character = 'Frank Vernon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Macfadyen';
+SET @Character = 'Tom Wambsgans';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alan Ruck';
+SET @Character = 'Connor Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sarah Snook';
+SET @Character = 'Shiv Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremy Strong';
+SET @Character = 'Kendall Roy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J. Smith-Cameron';
+SET @Character = 'Gerri Kellman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Nicholson';
+SET @Character = 'Colin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Narcos
+DECLARE @MovieTitle VARCHAR(255) = 'Narcos';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Biography', 'Crime', 'Drama', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Carlo Bernard', 'Carlo Bernard', 'Carlo Bernard');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Pedro Pascal';
+SET @Character = 'Javier Peña';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wagner Moura';
+SET @Character = 'Pablo Escobar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Boyd Holbrook';
+SET @Character = 'Steve Murphy';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alberto Ammann';
+SET @Character = 'Pacho Herrera';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paulina Gaitan';
+SET @Character = 'Tata Escobar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Juan Murcia';
+SET @Character = 'Juan Pablo Escobar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jorge Monterrosa';
+SET @Character = 'Trujillo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Damián Alcázar';
+SET @Character = 'Gilberto Rodríguez Orejuela / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Francisco Denis';
+SET @Character = 'Miguel Rodríguez Orejuela / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Raúl Méndez';
+SET @Character = 'César Gaviria';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Mindhunter
+DECLARE @MovieTitle VARCHAR(255) = 'Mindhunter';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('John Douglas', 'Mark Olshaker', 'Joe Penhall');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jonathan Groff';
+SET @Character = 'Holden Ford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Holt McCallany';
+SET @Character = 'Bill Tench';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Torv';
+SET @Character = 'Dr. Wendy Carr / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sonny Valicenti';
+SET @Character = 'ADT Serviceman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stacey Roca';
+SET @Character = 'Nancy Tench';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hannah Gross';
+SET @Character = 'Debbie Mitford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Tuttle';
+SET @Character = 'Gregg Smith';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zachary Scott Ross';
+SET @Character = 'Brian Tench';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cotter Smith';
+SET @Character = 'Unit Chief Shepard / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Albert Jones';
+SET @Character = 'Jim Barney / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Witcher
+DECLARE @MovieTitle VARCHAR(255) = 'The Witcher';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Fantasy', 'Mystery');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Lauren Schmidt Hissrich', 'Lauren Schmidt Hissrich', 'Lauren Schmidt Hissrich');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Freya Allan';
+SET @Character = 'Ciri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Henry Cavill';
+SET @Character = 'Geralt of Rivia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anya Chalotra';
+SET @Character = 'Yennefer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eamon Farren';
+SET @Character = 'Cahir';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mimî M Khayisa';
+SET @Character = 'Fringilla';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'MyAnna Buring';
+SET @Character = 'Tissaia';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joey Batey';
+SET @Character = 'Jaskier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wilson Mbomio';
+SET @Character = 'Dara';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Shaffer';
+SET @Character = 'Triss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Royce Pierreson';
+SET @Character = 'Istredd';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Mad Men
+DECLARE @MovieTitle VARCHAR(255) = 'Mad Men';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Matthew Weiner', 'Matthew Weiner', 'Jonathan Igla');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jon Hamm';
+SET @Character = 'Don Draper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elisabeth Moss';
+SET @Character = 'Peggy Olson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vincent Kartheiser';
+SET @Character = 'Pete Campbell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'January Jones';
+SET @Character = 'Betty Francis / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christina Hendricks';
+SET @Character = 'Joan Harris / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Staton';
+SET @Character = 'Ken Cosgrove';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rich Sommer';
+SET @Character = 'Harry Crane';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Slattery';
+SET @Character = 'Roger Sterling';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kiernan Shipka';
+SET @Character = 'Sally Draper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Morse';
+SET @Character = 'Bertram Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Lost
+DECLARE @MovieTitle VARCHAR(255) = 'Lost';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Adventure', 'Drama', 'Fantasy', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('J.J. Abrams', 'J.J. Abrams', 'J.J. Abrams');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jorge Garcia';
+SET @Character = 'Hugo ''Hurley'' Reyes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Josh Holloway';
+SET @Character = 'James ''Sawyer'' Ford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yunjin Kim';
+SET @Character = 'Sun-Hwa Kwon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Evangeline Lilly';
+SET @Character = 'Kate Austen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terry O''Quinn';
+SET @Character = 'John Locke / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Naveen Andrews';
+SET @Character = 'Sayid Jarrah';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Matthew Fox';
+SET @Character = 'Dr. Jack Shephard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel Dae Kim';
+SET @Character = 'Jin-Soo Kwon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emilie de Ravin';
+SET @Character = 'Claire Littleton';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Emerson';
+SET @Character = 'Ben Linus / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Prison Break
+DECLARE @MovieTitle VARCHAR(255) = 'Prison Break';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Paul T. Scheuring', 'Paul T. Scheuring', 'Paul T. Scheuring');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Dominic Purcell';
+SET @Character = 'Lincoln ''Linc'' Burrows / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wentworth Miller';
+SET @Character = 'Michael Scofield';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Amaury Nolasco';
+SET @Character = 'Fernando Sucre';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Knepper';
+SET @Character = 'Theodore ''T-Bag'' Bagwell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sarah Wayne Callies';
+SET @Character = 'Sara Tancredi / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wade Williams';
+SET @Character = 'Brad Bellick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'William Fichtner';
+SET @Character = 'Alexander Mahone / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Adelstein';
+SET @Character = 'Paul Kellerman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rockmond Dunbar';
+SET @Character = 'Benjamin Miles ''C-Note'' Franklin';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jodi Lyn O''Keefe';
+SET @Character = 'Gretchen Morgan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Mandalorian
+DECLARE @MovieTitle VARCHAR(255) = 'The Mandalorian';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jon Favreau', 'Jon Favreau', 'George Lucas');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Pedro Pascal';
+SET @Character = 'The Mandalorian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Bartlett';
+SET @Character = 'Nevarro Copper Droid / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Katee Sackhoff';
+SET @Character = 'Bo-Katan Kryze';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carl Weathers';
+SET @Character = 'Greef Karga';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Giancarlo Esposito';
+SET @Character = 'Moff Gideon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emily Swallow';
+SET @Character = 'The Armorer / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brendan Wayne';
+SET @Character = 'The Mandalorian / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Misty Rosas';
+SET @Character = 'Kuiil Performance Artist / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leilani Shiu';
+SET @Character = 'Jawa / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lateef Crowder';
+SET @Character = 'The Mandalorian';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Dexter
+DECLARE @MovieTitle VARCHAR(255) = 'Dexter';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Jeff Lindsay', 'James Manos Jr.', 'James Manos Jr.');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Michael C. Hall';
+SET @Character = 'Dexter Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jennifer Carpenter';
+SET @Character = 'Debra Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Zayas';
+SET @Character = 'Sgt. Angel Batista / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Remar';
+SET @Character = 'Harry Morgan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'C.S. Lee';
+SET @Character = 'Vince Masuka';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Luna Lauren Velez';
+SET @Character = 'Lt. Maria LaGuerta / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Desmond Harrington';
+SET @Character = 'Det. Joseph ''Joey'' Quinn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Julie Benz';
+SET @Character = 'Rita Bennett / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christina Robinson';
+SET @Character = 'Astor Bennett';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Geoff Pierson';
+SET @Character = 'Deputy Chief Tom Matthews / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: How I Met Your Mother
+DECLARE @MovieTitle VARCHAR(255) = 'How I Met Your Mother';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Drama', 'Romance');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Carter Bays', 'Carter Bays', 'Craig Thomas');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Josh Radnor';
+SET @Character = 'Ted Mosby';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jason Segel';
+SET @Character = 'Marshall Eriksen';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cobie Smulders';
+SET @Character = 'Robin Scherbatsky';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Neil Patrick Harris';
+SET @Character = 'Barney Stinson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alyson Hannigan';
+SET @Character = 'Lily Aldrin / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lyndsy Fonseca';
+SET @Character = 'Daughter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Henrie';
+SET @Character = 'Son';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cristin Milioti';
+SET @Character = 'Tracy McConnell / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marshall Manesh';
+SET @Character = 'Ranjit';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Nieves';
+SET @Character = 'Carl';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Brooklyn Nine-Nine
+DECLARE @MovieTitle VARCHAR(255) = 'Brooklyn Nine-Nine';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Crime');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Dan Goor', 'Dan Goor', 'Michael Schur');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Andy Samberg';
+SET @Character = 'Jake Peralta';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Beatriz';
+SET @Character = 'Rosa Diaz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Terry Crews';
+SET @Character = 'Terry Jeffords';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Melissa Fumero';
+SET @Character = 'Amy Santiago';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joe Lo Truglio';
+SET @Character = 'Charles Boyle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Andre Braugher';
+SET @Character = 'Raymond Holt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dirk Blocker';
+SET @Character = 'Hitchcock';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joel McKinnon Miller';
+SET @Character = 'Scully';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chelsea Peretti';
+SET @Character = 'Gina Linetti';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Marc Evan Jackson';
+SET @Character = 'Kevin Cozner';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Big Bang Theory
+DECLARE @MovieTitle VARCHAR(255) = 'The Big Bang Theory';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy', 'Romance');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Chuck Lorre', 'Chuck Lorre', 'Chuck Lorre');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Johnny Galecki';
+SET @Character = 'Leonard Hofstadter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jim Parsons';
+SET @Character = 'Sheldon Cooper';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kaley Cuoco';
+SET @Character = 'Penny / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Simon Helberg';
+SET @Character = 'Howard Wolowitz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kunal Nayyar';
+SET @Character = 'Raj Koothrappali';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Melissa Rauch';
+SET @Character = 'Bernadette Rostenkowski';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mayim Bialik';
+SET @Character = 'Amy Farrah Fowler';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Sussman';
+SET @Character = 'Stuart Bloom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carol Ann Susi';
+SET @Character = 'Debbie Wolowitz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Ross Bowie';
+SET @Character = 'Barry Kripke';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Parks and Recreation
+DECLARE @MovieTitle VARCHAR(255) = 'Parks and Recreation';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greg Daniels', 'Greg Daniels', 'Michael Schur');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Amy Poehler';
+SET @Character = 'Leslie Knope';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aubrey Plaza';
+SET @Character = 'April Ludgate';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nick Offerman';
+SET @Character = 'Ron Swanson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jim O''Heir';
+SET @Character = 'Jerry Gergich';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aziz Ansari';
+SET @Character = 'Tom Haverford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Retta';
+SET @Character = 'Donna Meagle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Pratt';
+SET @Character = 'Andy Dwyer';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rashida Jones';
+SET @Character = 'Ann Perkins';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adam Scott';
+SET @Character = 'Ben Wyatt';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Lowe';
+SET @Character = 'Chris Traeger';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Community
+DECLARE @MovieTitle VARCHAR(255) = 'Community';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Comedy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Dan Harmon', 'Dan Harmon', 'Tim Saccardo');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Joel McHale';
+SET @Character = 'Jeff Winger / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gillian Jacobs';
+SET @Character = 'Britta Perry / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Danny Pudi';
+SET @Character = 'Abed Nadir / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alison Brie';
+SET @Character = 'Annie Edison / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ken Jeong';
+SET @Character = 'Ben Chang / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Yvette Nicole Brown';
+SET @Character = 'Shirley Bennett / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jim Rash';
+SET @Character = 'Dean Pelton / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Donald Glover';
+SET @Character = 'Troy Barnes';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chevy Chase';
+SET @Character = 'Pierce Hawthorne';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Richard Erdman';
+SET @Character = 'Leonard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Mr. Robot
+DECLARE @MovieTitle VARCHAR(255) = 'Mr. Robot';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Sam Esmail', 'Sam Esmail', 'Randolph Leon');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Rami Malek';
+SET @Character = 'Elliot Alderson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christian Slater';
+SET @Character = 'Mr. Robot';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carly Chaikin';
+SET @Character = 'Darlene';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Martin Wallström';
+SET @Character = 'Tyrell Wellick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Portia Doubleday';
+SET @Character = 'Angela Moss';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Cristofer';
+SET @Character = 'Phillip Price';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Grace Gummer';
+SET @Character = 'Dominique DiPierro';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'BD Wong';
+SET @Character = 'Whiterose';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephanie Corneliussen';
+SET @Character = 'Joanna Wellick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vaishnavi Sharma';
+SET @Character = 'Elliot''s Mother';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Hannibal
+DECLARE @MovieTitle VARCHAR(255) = 'Hannibal';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Horror', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bryan Fuller', 'Bryan Fuller', 'Bryan Fuller');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Hugh Dancy';
+SET @Character = 'Will Graham';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mads Mikkelsen';
+SET @Character = 'Dr. Hannibal Lecter';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Caroline Dhavernas';
+SET @Character = 'Dr. Alana Bloom';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Laurence Fishburne';
+SET @Character = 'Jack Crawford';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Thompson';
+SET @Character = 'Jimmy Price';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aaron Abrams';
+SET @Character = 'Brian Zeller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gillian Anderson';
+SET @Character = 'Dr. Bedelia Du Maurier';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hettienne Park';
+SET @Character = 'Beverly Katz';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kacey Rohl';
+SET @Character = 'Abigail Hobbs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lara Jean Chorostecki';
+SET @Character = 'Freddie Lounds';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Umbrella Academy
+DECLARE @MovieTitle VARCHAR(255) = 'The Umbrella Academy';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Steve Blackman', 'Steve Blackman', 'Steve Blackman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Elliot Page';
+SET @Character = 'Vanya Hargreeves / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Hopper';
+SET @Character = 'Luther Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Castañeda';
+SET @Character = 'Diego Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emmy Raver-Lampman';
+SET @Character = 'Allison Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Sheehan';
+SET @Character = 'Klaus Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aidan Gallagher';
+SET @Character = 'Number Five';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin H. Min';
+SET @Character = 'Ben Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colm Feore';
+SET @Character = 'Reginald Hargreeves';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ritu Arya';
+SET @Character = 'Lila Pitts';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jordan Claire Robbins';
+SET @Character = 'Grace';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Last of Us
+DECLARE @MovieTitle VARCHAR(255) = 'The Last of Us';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Horror', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Craig Mazin', 'Craig Mazin', 'Neil Druckmann');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Pedro Pascal';
+SET @Character = 'Joel Miller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Bella Ramsey';
+SET @Character = 'Ellie Williams';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kaitlyn Dever';
+SET @Character = 'Abby Anderson';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brendan Rozario';
+SET @Character = 'Guard / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Torv';
+SET @Character = 'Theresa ''Tess'' Servopoulos';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Gabriel Luna';
+SET @Character = 'Tommy Miller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Catherine O''Hara';
+SET @Character = 'Gail';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lamar Johnson';
+SET @Character = 'Henry Burrell';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Melanie Lynskey';
+SET @Character = 'Kathleen Coghlan';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nico Parker';
+SET @Character = 'Sarah Miller';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Arrow
+DECLARE @MovieTitle VARCHAR(255) = 'Arrow';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Crime', 'Drama', 'Mystery', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greg Berlanti', 'Greg Berlanti', 'Marc Guggenheim');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'David Ramsey';
+SET @Character = 'John Diggle / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Stephen Amell';
+SET @Character = 'Oliver Queen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emily Bett Rickards';
+SET @Character = 'Felicity Smoak / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Katie Cassidy';
+SET @Character = 'Laurel Lance / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Paul Blackthorne';
+SET @Character = 'Quentin Lance';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Willa Holland';
+SET @Character = 'Thea Queen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Colton Haynes';
+SET @Character = 'Roy Harper / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rick Gonzalez';
+SET @Character = 'Rene Ramirez / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Echo Kellum';
+SET @Character = 'Curtis Holt / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Barrowman';
+SET @Character = 'Malcolm Merlyn / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Flash
+DECLARE @MovieTitle VARCHAR(255) = 'The Flash';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greg Berlanti', 'Greg Berlanti', 'Geoff Johns');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Grant Gustin';
+SET @Character = 'Barry Allen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Candice Patton';
+SET @Character = 'Iris West-Allen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Danielle Panabaker';
+SET @Character = 'Caitlin Snow / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jesse L. Martin';
+SET @Character = 'Joe West / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carlos Valdes';
+SET @Character = 'Cisco Ramon / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Cavanagh';
+SET @Character = 'Dr. Harry Wells / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Danielle Nicolet';
+SET @Character = 'Cecile Horton / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kayla Compton';
+SET @Character = 'Allegra Garcia / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Brandon McKnight';
+SET @Character = 'Chester P. Runk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hartley Sawyer';
+SET @Character = 'Ralph Dibny / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Smallville
+DECLARE @MovieTitle VARCHAR(255) = 'Smallville';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Drama', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Alfred Gough', 'Alfred Gough', 'Alfred Gough');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tom Welling';
+SET @Character = 'Clark Kent / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Allison Mack';
+SET @Character = 'Chloe Sullivan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kristin Kreuk';
+SET @Character = 'Lana Lang / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Rosenbaum';
+SET @Character = 'Lex Luthor / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Glover';
+SET @Character = 'Lionel Luthor / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Erica Durance';
+SET @Character = 'Lois Lane / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Annette O''Toole';
+SET @Character = 'Martha Kent / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Schneider';
+SET @Character = 'Jonathan Kent / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin Hartley';
+SET @Character = 'Oliver Queen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sam Jones III';
+SET @Character = 'Pete Ross';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Heroes
+DECLARE @MovieTitle VARCHAR(255) = 'Heroes';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Fantasy', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Tim Kring', 'Tim Kring', 'Yule Caise');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jack Coleman';
+SET @Character = 'Noah Bennet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Hayden Panettiere';
+SET @Character = 'Claire Bennet';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Milo Ventimiglia';
+SET @Character = 'Peter Petrelli';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Masi Oka';
+SET @Character = 'Hiro Nakamura';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sendhil Ramamurthy';
+SET @Character = 'Mohinder Suresh';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Greg Grunberg';
+SET @Character = 'Matt Parkman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'James Kyson';
+SET @Character = 'Ando Masahashi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Adrian Pasdar';
+SET @Character = 'Nathan Petrelli';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Zachary Quinto';
+SET @Character = 'Sylar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ali Larter';
+SET @Character = 'Niki Sanders / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Daredevil: Born Again
+DECLARE @MovieTitle VARCHAR(255) = 'Daredevil: Born Again';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Fantasy', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Matt Corman', 'Matt Corman', 'Chris Ord');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Charlie Cox';
+SET @Character = 'Daredevil / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Margarita Levieva';
+SET @Character = 'Heather Glenn';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Vincent D''Onofrio';
+SET @Character = 'Wilson Fisk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Genneya Walton';
+SET @Character = 'BB Urich';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wilson Bethel';
+SET @Character = 'Benjamin ''Dex'' Poindexter / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jon Bernthal';
+SET @Character = 'Frank Castle / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Deborah Ann Woll';
+SET @Character = 'Karen Page';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Arty Froushan';
+SET @Character = 'Buck Cashman';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Nikki M. James';
+SET @Character = 'Kirsten Mcduffie';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ayelet Zurer';
+SET @Character = 'Vanessa Fisk';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Jessica Jones
+DECLARE @MovieTitle VARCHAR(255) = 'Jessica Jones';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Brian Michael Bendis', 'Michael Gaydos', 'Melissa Rosenberg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Krysten Ritter';
+SET @Character = 'Jessica Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachael Taylor';
+SET @Character = 'Trish Walker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Eka Darville';
+SET @Character = 'Malcolm Ducasse';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carrie-Anne Moss';
+SET @Character = 'Jeri Hogarth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Ventimiglia';
+SET @Character = 'Detective Costa / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Tennant';
+SET @Character = 'Kilgrave';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rebecca De Mornay';
+SET @Character = 'Dorothy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'J.R. Ramirez';
+SET @Character = 'Oscar Arocho';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Janet McTeer';
+SET @Character = 'Alisa Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Benjamin Walker';
+SET @Character = 'Erik Gelden';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Luke Cage
+DECLARE @MovieTitle VARCHAR(255) = 'Luke Cage';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Cheo Hodari Coker', 'Cheo Hodari Coker', 'Archie Goodwin');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Mike Colter';
+SET @Character = 'Luke Cage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Simone Missick';
+SET @Character = 'Misty Knight';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Theo Rossi';
+SET @Character = 'Hernan ''Shades'' Alvarez';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alfre Woodard';
+SET @Character = 'Mariah Dillard';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Justin Swain';
+SET @Character = 'Detective Mark Bailey / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sean Ringgold';
+SET @Character = 'Sugar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'John Clarence Stewart';
+SET @Character = 'Alex / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Karen Pittman';
+SET @Character = 'Inspector Priscilla Ridley / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ron Cephas Jones';
+SET @Character = 'Bobby Fish';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jeremiah Craft';
+SET @Character = 'D.W. Griffith / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Iron Fist
+DECLARE @MovieTitle VARCHAR(255) = 'Iron Fist';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Crime', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Scott Buck', 'Scott Buck', 'Gil Kane');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Finn Jones';
+SET @Character = 'Danny Rand';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Henwick';
+SET @Character = 'Colleen Wing';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Stroup';
+SET @Character = 'Joy Meachum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Pelphrey';
+SET @Character = 'Ward Meachum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sacha Dhawan';
+SET @Character = 'Davos';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Wenham';
+SET @Character = 'Harold Meachum';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alice Eve';
+SET @Character = 'Mary Walker';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wai Ching Ho';
+SET @Character = 'Madame Gao';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Giullian Yao Gioiello';
+SET @Character = 'BB';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Christine Toy Johnson';
+SET @Character = 'Mrs. Yang';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Defenders
+DECLARE @MovieTitle VARCHAR(255) = 'The Defenders';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Crime', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Brian Michael Bendis', 'Bill Everett', 'Michael Gaydos');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Charlie Cox';
+SET @Character = 'Matt Murdock / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Krysten Ritter';
+SET @Character = 'Jessica Jones';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mike Colter';
+SET @Character = 'Luke Cage';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Finn Jones';
+SET @Character = 'Danny Rand';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Elodie Yung';
+SET @Character = 'Elektra Natchios';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Henwick';
+SET @Character = 'Colleen Wing';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scott Glenn';
+SET @Character = 'Stick';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sigourney Weaver';
+SET @Character = 'Alexandra Reid';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rosario Dawson';
+SET @Character = 'Claire Temple';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Wai Ching Ho';
+SET @Character = 'Madame Gao / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Titans
+DECLARE @MovieTitle VARCHAR(255) = 'Titans';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Adventure', 'Crime', 'Drama', 'Fantasy', 'Sci-Fi');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Greg Berlanti', 'Greg Berlanti', 'Akiva Goldsman');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Brenton Thwaites';
+SET @Character = 'Dick Grayson / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Anna Diop';
+SET @Character = 'Kory Anders / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ryan Potter';
+SET @Character = 'Gar Logan / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Teagan Croft';
+SET @Character = 'Rachel Roth / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Joshua Orpin';
+SET @Character = 'Conner Kent / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Curran Walters';
+SET @Character = 'Jason Todd / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Conor Leslie';
+SET @Character = 'Donna Troy / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Minka Kelly';
+SET @Character = 'Dawn Granger / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jay Lycurgo';
+SET @Character = 'Tim Drake / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alan Ritchson';
+SET @Character = 'Hank Hall / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Gotham
+DECLARE @MovieTitle VARCHAR(255) = 'Gotham';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Action', 'Crime', 'Drama', 'Mystery', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bruno Heller', 'Bruno Heller', 'Bill Finger');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Ben McKenzie';
+SET @Character = 'James Gordon';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Donal Logue';
+SET @Character = 'Harvey Bullock';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David Mazouz';
+SET @Character = 'Bruce Wayne / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robin Lord Taylor';
+SET @Character = 'Oswald Cobblepot / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Camren Bicondova';
+SET @Character = 'Selina Kyle';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cory Michael Smith';
+SET @Character = 'Edward Nygma / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sean Pertwee';
+SET @Character = 'Alfred Pennyworth';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Erin Richards';
+SET @Character = 'Barbara Kean';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Morena Baccarin';
+SET @Character = 'Leslie Thompkins';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Chris Chalk';
+SET @Character = 'Lucius Fox';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Supernatural
+DECLARE @MovieTitle VARCHAR(255) = 'Supernatural';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Fantasy', 'Horror', 'Mystery', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Eric Kripke', 'Eric Kripke', 'Eric Kripke');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Jared Padalecki';
+SET @Character = 'Sam Winchester / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jensen Ackles';
+SET @Character = 'Dean Winchester / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Misha Collins';
+SET @Character = 'Castiel / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Sheppard';
+SET @Character = 'Crowley / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jim Beaver';
+SET @Character = 'Bobby Singer / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Alexander Calvert';
+SET @Character = 'Jack / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Mark Pellegrino';
+SET @Character = 'Lucifer / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Samantha Smith';
+SET @Character = 'Mary Winchester / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Ruth Connell';
+SET @Character = 'Rowena MacLeod / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rob Benedict';
+SET @Character = 'Chuck Shurley / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: Lucifer
+DECLARE @MovieTitle VARCHAR(255) = 'Lucifer';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama', 'Fantasy');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Mike Dringenberg', 'Mike Dringenberg', 'Mike Dringenberg');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Tom Ellis';
+SET @Character = 'Lucifer Morningstar / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lauren German';
+SET @Character = 'Chloe Decker / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kevin Alejandro';
+SET @Character = 'Dan Espinoza / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'D.B. Woodside';
+SET @Character = 'Amenadiel / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lesley-Ann Brandt';
+SET @Character = 'Mazikeen / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rachael Harris';
+SET @Character = 'Linda Martin / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aimee Garcia';
+SET @Character = 'Ella Lopez / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Scarlett Estevez';
+SET @Character = 'Trixie Espinoza';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tricia Helfer';
+SET @Character = 'Charlotte / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tom Welling';
+SET @Character = 'Marcus Pierce';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: American Horror Story
+DECLARE @MovieTitle VARCHAR(255) = 'American Horror Story';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Drama', 'Horror', 'Sci-Fi', 'Thriller');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Brad Falchuk', 'Brad Falchuk', 'Ryan Murphy');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Evan Peters';
+SET @Character = 'James March / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Sarah Paulson';
+SET @Character = 'Lana Winters / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Denis O''Hare';
+SET @Character = 'Spalding / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lily Rabe';
+SET @Character = 'Misty Day / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Kathy Bates';
+SET @Character = 'Madame Delphine LaLaurie / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Frances Conroy';
+SET @Character = 'Myrtle Snow / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Emma Roberts';
+SET @Character = 'Madison Montgomery / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jessica Lange';
+SET @Character = 'Constance Langdon / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Billie Lourd';
+SET @Character = 'Winter Anderson / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Leslie Grossman';
+SET @Character = 'Barbara Read / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Penguin
+DECLARE @MovieTitle VARCHAR(255) = 'The Penguin';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('Bill Finger', 'Bob Kane', 'Lauren LeFranc');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'Colin Farrell';
+SET @Character = 'Oswald ''Oz'' Cobb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Cristin Milioti';
+SET @Character = 'Sofia Falcone';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Rhenzy Feliz';
+SET @Character = 'Victor Aguilar';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Deirdre O''Connell';
+SET @Character = 'Francis Cobb';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Carmen Ejogo';
+SET @Character = 'Eve Karlo';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Theo Rossi';
+SET @Character = 'Dr. Julian Rush';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Clancy Brown';
+SET @Character = 'Salvatore Maroni';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Daniel J. Watts';
+SET @Character = 'Bruno Tess';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'David H. Holmes';
+SET @Character = 'Nick Fuchs';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Kelly';
+SET @Character = 'Johnny Vitti / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
+-- Movie: The Sopranos
+DECLARE @MovieTitle VARCHAR(255) = 'The Sopranos';
+DECLARE @MovieID INT;
+SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
+
+-- ========== Genres ==========
+INSERT INTO MovieGenres (MovieID, GenreID)
+SELECT @MovieID, GenreID FROM Genres
+WHERE GenreName IN ('Crime', 'Drama');
+
+-- ========== Writers ==========
+INSERT INTO MovieWriters (MovieID, WriterID)
+SELECT @MovieID, WriterID FROM Writers
+WHERE WriterName IN ('David Chase', 'David Chase', 'David Chase');
+
+-- ========== Actors ==========
+DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
+
+SET @ActorName = 'James Gandolfini';
+SET @Character = 'Tony Soprano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Edie Falco';
+SET @Character = 'Carmela Soprano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Michael Imperioli';
+SET @Character = 'Christopher Moltisanti';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Steven Van Zandt';
+SET @Character = 'Silvio Dante';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Robert Iler';
+SET @Character = 'A.J. Soprano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Tony Sirico';
+SET @Character = 'Paulie ''Walnuts'' Gualtieri';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Jamie-Lynn Sigler';
+SET @Character = 'Meadow Soprano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Lorraine Bracco';
+SET @Character = 'Dr. Jennifer Melfi';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Dominic Chianese';
+SET @Character = 'Junior Soprano';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+SET @ActorName = 'Aida Turturro';
+SET @Character = 'Janice Soprano / ...';
+SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
+INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
+
+-- ========== Keywords ==========
+-- No Data Available 
+
+GO
+-- ============================================
+
