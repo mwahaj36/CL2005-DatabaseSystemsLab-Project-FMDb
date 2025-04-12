@@ -803,6 +803,10 @@ video {
   margin-bottom: 3rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1540,6 +1544,10 @@ video {
 
 .text-purpleWhite\/70 {
   color: hsl(320 34% 93% / 0.7);
+}
+
+.text-purpleWhite\/40 {
+  color: hsl(320 34% 93% / 0.4);
 }
 
 .shadow-inner {

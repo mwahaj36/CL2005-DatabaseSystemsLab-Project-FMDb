@@ -95,15 +95,73 @@
 </div>
 
 
-<!-- Logged Movies -->
-<section id="LoggedMovies" class="relative z-10 px-4 md:px-0">
-  <h2 class="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
-Top Critics' Reviews
+<!-- criticReviews -->
+<section id="CriticallyAcclaimed" class="relative z-10">
+  <!-- Container for heading and movie blocks -->
+  <div class="max-w-8xl px-5 mx-auto mt-10  text-center">
+      <!-- Heading -->
+      <h2 class="text-6xl text-gold text-shadow font-bold text-center">
+Critics' Top Choice
+      </h2>
+      <!-- Movie Container -->
+      <div class="flex flex-col mt-24 md:flex-row space-y-20 md:space-y-6 flex-wrap justify-center">
+          <!-- Movie 1 -->
+          <div class="flex flex-col md:pt-12 items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+              <a href="movie.html" class="block">
+                  <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" 
+                       class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                       alt="Joker" />
+              </a>
+              <h5 class="text-xl font-bold text-white text-shadow">Joker</h5>
+          </div>
+          <!-- Movie 2 -->
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+              <a href="#" class="block">
+                  <img src="https://image.tmdb.org/t/p/original/hA2ple9q4qnwxp3hKVNhroipsir.jpg" 
+                       class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                       alt="Mad Max: Fury Road" />
+              </a>
+              <h5 class="text-xl font-bold text-white text-shadow">Mad Max: Fury Road</h5>
+          </div>
+          <!-- Movie 3 -->
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+              <a href="#" class="block">
+                  <img src="https://image.tmdb.org/t/p/original/e7olqFmzcIX5c23kX4zSmLPJi8c.jpg" 
+                       class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                       alt="The Fall Guy" />
+              </a>
+              <h5 class="text-xl font-bold text-white text-shadow">The Fall Guy</h5>
+          </div>
+          <!-- Movie 4 -->
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+              <a href="#" class="block">
+                  <img src="https://image.tmdb.org/t/p/original/4lhR4L2vzzjl68P1zJyCH755Oz4.jpg" 
+                       class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                       alt="Monkey Man" />
+              </a>
+              <h5 class="text-xl font-bold text-white text-shadow">Monkey Man</h5>
+          </div>
+          <!-- Movie 5 -->
+          <div class="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/5">
+              <a href="#" class="block">
+                  <img src="https://image.tmdb.org/t/p/original/w03EiJVHP8Un77boQeE7hg9DVdU.jpg" 
+                       class="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105" 
+                       alt="Singin' in the Rain" />
+              </a>
+              <h5 class="text-xl font-bold text-white text-shadow">Singin' in the Rain</h5>
+          </div>
+  </div>
+</section>
+
+
+<section id="topCriticReviews" class="relative z-10 px-4 md:px-0">
+  <h2 class="text-5xl md:text-6xl mt-10 mb-10 text-gold font-bold text-center drop-shadow-lg">
+    Top Critics' Activity
   </h2>
   <div class="max-w-6xl mx-auto flex flex-col gap-4">
 
-    <!-- Logged Movie Row -->
-    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+    <!-- Row 1 -->
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
       <!-- Date -->
       <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
         <p>April</p>
@@ -114,23 +172,23 @@ Top Critics' Reviews
       <!-- Poster -->
       <img src="https://rukminim2.flixcart.com/image/850/1000/poster/z/f/7/dev-d-pbutv28dev16p23-medium-original-imadkj7dnujg4pgg.jpeg?q=90&crop=false" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
 
-      <!-- Movie Name & Year -->
+      <!-- Movie Info -->
       <div class="flex flex-col ml-4 flex-1">
         <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
           Dev.D <span class="text-purpleWhite/70 text-base font-medium">(2009)</span>
         </div>
-        <!-- Optional Review Text -->
         <p class="text-purpleWhite/60 text-sm mt-1">A hauntingly brilliant modern retelling of Devdas.</p>
+        <p class="text-purpleWhite/40 text-xs mt-1">Reviewed by <span class="font-semibold text-purpleWhite/60">@kritic_khan</span></p>
       </div>
 
-      <!-- Rating Badge -->
+      <!-- Rating -->
       <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
         10
       </div>
     </div>
 
     <!-- Row 2 -->
-    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
       <!-- Date -->
       <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
         <p>April</p>
@@ -141,21 +199,22 @@ Top Critics' Reviews
       <!-- Poster -->
       <img src="https://image.tmdb.org/t/p/original/sY4n1osXuddwZokEmWUu1kq7U8g.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
 
-      <!-- Movie Name & Year -->
+      <!-- Movie Info -->
       <div class="flex flex-col ml-4 flex-1">
         <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
           Mickey 17 <span class="text-purpleWhite/70 text-base font-medium">(2025)</span>
         </div>
+        <p class="text-purpleWhite/40 text-xs mt-1">Reviewed by <span class="font-semibold text-purpleWhite/60">@cinefanatic</span></p>
       </div>
 
-      <!-- Rating Badge -->
+      <!-- Rating -->
       <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
         9.1
       </div>
     </div>
 
     <!-- Row 3 -->
-    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
       <!-- Date -->
       <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
         <p>April</p>
@@ -166,14 +225,15 @@ Top Critics' Reviews
       <!-- Poster -->
       <img src="https://m.media-amazon.com/images/M/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@._V1_.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
 
-      <!-- Movie Name & Year -->
+      <!-- Movie Info -->
       <div class="flex flex-col ml-4 flex-1">
         <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
           A Minecraft Movie <span class="text-purpleWhite/70 text-base font-medium">(2025)</span>
         </div>
+        <p class="text-purpleWhite/40 text-xs mt-1">Reviewed by <span class="font-semibold text-purpleWhite/60">@pixel_pundit</span></p>
       </div>
 
-      <!-- Rating Badge -->
+      <!-- Rating -->
       <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
         7.8
       </div>
@@ -181,6 +241,7 @@ Top Critics' Reviews
 
   </div>
 </section>
+
 
 
     <!-- Footer -->
