@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="icon" type="image/png" href="img/LightOnDark.png" />
-    <title>Verified Reviews</title>
+    <title>Verified Critics</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
   </head>
@@ -18,299 +18,170 @@
     <!-- Purple Overlay -->
     <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
 
-    <!-- Navbar -->
-<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <div class="pt-2">
-        <a href="homeGuest.html">
-          <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
-        </a>
-      </div>
-  
-      <!-- Menu Items (Desktop) -->
-      <div class="text-white hidden space-x-24 md:flex">
-        <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
-        <a href="login-signup.html" class="hover:text-purple font-bold">Login / Signup</a>
-        <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
-        <a href="members.html" class="hover:text-purple font-bold">Members</a>
-      </div>
-  
-      <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
-        <input
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-darkPurple z-50 shadow-xl px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <div class="pt-1">
+      <a href="homeGuest.html">
+        <img src="img/Light.png" alt="Logo" class="w-[170px]" />
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-10 text-white font-bold">
+      <a href="homeGuest.html" class="hover:text-purple">Home</a>
+      <a href="login-signup.html" class="hover:text-purple">Login / Signup</a>
+      <a href="movielist.html" class="hover:text-purple">Films</a>
+      <a href="members.html" class="hover:text-purple">Members</a>
+      <a href="verifiedReviews.html" class="text-gold hover:text-purple">Verified Critics</a>
+    </div>
+
+    <!-- Desktop Search -->
+    <div class="hidden md:flex items-center space-x-2">
+      <input
         type="text"
-        class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
         placeholder="Search for a film/ genre/ year"
+        class="w-72 px-4 py-2 rounded-xl focus:outline-none"
       />
-        <button
-          class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
-        >
-          Go
-        </button>
-      </div>
-        <!-- Hamburger Icon (Mobile) -->
-        <button
-          id="menu-btn"
-          class="block md:hidden focus:outline-none"
-        >
-          <div class="space-y-1.5">
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-          </div>
-        </button>
-      </div>
+      <button
+        class="px-4 py-2 bg-purple text-white rounded-xl hover:bg-purpleWhite hover:text-darkPurple transition"
+      >
+        Go
+      </button>
     </div>
-  </nav>
-  
-  <!-- Mobile Menu -->
-  <div class="md:hidden relative z-[999]">
-    <div
-      id="menu"
-      class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
-    >
-      <!-- Links -->
-      <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
-      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
-      <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
-      <a href="members.html" class="hover:text-purple font-bold">Members</a>
-            <!-- Search Bar -->
-      <form class="w-full px-4">
-        <input
-          type="text"
-          placeholder="Search for a film/ genre/ year"
-          class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
-        />
-        <button
-          type="submit"
-          class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
-        >
-          Go
-        </button>
-      </form>
-    </div>
+
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-btn" class="block md:hidden focus:outline-none">
+      <div class="space-y-1.5">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </div>
+    </button>
   </div>
+</nav>
 
-<!-- Reviews Section -->
-<section class="relative z-10 mt-24 px-4 md:px-20">
-    <!-- Movie Info Header (Wider & Centered) -->
-    <div class="max-w-7xl mx-auto text-center mb-10">
-      <h1  class="text-gold text-5xl md:text-7xl font-bold">
-       Verified Reviews 
-      </h1>
-      <p class="text-white text-2xl md:text-3xl font-semibold mt-2">
-        Check Out What the Pros Are Saying!      </p>
-    </div>
-  
-  <!-- All Reviews (Single Column with Poster on Left) -->
-<div class="flex flex-col gap-8 max-w-6xl mx-auto">
-    <!-- All Reviews (Single Column) -->
-<div class="flex flex-col gap-8 max-w-6xl mx-auto">
-     <!-- Review 6: La La Land -->
-     <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-        <img src="https://image.tmdb.org/t/p/original/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-        <div class="flex-1 flex items-center p-6 relative">
-          <div class="flex items-center space-x-6 w-full">
-            <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">10</div>
-            <div class="flex-1 text-white text-2xl italic leading-relaxed">
-              <p>“A symphony of color, music, and heartbreak. Pure cinematic magic.”</p>
-              <p class="text-purpleWhite font-bold mt-4 text-md">@jazzjunkiee</p>
-            </div>
-          </div>
-          <div class="absolute bottom-4 right-4">
-            <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-          </div>
-        </div>
-      </div>
+<!-- Spacer to avoid overlap due to fixed navbar -->
+<div class="h-24"></div>
 
-    <!-- Review 1: Joker -->
-    <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-      <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-      <div class="flex-1 flex items-center p-6 relative">
-        <div class="flex items-center space-x-6 w-full">
-          <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.5</div>
-          <div class="flex-1 text-white text-2xl italic leading-relaxed">
-            <p>“A raw, unsettling deep dive into the making of a villain. This is not just a movie, it’s a psychological experience.”</p>
-            <p class="text-purpleWhite font-bold mt-4 text-md">@moviebuff_kay</p>
-          </div>
-        </div>
-        <div class="absolute bottom-4 right-4">
-          <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Review 2: Inception -->
-    <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-      <img src="https://image.tmdb.org/t/p/original/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-      <div class="flex-1 flex items-center p-6 relative">
-        <div class="flex items-center space-x-6 w-full">
-          <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.3</div>
-          <div class="flex-1 text-white text-2xl italic leading-relaxed">
-            <p>“A mind-bending masterpiece. Every time I rewatch, I catch something new.”</p>
-            <p class="text-purpleWhite font-bold mt-4 text-md">@dreamwithinfilm</p>
-          </div>
-        </div>
-        <div class="absolute bottom-4 right-4">
-          <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Review 3: Interstellar -->
-    <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-      <img src="https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-      <div class="flex-1 flex items-center p-6 relative">
-        <div class="flex items-center space-x-6 w-full">
-          <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.6</div>
-          <div class="flex-1 text-white text-2xl italic leading-relaxed">
-            <p>“A breathtaking journey through space, time, and emotion. Nolan at his best.”</p>
-            <p class="text-purpleWhite font-bold mt-4 text-md">@cosmic_critiq</p>
-          </div>
-        </div>
-        <div class="absolute bottom-4 right-4">
-          <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Review 4: Parasite -->
-    <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-      <img src="https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-      <div class="flex-1 flex items-center p-6 relative">
-        <div class="flex items-center space-x-6 w-full">
-          <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.0</div>
-          <div class="flex-1 text-white text-2xl italic leading-relaxed">
-            <p>“Brilliantly written and sharply executed. A dark comedy with piercing social commentary.”</p>
-            <p class="text-purpleWhite font-bold mt-4 text-md">@subtext_scholar</p>
-          </div>
-        </div>
-        <div class="absolute bottom-4 right-4">
-          <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Review 5: The Dark Knight -->
-    <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-      <img src="https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-      <div class="flex-1 flex items-center p-6 relative">
-        <div class="flex items-center space-x-6 w-full">
-          <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.7</div>
-          <div class="flex-1 text-white text-2xl italic leading-relaxed">
-            <p>“Heath Ledger redefined villainy. This film transcends superhero cinema.”</p>
-            <p class="text-purpleWhite font-bold mt-4 text-md">@gotham_guru</p>
-          </div>
-        </div>
-        <div class="absolute bottom-4 right-4">
-          <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  
-   
-  
-      <!-- Review 7: Scott Pilgrim vs. The World -->
-  <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-    <img src="https://image.tmdb.org/t/p/original/g5IoYeudx9XBEfwNL0fHvSckLBz.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-    <div class="flex-1 flex items-center p-6 relative">
-      <div class="flex items-center space-x-6 w-full">
-        <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">8.5</div>
-        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-          <p>“A visual explosion of geek culture, music, and awkward romance. Cult classic status: earned.”</p>
-          <p class="text-purpleWhite font-bold mt-4 text-md">@indieframes</p>
-        </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-      </div>
-    </div>
+<!-- Mobile Menu -->
+<div class="md:hidden relative z-40">
+  <div
+    id="menu"
+    class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+  >
+    <a href="homeGuest.html" class="hover:text-purple">Home</a>
+    <a href="login-signup.html" class="hover:text-purple">Login / Signup</a>
+    <a href="movielist.html" class="hover:text-purple">Films</a>
+    <a href="members.html" class="hover:text-purple">Members</a>
+    <a href="verifiedReviews.html" class="text-gold hover:text-purple">Verified Critics</a>
+
+    <!-- Mobile Search -->
+    <form class="w-full px-4">
+      <input
+        type="text"
+        placeholder="Search for a film/ genre/ year"
+        class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="w-full mt-3 px-6 py-2 bg-purple text-white font-semibold rounded-xl hover:bg-darkPurple hover:text-purpleWhite transition"
+      >
+        Go
+      </button>
+    </form>
   </div>
+</div>
 
-  <!-- Review 8: Dune Part Two -->
-  <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-    <img src="https://image.tmdb.org/t/p/original/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-    <div class="flex-1 flex items-center p-6 relative">
-      <div class="flex items-center space-x-6 w-full">
-        <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.4</div>
-        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-          <p>“Epic, beautiful, thunderous. Denis Villeneuve delivers an unforgettable cinematic war poem.”</p>
-          <p class="text-purpleWhite font-bold mt-4 text-md">@spicewalker</p>
+
+<!-- Logged Movies -->
+<section id="LoggedMovies" class="relative z-10 px-4 md:px-0">
+  <h2 class="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+Top Critics' Reviews
+  </h2>
+  <div class="max-w-6xl mx-auto flex flex-col gap-4">
+
+    <!-- Logged Movie Row -->
+    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <!-- Date -->
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">25</p>
+        <p>2025</p>
+      </div>
+
+      <!-- Poster -->
+      <img src="https://rukminim2.flixcart.com/image/850/1000/poster/z/f/7/dev-d-pbutv28dev16p23-medium-original-imadkj7dnujg4pgg.jpeg?q=90&crop=false" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <!-- Movie Name & Year -->
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
+          Dev.D <span class="text-purpleWhite/70 text-base font-medium">(2009)</span>
+        </div>
+        <!-- Optional Review Text -->
+        <p class="text-purpleWhite/60 text-sm mt-1">A hauntingly brilliant modern retelling of Devdas.</p>
+      </div>
+
+      <!-- Rating Badge -->
+      <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
+        10
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <!-- Date -->
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">6</p>
+        <p>2025</p>
+      </div>
+
+      <!-- Poster -->
+      <img src="https://image.tmdb.org/t/p/original/sY4n1osXuddwZokEmWUu1kq7U8g.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <!-- Movie Name & Year -->
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
+          Mickey 17 <span class="text-purpleWhite/70 text-base font-medium">(2025)</span>
         </div>
       </div>
-      <div class="absolute bottom-4 right-4">
-        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
+
+      <!-- Rating Badge -->
+      <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
+        9.1
       </div>
     </div>
-  </div>
 
-  <!-- Review 9: Monkey Man -->
-  <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-    <img src="https://image.tmdb.org/t/p/original/4lhR4L2vzzjl68P1zJyCH755Oz4.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-    <div class="flex-1 flex items-center p-6 relative">
-      <div class="flex items-center space-x-6 w-full">
-        <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">8.7</div>
-        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-          <p>“Dev Patel unleashes a gritty, stylized rampage with heart and fury. A bold directorial debut.”</p>
-          <p class="text-purpleWhite font-bold mt-4 text-md">@desistreetcritics</p>
+    <!-- Row 3 -->
+    <div class="flex items-center bg-darkPurple/60  rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <!-- Date -->
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">6</p>
+        <p>2025</p>
+      </div>
+
+      <!-- Poster -->
+      <img src="https://m.media-amazon.com/images/M/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@._V1_.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <!-- Movie Name & Year -->
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-purpleWhite font-bold text-lg flex items-center gap-2">
+          A Minecraft Movie <span class="text-purpleWhite/70 text-base font-medium">(2025)</span>
         </div>
       </div>
-      <div class="absolute bottom-4 right-4">
-        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
+
+      <!-- Rating Badge -->
+      <div class="ml-auto px-4 py-5 bg-gold text-purple font-bold text-xl rounded-xl text-center">
+        7.8
       </div>
     </div>
-  </div>
 
-  <!-- Review 10: Oppenheimer -->
-  <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-    <img src="https://image.tmdb.org/t/p/original/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-    <div class="flex-1 flex items-center p-6 relative">
-      <div class="flex items-center space-x-6 w-full">
-        <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.8</div>
-        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-          <p>“Intense, cerebral, and haunting. Nolan crafts a bomb of a biopic — slow-burning and explosive.”</p>
-          <p class="text-purpleWhite font-bold mt-4 text-md">@atomicsage</p>
-        </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-      </div>
-    </div>
   </div>
+</section>
 
-  <!-- Review 11: Barbie -->
-  <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-    <img src="https://image.tmdb.org/t/p/original/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-    <div class="flex-1 flex items-center p-6 relative">
-      <div class="flex items-center space-x-6 w-full">
-        <div class="bg-gold text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">8.8</div>
-        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-          <p>“Bold, bright, and brilliantly meta. Greta Gerwig gave us pink plastic feminism wrapped in fun.”</p>
-          <p class="text-purpleWhite font-bold mt-4 text-md">@malibu_meets_meta</p>
-        </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-      </div>
-    </div>
-  </div>
-
-    <!-- Add more reviews below similarly -->
-  
-  </div>
-  
-  
-  
-    <!-- Duplicate and adjust this card for each review -->
-  </div>
-  
-      
-
-      <!-- Repeat the structure for other reviews with like button properly placed -->
-    </div>
-  </section>
-
-  
 
     <!-- Footer -->
     <section
@@ -324,5 +195,7 @@
         </div>
       </footer>
     </section>
+    <script src="script.js"></script>
+
   </body>
 </html>

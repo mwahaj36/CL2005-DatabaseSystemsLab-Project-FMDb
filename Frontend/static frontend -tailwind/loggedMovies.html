@@ -18,181 +18,177 @@
     <!-- Purple Overlay -->
     <div class="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
 
-    <!-- Navbar -->
-<nav class="relative w-full p-6 bg-darkPurple z-40 shadow-xl">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <div class="pt-2">
-        <a href="homeGuest.html">
-          <img src="img/Light.png" alt="Logo" class="pb-2 ml-6 md:ml-24" style="width: 170px;" />
-        </a>
-      </div>
-  
-      <!-- Menu Items (Desktop) -->
-      <div class="text-white hidden space-x-24 md:flex">
-        <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
-        <a href="login-signup.html" class="hover:text-purple font-bold">Login / Signup</a>
-        <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
-        <a href="members.html" class="hover:text-purple font-bold">Members</a>
-        <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
-      </div>
-  
-      <div class="hidden md:flex items-center space-x-4 w-full max-w-md">
-        <input
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-darkPurple z-50 shadow-xl px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <div class="pt-1">
+      <a href="homeGuest.html">
+        <img src="img/Light.png" alt="Logo" class="w-[170px]" />
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-10 text-white font-bold">
+      <a href="homeGuest.html" class="hover:text-purple">Home</a>
+      <a href="login-signup.html" class="hover:text-purple">Login / Signup</a>
+      <a href="movielist.html" class="hover:text-purple">Films</a>
+      <a href="members.html" class="hover:text-purple">Members</a>
+      <a href="verifiedReviews.html" class="text-gold hover:text-purple">Verified Reviews</a>
+    </div>
+
+    <!-- Desktop Search -->
+    <div class="hidden md:flex items-center space-x-2">
+      <input
         type="text"
-        class="hidden md:flex w-72 px-6 pr-10 py-2 rounded-xl focus:outline-none"
         placeholder="Search for a film/ genre/ year"
+        class="w-72 px-4 py-2 rounded-xl focus:outline-none"
       />
-        <button
-          class="px-6 py-2 text-white rounded-xl bg-purple hover:bg-purpleWhite hover:text-darkPurple focus:outline-none"
-        >
-          Go
-        </button>
-      </div>
-        <!-- Hamburger Icon (Mobile) -->
-        <button
-          id="menu-btn"
-          class="block md:hidden focus:outline-none"
-        >
-          <div class="space-y-1.5">
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-            <span class="block w-6 h-0.5 bg-white"></span>
-          </div>
-        </button>
-      </div>
+      <button
+        class="px-4 py-2 bg-purple text-white rounded-xl hover:bg-purpleWhite hover:text-darkPurple transition"
+      >
+        Go
+      </button>
     </div>
-  </nav>
-  
-  <!-- Mobile Menu -->
-  <div class="md:hidden relative z-[999]">
-    <div
-      id="menu"
-      class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
-    >
-      <!-- Links -->
-      <a href="homeGuest.html" class="hover:text-purple font-bold">Home</a>
-      <a href="login-signup.html" class="hover:text-purple font-bold">Login / Sign up</a>
-      <a href="movielist.html" class="hover:text-purple font-bold">Films</a>
-      <a href="members.html" class="hover:text-purple font-bold">Members</a>
-      <a href="verifiedReviews.html" class="text-gold hover:text-purple font-bold">Verified Reviews</a>
-  
-      <!-- Search Bar -->
-      <form class="w-full px-4">
-        <input
-          type="text"
-          placeholder="Search for a film/ genre/ year"
-          class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
-        />
-        <button
-          type="submit"
-          class="w-full mt-3 px-6 py-2 text-white font-semibold rounded-xl bg-purple hover:bg-darkPurple hover:text-purpleWhite focus:outline-none"
-        >
-          Go
-        </button>
-      </form>
-    </div>
+
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-btn" class="block md:hidden focus:outline-none">
+      <div class="space-y-1.5">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </div>
+    </button>
   </div>
+</nav>
+
+<!-- Spacer to avoid overlap due to fixed navbar -->
+<div class="h-24"></div>
+
+<!-- Mobile Menu -->
+<div class="md:hidden relative z-40">
+  <div
+    id="menu"
+    class="absolute left-6 right-6 rounded-3xl flex-col items-center hidden py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
+  >
+    <a href="homeGuest.html" class="hover:text-purple">Home</a>
+    <a href="login-signup.html" class="hover:text-purple">Login / Signup</a>
+    <a href="movielist.html" class="hover:text-purple">Films</a>
+    <a href="members.html" class="hover:text-purple">Members</a>
+    <a href="verifiedReviews.html" class="text-gold hover:text-purple">Verified Reviews</a>
+
+    <!-- Mobile Search -->
+    <form class="w-full px-4">
+      <input
+        type="text"
+        placeholder="Search for a film/ genre/ year"
+        class="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="w-full mt-3 px-6 py-2 bg-purple text-white font-semibold rounded-xl hover:bg-darkPurple hover:text-purpleWhite transition"
+      >
+        Go
+      </button>
+    </form>
+  </div>
+</div>
 
 
-<!-- All Reviews (Single Column with Date on Left, Poster in the Middle) -->
- <section id="LoggedMovies" class="relative ">
-    <h2 class="text-6xl mt-10  mb-10 text-white text-shadow font-bold text-center">
-        Wahaj's Logged Movies
-     </h2>
-    <div class="relative flex flex-col gap-8 max-w-6xl mx-auto">
-        <!-- Review 6: La La Land (With Rating and Review) -->
-        <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-            <div class="flex flex-col items-center justify-center w-32 bg-darkPurple p-4 text-center">
-                <!-- Date on the Left -->
-                <p class="text-2xl text-purpleWhite">April</p>
-                <p class="text-6xl text-white font-bold">05</p>
-                <p class="text-2xl text-purpleWhite">2025</p>
+<!-- Logged Movies -->
+<section id="LoggedMovies" class="relative z-10 px-4 md:px-0">
+  <h2 class="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+    Wahaj's Logged Movies
+  </h2>
+  <div class="max-w-6xl mx-auto flex flex-col gap-4">
 
-            </div>
-            <img src="https://image.tmdb.org/t/p/original/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-            <div class="flex-1 flex items-center p-6 relative">
-                <div class="flex flex-col w-full">
-                    <div class="flex items-center space-x-6 w-full">
-                        <div class="bg-white text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">10</div>
-                        <div class="flex-1 text-white text-2xl italic leading-relaxed">
-                            <p>“A symphony of color, music, and heartbreak. Pure cinematic magic.”</p>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-4 right-4">
-                        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
+    <!-- Logged Movie Row -->
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <!-- Date -->
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">25</p>
+        <p>2025</p>
+      </div>
+
+      <!-- Poster -->
+      <img src="https://rukminim2.flixcart.com/image/850/1000/poster/z/f/7/dev-d-pbutv28dev16p23-medium-original-imadkj7dnujg4pgg.jpeg?q=90&crop=false" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <!-- Movie Name & Year -->
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-white font-bold text-lg flex items-center gap-2">
+          Dev.D <span class="text-purpleWhite text-base font-medium">(2009)</span>
         </div>
-    
-        <!-- Review 1: Joker (With Rating, No Review) -->
-        <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-            <div class="flex flex-col items-center justify-center w-32 bg-darkPurple p-4 text-center">
-                <!-- Date on the Left -->
-                <p class="text-2xl text-purpleWhite">April</p>
-                <p class="text-6xl text-white font-bold">04</p>
-                <p class="text-2xl text-purpleWhite">2025</p>
+        <!-- Optional Review Text -->
+        <p class="text-purple text-sm mt-1">A hauntingly brilliant modern retelling of Devdas.</p>
+      </div>
 
-            </div>
-            <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-            <div class="flex-1 flex items-center p-6 relative">
-                <div class="flex flex-col w-full">
-                    <div class="flex items-center space-x-6 w-full">
-                        <div class="bg-white text-black font-bold text-4xl px-6 py-16 flex items-center justify-center rounded-xl shadow-inner">9.5</div>
-                    </div>
-                    <div class="absolute bottom-4 right-4">
-                        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Review 2: The Dark Knight (No Rating, With Review) -->
-        <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-            <div class="flex flex-col items-center justify-center w-32 bg-darkPurple p-4 text-center">
-                <!-- Date on the Left -->
-                <p class="text-2xl text-purpleWhite">April</p>
-                <p class="text-6xl text-white font-bold">03</p>
-                <p class="text-2xl text-purpleWhite">2025</p>
+      <!-- Rating Badge -->
+      <div class="ml-4 px-4 py-5 bg-white text-darkPurple font-bold text-xl rounded-xl text-center">
+        10
+      </div>
 
-            </div>
-            <img src="https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-            <div class="flex-1 flex items-center p-6 relative">
-                <div class="flex flex-col w-full">
-                    <div class="flex-1 text-white text-2xl italic leading-relaxed">
-                        <p>“A perfect blend of action and philosophy. Heath Ledger's Joker is unforgettable.”</p>
-                    </div>
-                    <div class="absolute bottom-4 right-4">
-                        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Review 3: Inception (No Rating, No Review) -->
-        <div class="flex flex-col md:flex-row bg-black bg-opacity-60 rounded-3xl shadow-md hover:scale-[1.01] transition-transform duration-300 overflow-hidden">
-            <div class="flex flex-col items-center justify-center w-32 bg-darkPurple p-4 text-center">
-                <!-- Date on the Left -->
-                <p class="text-2xl text-purpleWhite">April</p>
-                <p class="text-6xl text-white font-bold">02</p>
-                <p class="text-2xl text-purpleWhite">2025</p>
-
-            </div>
-            <img src="https://image.tmdb.org/t/p/original/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg" alt="Movie Poster" class="w-full md:w-48 h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none" />
-            <div class="flex-1 flex items-center p-6 relative">
-                <div class="flex flex-col w-full">
-                    <div class="absolute bottom-4 right-4">
-                        <button class="text-purpleWhite hover:text-pink-500 text-3xl hover:scale-125"><i class="fas fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- Action Buttons -->
+      <div class="flex items-center ml-4 space-x-3">
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-heart"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-pen"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-ellipsis-h"></i></button>
+      </div>
     </div>
- </section>
 
+    <!-- Duplicate row for Mickey 17 -->
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">6</p>
+        <p>2025</p>
+      </div>
 
-  
+      <img src="https://image.tmdb.org/t/p/original/sY4n1osXuddwZokEmWUu1kq7U8g.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-white font-bold text-lg flex items-center gap-2">
+          Mickey 17 <span class="text-purpleWhite text-base font-medium">(2025)</span>
+        </div>
+      </div>
+
+      <div class="ml-4 px-4 py-5 bg-white text-darkPurple font-bold text-xl rounded-xl text-center">
+        9.1
+      </div>
+
+      <div class="flex items-center ml-4 space-x-3">
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-heart"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-pen"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-ellipsis-h"></i></button>
+      </div>
+    </div>
+
+    <!-- Minecraft Movie row -->
+    <div class="flex items-center bg-darkPurple/60 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300">
+      <div class="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+        <p>April</p>
+        <p class="text-2xl">6</p>
+        <p>2025</p>
+      </div>
+
+      <img src="https://m.media-amazon.com/images/M/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@._V1_.jpg" alt="Movie Poster" class="w-12 h-16 rounded-lg object-cover" />
+
+      <div class="flex flex-col ml-4 flex-1">
+        <div class="text-white font-bold text-lg flex items-center gap-2">
+          A Minecraft Movie <span class="text-purpleWhite text-base font-medium">(2025)</span>
+        </div>
+      </div>
+
+      <div class="flex items-center ml-4 space-x-3">
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-heart"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-pen"></i></button>
+        <button class="text-purpleWhite hover:text-purple text-xl"><i class="fas fa-ellipsis-h"></i></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Footer -->
     <section
@@ -206,5 +202,7 @@
         </div>
       </footer>
     </section>
+    <script src="script.js"></script>
+
   </body>
 </html>
