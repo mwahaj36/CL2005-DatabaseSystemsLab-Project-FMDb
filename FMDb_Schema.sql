@@ -13,6 +13,9 @@ PRINT 'Database FMDb created successfully.';
 END ELSE BEGIN PRINT 'Database FMDb already exists.';
 
 END
+
+GO 
+
 -- Using FMDB 
 USE FMDb;
 
