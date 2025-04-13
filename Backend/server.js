@@ -1,7 +1,7 @@
 const express = require('express');
 const { connectToDatabase } = require('./config/dbConfig'); // Import database connection
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "scripts": {
+  "dev": "concurrently \"npm start --prefix Backend\" \"npm run dev --prefix Frontend/fmdb-frontend\""
+  }
+}
+
