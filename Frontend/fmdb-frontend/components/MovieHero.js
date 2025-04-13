@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieHero = ({ movieData }) => {
   return (
-    <section id="hero" className="relative -mt-14">
+    <section id="hero" className="relative -mt-20">
       <div className="relative z-10 mt-10 container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
         {/* Poster */}
         <div className="flex mt-24 flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3">

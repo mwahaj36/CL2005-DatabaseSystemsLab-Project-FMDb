@@ -31,7 +31,7 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-10 font-bold">
             <Link href="/" className={getLinkClass('/')}>Home</Link>
             {user ? (
-              <Link href="/profile" className={getLinkClass('/profile')}>Profile</Link>
+              <Link href="/EditProfile" className={getLinkClass('/profile')}>Profile</Link>
             ) : (
               <Link href="/LoginSignup" className={getLinkClass('/LoginSignup')}>Login / Signup</Link>
             )}

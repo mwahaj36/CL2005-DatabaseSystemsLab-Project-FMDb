@@ -7,7 +7,7 @@ const MovieCard = ({ movie }) => {
   }
 
   return (
-    <div className="flex flex-col items-center p-6 space-y-4 rounded-lg bg-veryLightGray shadow-lg transition-all duration-300 w-full">
+    <div className="flex flex-col items-center p-6 space-y-4 rounded-lg bg-veryLightGray  transition-all duration-300 w-full">
       <Link href={`/movie/${movie.MovieID}`}>
         <img
           src={movie.Poster}
