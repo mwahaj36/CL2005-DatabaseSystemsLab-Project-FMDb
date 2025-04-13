@@ -2,8 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
 
 export default function LoginSignupPage() {
+  const router = useRouter();
   const { login, signup, error } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,13 +28,19 @@ export default function LoginSignupPage() {
       setSignupError("Passwords do not match");
       return;
     }
-
+  
     setSignupError("");
     await signup(firstName, lastName, username, email, password);
+  
     if (!error) {
       setSignupSuccess(true);
+      // Wait a bit for the user to see success message (optional)
+      setTimeout(() => {
+        router.push("/EditProfile");
+      }, 1500);
     }
   };
+  
 
   useEffect(() => {
     if (signupSuccess && !error) {

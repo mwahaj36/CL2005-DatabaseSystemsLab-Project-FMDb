@@ -12,6 +12,7 @@ export default function EditProfile() {
   // Split full name from user data
   const [firstName, setFirstName] = useState(user?.fullName ? user.fullName.split(" ")[0] : "Muhammad");
   const [lastName, setLastName] = useState(user?.fullName ? user.fullName.split(" ")[1] || "" : "Wahaj");
+  const [gender, setGender] = useState(user?.gender||"Not Specified");
 
   const [email, setEmail] = useState(user?.email || "example@email.com");
   const [bio, setBio] = useState(user?.bio || "");
@@ -121,7 +122,7 @@ export default function EditProfile() {
         <label htmlFor="userType" className="block text-sm font-bold text-xl text-white">User Type</label>
         <select
           id="userType"
-          className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+          className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
           value={userType}
           onChange={(e) => setuserType(e.target.value)}
         >
@@ -142,16 +143,32 @@ export default function EditProfile() {
       />
     </div>
 
-    <div>
-      <label htmlFor="dob" className="block text-sm font-bold text-xl text-white">Date of Birth</label>
-      <input
-        type="date"
-        id="dob"
-        className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
-        value={dob}
-        onChange={(e) => setDob(e.target.value)}
-      />
-    </div>
+    <div className="flex space-x-4">
+  <div className="w-1/2">
+    <label htmlFor="dob" className="block text-sm font-bold text-xl text-white">Date of Birth</label>
+    <input
+      type="date"
+      id="dob"
+      className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+      value={dob}
+      onChange={(e) => setDob(e.target.value)}
+    />
+  </div>
+  <div className="w-1/2">
+    <label htmlFor="gender" className="block text-sm font-bold text-xl text-white">Gender</label>
+    <select
+      id="gender"
+      className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+      value={gender}
+      onChange={(e) => setGender(e.target.value)}
+    >
+      <option value="Not Specified">Not Specified</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+</div>
+
 
     <div className="flex justify-end space-x-4">
       <a href="changePass.html" className="px-4 py-2 font-bold text-white hover:text-purpleWhite">Change Password</a>

@@ -64,7 +64,6 @@ export const AuthProvider = ({ children }) => {
 
     setUser(newUser);
     setError(null);
-    router.push("/");
   };
 
   // Function to add a movie to favorites
