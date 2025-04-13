@@ -1,51 +1,50 @@
 import React, { useState } from 'react';
-import movieData from '../data/FMDBDatabase.json'; // Adjust the path as per your project structure
-import MovieCard from './MovieCard'; // Import the MovieCard component
+import movieData from '../data/FMDBDatabase.json';
+import MovieCard from './MovieCard';
 
-const MoviesPerPage = 25; // Define how many movies per page
+const MoviesPerPage = 25;
 
 const MovieList = () => {
-  // State to manage the current page, sorting criteria, and sorting order (ascending/descending)
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortBy, setSortBy] = useState('ReleaseDate'); // Default sorting criterion is Release Date
-  const [sortOrder, setSortOrder] = useState('desc'); // Default sorting order is descending
+  const [sortBy, setSortBy] = useState('ReleaseDate');
+  const [sortOrder, setSortOrder] = useState('desc');
 
-  // Filter out only the movies (not series)
-  const filteredMovies = movieData.filter((movie) => movie.Type === 'Movie'); // Assuming `Type` is the key
+  const filteredMovies = movieData.filter((movie) => movie.Type === 'Movie');
 
-  // Function to sort movies based on the selected criterion and order
   const sortedMovies = [...filteredMovies].sort((a, b) => {
-    let comparison = 0;
+    let valA, valB;
+
     switch (sortBy) {
       case 'IMDB_Rating':
-        comparison = b.IMDB_Rating - a.IMDB_Rating; // Sort by IMDB Rating (descending)
+        valA = parseFloat(a.IMDB_Rating) || 0;
+        valB = parseFloat(b.IMDB_Rating) || 0;
         break;
       case 'FMDB_Rating':
-        comparison = b.FMDB_Rating - a.FMDB_Rating; // Sort by FMDB Rating (descending)
+        valA = parseFloat(a.FMDB_Rating) || 0;
+        valB = parseFloat(b.FMDB_Rating) || 0;
         break;
       case 'Title':
-        comparison = a.Title.localeCompare(b.Title); // Sort by Title (alphabetical)
+        valA = a.Title?.toLowerCase() || '';
+        valB = b.Title?.toLowerCase() || '';
         break;
       case 'ReleaseDate':
-        comparison = new Date(b.ReleaseDate) - new Date(a.ReleaseDate); // Sort by Release Date (newest first)
+        valA = new Date(a.ReleaseDate);
+        valB = new Date(b.ReleaseDate);
         break;
       default:
         return 0;
     }
 
-    // Adjust comparison based on sort order (ascending or descending)
-    return sortOrder === 'asc' ? comparison : -comparison;
+    if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
+    if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
+    return 0;
   });
 
-  // Slice the movie data array to show only the movies for the current page
   const indexOfLastMovie = currentPage * MoviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - MoviesPerPage;
   const currentMovies = sortedMovies.slice(indexOfFirstMovie, indexOfLastMovie);
-
-  // Calculate total pages based on the total number of movies
   const totalPages = Math.ceil(sortedMovies.length / MoviesPerPage);
 
-  // Change page function
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
@@ -53,36 +52,35 @@ const MovieList = () => {
   };
 
   return (
-    <section id="MovieList" className="relative z-10 py-16 ">
+    <section id="MovieList" className="relative z-10 py-16">
       <div className="max-w-8xl px-5 mx-auto text-center">
+
         {/* Sorting Controls */}
         <div className="flex justify-end items-center space-x-4 mb-20">
-          {/* Sorting Dropdown */}
-          <div>
-            <select
-              onChange={(e) => setSortBy(e.target.value)}
-              value={sortBy}
-              className="px-4 py-2 bg-purpleWhite text-darkPurple rounded-full text-lg transition duration-300"
-            >
-              <option value="IMDB_Rating">Sorted by IMDB Rating</option>
-              <option value="FMDB_Rating">Sorted by FMDB Rating</option>
-              <option value="Title">Sorted by Title</option>
-              <option value="ReleaseDate">Sorted by Release Date</option>
-            </select>
-          </div>
+          {/* Sort By Dropdown */}
+          <select
+            onChange={(e) => setSortBy(e.target.value)}
+            value={sortBy}
+            className="px-4 py-2 bg-purpleWhite text-darkPurple rounded-full text-lg transition duration-300"
+          >
+            <option value="IMDB_Rating">Sort by IMDB Rating</option>
+            <option value="FMDB_Rating">Sort by FMDB Rating</option>
+            <option value="Title">Sort by Title</option>
+            <option value="ReleaseDate">Sort by Release Date</option>
+          </select>
 
-          {/* Sort Order Toggle (Ascending/Descending) */}
+          {/* Sort Order Toggle Button */}
           <button
             onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
             className="px-4 py-2 bg-purpleWhite text-darkPurple rounded-full text-lg transition duration-300"
           >
             {sortOrder === 'asc' ? (
               <>
-                Sorted in Ascending Order <span className="ml-2">↑</span>
+                Ascending Order <span className="ml-2">↑</span>
               </>
             ) : (
               <>
-                Sorted in Descending Order <span className="ml-2">↓</span>
+                Descending Order <span className="ml-2">↓</span>
               </>
             )}
           </button>
@@ -95,7 +93,7 @@ const MovieList = () => {
           ))}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Pagination */}
         <div className="w-full text-center mt-10">
           <div className="inline-flex items-center space-x-4">
             <button
@@ -106,12 +104,15 @@ const MovieList = () => {
               Prev
             </button>
 
-            {/* Display Page Numbers */}
             {[...Array(totalPages)].map((_, index) => (
               <button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 ${currentPage === index + 1 ? 'bg-purple text-purpleWhite' : 'bg-transparent text-white'} hover:bg-purple hover:text-purpleWhite rounded-full text-lg transition duration-300`}
+                className={`px-4 py-2 ${
+                  currentPage === index + 1
+                    ? 'bg-purple text-purpleWhite'
+                    : 'bg-transparent text-white'
+                } hover:bg-purple hover:text-purpleWhite rounded-full text-lg transition duration-300`}
               >
                 {index + 1}
               </button>

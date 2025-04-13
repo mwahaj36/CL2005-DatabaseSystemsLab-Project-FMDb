@@ -22,7 +22,7 @@ const MoviesListPage = () => {
         <div className="relative z-10">
           {/* Heading for the Movies List Page */}
           <section className="text-center mt-10">
-            <h2 className="text-6xl text-white text-shadow font-bold">All Movies</h2>
+            <h2 className="text-6xl text-white text-shadow font-bold">All Films</h2>
           </section>
 
           {/* Movie List Component */}
