@@ -1,4 +1,4 @@
-export const users = [
+ const users = [
     {
       userID: "u001",
       fullName: "Alice Monroe",
@@ -56,7 +56,7 @@ export const users = [
       profilePic: "https://i.pinimg.com/236x/68/31/12/68311248ba2f6e0ba94ff6da62eac9f6.jpg" // Example profile picture URL
     },
     {
-      userID: "u005",
+      userID: "chamkadar1234",
       fullName: "chamkadar khan",
       email: "mwahaj25@gmail.com",
       password: "12345678",
@@ -71,3 +71,8 @@ export const users = [
     }
   ];
   
+// ✅ Default export
+export default users;
+
+// ✅ Named export (optional)
+export { users };

@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
     router.push("/");
   };
 
+  // ✅ Signup mock logic
   const signup = (firstName, lastName, username, email, password) => {
     const existingUser = users.find((user) => user.email === email || user.username === username);
 
@@ -53,9 +54,10 @@ export const AuthProvider = ({ children }) => {
       privacy: true,
       userFavs: [],
       friends: [],
-      profilePic: "https://i.pravatar.cc/150?img=65", // random avatar
+      profilePic: "https://i.pravatar.cc/150?img=65" // random avatar
     };
 
+    // ❗ This just logs to the console; it doesn't persist
     console.log("New user created (mock):", newUser);
 
     setUser(newUser);

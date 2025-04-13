@@ -9,7 +9,7 @@ const HeroSection = () => {
           Stash the ones you can't wait to see.<br />
           Tell your squad what’s a must-watch!
         </h1>
-        <a href="login-signup.html" className="px-6 py-2 text-darkPurple text-center text-2xl md:text-4xl font-bold rounded-xl bg-purpleWhite hover:bg-darkPurple hover:text-purpleWhite focus:outline-none md:flex md:items-center md:justify-center">
+        <a href="/LoginSignup" className="px-6 py-2 text-darkPurple text-center text-2xl md:text-4xl font-bold rounded-xl bg-purpleWhite hover:bg-darkPurple hover:text-purpleWhite focus:outline-none md:flex md:items-center md:justify-center">
           Get Started - It's Free
         </a>
         <h1 className="text-2xl md:text-2xl text-white text-center leading-snug text-shadow">

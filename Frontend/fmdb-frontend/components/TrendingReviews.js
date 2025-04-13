@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
+import { router } from 'next/router';  // Add this import
 
-const TrendingReviews = ({ reviewsData, appendLikeToActivity }) => {
+const TrendingReviews = ({ reviewsData, appendLikeToActivity, movie }) => {
   const { user } = useContext(AuthContext); // Get the current logged-in user from the context
   const [likedReviews, setLikedReviews] = useState({});
   const [visibleReviews, setVisibleReviews] = useState(5); // Initially show 5 reviews
@@ -10,7 +11,6 @@ const TrendingReviews = ({ reviewsData, appendLikeToActivity }) => {
     return (
       <p className="text-white text-3xl text-center">
         No reviews...<br />
-        Just like Inception without the dreams!
       </p>
     );
   }
@@ -42,8 +42,10 @@ const TrendingReviews = ({ reviewsData, appendLikeToActivity }) => {
   };
 
   const handleSeeAllClick = () => {
-    setVisibleReviews(reviewsData.length); // Show all reviews
+    // Using movie.MovieID directly for the URL
+    router.push(`/reviews/${movie.MovieID}`);
   };
+  
 
   return (
     <div>
@@ -70,7 +72,7 @@ const TrendingReviews = ({ reviewsData, appendLikeToActivity }) => {
 
                 <div className="text-center md:text-left flex-1">
                   <p className="text-white text-md md:text-lg italic">{review.reviewText}</p>
-                  <p className="text-purpleWhite font-bold mt-2 text-sm">{review.fullName}</p>
+                  <p className="text-purpleWhite font-bold mt-2 text-sm">{review.userID}</p>
                 </div>
 
                 <div className="absolute bottom-4 right-4">
@@ -100,7 +102,7 @@ const TrendingReviews = ({ reviewsData, appendLikeToActivity }) => {
       </div>
 
       {/* "See All" Button */}
-      {visibleReviews < reviewsData.length && (
+      {reviewsData.length > 0 && (
         <div className="mt-6 text-center">
           <button
             onClick={handleSeeAllClick}

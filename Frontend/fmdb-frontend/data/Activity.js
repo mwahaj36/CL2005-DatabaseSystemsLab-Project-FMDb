@@ -1,4 +1,4 @@
-const activity = [
+ const activity = [
   {
     activityID: "a001",
     movieID: "tt7286456",
@@ -9,7 +9,7 @@ const activity = [
     replyID: null,
     isWatched: true,
     activityDateTime: "2024-12-20T18:45:00Z",
-    likedBy: ["u002", "u005"]  // Example: users who liked this review
+    likedBy: ["u002", "chamkadar1234"]  // Example: users who liked this review
   },
   {
     activityID: "a002",
@@ -45,7 +45,19 @@ const activity = [
     replyID: null,
     isWatched: true,
     activityDateTime: "2024-11-10T17:25:00Z",
-    likedBy: ["u003", "u005"]  // Example: users who liked this review
+    likedBy: ["u003", "chamkadar1234"]  // Example: users who liked this review
+  },
+  {
+    activityID: "a016",
+    movieID: "tt1392190",
+    userID: "u002",
+    reviewText: "Best action movie in a decade. Nonstop adrenaline!",
+    rating: 10,
+    isReply: true,
+    replyID: 'a004',
+    isWatched: true,
+    activityDateTime: "2024-11-10T17:25:00Z",
+    likedBy: ["u003", "chamkadar1234"]  // Example: users who liked this review
   },
   {
     activityID: "a005",
@@ -62,7 +74,7 @@ const activity = [
   {
     activityID: "a006",
     movieID: "tt1684562",
-    userID: "u005",
+    userID: "chamkadar1234",
     reviewText: "Great chemistry between Gosling and Blunt. Lighthearted fun!",
     rating: 7,
     isReply: false,
@@ -129,12 +141,12 @@ const activity = [
     replyID: null,
     isWatched: true,
     activityDateTime: "2025-02-16T11:15:00Z",
-    likedBy: ["u005", "u006"]  // Example: users who liked this review
+    likedBy: ["chamkadar1234", "u006"]  // Example: users who liked this review
   },
   {
     activityID: "a012",
     movieID: "tt1392190",
-    userID: "u005",
+    userID: "chamkadar1234",
     reviewText: "Tom Hardy and Charlize Theron were perfect together. This movie makes you feel the desert heat and the danger.",
     rating: 8,
     isReply: false,
@@ -146,31 +158,31 @@ const activity = [
   {
     activityID: "a013",
     movieID: "tt1392190",
-    userID: "u006",
+    userID: "u002",
     reviewText: "A non-stop thrill ride with incredible practical effects. One of the most exhilarating films I’ve ever seen.",
     rating: 9,
     isReply: false,
     replyID: null,
     isWatched: true,
     activityDateTime: "2025-02-25T16:30:00Z",
-    likedBy: ["u007"]  // Example: users who liked this review
+    likedBy: ["u004"]  // Example: users who liked this review
   },
   {
     activityID: "a014",
     movieID: "tt1392190",
-    userID: "u007",
+    userID: "u003",
     reviewText: "A visual masterpiece! The stunts and car chases alone are worth the watch, not to mention the emotional depth.",
     rating: 8,
     isReply: false,
     replyID: null,
     isWatched: true,
     activityDateTime: "2025-03-01T13:10:00Z",
-    likedBy: ["u001", "u008"]  // Example: users who liked this review
+    likedBy: ["u001", "u001"]  // Example: users who liked this review
   },
   {
     activityID: "a015",
     movieID: "tt1392190",
-    userID: "u008",
+    userID: "u001",
     reviewText: "Mad Max: Fury Road pushes the boundaries of action filmmaking. It’s loud, messy, and utterly fantastic.",
     rating: 9,
     isReply: false,

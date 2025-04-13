@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import movieData from '../../data/FMDBDatabase.json'; // Movie data
 import activity from '../../data/activity'; // Activity data
-import { users } from '../../data/users'; // Users data
+import users from '../../data/Users'; // no destructuring
+
+
 
 import CastAndCrew from '../../components/CastAndCrew';
 import TrendingReviews from '../../components/TrendingReviews';
@@ -57,7 +59,8 @@ const MoviePage = () => {
             />
             <TrendingReviews
               reviewsData={reviewsForMovie}
-              appendLikeToActivity={appendLikeToActivity} // Pass the append function to child
+              appendLikeToActivity={appendLikeToActivity}
+              movie={selectedMovie} // ✅ Add this line to pass the movie object
             />
           </div>
         </div>
