@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
+import { AuthContext } from '@/context/AuthContext'; // Adjust path if needed
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user } = useContext(AuthContext); // Get user from context
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -23,7 +25,11 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-10 text-white font-bold">
             <Link href="/" className="hover:text-purple">Home</Link>
-            <Link href="/login" className="hover:text-purple">Login / Signup</Link>
+            {user ? (
+              <Link href="/profile" className="hover:text-purple">Profile</Link>
+            ) : (
+              <Link href="/LoginSignup" className="hover:text-purple">Login / Signup</Link>
+            )}
             <Link href="/MoviesListPage" className="hover:text-purple">Films</Link>
             <Link href="/SeriesListPage" className="hover:text-purple">Series</Link>
             <Link href="/members" className="hover:text-purple">Members</Link>
@@ -67,8 +73,13 @@ function Navbar() {
           className="absolute left-6 right-6 rounded-3xl flex-col items-center py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md"
         >
           <Link href="/" className="hover:text-purple">Home</Link>
-          <Link href="/login" className="hover:text-purple">Login / Signup</Link>
-          <Link href="/movies" className="hover:text-purple">Films</Link>
+          {user ? (
+            <Link href="/profile" className="hover:text-purple">Profile</Link>
+          ) : (
+            <Link href="/LoginSignup" className="hover:text-purple">Login / Signup</Link>
+          )}
+          <Link href="/MoviesListPage" className="hover:text-purple">Films</Link>
+          <Link href="/SeriesListPage" className="hover:text-purple">Series</Link>
           <Link href="/members" className="hover:text-purple">Members</Link>
           <Link href="/verifiedReviews" className="text-gold hover:text-purple">Verified Critics</Link>
 

@@ -1,6 +1,11 @@
 import Link from 'next/link';
 
 const MovieCard = ({ movie }) => {
+  // Ensure the movie prop has all necessary fields before rendering
+  if (!movie || !movie.MovieID || !movie.Poster || !movie.Title) {
+    return <div>Loading...</div>; // Handle missing data gracefully
+  }
+
   return (
     <div className="flex flex-col items-center p-6 space-y-4 rounded-lg bg-veryLightGray shadow-lg transition-all duration-300 w-full">
       <Link href={`/movie/${movie.MovieID}`}>

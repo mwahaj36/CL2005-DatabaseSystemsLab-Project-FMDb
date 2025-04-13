@@ -1,9 +1,9 @@
-// pages/movie/[movieID].js
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import movieData from '../../data/FMDBDatabase.json'; // Make sure this path is correct
+import movieData from '../../data/FMDBDatabase.json'; // Movie data
+import activity from '../../data/activity'; // Activity data
+import { users } from '../../data/users'; // Users data
 
-// ✅ Updated component paths — all start from "../../components"
 import CastAndCrew from '../../components/CastAndCrew';
 import TrendingReviews from '../../components/TrendingReviews';
 import Navbar from '../../components/Navbar';
@@ -14,37 +14,28 @@ const MoviePage = () => {
   const router = useRouter();
   const { movieID } = router.query;
 
-  // Find the selected movie based on movieID from the JSON data
   const selectedMovie = movieData.find((movie) => movie.MovieID === movieID);
 
   if (!selectedMovie) {
     return <div>Movie not found</div>;
   }
 
-  // Dummy data for reviews
-// Dummy data for reviews
-const reviewsData = [
-  // {
-  //   username: "cinebuff123",
-  //   rating: 4.5,
-  //   text: "A masterpiece in visual storytelling. Loved the direction and pacing!",
-  //   usertype: "Verified Critic", // Added usertype
-  // },
-  // {
-  //   username: "movielover99",
-  //   rating: 4.5,
-  //   text: "Great cast, solid script. Definitely a must-watch!",
-  //   usertype: "Regular User", // Added usertype
-  // },
-  // {
-  //   username: "noirenthusiast",
-  //   rating: 3.5,
-  //   text: "Good attempt, but lacked emotional depth in a few scenes.",
-  //   usertype: "Verified Critic", // Added usertype
-  // },
-];
+  const reviewsForMovie = activity
+    .filter((a) => a.movieID === movieID && !a.isReply)
+    .map((a) => {
+      const user = users.find((u) => u.userID === a.userID);
+      return {
+        ...a,
+        userType: user?.userType || 'user',
+        fullName: user?.fullName || 'Unknown User',
+        profilePic: user?.profilePic || '/default-pic.jpg',
+      };
+    });
 
-
+  const appendLikeToActivity = (newActivity) => {
+    activity.push(newActivity); // Append the new activity to your data structure
+    console.log('New activity added:', newActivity); // Simulate the append to the activity
+  };
 
   return (
     <div>
@@ -53,13 +44,10 @@ const reviewsData = [
         style={{ backgroundImage: `url(${selectedMovie.Backdrop})` }}
       >
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-        {/* Replace with your Navbar component */}
         <Navbar />
-        {/* Replace with your MovieHero component */}
         <MovieHero movieData={selectedMovie} />
         <div className="container px-6 mx-auto mt-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Replace with your CastAndCrew component */}
             <CastAndCrew
               crewData={{
                 director: selectedMovie.Director,
@@ -67,11 +55,12 @@ const reviewsData = [
                 cast: selectedMovie.TopActors,
               }}
             />
-            {/* Replace with your TrendingReviews component */}
-            <TrendingReviews reviewsData={reviewsData} />
+            <TrendingReviews
+              reviewsData={reviewsForMovie}
+              appendLikeToActivity={appendLikeToActivity} // Pass the append function to child
+            />
           </div>
         </div>
-        {/* Replace with your Footer component */}
         <Footer />
       </section>
     </div>
