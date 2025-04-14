@@ -6,12 +6,18 @@ IF NOT EXISTS (
         sys.databases
     WHERE
         name = N'FMDb'
-) BEGIN CREATE DATABASE FMDb;
-
-PRINT 'Database FMDb created successfully.';
-
-END ELSE BEGIN PRINT 'Database FMDb already exists.';
-
+) 
+BEGIN 
+	CREATE DATABASE FMDb;
+	PRINT 'Database FMDb created successfully.';
+END 
+ELSE 
+BEGIN 
+	PRINT 'Database FMDb already exists. Deleting it and creating it again.';
+	ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE FMDb;
+    CREATE DATABASE FMDb;
+	PRINT 'Database FMDb created successfully.';
 END
 
 GO 
@@ -32,8 +38,8 @@ CREATE TABLE
         MoviePosterLink VARCHAR(255),
         MovieBackdropLink VARCHAR(255),
         Language VARCHAR(255),
-        IMDB_Rating DECIMAL(2, 1) CHECK (IMDB_Rating BETWEEN 0 AND 10),
-        FMDB_Rating DECIMAL(2, 1) DEFAULT 0 CHECK (FMDB_Rating BETWEEN 0 AND 10),
+        IMDB_Rating DECIMAL(2, 1) CHECK (IMDB_Rating BETWEEN 1 AND 10),
+        FMDB_Rating DECIMAL(2, 1) DEFAULT 1 CHECK (FMDB_Rating BETWEEN 1 AND 10),
         Awards VARCHAR(255),
         BoxOffice VARCHAR(50),
         MPAA_Rating VARCHAR(10),
@@ -229,41 +235,31 @@ CREATE TABLE
 
 GO
 
+-- Trigger to update the average rating of a movie
+CREATE TRIGGER trg_UpdateMovieRating
+ON Activity
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
 
+    -- Update the average rating for movies affected by INSERT or UPDATE
+    UPDATE Movies
+    SET FMDB_Rating = (
+        SELECT AVG(CAST(Ratings AS FLOAT))
+        FROM Activity
+        WHERE MovieID = inserted.MovieID AND Ratings IS NOT NULL
+    )
+    FROM Movies
+    INNER JOIN inserted ON Movies.MovieID = inserted.MovieID;
 
-
-
-
--- -- Drop Query 
-
--- use FMDB
--- GO
--- -- Drop tables in the correct order to prevent foreign key constraint issues
--- DROP TABLE IF EXISTS Reply;
--- DROP TABLE IF EXISTS Activity;
--- DROP TABLE IF EXISTS UserWatchlist;
--- DROP TABLE IF EXISTS UserLikedMovies;
--- DROP TABLE IF EXISTS UserFavorites;
--- DROP TABLE IF EXISTS Friends;
--- DROP TABLE IF EXISTS MovieWriters;
--- DROP TABLE IF EXISTS Writers;
--- DROP TABLE IF EXISTS MovieDirectors;
--- DROP TABLE IF EXISTS Directors;
--- DROP TABLE IF EXISTS MovieActors;
--- DROP TABLE IF EXISTS Actors;
--- DROP TABLE IF EXISTS MovieKeywords;
--- DROP TABLE IF EXISTS Keywords;
--- DROP TABLE IF EXISTS MovieGenres;
--- DROP TABLE IF EXISTS Genres;
--- DROP TABLE IF EXISTS Users;
--- DROP TABLE IF EXISTS Movies;
--- go 
-
-
--- use master 
--- go 
-
--- ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
--- GO
-
--- drop database FMDB
+    -- Update the average rating for movies affected by DELETE
+    UPDATE Movies
+    SET FMDB_Rating = (
+        SELECT AVG(CAST(Ratings AS FLOAT))
+        FROM Activity
+        WHERE MovieID = deleted.MovieID AND Ratings IS NOT NULL
+    )
+    FROM Movies
+    INNER JOIN deleted ON Movies.MovieID = deleted.MovieID;
+END;
+GO

@@ -1,11 +1,269 @@
-use master
--- Use the FMDb database
-USE FMDb;
-GO
+-- Create FMDb database if it doesn't exist
+IF NOT EXISTS (
+    SELECT
+        name
+    FROM
+        sys.databases
+    WHERE
+        name = N'FMDb'
+) 
+BEGIN 
+	CREATE DATABASE FMDb;
+	PRINT 'Database FMDb created successfully.';
+END 
+ELSE 
+BEGIN 
+	PRINT 'Database FMDb already exists. Deleting it and creating it again.';
+	ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE FMDb;
+    CREATE DATABASE FMDb;
+	PRINT 'Database FMDb created successfully.';
+END
+GO 
 
+-- Using FMDB 
+USE FMDb;
+
+GO
+-- Movies Table
+CREATE TABLE
+    Movies (
+        MovieID INT IDENTITY (1, 1) PRIMARY KEY,
+        Title VARCHAR(255),
+        Type VARCHAR(10) CHECK (Type IN ('Movie', 'Series')) NOT NULL,
+        Synopsis TEXT,
+        ReleaseDate DATE,
+        MovieLength VARCHAR(50),
+        MoviePosterLink VARCHAR(255),
+        MovieBackdropLink VARCHAR(255),
+        Language VARCHAR(255),
+        IMDB_Rating DECIMAL(2, 1) CHECK (IMDB_Rating BETWEEN 1 AND 10),
+        FMDB_Rating DECIMAL(2, 1) DEFAULT 1 CHECK (FMDB_Rating BETWEEN 1 AND 10),
+        Awards VARCHAR(255),
+        BoxOffice VARCHAR(50),
+        MPAA_Rating VARCHAR(10),
+
+    );
+
+GO
+-- Users Table
+CREATE TABLE
+    Users (
+        UserID INT IDENTITY (1, 1) PRIMARY KEY,
+        FullName VARCHAR(255),
+        Username VARCHAR(50) UNIQUE,
+        PasswordHash VARCHAR(255),
+        Email VARCHAR(255) UNIQUE,
+        Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')) NOT NULL,
+        DateOfBirth DATE,
+        Bio TEXT,
+        UserType VARCHAR(10) CHECK (UserType IN ('User', 'Admin', 'Critique')) NOT NULL,
+        Privacy VARCHAR(10) CHECK (Privacy IN ('Public', 'Private')) NOT NULL
+    );
+
+GO
+-- Friends Table
+CREATE TABLE
+    Friends (
+        User1ID INT NOT NULL,
+        User2ID INT NOT NULL,
+        PRIMARY KEY (User1ID, User2ID),
+        CONSTRAINT CK_Friends_Order CHECK (User1ID < User2ID),
+        FOREIGN KEY (User1ID) REFERENCES Users (UserID),
+        FOREIGN KEY (User2ID) REFERENCES Users (UserID)
+    );
+
+GO
+-- UserFavorites, UserLikedMovies, UserWatchlist
+CREATE TABLE
+    UserFavorites (
+        UserID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (UserID, MovieID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    UserLikedMovies (
+        UserID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (UserID, MovieID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    UserWatchlist (
+        UserID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (UserID, MovieID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+-- Movie People Tables
+CREATE TABLE
+    Actors (
+        ActorID INT IDENTITY (1, 1) PRIMARY KEY,
+        ActorName VARCHAR(255)
+    );
+
+GO
+CREATE TABLE
+    MovieActors (
+        ActorID INT NOT NULL,
+        MovieID INT NOT NULL,
+        CharacterName VARCHAR(255),
+        PRIMARY KEY (ActorID, MovieID),
+        FOREIGN KEY (ActorID) REFERENCES Actors (ActorID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    Directors (
+        DirectorID INT IDENTITY (1, 1) PRIMARY KEY,
+        DirectorName VARCHAR(255)
+    );
+
+GO
+CREATE TABLE
+    MovieDirectors (
+        DirectorID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (DirectorID, MovieID),
+        FOREIGN KEY (DirectorID) REFERENCES Directors (DirectorID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    Writers (
+        WriterID INT IDENTITY (1, 1) PRIMARY KEY,
+        WriterName VARCHAR(255)
+    );
+
+GO
+CREATE TABLE
+    MovieWriters (
+        WriterID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (WriterID, MovieID),
+        FOREIGN KEY (WriterID) REFERENCES Writers (WriterID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+
+GO
+-- Genres and Tags
+CREATE TABLE
+    Genres (
+        GenreID INT IDENTITY (1, 1) PRIMARY KEY,
+        GenreName VARCHAR(50) UNIQUE
+    );
+
+GO
+CREATE TABLE
+    Keywords (
+        KeywordID INT IDENTITY (1, 1) PRIMARY KEY,
+        KeywordName VARCHAR(50) UNIQUE
+    );
+
+GO
+CREATE TABLE
+    MovieKeywords (
+        KeywordID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (KeywordID, MovieID),
+        FOREIGN KEY (KeywordID) REFERENCES Keywords (KeywordID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    MovieGenres (
+        GenreID INT NOT NULL,
+        MovieID INT NOT NULL,
+        PRIMARY KEY (GenreID, MovieID),
+        FOREIGN KEY (GenreID) REFERENCES Genres (GenreID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+
+GO
+-- Activity and Reply
+CREATE TABLE
+    Activity (
+        ActivityID INT IDENTITY (1, 1) PRIMARY KEY,
+        ActivityDateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+        IsWatched BIT NOT NULL,
+        UserID INT NOT NULL,
+        MovieID INT NOT NULL,
+        Ratings INT CHECK (Ratings BETWEEN 1 AND 10),
+        Review TEXT,
+        IsReply BIT,
+        ReplyID INT,
+        FOREIGN KEY (UserID) REFERENCES Users (UserID),
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+    );
+
+GO
+CREATE TABLE
+    Reply (
+        ActivityID INT NOT NULL,
+        ReplyID INT NOT NULL,
+        PRIMARY KEY (ReplyID, ActivityID),
+        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
+        FOREIGN KEY (ReplyID) REFERENCES Activity (ActivityID)
+    );
+
+GO
+CREATE TABLE
+    ActivityLikes (
+        ActivityID INT NOT NULL,
+        UserID INT NOT NULL,
+        PRIMARY KEY (UserID, ActivityID),
+        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID)
+    );
+
+GO
+-- Trigger to update the average rating of a movie
+CREATE TRIGGER trg_UpdateMovieRating
+ON Activity
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+
+    -- Update the average rating for movies affected by INSERT or UPDATE
+    UPDATE Movies
+    SET FMDB_Rating = (
+        SELECT AVG(CAST(Ratings AS FLOAT))
+        FROM Activity
+        WHERE MovieID = inserted.MovieID AND Ratings IS NOT NULL
+    )
+    FROM Movies
+    INNER JOIN inserted ON Movies.MovieID = inserted.MovieID;
+
+    -- Update the average rating for movies affected by DELETE
+    UPDATE Movies
+    SET FMDB_Rating = (
+        SELECT AVG(CAST(Ratings AS FLOAT))
+        FROM Activity
+        WHERE MovieID = deleted.MovieID AND Ratings IS NOT NULL
+    )
+    FROM Movies
+    INNER JOIN deleted ON Movies.MovieID = deleted.MovieID;
+END;
+
+GO
+-- Below is the Initial Data for the database. Does not include users or activity data, that is generated by the app. There are 211 movies/series in the database. Used Python scripts and API calls to extract the data from TMDB and make the sql insert statements.
 
 -- Genres
-
 INSERT INTO Genres (GenreName) VALUES
  ('Action'),
  ('Adventure'),
