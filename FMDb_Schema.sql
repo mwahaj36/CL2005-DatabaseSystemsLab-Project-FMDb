@@ -198,7 +198,7 @@ CREATE TABLE
         IsWatched BIT NOT NULL,
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
-        Ratings DECIMAL(2, 1) CHECK (Ratings BETWEEN 0 AND 10),
+        Ratings INT CHECK (Ratings BETWEEN 1 AND 10),
         Review TEXT,
         IsReply BIT,
         ReplyID INT,
@@ -210,10 +210,21 @@ GO
 CREATE TABLE
     Reply (
         ActivityID INT NOT NULL,
-        ReplyID INT IDENTITY (1, 1) NOT NULL,
+        ReplyID INT NOT NULL,
         PRIMARY KEY (ReplyID, ActivityID),
         FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
         FOREIGN KEY (ReplyID) REFERENCES Activity (ActivityID)
+    );
+
+GO
+
+CREATE TABLE
+    ActivityLikes (
+        ActivityID INT NOT NULL,
+        UserID INT NOT NULL,
+        PRIMARY KEY (UserID, ActivityID),
+        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID)
     );
 
 GO
