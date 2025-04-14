@@ -12,26 +12,6 @@ const HomePage = () => {
     .sort((a, b) => parseFloat(b.IMDB_Rating) - parseFloat(a.IMDB_Rating))
     .slice(0, 5);
 
-  const topThreeUsers = [
-    {
-      username: "john_doe",
-      image: "https://example.com/gold.jpg",
-      activities: 50,
-      moviesWatched: 20,
-    },
-    {
-      username: "jane_smith",
-      image: "https://example.com/silver.jpg",
-      activities: 38,
-      moviesWatched: 12,
-    },
-    {
-      username: "mark_twain",
-      image: "https://example.com/bronze.jpg",
-      activities: 30,
-      moviesWatched: 10,
-    },
-  ];
 
   return (
     <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
@@ -40,7 +20,7 @@ const HomePage = () => {
         <Navbar />
         <HeroSection />
         <Spotlight movies={topFiveMovies} />
-        <Leaderboard topThree={topThreeUsers} />
+        <Leaderboard />
         <Footer />
       </div>
     </div>

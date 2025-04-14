@@ -39,7 +39,7 @@ function Navbar() {
             )}
             <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage')}>Films</Link>
             <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage')}>Series</Link>
-            <Link href="/members" className={getLinkClass('/members')}>Members</Link>
+            <Link href="/Members" className={getLinkClass('/Members')}>Members</Link>
             <Link
               href="/verifiedReviews"
               className={`${pathname === '/verifiedReviews' ? 'text-purple' : 'text-gold'} hover:text-purple`}
@@ -84,7 +84,7 @@ function Navbar() {
           )}
           <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage', 'text-darkPurple')}>Films</Link>
           <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage', 'text-darkPurple')}>Series</Link>
-          <Link href="/members" className={getLinkClass('/members', 'text-darkPurple')}>Members</Link>
+          <Link href="/Members" className={getLinkClass('/Members', 'text-darkPurple')}>Members</Link>
           <Link
             href="/verifiedReviews"
             className={`${pathname === '/verifiedReviews' ? 'text-purple' : 'text-gold'} hover:text-purple`}
