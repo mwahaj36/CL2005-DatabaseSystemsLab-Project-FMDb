@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 const TrendingReviews = ({ movie }) => {
   const [likedReviews, setLikedReviews] = useState({});
   const [visibleReviews, setVisibleReviews] = useState(5); // Initially show 5 reviews
+  const router = useRouter(); // Move the useRouter hook to the top level of the component
 
   // Sample reviews data
   const reviewsData = [
@@ -60,7 +61,6 @@ const TrendingReviews = ({ movie }) => {
 
   const handleSeeAllClick = () => {
     // Using movie.MovieID directly for the URL
-    const router = useRouter();
     router.push(`/reviews/${movie.MovieID}`);
   };
 
