@@ -1,4 +1,8 @@
+import { useRouter } from 'next/router';
+
 const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemoveFriend, onEditProfile }) => {
+  const router = useRouter();
+
   // Handle "Add Friend" and "Remove Friend" logic only if currentUser is not null
   const handleAddFriend = () => {
     if (!currentUser) {
@@ -14,6 +18,11 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
       return;
     }
     onRemoveFriend();
+  };
+
+  // Function to navigate to the dynamic "Logged Movies" page
+  const handleLoggedMoviesClick = () => {
+    router.push(`/logged/${profileUser.userID}`);
   };
 
   return (
@@ -90,13 +99,14 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
               <p className="text-white text-sm md:text-7xl font-bold">{profileUser.moviesWatched || 1421}</p>
             </div>
 
-            {/* Movies Logged */}
-            <a href="loggedMovies.html">
-              <div className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-4 shadow-lg flex flex-col items-center justify-center text-center">
-                <p className="text-purpleWhite text-md md:text-lg font-semibold">Movies Logged</p>
-                <p className="text-white text-sm md:text-7xl font-bold">{profileUser.moviesLogged || 62}</p>
-              </div>
-            </a>
+            {/* Movies Logged (changed to a button) */}
+            <button
+              onClick={handleLoggedMoviesClick}
+              className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-4 shadow-lg flex flex-col items-center justify-center text-center cursor-pointer"
+            >
+              <p className="text-purpleWhite text-md md:text-lg font-semibold">Movies Logged</p>
+              <p className="text-white text-sm md:text-7xl font-bold">{profileUser.moviesLogged || 62}</p>
+            </button>
 
             {/* Likes */}
             <div className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-4 shadow-lg flex flex-col items-center justify-center text-center">
