@@ -863,6 +863,10 @@ video {
   height: 12rem;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .max-h-48 {
   max-height: 12rem;
 }
@@ -1779,6 +1783,10 @@ video {
 
   .md\:w-1\/4 {
     width: 25%;
+  }
+
+  .md\:w-1\/5 {
+    width: 20%;
   }
 
   .md\:grid-cols-2 {

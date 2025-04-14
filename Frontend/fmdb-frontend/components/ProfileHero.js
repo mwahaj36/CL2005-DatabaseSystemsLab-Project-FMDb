@@ -21,7 +21,7 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
       <div className="relative z-10 mt-20 items-center container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
         
         {/* Profile Picture */}
-        <div className="flex flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/4">
+        <div className="flex flex-col items-center p-6  rounded-lg  md:w-1/5">
           <img
             src={profileUser.profilePic}
             alt="Profile"
