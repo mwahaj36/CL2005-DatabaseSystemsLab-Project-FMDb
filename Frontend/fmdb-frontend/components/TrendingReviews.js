@@ -1,51 +1,68 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
-import { router } from 'next/router';  // Add this import
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
-const TrendingReviews = ({ reviewsData, appendLikeToActivity, movie }) => {
-  const { user } = useContext(AuthContext); // Get the current logged-in user from the context
+const TrendingReviews = ({ movie }) => {
   const [likedReviews, setLikedReviews] = useState({});
   const [visibleReviews, setVisibleReviews] = useState(5); // Initially show 5 reviews
 
-  if (!reviewsData || reviewsData.length === 0) {
-    return (
-      <p className="text-white text-3xl text-center">
-        No reviews...<br />
-      </p>
-    );
-  }
+  // Sample reviews data
+  const reviewsData = [
+    {
+      activityID: '1',
+      userID: 'JohnDoe',
+      userType: 'verified critic',
+      reviewText: 'An amazing movie! A must-watch for all fans of action.',
+      rating: 8.5,
+    },
+    {
+      activityID: '2',
+      userID: 'JaneSmith',
+      userType: 'regular user',
+      reviewText: 'Decent movie, but could have been better in terms of plot.',
+      rating: 6.0,
+    },
+    {
+      activityID: '3',
+      userID: 'MovieFan23',
+      userType: 'regular user',
+      reviewText: 'A thrilling ride with great performances by the lead actors.',
+      rating: 9.0,
+    },
+    {
+      activityID: '4',
+      userID: 'FilmCritic22',
+      userType: 'verified critic',
+      reviewText: 'The direction was top-notch, but the pacing was off at times.',
+      rating: 7.5,
+    },
+    {
+      activityID: '5',
+      userID: 'Cinephile42',
+      userType: 'regular user',
+      reviewText: 'Incredible cinematography and visuals. Highly recommend.',
+      rating: 9.5,
+    },
+    {
+      activityID: '6',
+      userID: 'CriticJane',
+      userType: 'verified critic',
+      reviewText: 'An excellent film with a strong emotional core.',
+      rating: 8.0,
+    },
+  ];
 
   const handleLikeClick = (reviewID) => {
-    if (!user) {
-      alert('Please log in to like a review!');
-      return;
-    }
-
     setLikedReviews((prevState) => ({
       ...prevState,
       [reviewID]: !prevState[reviewID],
     }));
-
-    // Append the like to the activity
-    const activity = {
-      activityID: `a00${Date.now()}`, // Generate unique activity ID
-      movieID: reviewID,
-      userID: user.userID,
-      isReply: false, // not a reply
-      rating: null,
-      reviewText: "Liked this review",
-      activityDateTime: new Date().toISOString(),
-    };
-
-    // Call the function passed from the parent to append this like
-    appendLikeToActivity(activity);
   };
 
   const handleSeeAllClick = () => {
     // Using movie.MovieID directly for the URL
+    const router = useRouter();
     router.push(`/reviews/${movie.MovieID}`);
   };
-  
 
   return (
     <div>
@@ -54,7 +71,7 @@ const TrendingReviews = ({ reviewsData, appendLikeToActivity, movie }) => {
       </h2>
       <div className="space-y-6">
         {reviewsData.slice(0, visibleReviews).map((review) => {
-          const hasLiked = likedReviews[review.activityID]; // Check if current review is liked by the user
+          const hasLiked = likedReviews[review.activityID]; // Check if current review is liked
 
           return (
             <div

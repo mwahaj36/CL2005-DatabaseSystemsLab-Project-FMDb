@@ -33,7 +33,7 @@ const MovieCard = ({ movie, onFavoriteSelect }) => {
                 onClose={(selectedMovie) => {
                   if (selectedMovie) {
                     onFavoriteSelect(selectedMovie); // Pass the selected movie to the parent
-                    // Add to user favs code here; selected movie has the object
+                    //add to user favs code here; selected movie has the object
                   }
                   setActiveSearchIndex(null); // Always close the dropdown
                 }}

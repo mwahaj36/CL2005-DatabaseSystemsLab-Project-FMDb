@@ -31,7 +31,9 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-10 font-bold">
             <Link href="/" className={getLinkClass('/')}>Home</Link>
             {user ? (
-              <Link href="/EditProfile" className={getLinkClass('/profile')}>Profile</Link>
+            <li>
+            <Link href={`/profile/${user.userID}`}>My Profile</Link>
+          </li>
             ) : (
               <Link href="/LoginSignup" className={getLinkClass('/LoginSignup')}>Login / Signup</Link>
             )}
@@ -76,7 +78,7 @@ function Navbar() {
         <div className="absolute left-6 right-6 rounded-3xl flex-col items-center py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md">
           <Link href="/" className={getLinkClass('/', 'text-darkPurple')}>Home</Link>
           {user ? (
-            <Link href="/profile" className={getLinkClass('/profile', 'text-darkPurple')}>Profile</Link>
+            <Link href="/Profile" className={getLinkClass('/profile', 'text-darkPurple')}>Profile</Link>
           ) : (
             <Link href="/LoginSignup" className={getLinkClass('/LoginSignup', 'text-darkPurple')}>Login / Signup</Link>
           )}
