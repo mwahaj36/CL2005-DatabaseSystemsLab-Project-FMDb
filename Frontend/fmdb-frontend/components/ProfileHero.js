@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemoveFriend, onEditProfile }) => {
   const router = useRouter();
@@ -51,12 +52,12 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
             <div className="flex space-x-4">
               {/* Edit Profile (only if own profile) */}
               {profileUser.userID === currentUser?.userID && (
-                <button
-                  onClick={onEditProfile}
+                <Link
+                  href='/EditProfile'
                   className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-3xl hover:bg-purple hover:text-purpleWhite"
                 >
                   Edit Profile
-                </button>
+                </Link>
               )}
 
               {/* Add/Remove Friend (based on friendship status and logged-in status) */}

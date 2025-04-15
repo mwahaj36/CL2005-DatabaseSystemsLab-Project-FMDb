@@ -181,7 +181,7 @@ export default function EditProfile() {
               </div>
 
               <div className="flex justify-end space-x-4">
-                <a href="changePass.html" className="px-4 py-2 font-bold text-white hover:text-purpleWhite">Change Password</a>
+                <a href="/ChangePass" className="px-4 py-2 font-bold text-white hover:text-purpleWhite">Change Password</a>
                 <a href="/Profile" type="button" className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">Cancel</a>
                 <a href="/Profile" type="submit" className="px-4 py-2 font-bold bg-purple text-white rounded-lg">Save Changes</a>
               </div>
