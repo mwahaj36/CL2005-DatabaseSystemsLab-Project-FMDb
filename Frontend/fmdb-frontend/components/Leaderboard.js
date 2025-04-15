@@ -39,10 +39,10 @@ const Leaderboard = () => {
           {topThree.map((user, index) => (
             <Link href={`/profile/${user.username}`} key={index}>
               <div
-                className={`flex items-center p-4 bg-opacity-60 rounded-2xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
+                className={`flex items-center p-4 bg-opacity-60 rounded-xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
                 style={{ backgroundColor: medalColors[index] }}
               >
-                <div className="w-32 h-32 bg-white rounded-md overflow-hidden shadow-md">
+                <div className="w-32 h-32 bg-white rounded-xl overflow-hidden shadow-md">
                   <img
                     src={user.image}
                     alt={user.username}

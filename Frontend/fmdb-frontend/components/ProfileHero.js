@@ -31,11 +31,11 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
       <div className="relative z-10 mt-20 items-center container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
         
         {/* Profile Picture */}
-        <div className="flex flex-col items-center p-6  rounded-lg  md:w-1/5">
+        <div className="flex flex-col items-center p-6  rounded-xl  md:w-1/5">
           <img
             src={profileUser.profilePic}
             alt="Profile"
-            className="shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
+            className="shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
           />
           {/* Additional Clickable Cards - 2 under full 4-column grid */}
 <div className="mt-4 grid grid-cols-2 gap-4">

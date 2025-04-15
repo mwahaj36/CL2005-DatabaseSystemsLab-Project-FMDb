@@ -95,7 +95,7 @@ export default function LoginSignupPage() {
             </h1>
 
             <form
-              className="w-full max-w-lg ml-16 bg-purpleWhite bg-opacity-80 px-5 py-8 rounded-3xl space-y-6 drop-shadow-xl"
+              className="w-full max-w-lg ml-16 bg-purpleWhite bg-opacity-80 px-5 py-8 rounded-xl space-y-6 drop-shadow-xl"
               onSubmit={
                 isAdminForm ? handleAdminSubmit : isSignup ? handleSignup : handleLogin
               }
@@ -106,7 +106,7 @@ export default function LoginSignupPage() {
                     <input
                       type="text"
                       placeholder="First Name"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       required
@@ -116,7 +116,7 @@ export default function LoginSignupPage() {
                     <input
                       type="text"
                       placeholder="Last Name"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       required
@@ -128,7 +128,7 @@ export default function LoginSignupPage() {
               <input
                 type="email"
                 placeholder="Email"
-                className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
+                className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -138,7 +138,7 @@ export default function LoginSignupPage() {
                 <input
                   type="password"
                   placeholder="Password"
-                  className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                  className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -150,7 +150,7 @@ export default function LoginSignupPage() {
                   <input
                     type="text"
                     placeholder="Username"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
@@ -158,7 +158,7 @@ export default function LoginSignupPage() {
                   <input
                     type="password"
                     placeholder="Password"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -166,7 +166,7 @@ export default function LoginSignupPage() {
                   <input
                     type="password"
                     placeholder="Confirm Password"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
@@ -177,7 +177,7 @@ export default function LoginSignupPage() {
               {isAdminForm && (
                 <textarea
                   placeholder="Your previous experience moderating social platforms..."
-                  className="block w-full h-32 resize-none bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                  className="block w-full h-32 resize-none bg-white text-darkPurple border-2 border-purpleWhite rounded-xl py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
                   value={adminExperience}
                   onChange={(e) => setAdminExperience(e.target.value)}
                   required
