@@ -43,11 +43,11 @@ const HomePage = () => {
       <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg')" }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
-      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-gold font-bold text-center drop-shadow-lg">
         This Week's Top 4
       </h2>
       <Spotlight movies={topFiveMovies} />
-      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-gold font-bold text-center drop-shadow-lg">
         Top Critics' Activity
       </h2>
       <ThirdScreenReviews />

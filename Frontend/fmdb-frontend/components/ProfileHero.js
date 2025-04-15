@@ -37,7 +37,26 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
             alt="Profile"
             className="shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
           />
+          {/* Additional Clickable Cards - 2 under full 4-column grid */}
+<div className="mt-4 grid grid-cols-2 gap-4">
+  {/* Following */}
+  <button
+    onClick={() => alert("View Following")}
+    className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16"
+  >
+    <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
+  </button>
+
+  {/* Followers */}
+  <button
+    onClick={() => alert("View Followers")}
+    className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16"
+  >
+    <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
+  </button>
+  </div>
         </div>
+        
 
         {/* Profile Info */}
         <div className="flex flex-col mb-40 md:w-4/5">
@@ -45,7 +64,7 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
           {/* userID and Full Name */}
           <div className="w-full flex items-center justify-between flex-wrap">
             <div className="flex items-end space-x-4">
-              <h1 className="text-white text-3xl font-bold md:text-6xl">{profileUser.userID}</h1>
+              <h1 className="text-white text-3xl font-bold md:text-6xl">{profileUser.fullName}</h1>
             </div>
 
             {/* Action Buttons */}
@@ -80,8 +99,8 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
               )}
             </div>
           </div>
-          <div>{profileUser.fullName && (
-                <p className="text-white text-md md:text-3xl font-semibold">{profileUser.fullName}</p>
+          <div>{profileUser.userID && (
+                <p className="text-white text-md md:text-3xl font-semibold">{profileUser.userID}</p>
               )}</div>
 
           {/* Bio */}
@@ -131,8 +150,9 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
   </p>
 </div>
 
-          </div>
 
+
+          </div>
         </div>
       </div>
     </section>

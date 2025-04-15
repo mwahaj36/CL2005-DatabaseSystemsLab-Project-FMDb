@@ -12,12 +12,13 @@ export default function EditProfile() {
   // Split full name from user data
   const [firstName, setFirstName] = useState(user?.fullName ? user.fullName.split(" ")[0] : "Muhammad");
   const [lastName, setLastName] = useState(user?.fullName ? user.fullName.split(" ")[1] || "" : "Wahaj");
-  const [gender, setGender] = useState(user?.gender||"Not Specified");
+  const [gender, setGender] = useState(user?.gender || "Not Specified");
   const [email, setEmail] = useState(user?.email || "example@email.com");
   const [bio, setBio] = useState(user?.bio || "");
-  const [userType, setuserType] = useState(user?.userType || "user");
+  const [userType, setUserType] = useState(user?.userType || "user");
   const [dob, setDob] = useState(user?.dob || "");  // New state for Date of Birth
   const [background, setBackground] = useState("https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg");  // New state for background image
+  const [privacy, setprivacy] = useState(user?.privacy || "public"); // New state for account privacy
 
   // Update favorites data from the user context
   const favoriteMovies = user?.userFavs || [];
@@ -39,6 +40,12 @@ export default function EditProfile() {
         FMDBDatabase.find(movie => movie.MovieID === movieId)
       ).filter(movie => movie !== undefined) // Ensure we only pass valid movie objects
     : [];
+
+  // Dummy function to toggle account privacy
+  const toggleprivacy = () => {
+    setprivacy(prevState => prevState === 'public' ? 'private' : 'public');
+    console.log(`Account is now ${privacy === 'public' ? 'private' : 'public'}`);
+  };
 
   return (
     <section
@@ -85,7 +92,7 @@ export default function EditProfile() {
             <img
               src={profilePic}
               alt="Profile Picture"
-              className="w-72 h-72 mx-auto mb-4"
+              className="w-72 h-72 rounded-xl mx-auto mb-4"
             />
             <button className="bg-purpleWhite px-16 text-darkPurple px-4 py-2 rounded-lg hover:bg-purple hover:text-white transition-colors duration-300">
               Change Profile Picture
@@ -135,11 +142,10 @@ export default function EditProfile() {
                     id="userType"
                     className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
                     value={userType}
-                    onChange={(e) => setuserType(e.target.value)}
+                    onChange={(e) => setUserType(e.target.value)}
                   >
                     <option value="user">User</option>
                     <option value="verified critic">Verified Critic</option>
-                    <option value="admin">Admin</option>
                   </select>
                 </div>
               </div>
@@ -177,6 +183,18 @@ export default function EditProfile() {
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
+                </div>
+
+                <div className="w-1/2">
+                  <label htmlFor="privacy" className="block text-sm font-bold text-xl text-white">Account Privacy</label>
+                  <button
+                    type="button"
+                    id="privacy"
+                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple text-left focus:text-purple rounded-md"
+                    onClick={toggleprivacy}
+                  >
+                    {privacy === 'public' ? 'Public' : 'Private'}
+                  </button>
                 </div>
               </div>
 
