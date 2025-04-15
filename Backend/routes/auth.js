@@ -12,20 +12,20 @@ router.post('/signin', async (req, res) => {
     }
 
     const keys = Object.keys(req.body);
-    if (keys.length !== 2 || !keys.includes('username') || !keys.includes('password')) {
-        return res.status(400).send('Request body must contain only username and password');
+    if (keys.length !== 2 || !keys.includes('userName') || !keys.includes('password')) {
+        return res.status(400).send('Request body must contain only userName and password');
     }
 
-    const { username, password } = req.body;
+    const { userName, password } = req.body;
 
     try {
         const query = `
             SELECT UserId, PasswordHash 
             FROM Users 
-            WHERE Username = @username
+            WHERE Username = @userName
         `;
         const request = new sql.Request();
-        request.input('username', sql.VarChar, username);
+        request.input('userName', sql.VarChar, userName);
 
         const result = await request.query(query);
 
@@ -49,12 +49,12 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-// Route to check if a username exists in the database
+// Route to check if a userName exists in the database
 router.get('/authname/:name', async (req, res) => {
-    const username = req.params.name;
+    const userName = req.params.name;
     
     // invalid case cause incomplete url returns 404 automatically
-    // if (!username) {  
+    // if (!userName) {  
     //     return res.status(400).send('Username is required');
     // }
 
@@ -62,10 +62,10 @@ router.get('/authname/:name', async (req, res) => {
         const query = `
             SELECT COUNT(*) AS count
             FROM Users
-            WHERE Username = @username
+            WHERE Username = @userName
         `;
         const request = new sql.Request();
-        request.input('username', sql.VarChar, username);
+        request.input('userName', sql.VarChar, userName);
 
         const result = await request.query(query);
 
@@ -75,8 +75,8 @@ router.get('/authname/:name', async (req, res) => {
             res.json({ found: false, message: 'Username not found' });
         }
     } catch (err) {
-        console.error('Error checking username:', err.message);
-        res.status(500).send('Error checking username');
+        console.error('Error checking userName:', err.message);
+        res.status(500).send('Error checking userName');
     }
 });
 
@@ -117,24 +117,24 @@ router.post('/signup', async (req, res) => {
         return res.status(400).send('Request body is required');
     }
 
-    const requiredFields = ['fullname', 'username', 'password', 'email', 'gender', 'dateofbirth', 'bio', 'usertype', 'privacy'];
+    const requiredFields = ['fullName', 'userName', 'password', 'email'];
     const keys = Object.keys(req.body);
 
     if (keys.length !== requiredFields.length || !requiredFields.every(field => keys.includes(field))) {
         return res.status(400).send(`Request body must contain only the following fields: ${requiredFields.join(', ')}`);
     }
 
-    const { fullname, username, password, email, gender, dateofbirth, bio, usertype, privacy } = req.body;
+    const { fullName, userName, password, email} = req.body;
 
     try {
-        // Check if username or email already exists because i dont trust Wahaj
+        // Check if userName or email already exists because i dont trust Wahaj
         const checkQuery = `
             SELECT COUNT(*) AS count
             FROM Users
-            WHERE Username = @username OR Email = @email
+            WHERE Username = @userName OR Email = @email
         `;
         const checkRequest = new sql.Request();
-        checkRequest.input('username', sql.VarChar, username);
+        checkRequest.input('userName', sql.VarChar, userName);
         checkRequest.input('email', sql.VarChar, email);
 
         const checkResult = await checkRequest.query(checkQuery);
@@ -148,20 +148,17 @@ router.post('/signup', async (req, res) => {
 
         // Insert the new user into the database
         const insertQuery = `
-            INSERT INTO Users (FullName, Username, PasswordHash, Email, Gender, DateOfBirth, Bio, UserType, Privacy)
-            VALUES (@fullname, @username, @password, @email, @gender, @dateofbirth, @bio, @usertype, @privacy);
+            INSERT INTO Users (FullName, Username, PasswordHash, Email, UserType, Privacy)
+            VALUES (@fullName, @userName, @password, @email, @userType, @privacy);
             SELECT SCOPE_IDENTITY() AS UserId;
         `;
         const insertRequest = new sql.Request();
-        insertRequest.input('fullname', sql.VarChar, fullname);
-        insertRequest.input('username', sql.VarChar, username);
+        insertRequest.input('fullName', sql.VarChar, fullName);
+        insertRequest.input('userName', sql.VarChar, userName);
         insertRequest.input('password', sql.VarChar, hashedPassword);
         insertRequest.input('email', sql.VarChar, email);
-        insertRequest.input('gender', sql.VarChar, gender);
-        insertRequest.input('dateofbirth', sql.Date, dateofbirth);
-        insertRequest.input('bio', sql.Text, bio);
-        insertRequest.input('usertype', sql.VarChar, usertype);
-        insertRequest.input('privacy', sql.VarChar, privacy);
+        insertRequest.input('userType', sql.VarChar, 'User'); // Default user type
+        insertRequest.input('privacy', sql.VarChar, 'Private'); // Default privacy setting
 
         const insertResult = await insertRequest.query(insertQuery);
 

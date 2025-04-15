@@ -45,7 +45,6 @@ CREATE TABLE
         MPAA_Rating VARCHAR(10),
 
     );
-
 GO
 -- Users Table
 CREATE TABLE
@@ -59,10 +58,16 @@ CREATE TABLE
         DateOfBirth DATE,
         Bio TEXT,
         UserType VARCHAR(10) CHECK (UserType IN ('User', 'Admin', 'Critique')) NOT NULL,
-        Privacy VARCHAR(10) CHECK (Privacy IN ('Public', 'Private')) NOT NULL
+        Privacy VARCHAR(10) NOT NULL,
+
+        -- Table-level CHECK constraint below all columns
+        CONSTRAINT CK_Users_PrivacyRules CHECK (
+            Privacy IN ('Public', 'Private') 
+            AND NOT (UserType = 'Critique' AND Privacy = 'Private')
+        )
     );
 
-GO
+GO 
 -- Friends Table
 CREATE TABLE
     Friends (
@@ -80,6 +85,7 @@ CREATE TABLE
     UserFavorites (
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
+        Rank INT CHECK (Rank > 0),
         PRIMARY KEY (UserID, MovieID),
         FOREIGN KEY (UserID) REFERENCES Users (UserID),
         FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
@@ -201,13 +207,12 @@ CREATE TABLE
     Activity (
         ActivityID INT IDENTITY (1, 1) PRIMARY KEY,
         ActivityDateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
-        IsWatched BIT NOT NULL,
+        IsLogged BIT NOT NULL,
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
         Ratings INT CHECK (Ratings BETWEEN 1 AND 10),
         Review TEXT,
         IsReply BIT,
-        ReplyID INT,
         FOREIGN KEY (UserID) REFERENCES Users (UserID),
         FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
     );
@@ -261,5 +266,73 @@ BEGIN
     )
     FROM Movies
     INNER JOIN deleted ON Movies.MovieID = deleted.MovieID;
+END;
+GO
+
+CREATE TABLE Leaderboard (
+    UserID INT PRIMARY KEY,
+    Rank INT,
+    ActivityCount INT,
+    MoviesWatchedCount INT,
+    Score INT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+GO
+ 
+ 
+ -- Stored Procedure to Recalculate Leaderboard
+CREATE PROCEDURE UpdateLeaderboard
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Define the 7-day range
+    DECLARE @DateLimit DATETIME = DATEADD(DAY, -7, GETDATE());
+
+    -- Merge updated scores into Leaderboard
+    MERGE Leaderboard AS target
+    USING (
+        SELECT 
+            UserID,
+            COUNT(*) AS ActivityCount,
+            COUNT(CASE WHEN IsLogged = 1 THEN 1 END) AS MoviesWatchedCount,
+            ((COUNT(CASE WHEN IsLogged = 1 THEN 1 END) * 2) + 
+            (COUNT(*) - COUNT(CASE WHEN IsLogged = 1 THEN 1 END))) AS Score
+        FROM Activity
+        WHERE ActivityDateTime >= @DateLimit
+        GROUP BY UserID
+    ) AS source
+    ON target.UserID = source.UserID
+    WHEN MATCHED THEN 
+        UPDATE SET 
+            ActivityCount = source.ActivityCount,
+            MoviesWatchedCount = source.MoviesWatchedCount,
+            Score = source.Score
+    WHEN NOT MATCHED THEN
+        INSERT (UserID, ActivityCount, MoviesWatchedCount, Score)
+        VALUES (source.UserID, source.ActivityCount, source.MoviesWatchedCount, source.Score);
+
+    -- Update leaderboard ranks based on score (dense rank)
+    ;WITH RankedUsers AS (
+        SELECT 
+            UserID,
+            Score,
+            DENSE_RANK() OVER (ORDER BY Score DESC) AS RankPosition
+        FROM Leaderboard
+    )
+    UPDATE l
+    SET l.Rank = r.RankPosition
+    FROM Leaderboard l
+    INNER JOIN RankedUsers r ON l.UserID = r.UserID;
+END;
+GO
+
+-- Trigger to auto-update Leaderboard on Activity change
+CREATE TRIGGER trg_UpdateLeaderboard
+ON Activity
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    EXEC UpdateLeaderboard;
 END;
 GO

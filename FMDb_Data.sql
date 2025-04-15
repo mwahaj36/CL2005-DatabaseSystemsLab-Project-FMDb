@@ -28,7 +28,7 @@ INSERT INTO Genres (GenreName) VALUES
  ('War'),
  ('Western');
 
-SELECT * from Genres;
+
 GO 
 
  -- Keywords
@@ -1436,7 +1436,7 @@ INSERT INTO Keywords (KeywordName) VALUES
 ('senior');
 
 
-select * from Keywords;
+
 GO
 
 -- Directors 
@@ -1566,7 +1566,7 @@ INSERT INTO Directors (DirectorName) VALUES
 ('Francis Ford Coppola');
 
 
-select * from Directors ;
+
 GO 
 
 -- Writers 
@@ -1964,7 +1964,7 @@ INSERT INTO Writers (WriterName) VALUES
 ('Lauren LeFranc'),
 ('David Chase');
 
-select * from Writers ;
+
 GO 
 
 -- Actors 
@@ -3792,7 +3792,7 @@ INSERT INTO Actors (ActorName) VALUES
 ('Úrsula Corberó');
 
 
-select * from Actors;
+
 GO 
 
 -- Movies 
@@ -4012,7 +4012,7 @@ INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synop
 ,('The Sopranos',NULL,9.2,'60 minutes','English, Italian, Russian','Series','An innovative look at the life of fictional Mafia Capo Tony Soprano, this serial is presented largely first person, but additional perspective is conveyed by the intimate conversations Tony has with his psychotherapist. We see Tony at work, at home, and in therapy. Moments of black comedy intersperse this aggressive, adult drama, with adult language, and extreme violence.','https://image.tmdb.org/t/p/original/rTc7ZXdroqjkKivFPvCPX0Ru7uw.jpg','https://image.tmdb.org/t/p/original/4QxoeC76pGZYlNmMXCRWb2GtWyd.jpg','Won 21 Primetime Emmys. 126 wins & 312 nominations total',NULL,'TV-MA');
 
 
-SELECT * from movies ;
+
 GO
 
 -- Join Tables ( MovieGenres, MovieDirectors, MovieWriters, MovieActors )
