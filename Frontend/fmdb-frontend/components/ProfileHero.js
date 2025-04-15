@@ -73,7 +73,7 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
               {profileUser.userID === currentUser?.userID && (
                 <Link
                   href='/EditProfile'
-                  className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-3xl hover:bg-purple hover:text-purpleWhite"
+                  className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
                 >
                   Edit Profile
                 </Link>
@@ -84,14 +84,14 @@ const ProfileHero = ({ profileUser, currentUser, isFriend, onAddFriend, onRemove
                 isFriend ? (
                   <button
                     onClick={handleRemoveFriend}
-                    className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-3xl hover:bg-purple hover:text-purpleWhite"
+                    className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
                   >
                     Remove Friend
                   </button>
                 ) : (
                   <button
                     onClick={handleAddFriend}
-                    className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-3xl hover:bg-purple hover:text-purpleWhite"
+                    className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
                   >
                     Add Friend
                   </button>

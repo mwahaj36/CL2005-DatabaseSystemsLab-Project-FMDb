@@ -35,7 +35,7 @@ const Leaderboard = () => {
         <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">
           Leaderboard
         </h2>
-        <div className="ml-60 grid grid-cols-3">
+        <div className="flex justify-center space-x-20">
           {topThree.map((user, index) => (
             <Link href={`/profile/${user.username}`} key={index}>
               <div
