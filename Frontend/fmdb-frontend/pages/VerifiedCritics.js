@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
+import ThirdScreenReviews from "@/components/ThirdScreenReviews";
 import Spotlight from "../components/Spotlight";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
@@ -40,15 +40,17 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
+      <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg')" }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
-      {user ? <UserSpotlight movies={topFiveMovies}  /> : <HeroSection />} {/* If user is logged in, show UserSpotlight */}
-      <h2 className="relative z-10 mt-32 text-6xl text-white text-shadow font-bold text-center">
-          In the Spotlight
-        </h2>
+      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+        This Week's Top 4
+      </h2>
       <Spotlight movies={topFiveMovies} />
-      <Leaderboard topThree={topThreeUsers} />
+      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
+        Top Critics' Activity
+      </h2>
+      <ThirdScreenReviews />
       <Footer />
     </div>
     </div>

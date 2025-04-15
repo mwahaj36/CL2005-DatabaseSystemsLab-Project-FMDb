@@ -41,8 +41,8 @@ function Navbar() {
             <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage')}>Series</Link>
             <Link href="/Members" className={getLinkClass('/Members')}>Members</Link>
             <Link
-              href="/verifiedReviews"
-              className={`${pathname === '/verifiedReviews' ? 'text-purple' : 'text-gold'} hover:text-purple`}
+              href="/VerifiedCritics"
+              className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
             >
               Verified Critics
             </Link>
@@ -86,8 +86,8 @@ function Navbar() {
           <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage', 'text-darkPurple')}>Series</Link>
           <Link href="/Members" className={getLinkClass('/Members', 'text-darkPurple')}>Members</Link>
           <Link
-            href="/verifiedReviews"
-            className={`${pathname === '/verifiedReviews' ? 'text-purple' : 'text-gold'} hover:text-purple`}
+            href="/VerifiedCritics"
+            className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
           >
             Verified Critics
           </Link>

@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 
-const LoggedMovies = () => {
-  const router = useRouter();
-  const { userID } = router.query;  // Get the userID from the URL
+const ThirdScreenReviews = () => {
   const [userData, setUserData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Mock data for users and movies
+  const currentUser = 'chamkadar1234';
+
   const usersData = [
-    { id: 'chamkadar1234', access: 'private', friends: ['2'],userType:'admin' },
-    { id: '2', access: 'friend', friends: ['chamkadar1234'],userType:'verified critic' },
-    { id: '3', access: 'private' ,userType:'user'},
+    { id: 'chamkadar1234', access: 'private', friends: ['2'], userType: 'admin' },
+    { id: '2', access: 'friend', friends: ['chamkadar1234'], userType: 'verified critic' },
+    { id: '3', access: 'private', userType: 'user' },
   ];
 
   const mockMovies = [
@@ -37,41 +34,24 @@ const LoggedMovies = () => {
       date: 'April 6, 2025',
       title: 'A Minecraft Movie',
       year: 2025,
-      description: null,  // No description available
-      rating: null,  // No rating available
+      description: null,
+      rating: null,
       poster: 'https://m.media-amazon.com/images/M/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@._V1_.jpg',
     },
   ];
 
-  // Mock current user for this example
-  const currentUser = 'chamkadar1234';  // Assume user 1 is the logged-in user
-
   useEffect(() => {
-    if (userID) {
-      setLoading(true);
+    setLoading(true);
 
-      const user = usersData.find((user) => user.id === userID);
+    const user = usersData.find((user) => user.id === currentUser);
 
-      if (!user) {
-        setErrorMessage('User not found.');
-        setLoading(false);
-        return;
-      }
-
-      if (
-        user.access === 'public' ||
-        user.id === currentUser ||
-        user.friends?.includes(currentUser)
-      ) {
-        setUserData(user);
-        setMovies(mockMovies);
-      } else {
-        setErrorMessage('You don’t have access to this user’s data.');
-      }
-
-      setLoading(false);
+    if (user) {
+      setUserData(user);
+      setMovies(mockMovies);
     }
-  }, [userID]);
+
+    setLoading(false);
+  }, []);
 
   if (loading) {
     return (
@@ -81,21 +61,9 @@ const LoggedMovies = () => {
     );
   }
 
-  if (errorMessage) {
-    return (
-      <div className="text-center text-white mt-20">
-        <h2 className="text-4xl">{errorMessage}</h2>
-      </div>
-    );
-  }
-
   return (
-    <section id="LoggedMovies" className="relative z-10 px-4 md:px-0">
-      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
-        {userData.id === currentUser || userData.friends?.includes(currentUser)
-          ? `${userID}'s Logged Movies`
-          : "You don’t have access to this user's movies"}
-      </h2>
+    <section id="ThirdScreenReviews" className="relative z-10 px-4 md:px-0">
+    
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
         {movies.map((movie, index) => (
           <div
@@ -126,26 +94,21 @@ const LoggedMovies = () => {
               )}
             </div>
 
-            {/* Only render the rating card if a rating is available */}
+            <div>
+              <p className="text-purpleWhite/40 text-xs mt-1">
+                Activity By @ <span className="font-semibold text-purpleWhite/60">{currentUser}</span>
+              </p>
+            </div>
+
             {movie.rating !== null && (
-  <div
-    className={`ml-4 px-4 py-5 font-bold text-xl rounded-xl text-center ${
-      userData.userType.toLowerCase() === "verified critic"
-        ? "bg-gold text-darkPurple"
-        : "bg-purpleWhite text-darkPurple"
-    }`}
-  >
-    {movie.rating}
-  </div>
-)}
-
-
-            {/* Trash button */}
-            {userData?.id === currentUser && (
-              <div className="ml-auto">
-                <button className="text-purpleWhite hover:text-purple text-xl">
-                  <i className="fas fa-trash-alt text-2xl"></i>  {/* Trash Icon */}
-                </button>
+              <div
+                className={`ml-4 px-4 py-5 font-bold text-xl rounded-xl text-center ${
+                  userData.userType.toLowerCase() === 'verified critic'
+                    ? 'bg-gold text-darkPurple'
+                    : 'bg-purpleWhite text-darkPurple'
+                }`}
+              >
+                {movie.rating}
               </div>
             )}
           </div>
@@ -155,4 +118,4 @@ const LoggedMovies = () => {
   );
 };
 
-export default LoggedMovies;
+export default ThirdScreenReviews;
