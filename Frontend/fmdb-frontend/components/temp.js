@@ -31,11 +31,11 @@ const MovieHero = ({ movieData }) => {
       )}
 
       <div className="relative z-10 mt-10 container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
-       {/* Poster */}
-       <div className="flex mt-24 flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3">
+        {/* Poster */}
+        <div className="flex mt-24 flex-col items-center p-6 space-y-6 rounded-lg bg-veryLightGray md:w-1/3">
           <img
             src={movieData.Poster}
-            className="-mt-14 shadow-lg shadow-xl rounded-lg transition-transform duration-300 hover:scale-105"
+            className="-mt-14 shadow-lg shadow-xl rounded-lg object-cover h-64 w-auto transition-transform duration-300 hover:scale-105"
             alt={movieData.Title}
           />
         </div>
