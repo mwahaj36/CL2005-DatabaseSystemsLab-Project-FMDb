@@ -52,7 +52,7 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-2">
             <input
               type="text"
-              placeholder="Search for a film/ genre/ year"
+              placeholder="Quick Search for a film"
               className="w-72 px-4 py-2 rounded-xl focus:outline-none"
             />
             <button className="px-4 py-2 bg-purple text-white rounded-xl hover:bg-purpleWhite hover:text-darkPurple transition">
@@ -95,7 +95,7 @@ function Navbar() {
           <form className="w-full px-4">
             <input
               type="text"
-              placeholder="Search for a film/ genre/ year"
+              placeholder="Quick Search for a film"
               className="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
             />
             <button
