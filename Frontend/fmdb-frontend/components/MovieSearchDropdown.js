@@ -204,9 +204,9 @@ const DropdownSearch = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-      <div ref={wrapperRef} className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg relative">
+      <div ref={wrapperRef} className="bg-darkPurple p-6 rounded-lg w-full max-w-md shadow-lg relative">
         <button
-          className="absolute top-2 right-3 text-xl font-bold text-gray-500 hover:text-purple"
+          className="absolute top-2 right-3 text-xl font-bold text-white hover:text-purple"
           onClick={handleClose}
         >
           &times;
@@ -214,7 +214,7 @@ const DropdownSearch = ({ onClose }) => {
 
         <input
           type="text"
-          className="w-full px-4 py-2 border-darkPurple border-2 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple mb-4"
+          className="w-full px-4 py-4 border-white border-2 bg-darkPurple rounded-md focus:outline-none focus:ring-2 focus:ring-purple mb-4"
           placeholder="Search for a movie..."
           value={query}
           onChange={handleInputChange}
@@ -226,7 +226,7 @@ const DropdownSearch = ({ onClose }) => {
             {filteredMovies.map((movie, index) => (
               <li
                 key={index}
-                className="px-4 py-2 hover:bg-purpleWhite text-darkPurple cursor-pointer flex items-center"
+                className="px-4 py-2 hover:bg-purple text-white cursor-pointer flex items-center"
                 onClick={() => handleSelect(movie)}
               >
                 <img
@@ -236,7 +236,7 @@ const DropdownSearch = ({ onClose }) => {
                 />
                 <div className="flex flex-col">
                   <span className="font-semibold">{movie.Title}</span>
-                  <span className="text-sm text-left text-gray-500">{movie.Director}</span>
+                  <span className="text-sm text-left text-purpleWhite">{movie.Director}</span>
                 </div>
               </li>
             ))}
