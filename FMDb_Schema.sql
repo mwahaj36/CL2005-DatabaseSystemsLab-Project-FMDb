@@ -75,11 +75,22 @@ CREATE TABLE
         User2ID INT NOT NULL,
         PRIMARY KEY (User1ID, User2ID),
         CONSTRAINT CK_Friends_Order CHECK (User1ID < User2ID),
-        FOREIGN KEY (User1ID) REFERENCES Users (UserID),
-        FOREIGN KEY (User2ID) REFERENCES Users (UserID)
+        FOREIGN KEY (User1ID) REFERENCES Users (UserID) ,
+        FOREIGN KEY (User2ID) REFERENCES Users (UserID) 
     );
 
 GO
+
+CREATE TRIGGER trg_DeleteUser_Friends
+ON Users
+AFTER DELETE
+AS
+BEGIN
+    DELETE FROM Friends WHERE User1ID IN (SELECT UserID FROM DELETED)
+    DELETE FROM Friends WHERE User2ID IN (SELECT UserID FROM DELETED)
+END
+
+GO 
 -- UserFavorites, UserLikedMovies, UserWatchlist
 CREATE TABLE
     UserFavorites (
@@ -87,8 +98,8 @@ CREATE TABLE
         MovieID INT NOT NULL,
         Rank INT CHECK (Rank > 0),
         PRIMARY KEY (UserID, MovieID),
-        FOREIGN KEY (UserID) REFERENCES Users (UserID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (UserID) REFERENCES Users (UserID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -96,9 +107,10 @@ CREATE TABLE
     UserLikedMovies (
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
+        LikedAt DATETIME DEFAULT GETDATE(),
         PRIMARY KEY (UserID, MovieID),
-        FOREIGN KEY (UserID) REFERENCES Users (UserID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (UserID) REFERENCES Users (UserID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -107,8 +119,9 @@ CREATE TABLE
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
         PRIMARY KEY (UserID, MovieID),
-        FOREIGN KEY (UserID) REFERENCES Users (UserID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        AddedAt DATETIME DEFAULT GETDATE(),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -126,8 +139,8 @@ CREATE TABLE
         MovieID INT NOT NULL,
         CharacterName VARCHAR(255),
         PRIMARY KEY (ActorID, MovieID),
-        FOREIGN KEY (ActorID) REFERENCES Actors (ActorID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (ActorID) REFERENCES Actors (ActorID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -143,8 +156,8 @@ CREATE TABLE
         DirectorID INT NOT NULL,
         MovieID INT NOT NULL,
         PRIMARY KEY (DirectorID, MovieID),
-        FOREIGN KEY (DirectorID) REFERENCES Directors (DirectorID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (DirectorID) REFERENCES Directors (DirectorID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -160,8 +173,8 @@ CREATE TABLE
         WriterID INT NOT NULL,
         MovieID INT NOT NULL,
         PRIMARY KEY (WriterID, MovieID),
-        FOREIGN KEY (WriterID) REFERENCES Writers (WriterID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (WriterID) REFERENCES Writers (WriterID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 
@@ -186,8 +199,8 @@ CREATE TABLE
         KeywordID INT NOT NULL,
         MovieID INT NOT NULL,
         PRIMARY KEY (KeywordID, MovieID),
-        FOREIGN KEY (KeywordID) REFERENCES Keywords (KeywordID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (KeywordID) REFERENCES Keywords (KeywordID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 GO
@@ -196,8 +209,8 @@ CREATE TABLE
         GenreID INT NOT NULL,
         MovieID INT NOT NULL,
         PRIMARY KEY (GenreID, MovieID),
-        FOREIGN KEY (GenreID) REFERENCES Genres (GenreID),
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (GenreID) REFERENCES Genres (GenreID) ON DELETE CASCADE,
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
     );
 
 
@@ -213,19 +226,37 @@ CREATE TABLE
         Ratings INT CHECK (Ratings BETWEEN 1 AND 10),
         Review TEXT,
         IsReply BIT,
-        FOREIGN KEY (UserID) REFERENCES Users (UserID),
+        FOREIGN KEY (UserID) REFERENCES Users (UserID) ,
         FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
     );
 
 GO
+
+
 CREATE TABLE
     Reply (
         ActivityID INT NOT NULL,
         ReplyID INT NOT NULL,
         PRIMARY KEY (ReplyID, ActivityID),
-        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
-        FOREIGN KEY (ReplyID) REFERENCES Activity (ActivityID)
+        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID) ,
+        FOREIGN KEY (ReplyID) REFERENCES Activity (ActivityID) 
     );
+
+GO
+
+CREATE TRIGGER trg_DeleteActivity_Replies
+ON Activity
+AFTER DELETE
+AS
+BEGIN
+    -- Step 1: Delete reply relationships (Reply table) where the original post is deleted
+    DELETE FROM Reply
+    WHERE ActivityID IN (SELECT ActivityID FROM DELETED)
+
+    -- Step 2: Delete reply relationships where the reply itself is deleted
+    DELETE FROM Reply
+    WHERE ReplyID IN (SELECT ActivityID FROM DELETED)
+END
 
 GO
 
@@ -233,9 +264,10 @@ CREATE TABLE
     ActivityLikes (
         ActivityID INT NOT NULL,
         UserID INT NOT NULL,
+        LikedAt DATETIME DEFAULT GETDATE(),
         PRIMARY KEY (UserID, ActivityID),
-        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID),
-        FOREIGN KEY (UserID) REFERENCES Users (UserID)
+        FOREIGN KEY (ActivityID) REFERENCES Activity (ActivityID) ON Delete Cascade ,
+        FOREIGN KEY (UserID) REFERENCES Users (UserID) ON Delete Cascade ,
     );
 
 GO
@@ -267,72 +299,52 @@ BEGIN
     FROM Movies
     INNER JOIN deleted ON Movies.MovieID = deleted.MovieID;
 END;
-GO
 
-CREATE TABLE Leaderboard (
-    UserID INT PRIMARY KEY,
-    Rank INT,
-    ActivityCount INT,
-    MoviesWatchedCount INT,
-    Score INT,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+
+GO
+CREATE TABLE Notifications (
+    NotificationID INT IDENTITY (1, 1) PRIMARY KEY,
+    SenderID INT NOT NULL,
+    ReceiverID INT NOT NULL,
+    Message TEXT,
+    NotificationType VARCHAR(225) CHECK (NotificationType IN ('AdminReq', 'CritiqueReq', 'FriendReq', 'General')) NOT NULL,
+    SentAt DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (SenderID) REFERENCES Users(UserID) ,
+    FOREIGN KEY (ReceiverID) REFERENCES Users(UserID) 
 );
-GO
- 
- 
- -- Stored Procedure to Recalculate Leaderboard
-CREATE PROCEDURE UpdateLeaderboard
+ GO 
+
+ CREATE TRIGGER trg_DeleteUser_Notifications
+ON Users
+AFTER DELETE
 AS
 BEGIN
-    SET NOCOUNT ON;
+    DELETE FROM Notifications WHERE SenderID IN (SELECT UserID FROM DELETED)
+    DELETE FROM Notifications WHERE ReceiverID IN (SELECT UserID FROM DELETED)
+END
 
-    -- Define the 7-day range
-    DECLARE @DateLimit DATETIME = DATEADD(DAY, -7, GETDATE());
 
-    -- Merge updated scores into Leaderboard
-    MERGE Leaderboard AS target
-    USING (
-        SELECT 
-            UserID,
-            COUNT(*) AS ActivityCount,
-            COUNT(CASE WHEN IsLogged = 1 THEN 1 END) AS MoviesWatchedCount,
-            ((COUNT(CASE WHEN IsLogged = 1 THEN 1 END) * 2) + 
-            (COUNT(*) - COUNT(CASE WHEN IsLogged = 1 THEN 1 END))) AS Score
-        FROM Activity
-        WHERE ActivityDateTime >= @DateLimit
-        GROUP BY UserID
-    ) AS source
-    ON target.UserID = source.UserID
-    WHEN MATCHED THEN 
-        UPDATE SET 
-            ActivityCount = source.ActivityCount,
-            MoviesWatchedCount = source.MoviesWatchedCount,
-            Score = source.Score
-    WHEN NOT MATCHED THEN
-        INSERT (UserID, ActivityCount, MoviesWatchedCount, Score)
-        VALUES (source.UserID, source.ActivityCount, source.MoviesWatchedCount, source.Score);
 
-    -- Update leaderboard ranks based on score (dense rank)
-    ;WITH RankedUsers AS (
-        SELECT 
-            UserID,
-            Score,
-            DENSE_RANK() OVER (ORDER BY Score DESC) AS RankPosition
-        FROM Leaderboard
-    )
-    UPDATE l
-    SET l.Rank = r.RankPosition
-    FROM Leaderboard l
-    INNER JOIN RankedUsers r ON l.UserID = r.UserID;
-END;
 GO
-
--- Trigger to auto-update Leaderboard on Activity change
-CREATE TRIGGER trg_UpdateLeaderboard
-ON Activity
-AFTER INSERT, UPDATE, DELETE
-AS
-BEGIN
-    EXEC UpdateLeaderboard;
-END;
-GO
+CREATE VIEW v_Leaderboard AS
+WITH ActivityStats AS (
+    SELECT 
+        UserID,
+        COUNT(*) AS ActivityCount,
+        COUNT(CASE WHEN IsLogged = 1 THEN 1 END) AS MoviesWatchedCount,
+        COUNT(CASE WHEN IsLogged = 1 THEN 1 END) * 2 +
+        COUNT(CASE WHEN IsLogged = 0 THEN 1 END) AS Score
+    FROM Activity
+    WHERE ActivityDateTime >= DATEADD(DAY, -7, GETDATE())
+    GROUP BY UserID
+),
+RankedUsers AS (
+    SELECT 
+        UserID,
+        ActivityCount,
+        MoviesWatchedCount,
+        Score,
+        ROW_NUMBER() OVER (ORDER BY Score DESC) AS Rank
+    FROM ActivityStats
+)
+SELECT * FROM RankedUsers;
