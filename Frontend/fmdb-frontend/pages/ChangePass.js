@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../context/AuthContext";
+import Error from "../components/Error"; // Import the Error component
 
 export default function ChangePasswordPage() {
   const router = useRouter();
@@ -73,6 +74,7 @@ export default function ChangePasswordPage() {
               required
             />
 
+            {/* Show error message here if it exists */}
             {message && (
               <p
                 className={`text-md font-semibold text-center ${
@@ -82,6 +84,9 @@ export default function ChangePasswordPage() {
                 {message}
               </p>
             )}
+
+            {/* Show error component if there's an error */}
+            {error && <Error message={error} onClose={() => setMessage('')} />}
 
             <button
               type="submit"

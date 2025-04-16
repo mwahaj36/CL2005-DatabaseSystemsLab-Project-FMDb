@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import ActivityCard from './ActivityCard'; // adjust the path if needed
+import Error from '@/components/Error'; // adjust the path as necessary
 
 const MovieHero = ({ movieData }) => {
   const [showActivityCard, setShowActivityCard] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Dummy user with watchlist
+  // Dummy user with watchlist (if no currentUser is available)
+  const [currentUser, setCurrentUser] = useState(null); // Mock user data
+
   const [user, setUser] = useState({
     name: 'Test User',
     watchlist: [],
@@ -19,6 +23,11 @@ const MovieHero = ({ movieData }) => {
   const isInWatchlist = user.watchlist.includes(movieData.id);
 
   const handleWatchlistToggle = () => {
+    if (!currentUser) {
+      setErrorMessage("You must be logged in to add movies to your watchlist.");
+      return;
+    }
+    
     if (isInWatchlist) {
       // Remove movie from watchlist
       setUser((prevUser) => ({
@@ -34,8 +43,19 @@ const MovieHero = ({ movieData }) => {
     }
   };
 
+  const handleAddActivity = () => {
+    if (!currentUser) {
+      setErrorMessage("You must be logged in to add activity.");
+      return;
+    }
+    setShowActivityCard(true);
+  };
+
   return (
     <section id="hero" className="relative -mt-20">
+      {/* Error Message Popup */}
+      {errorMessage && <Error message={errorMessage} onClose={() => setErrorMessage('')} />}
+
       {/* Activity Card Overlay */}
       {showActivityCard && (
         <div
@@ -78,7 +98,7 @@ const MovieHero = ({ movieData }) => {
 
             <div className="mt-6 flex space-x-5 justify-end">
               <button
-                onClick={() => setShowActivityCard(true)}
+                onClick={handleAddActivity}
                 className="bg-purpleWhite hover:bg-purple hover:text-purple transition-colors duration-200 text-darkPurple hover:text-white font-semibold py-2 px-4 rounded-2xl shadow-md"
               >
                 Add Activity

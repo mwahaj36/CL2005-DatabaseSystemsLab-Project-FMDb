@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Error from './Error';
 
 const ActivityAndReviewSection = () => {
   const [likedReviews, setLikedReviews] = useState({});
+  const [showError, setShowError] = useState(false);
 
   const handleLikeClick = (reviewId) => {
     setLikedReviews((prev) => ({
@@ -10,7 +12,6 @@ const ActivityAndReviewSection = () => {
     }));
   };
 
-  // 10 mock reviews
   const reviewsData = [
     { activityID: 'r1', rating: 9, reviewText: "An emotionally charged masterpiece.", movieTitle: "Past Lives", userType: 'verified critic' },
     { activityID: 'r2', rating: 7.5, reviewText: "Visually stunning, though a bit slow in pace.", movieTitle: "Blade Runner 2049", userType: 'regular' },
@@ -20,16 +21,21 @@ const ActivityAndReviewSection = () => {
     { activityID: 'r10', rating: 9.8, reviewText: "Profound, powerful, and poetic.", movieTitle: "The Tree of Life", userType: 'verified critic' },
   ];
 
-  // Split reviews into two columns
+  useEffect(() => {
+    if (reviewsData.length === 0) {
+      setShowError(true);
+    }
+  }, []);
+
   const firstColReviews = reviewsData.slice(0, 3);
 
   const renderReviewCard = (review) => {
     const hasLiked = likedReviews[review.activityID];
     return (
       <div
-      key={review.activityID}
-      className="relative items-center w-full z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-    >
+        key={review.activityID}
+        className="relative items-center w-full z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+      >
         <div className="flex items-center space-x-6 relative w-full">
           <div
             className={`font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner ${
@@ -67,7 +73,12 @@ const ActivityAndReviewSection = () => {
   return (
     <section id="review-section" className="relative z-10 container px-6 mx-auto">
       <h2 className="text-purpleWhite text-2xl md:text-5xl font-bold mb-6 text-center">Recent Reviews</h2>
-      <div className=" gap-8">
+
+      {showError && (
+        <Error message="Oops! We couldn't load the reviews right now." onClose={() => setShowError(false)} />
+      )}
+
+      <div className="gap-8">
         <div className="space-y-6">{firstColReviews.map(renderReviewCard)}</div>
       </div>
     </section>
