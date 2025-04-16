@@ -107,12 +107,17 @@ const Profile = () => {
         )}
       </div>
       <div className="flex justify-center space-x-6 mt-12">
-  <a 
-    href='/Apply'
-    className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
-  >
-    Apply to be Verified Critic Or Admin
-  </a>
+      {profileUser.userID === currentUser?.userID && currentUser?.userType === 'User' && (
+  <div className="flex justify-center space-x-6 mt-12">
+    <a 
+      href='/Apply'
+      className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
+    >
+      Apply to be Verified Critic Or Admin
+    </a>
+  </div>
+)}
+
 </div>
       <Footer />
     </section>
