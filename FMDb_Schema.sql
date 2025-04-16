@@ -15,6 +15,7 @@ ELSE
 BEGIN 
 	PRINT 'Database FMDb already exists. Deleting it and creating it again.';
 	ALTER DATABASE FMDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	USE master;
     DROP DATABASE FMDb;
     CREATE DATABASE FMDb;
 	PRINT 'Database FMDb created successfully.';
@@ -57,13 +58,13 @@ CREATE TABLE
         Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')) NOT NULL,
         DateOfBirth DATE,
         Bio TEXT,
-        UserType VARCHAR(10) CHECK (UserType IN ('User', 'Admin', 'Critique')) NOT NULL,
+        UserType VARCHAR(10) CHECK (UserType IN ('User', 'Admin', 'Critic')) NOT NULL,
         Privacy VARCHAR(10) NOT NULL,
 
         -- Table-level CHECK constraint below all columns
         CONSTRAINT CK_Users_PrivacyRules CHECK (
             Privacy IN ('Public', 'Private') 
-            AND NOT (UserType = 'Critique' AND Privacy = 'Private')
+            AND NOT (UserType = 'Critic' AND Privacy = 'Private')
         )
     );
 
@@ -307,7 +308,7 @@ CREATE TABLE Notifications (
     SenderID INT NOT NULL,
     ReceiverID INT NOT NULL,
     Message TEXT,
-    NotificationType VARCHAR(225) CHECK (NotificationType IN ('AdminReq', 'CritiqueReq', 'FriendReq', 'General')) NOT NULL,
+    NotificationType VARCHAR(225) CHECK (NotificationType IN ('AdminReq', 'CriticReq', 'FriendReq', 'General')) NOT NULL,
     SentAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (SenderID) REFERENCES Users(UserID) ,
     FOREIGN KEY (ReceiverID) REFERENCES Users(UserID) 

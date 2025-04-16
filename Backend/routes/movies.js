@@ -1,11 +1,10 @@
 const express = require('express');
 const sql = require('mssql'); 
-const jwt = require('jsonwebtoken');
+const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
-    // Query database using title, genre, or release year
 });
 
 // Get top 5 trending movies based on count of logged movies
@@ -14,7 +13,7 @@ router.get('/trending', async (req, res) => {
         SELECT t.MovieID, t.Title, t.MoviePosterLink, d.DirectorName
         FROM (SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink, COUNT(A.IsWatched) as WatchCount
             FROM Movies M JOIN Activity A ON M.MovieID = A.MovieID
-            WHERE A.IsWatched = 1
+            WHERE A.IsWatched = 1 AND DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7
             GROUP BY M.MovieID, M.Title, M.MoviePosterLink
             ORDER BY WatchCount DESC) t 
         join MovieDirectors md on t.MovieID = md.MovieID join Directors d on md.DirectorID = d.DirectorID 

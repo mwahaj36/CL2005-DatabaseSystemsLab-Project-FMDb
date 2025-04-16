@@ -1,4 +1,5 @@
 const sql = require('mssql');
+require('dotenv').config(); // Load environment variables from .env file
 
 // things to do on OWN machine: sql tcp/ip protocol is enabled in sql server configuration manager,
 // ensure sql server browser is running and automatic start is enabled.
@@ -6,10 +7,10 @@ const sql = require('mssql');
 
 // Database configuration
 const dbConfig = {
-    server: 'localhost\\SQLEXPRESS', // Replace with your server name or IP
-    user: 'sa', // Replace with your SQL Server username
-    password: '123', // Replace with your SQL Server password
-    database: 'FMDb', // Replace with your database name
+    server: process.env.DB_SERVER, // Access server name from .env
+    user: process.env.DB_USER, // Access SQL Server username from .env
+    password: process.env.DB_PASSWORD, // Access SQL Server password from .env
+    database: process.env.DB_NAME, // Access database name from .env
     options: {
         encrypt: true, // Use encryption if required
         trustServerCertificate: true // Use this if you're connecting to a local SQL Server

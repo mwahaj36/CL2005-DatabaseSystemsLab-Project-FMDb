@@ -1,8 +1,8 @@
 const express = require('express');
 const sql = require('mssql');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');  // For Password Hashing
-const { secretKey, bcryptCostFactor } = require('../config'); // Import config
+require('dotenv').config(); // Load environment variables from .env file
+const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
 // Authentication route for User Log In
@@ -35,7 +35,7 @@ router.post('/signin', async (req, res) => {
 
             if (isMatch) {
                 const payload = { userId: result.recordset[0].UserId }; // Add userId to the payload of jwt token for info fetching in other calls.
-                const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+                const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24h' });
                 res.json({ success: true, message: 'Authentication successful', token });
             } else {
                 res.status(401).json({ success: false, message: 'Invalid Password' });
@@ -144,12 +144,12 @@ router.post('/signup', async (req, res) => {
         }
 
         // Hash the password
-        const hashedPassword = await bcrypt.hash(password, bcryptCostFactor);
+        const hashedPassword = await bcrypt.hash(password, parseInt(process.env.BCRYPT_COST_FACTOR, 10));
 
         // Insert the new user into the database
         const insertQuery = `
-            INSERT INTO Users (FullName, Username, PasswordHash, Email, UserType, Privacy)
-            VALUES (@fullName, @userName, @password, @email, @userType, @privacy);
+            INSERT INTO Users (FullName, Username, PasswordHash, Email, UserType, Privacy, Gender)
+            VALUES (@fullName, @userName, @password, @email, @userType, @privacy, @gender);
             SELECT SCOPE_IDENTITY() AS UserId;
         `;
         const insertRequest = new sql.Request();
@@ -159,12 +159,13 @@ router.post('/signup', async (req, res) => {
         insertRequest.input('email', sql.VarChar, email);
         insertRequest.input('userType', sql.VarChar, 'User'); // Default user type
         insertRequest.input('privacy', sql.VarChar, 'Private'); // Default privacy setting
+        insertRequest.input('gender', sql.NVarChar, 'Other');
 
         const insertResult = await insertRequest.query(insertQuery);
 
         // Generate JWT token
         const payload = { userId: insertResult.recordset[0].UserId };
-        const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24h' });
 
         res.json({ success: true, message: 'User registered successfully', token });
     } catch (err) {
@@ -207,7 +208,7 @@ router.put('/reset', async (req, res) => {
         const userId = result.recordset[0].UserId;
 
         // Hash the new password
-        const hashedPassword = await bcrypt.hash(password, bcryptCostFactor);
+        const hashedPassword = await bcrypt.hash(password, parseInt(process.env.BCRYPT_COST_FACTOR, 10));
 
         // Update the password in the database using UserId
         const updateQuery = `
