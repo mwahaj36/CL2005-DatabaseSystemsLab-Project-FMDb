@@ -1,17 +1,8 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
+
 
 :root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
   --background: #ffffff;
   --foreground: #171717;
-}
-main {
-  flex-grow: 1;
 }
 
 @media (prefers-color-scheme: dark) {
