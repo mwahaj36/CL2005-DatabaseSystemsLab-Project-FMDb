@@ -68,7 +68,53 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-10 font-bold">
             <Link href="/" className={getLinkClass('/')}>Home</Link>
 
-            {user ? (
+            <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage')}>Films</Link>
+            <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage')}>Series</Link>
+            <Link href="/Members" className={getLinkClass('/Members')}>Members</Link>
+            <Link
+              href="/VerifiedCritics"
+              className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
+            >
+              Verified Critics
+            </Link>
+          </div>
+
+          {/* Desktop Right Section: Search + Notification */}
+          <div className="hidden md:flex items-center space-x-4">
+          <button
+  onClick={() => setShowDropdownSearch(true)}
+  className="relative z-50 w-12 h-12 flex items-center justify-center text-white rounded-xl  hover:text-purple transition"
+>               
+
+  <Search className="w-7 h-7" />
+</button>
+
+            {/* 🔔 Notifications */}
+            <div className="relative mt-1" ref={notifRef}>
+              <button
+                onClick={() => setNotificationsOpen(!notificationsOpen)}
+                className="text-white hover:text-purple"
+              >
+                <Bell className="w-7 h-7" />
+              </button>
+              {notificationsOpen && (
+                <div className="absolute right-0 top-10 w-72 bg-white text-darkPurple rounded-xl shadow-xl z-50 p-4 space-y-3">
+                  <div className="flex justify-between items-center">
+                    <p className="font-semibold">Notifications</p>
+                    <button onClick={() => setNotificationsOpen(false)}>
+                      <X className="w-5 h-5 text-darkPurple hover:text-purple" />
+                    </button>
+                  </div>
+                  <div className="text-sm text-gray-700 space-y-2">
+                    <p>You have a new review reply.</p>
+                    <p>Someone followed you.</p>
+                    <p>Film added to your watchlist.</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+          {user ? (
               <div
                 className="relative"
                 ref={profileRef}
@@ -89,52 +135,6 @@ function Navbar() {
             ) : (
               <Link href="/LoginSignup" className={getLinkClass('/LoginSignup')}>Login / Signup</Link>
             )}
-
-            <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage')}>Films</Link>
-            <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage')}>Series</Link>
-            <Link href="/Members" className={getLinkClass('/Members')}>Members</Link>
-            <Link
-              href="/VerifiedCritics"
-              className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
-            >
-              Verified Critics
-            </Link>
-          </div>
-
-          {/* Desktop Right Section: Search + Notification */}
-          <div className="hidden md:flex items-center space-x-4">
-          <button
-  onClick={() => setShowDropdownSearch(true)}
-  className="relative z-50 w-12 h-12 flex items-center justify-center bg-white text-darkPurple rounded-xl hover:bg-purpleWhite hover:text-purple transition"
->
-  <Search className="w-6 h-6" />
-</button>
-
-            {/* 🔔 Notifications */}
-            <div className="relative mt-1" ref={notifRef}>
-              <button
-                onClick={() => setNotificationsOpen(!notificationsOpen)}
-                className="text-white hover:text-purple"
-              >
-                <Bell className="w-6 h-6" />
-              </button>
-              {notificationsOpen && (
-                <div className="absolute right-0 top-10 w-72 bg-white text-darkPurple rounded-xl shadow-xl z-50 p-4 space-y-3">
-                  <div className="flex justify-between items-center">
-                    <p className="font-semibold">Notifications</p>
-                    <button onClick={() => setNotificationsOpen(false)}>
-                      <X className="w-5 h-5 text-darkPurple hover:text-purple" />
-                    </button>
-                  </div>
-                  <div className="text-sm text-gray-700 space-y-2">
-                    <p>You have a new review reply.</p>
-                    <p>Someone followed you.</p>
-                    <p>Film added to your watchlist.</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
 
           {/* Hamburger for Mobile */}
           <button className="block md:hidden focus:outline-none" onClick={toggleMobileMenu}>
