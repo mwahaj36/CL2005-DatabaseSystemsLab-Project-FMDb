@@ -80,7 +80,7 @@ const Profile = () => {
             {/* Section with Reviews (Limited to 5) and Yearly Stats */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
               {/* Limited Reviews Section */}
-              <div className="w-full flex flex-col p-6 rounded-xl shadow-lg">
+              <div className="w-full flex flex-col p-6 rounded-xl ">
               {profileUser.reviews?.slice(0, 3).map((review, index) => {
                   const movie = movies.find((m) => m.MovieID === review.movieID);
                   return (
@@ -106,6 +106,14 @@ const Profile = () => {
           </p>
         )}
       </div>
+      <div className="flex justify-center space-x-6 mt-12">
+  <a 
+    href='/Apply'
+    className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
+  >
+    Apply to be Verified Critic Or Admin
+  </a>
+</div>
       <Footer />
     </section>
   );

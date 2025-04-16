@@ -22,7 +22,7 @@ const YearlyStats = () => {
     return (
       <section id="yearly-stats" className="relative mt-5">
         <div className="container px-6 mx-auto">
-          <div className=" px-6 rounded-xl shadow-2xl ">
+          <div className=" px-6 rounded-xl  ">
             <h2 className="text-white text-3xl md:text-5xl font-bold mb-6 text-center">
               Yearly Recap: {year}
             </h2>
