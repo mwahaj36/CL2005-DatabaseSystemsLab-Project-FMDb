@@ -4,11 +4,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AuthContext } from '@/context/AuthContext';
 import { Bell, X } from 'lucide-react'; // for bell and close icon
+import DropdownSearch from '@/components/MovieSearchDropdown'; // adjust path if needed
+import { Search } from 'lucide-react'; // Import Search icon from lucide-react
+
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [showDropdownSearch, setShowDropdownSearch] = useState(false);
+  
+  const handleMovieSelect = (movie) => {
+    setShowDropdownSearch(false);
+    // Navigate to the movie page or handle the selected movie object
+    console.log("Selected movie:", movie);
+  };
+  
   const { user } = useContext(AuthContext);
   const pathname = usePathname();
 
@@ -92,16 +103,12 @@ function Navbar() {
 
           {/* Desktop Right Section: Search + Notification */}
           <div className="hidden md:flex items-center space-x-4">
-            <form className="flex space-x-2">
-              <input
-                type="text"
-                placeholder="Quick Search for a film"
-                className="w-72 px-4 py-2 rounded-xl focus:outline-none"
-              />
-              <button className="px-4 py-2 bg-purple text-white rounded-xl hover:bg-purpleWhite hover:text-darkPurple transition">
-                Go
-              </button>
-            </form>
+          <button
+  onClick={() => setShowDropdownSearch(true)}
+  className="relative z-50 w-12 h-12 flex items-center justify-center bg-white text-darkPurple rounded-xl hover:bg-purpleWhite hover:text-purple transition"
+>
+  <Search className="w-6 h-6" />
+</button>
 
             {/* 🔔 Notifications */}
             <div className="relative mt-1" ref={notifRef}>
@@ -180,6 +187,11 @@ function Navbar() {
           </form>
         </div>
       </div>
+
+      {/* Movie Search Dropdown */}
+      {showDropdownSearch && (
+        <DropdownSearch onClose={handleMovieSelect} />
+      )}
     </div>
   );
 }
