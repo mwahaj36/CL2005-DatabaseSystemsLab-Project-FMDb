@@ -35,7 +35,7 @@ router.post('/signin', async (req, res) => {
 
             if (isMatch) {
                 const payload = { userId: result.recordset[0].UserId }; // Add userId to the payload of jwt token for info fetching in other calls.
-                const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24h' });
+                const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
                 res.json({ success: true, message: 'Authentication successful', token });
             } else {
                 res.status(401).json({ success: false, message: 'Invalid Password' });
@@ -150,7 +150,7 @@ router.post('/signup', async (req, res) => {
         const insertQuery = `
             INSERT INTO Users (FullName, Username, PasswordHash, Email, UserType, Privacy, Gender)
             VALUES (@fullName, @userName, @password, @email, @userType, @privacy, @gender);
-            SELECT SCOPE_IDENTITY() AS UserId;
+            SELECT SCOPE_IDENTITY() AS UserId
         `;
         const insertRequest = new sql.Request();
         insertRequest.input('fullName', sql.VarChar, fullName);
@@ -165,7 +165,7 @@ router.post('/signup', async (req, res) => {
 
         // Generate JWT token
         const payload = { userId: insertResult.recordset[0].UserId };
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24h' });
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
 
         res.json({ success: true, message: 'User registered successfully', token });
     } catch (err) {

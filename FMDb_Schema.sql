@@ -220,13 +220,13 @@ GO
 CREATE TABLE
     Activity (
         ActivityID INT IDENTITY (1, 1) PRIMARY KEY,
-        ActivityDateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+        ActivityDateTime DATETIME DEFAULT GETDATE(),
         IsLogged BIT NOT NULL,
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
         Ratings INT CHECK (Ratings BETWEEN 1 AND 10),
         Review TEXT,
-        IsReply BIT,
+        IsReply BIT Not NULL,
         FOREIGN KEY (UserID) REFERENCES Users (UserID) ,
         FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
     );

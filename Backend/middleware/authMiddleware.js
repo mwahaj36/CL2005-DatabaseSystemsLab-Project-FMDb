@@ -7,8 +7,8 @@ const authenticateToken = (req, res, next) => {
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) return res.status(403).json({ message: 'Invalid token' });
+        console.log(`UserID ${user.userId} made an API Call`); // Log the decoded token payload for debugging
 
-        req.user = user; // Attach the decoded token payload to the request
         req.userId = user.userId; // Specifically attach the userId to the request
         next();
     });

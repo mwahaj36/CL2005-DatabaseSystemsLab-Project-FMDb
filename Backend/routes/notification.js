@@ -3,11 +3,23 @@ const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
-// Get all requests of a user by userId
-router.get('/requests/:userId', authenticateToken, async (req, res) => {
-    const userId = req.params.userId;
-    // Logic to get all requests for the user
-    res.send(`Get all requests for user with ID: ${userId}`);
+// Get all notifications of current user
+router.get('/user', authenticateToken, async (req, res) => {
+    const userId = req.userId;
+    const query = `SELECT * FROM Notifications WHERE ReceiverId = @userId`;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+
+        const result = await request.query(query);
+        if (result.recordset.length === 0) {
+            return res.status(404).send({ success: false, message: 'No requests found for this user' });
+        }
+        res.send({ success: true, requests: result.recordset });
+    } catch (error) {
+        console.error('Unexpected error:', error);
+        res.status(500).send({ success: false, message: 'Internal server error' });
+    }
 });
 
 // Accept a notification by notificationId
@@ -15,7 +27,7 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
     const notificationId = parseInt(req.params.notiID, 10);
 
     if (isNaN(notificationId)) {
-        return res.status(400).send('Invalid notification ID');
+        return res.status(400).send({ success: false, message: 'Invalid notification ID' });
     }
         
     const query = `SELECT * FROM Notifications WHERE NotificationId = @notificationId`; 
@@ -25,11 +37,11 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
 
         const result = await request.query(query);
         if (result.recordset.length === 0) {
-            return res.status(404).send('Notification not found');
+            return res.status(404).send({ success: false, message: 'Notification not found' });
         }
         const notification = result.recordset[0];
         if (notification.NotificationType === 'General') {
-            return res.status(400).send('Cannot accept a general notification');
+            return res.status(400).send({ success: false, message: 'Cannot accept a general notification' });
         } 
 
         // Delete the notification after accepting it
@@ -47,7 +59,7 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
             console.log(`Accepted friend request from user ${notification.SenderId}`);
         } else {
             // Delete this request for all admins
-            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CritiqueReq') AND SenderId = @senderId`);
+            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderId = @senderId`);
             let adminMessage;
 
 
@@ -59,13 +71,13 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
                 messageSender = `You have been promoted to Admin by user ${notification.ReceiverId}`;
                 adminMessage = `User ${notification.SenderId} has been promoted to Admin!`;
 
-            } else if (notification.NotificationType === 'CritiqueReq') {
+            } else if (notification.NotificationType === 'CriticReq') {
                 // promote sender to critic
-                query = `UPDATE Users SET UserType = Critique WHERE UserId = @senderId`;
+                query = `UPDATE Users SET UserType = Critic WHERE UserId = @senderId`;
                 request.input('senderId', sql.Int, notification.SenderId);
                 await request.query(query);
-                messageSender = `You have been promoted to Critique by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been promoted to Critique!`;
+                messageSender = `You have been promoted to Critic by user ${notification.ReceiverId}`;
+                adminMessage = `User ${notification.SenderId} has been promoted to Critic!`;
             }
             // Send message to all admins that user has been promoted to admin/critic
             // Get all admins from the Users table
@@ -96,9 +108,9 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
         await messageRequest.query(query);
     } catch (error) {
         console.error('Unexpected error:', error);
-        res.status(500).send('Internal server error');
+        res.status(500).send({ success: false, message: 'Internal server error' });
     }
-    res.send(`Accepted notification with ID: ${notificationId}`);
+    res.send({ success: true, message: `Accepted notification with ID: ${notificationId}` });
 });
 
 // Reject a notification by notificationId
@@ -106,7 +118,7 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
     const notificationId = parseInt(req.params.notiID, 10);
 
     if (isNaN(notificationId)) {
-        return res.status(400).send('Invalid notification ID');
+        return res.status(400).send({ success: false, message: 'Invalid notification ID' });
     }
 
     const query = `SELECT * FROM Notifications WHERE NotificationId = @notificationId`; 
@@ -116,11 +128,11 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
 
         const result = await request.query(query);
         if (result.recordset.length === 0) {
-            return res.status(404).send('Notification not found');
+            return res.status(404).send({ success: false, message: 'Notification not found' });
         }
         const notification = result.recordset[0];
         if (notification.NotificationType === 'General') {
-            return res.status(400).send('Cannot reject a general notification');
+            return res.status(400).send({ success: false, message: 'Cannot reject a general notification' });
         } 
 
         // Delete the notification after rejecting it
@@ -133,16 +145,16 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
             console.log(`Rejected friend request from user ${notification.SenderId}`);
         } else {
             // Delete this request for all admins
-            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CritiqueReq') AND SenderId = @senderId`);
+            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderId = @senderId`);
             let adminMessage;
 
 
             if (notification.NotificationType === 'AdminReq') {
                 messageSender = `You have been rejected the status of Admin by user ${notification.ReceiverId}`;
                 adminMessage = `User ${notification.SenderId} has been rejected the status of Admin!`;
-            } else if (notification.NotificationType === 'CritiqueReq') {
-                messageSender = `You have been rejected the status of Critique by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been rejected the status of Critique!`;
+            } else if (notification.NotificationType === 'CriticReq') {
+                messageSender = `You have been rejected the status of Critic by user ${notification.ReceiverId}`;
+                adminMessage = `User ${notification.SenderId} has been rejected the status of Critic!`;
             }
             // Send message to all admins that user has been rejected the status of admin/critic
             // Get all admins from the Users table
@@ -173,18 +185,17 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
         await messageRequest.query(query);
     } catch (error) {
         console.error('Unexpected error:', error);
-        res.status(500).send('Internal server error');
+        res.status(500).send({ success: false, message: 'Internal server error' });
     }
-    res.send(`Rejected notification with ID: ${notificationId}`);
+    res.send({ success: true, message: `Rejected notification with ID: ${notificationId}` });
 });
 
 // Close a notification by notificationId
 router.delete('/close/:notiID', authenticateToken, async (req, res) => {
     const notificationId = parseInt(req.params.notiID, 10);
-    console.log(req.params.user);
 
     if (isNaN(notificationId)) {
-        return res.status(400).send('Invalid notification ID');
+        return res.status(400).send({ success: false, message: 'Invalid notification ID' });
     }
 
     const query = `SELECT * FROM Notifications WHERE NotificationId = @notificationId`; 
@@ -194,7 +205,7 @@ router.delete('/close/:notiID', authenticateToken, async (req, res) => {
 
         const result = await request.query(query);
         if (result.recordset.length === 0) {
-            return res.status(404).send('Notification not found');
+            return res.status(404).send({ success: false, message: 'Notification not found' });
         }
         const notification = result.recordset[0];
 
@@ -205,18 +216,11 @@ router.delete('/close/:notiID', authenticateToken, async (req, res) => {
         await deleteRequest.query(deleteQuery);
 
         console.log(`Closed notification with ID: ${notificationId}`);
-        res.send(`Closed notification with ID: ${notificationId}`);
+        res.send({ success: true, message: `Closed notification with ID: ${notificationId}` });
     } catch (error) {
         console.error('Unexpected error:', error);
-        res.status(500).send('Internal server error');
+        res.status(500).send({ success: false, message: 'Internal server error' });
     }
-});
-
-// Send a message from senderId to receiverId
-router.post('/messages/send', authenticateToken, async (req, res) => {
-    const { senderId, receiverId, message } = req.body;
-    // Logic to send the message
-    res.send(`Message sent from user ${senderId} to user ${receiverId}: ${message}`);
 });
 
 module.exports = router;
