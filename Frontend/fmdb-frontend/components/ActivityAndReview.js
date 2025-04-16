@@ -17,24 +17,19 @@ const ActivityAndReviewSection = () => {
     { activityID: 'r3', rating: 10, reviewText: "Perfect blend of music and storytelling.", movieTitle: "La La Land", userType: 'regular' },
     { activityID: 'r4', rating: 8, reviewText: "A thrilling ride from start to end.", movieTitle: "Whiplash", userType: 'verified critic' },
     { activityID: 'r5', rating: 8.5, reviewText: "A fresh take on classic storytelling.", movieTitle: "Little Women", userType: 'regular' },
-    { activityID: 'r6', rating: 9.2, reviewText: "Nolan's mind-bending masterpiece.", movieTitle: "Inception", userType: 'verified critic' },
-    { activityID: 'r7', rating: 6.8, reviewText: "Good, but lacked emotional depth.", movieTitle: "Dune", userType: 'regular' },
-    { activityID: 'r8', rating: 9.5, reviewText: "Heartwarming and deeply personal.", movieTitle: "The Farewell", userType: 'verified critic' },
-    { activityID: 'r9', rating: 7.9, reviewText: "Unique animation with soul.", movieTitle: "Soul", userType: 'regular' },
     { activityID: 'r10', rating: 9.8, reviewText: "Profound, powerful, and poetic.", movieTitle: "The Tree of Life", userType: 'verified critic' },
   ];
 
   // Split reviews into two columns
-  const firstColReviews = reviewsData.slice(0, 5);
-  const secondColReviews = reviewsData.slice(5, 10);
+  const firstColReviews = reviewsData.slice(0, 3);
 
   const renderReviewCard = (review) => {
     const hasLiked = likedReviews[review.activityID];
     return (
       <div
-        key={review.activityID}
-        className="relative flex items-center z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-3xl shadow-md hover:scale-105 transition-transform duration-300"
-      >
+      key={review.activityID}
+      className="relative items-center w-full z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+    >
         <div className="flex items-center space-x-6 relative w-full">
           <div
             className={`font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner ${
@@ -70,11 +65,10 @@ const ActivityAndReviewSection = () => {
   };
 
   return (
-    <section id="review-section" className="relative z-10 container px-6 mx-auto mt-16">
-      <h2 className="text-purpleWhite text-2xl md:text-3xl font-bold mb-6 text-left">Recent Reviews</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section id="review-section" className="relative z-10 container px-6 mx-auto">
+      <h2 className="text-purpleWhite text-2xl md:text-5xl font-bold mb-6 text-center">Recent Reviews</h2>
+      <div className=" gap-8">
         <div className="space-y-6">{firstColReviews.map(renderReviewCard)}</div>
-        <div className="space-y-6">{secondColReviews.map(renderReviewCard)}</div>
       </div>
     </section>
   );

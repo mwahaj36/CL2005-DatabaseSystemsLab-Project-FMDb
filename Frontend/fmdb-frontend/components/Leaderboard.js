@@ -26,7 +26,7 @@ const Leaderboard = () => {
     },
   ];
 
-  const medalColors = ["#d4af37", "#C0C0C0", "#FF5733"];
+  const medalColors = ["#d4af37", "#757575", "#FF5733"];
   const places = ["1st Place", "2nd Place", "3rd Place"];
 
   return (

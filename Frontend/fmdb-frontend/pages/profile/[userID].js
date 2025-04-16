@@ -3,11 +3,12 @@ import { useEffect, useState, useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProfileHero from '@/components/ProfileHero';
-import ActivityAndReviewSection from '@/components/ActivityAndReview';
 import { useAuth } from '@/context/AuthContext';
 import { users } from '@/data/Users'; // Used for mock profile lookup
 import movies from '@/data/FMDbDatabase.json'; // mock movies array
 import MovieCard from '@/components/EditFavorite';
+import YearlyStats from '@/components/YearlyStats'; // Import YearlyStats component
+import ActivityAndReviewSection from '@/components/ActivityAndReview';
 
 const Profile = () => {
   const router = useRouter();
@@ -32,6 +33,7 @@ const Profile = () => {
           bio: 'This user has not written a bio yet.',
           friends: [],
           userFavs: [],
+          reviews: [], // Add mock reviews if necessary
         });
       }
     } else {
@@ -64,25 +66,45 @@ const Profile = () => {
 
         {/* Conditional rendering based on user's relationship */}
         {profileUser.userID === currentUser?.userID || currentUser?.friends.includes(profileUser.userID) || profileUser.privacy === false ? (
-  <>
-    <p className="text-3xl mt-10 mb-20 md:text-6xl font-bold text-center">Favorites</p>
+          <>
+            <p className="text-3xl mt-10 mb-20 md:text-6xl font-bold text-center">Favorites</p>
 
-    <div className="relative flex flex-col z-10 mt-10 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
-      {/* Dynamically render each favorite movie */}
-      {profileUser.userFavs.map((userFavID, index) => {
-        const movie = movies.find((m) => m.MovieID === userFavID);
-        return movie ? <MovieCard key={index} movie={movie} /> : null;
-      })}
-    </div>
-    <ActivityAndReviewSection currentUser={currentUser} profileUser={profileUser} />
-  </>
-) : (
-<p className="text-white mt-10 font-semibold text-center text-3xl">
-  Shh... this user’s movie vault is private.<br></br>
-  Become friends to peek behind the scenes!
-</p>
-)}
+            <div className="relative flex flex-col z-10 mt-10 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
+              {/* Dynamically render each favorite movie */}
+              {profileUser.userFavs.map((userFavID, index) => {
+                const movie = movies.find((m) => m.MovieID === userFavID);
+                return movie ? <MovieCard key={index} movie={movie} /> : null;
+              })}
+            </div>
 
+            {/* Section with Reviews (Limited to 5) and Yearly Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
+              {/* Limited Reviews Section */}
+              <div className="w-full flex flex-col p-6 rounded-xl shadow-lg">
+              {profileUser.reviews?.slice(0, 3).map((review, index) => {
+                  const movie = movies.find((m) => m.MovieID === review.movieID);
+                  return (
+                    <div key={index} className="mb-6 border-b border-purpleWhite pb-4">
+                      <p className="text-purpleWhite font-semibold">
+                        {movie ? movie.Title : 'Unknown Movie'}
+                      </p>
+                      <p className="text-white italic">"{review.text}"</p>
+                    </div>
+                  );
+                })}
+                    <ActivityAndReviewSection currentUser={currentUser} profileUser={profileUser} />
+              </div>
+
+              {/* Yearly Stats Section */}
+              <YearlyStats profileUser={profileUser} />
+            </div>
+          </>
+        ) : (
+          <p className="text-white mt-10 font-semibold text-center text-3xl">
+            Shh... this user’s movie vault is private.<br></br>
+            Become friends to peek behind the scenes!
+          </p>
+        )}
       </div>
       <Footer />
     </section>
