@@ -11,11 +11,12 @@ const HomePage = () => {
   const { user } = useContext(AuthContext);
   const [apiState, setApiState] = useState({
     trending: { data: [], loading: true, error: null },
+    recommended: { data: [], loading: false, error: null, recommendedOn: "" },
     friendsActivity: { data: [], loading: false, error: null },
     friendsWatchlist: { data: [], loading: false, error: null }
   });
 
-  // Fetch trending movies
+  // Fetch trending movies (for all users)
   useEffect(() => {
     let isMounted = true;
 
@@ -53,7 +54,51 @@ const HomePage = () => {
     return () => { isMounted = false };
   }, []);
 
-  // Fetch friends activity
+  // Fetch recommended movies (only for logged in users)
+  useEffect(() => {
+    if (!user) return;
+
+    let isMounted = true;
+    setApiState(prev => ({ ...prev, recommended: { ...prev.recommended, loading: true } }));
+
+    const fetchRecommended = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/movies/recommended', {
+          credentials: 'include'
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+
+        if (isMounted) {
+          setApiState(prev => ({
+            ...prev,
+            recommended: {
+              data: json.movies || [],
+              recommendedOn: json.recommendedOn || "",
+              loading: false,
+              error: null
+            }
+          }));
+        }
+      } catch (err) {
+        if (isMounted) {
+          setApiState(prev => ({
+            ...prev,
+            recommended: {
+              ...prev.recommended,
+              loading: false,
+              error: err.message
+            }
+          }));
+        }
+      }
+    };
+
+    fetchRecommended();
+    return () => { isMounted = false };
+  }, [user]);
+
+  // Fetch friends activity (only for logged in users)
   useEffect(() => {
     if (!user) return;
 
@@ -96,7 +141,7 @@ const HomePage = () => {
     return () => { isMounted = false };
   }, [user]);
 
-  // Fetch friends watchlist
+  // Fetch friends watchlist (only for logged in users)
   useEffect(() => {
     if (!user) return;
 
@@ -107,7 +152,7 @@ const HomePage = () => {
       try {
         const res = await fetch('http://localhost:5000/movies/friends/watchlist', {
           headers: {
-            'Authorization': `Bearer ${user.token}` // Assuming token is stored in user context
+            'Authorization': `Bearer ${user.token}`
           }
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -153,11 +198,17 @@ const HomePage = () => {
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
       
-      <h1 className="mt-10 relative z-10 text-8xl text-white text-shadow font-bold text-center">
-        Welcome Back!        
+      {/* Welcome message for logged in users */}
+      {user && (
+        <h1 className="mt-10 relative z-10 text-8xl text-white text-shadow font-bold text-center">
+          Welcome Back!
         </h1>
+      )}
 
-      {/* Trending Movies */}
+      {/* Hero section for non-logged in users */}
+      {!user && <HeroSection />}
+
+      {/* Spotlight section (for all users) */}
       <section className="relative z-10 pt-10">
         <h2 className="text-6xl text-white text-shadow font-bold text-center">
           In the Spotlight
@@ -171,42 +222,65 @@ const HomePage = () => {
         )}
       </section>
 
-      {/* Friends Activity */}
-      {user && (
-        <section className="relative z-10 pt-16">
-          <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-            Friends' Recent Activity
-          </h2>
-          {apiState.friendsActivity.loading ? (
-            <div className="text-center text-white py-10">Loading friends activity...</div>
-          ) : apiState.friendsActivity.error ? (
-            <div className="text-center text-red-400 py-10">{apiState.friendsActivity.error}</div>
-          ) : apiState.friendsActivity.data.length > 0 ? (
-            <Spotlight movies={apiState.friendsActivity.data} />
-          ) : (
-            <div className="text-center text-white py-10">No recent friend activity</div>
-          )}
-        </section>
-      )}
+      {/* Logged in user content */}
+      {user ? (
+        <>
+          {/* Recommended for you */}
+          <section className="relative z-10 pt-16">
+            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-2">
+              Recommended For You
+            </h2>
+            {apiState.recommended.recommendedOn && (
+              <p className="text-center text-purple-300 text-xl mb-6">
+                Based on your interest in: {apiState.recommended.recommendedOn}
+              </p>
+            )}
+            {apiState.recommended.loading ? (
+              <div className="text-center text-white py-10">Loading recommendations...</div>
+            ) : apiState.recommended.error ? (
+              <div className="text-center text-red-400 py-10">{apiState.recommended.error}</div>
+            ) : apiState.recommended.data.length > 0 ? (
+              <Spotlight movies={apiState.recommended.data} />
+            ) : (
+              <div className="text-center text-white py-10">No recommendations available</div>
+            )}
+          </section>
 
-      {/* Popular in Your Circle (Friends Watchlist) */}
-      {user && (
-        <section className="relative z-10 pt-16 pb-32">
-          <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-            Popular in Your Circle
-          </h2>
-          {apiState.friendsWatchlist.loading ? (
-            <div className="text-center text-white py-10">Loading watchlist...</div>
-          ) : apiState.friendsWatchlist.error ? (
-            <div className="text-center text-red-400 py-10">{apiState.friendsWatchlist.error}</div>
-          ) : apiState.friendsWatchlist.data.length > 0 ? (
-            <Spotlight movies={apiState.friendsWatchlist.data} />
-          ) : (
-            <div className="text-center text-white py-10">No watchlist items found</div>
-          )}
-        </section>
-      )}
+          {/* Friends' Recent Activity */}
+          <section className="relative z-10 pt-16">
+            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
+              Friends' Recent Activity
+            </h2>
+            {apiState.friendsActivity.loading ? (
+              <div className="text-center text-white py-10">Loading friends activity...</div>
+            ) : apiState.friendsActivity.error ? (
+              <div className="text-center text-red-400 py-10">{apiState.friendsActivity.error}</div>
+            ) : apiState.friendsActivity.data.length > 0 ? (
+              <Spotlight movies={apiState.friendsActivity.data} />
+            ) : (
+              <div className="text-center text-white py-10">No recent friend activity</div>
+            )}
+          </section>
 
+          {/* Popular in Your Circle */}
+          <section className="relative z-10 pt-16">
+            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
+              Popular in Your Circle
+            </h2>
+            {apiState.friendsWatchlist.loading ? (
+              <div className="text-center text-white py-10">Loading watchlist...</div>
+            ) : apiState.friendsWatchlist.error ? (
+              <div className="text-center text-red-400 py-10">{apiState.friendsWatchlist.error}</div>
+            ) : apiState.friendsWatchlist.data.length > 0 ? (
+              <Spotlight movies={apiState.friendsWatchlist.data} />
+            ) : (
+              <div className="text-center text-white py-10">No watchlist items found</div>
+            )}
+          </section>
+        </>
+      ) : null}
+
+      {/* Leaderboard (for all users) */}
       <Leaderboard topThree={topThreeUsers} />
 
       <Footer />
