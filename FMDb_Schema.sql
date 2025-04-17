@@ -366,5 +366,5 @@ RankedUsers AS (
         ROW_NUMBER() OVER (ORDER BY Score DESC) AS Rank
     FROM ActivityStats
 )
-SELECT * FROM RankedUsers;
- 
+--SELECT * FROM RankedUsers;
+ GO 
