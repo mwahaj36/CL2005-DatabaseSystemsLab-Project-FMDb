@@ -20627,3 +20627,397 @@ SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
 INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
 
 print('All Initial Data Loaded into database :)');
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+GO 
+
+
+-- Dummy Data  
+-- Users:
+INSERT INTO Users (FullName, Username, PasswordHash, Email, Gender, DateOfBirth, Bio, UserType, Privacy)
+VALUES
+('Muhammad Ibrahim Alam', 'ibrahim_admin', 'hashed_ibrahim_pw', 'ibrahim@example.com', 'Male', '2004-09-12', 'FMDb database manager.', 'Admin', 'Public'),
+
+('Tayyab Khalid', 'tayyab_admin', 'hashed_tayyab_pw', 'tayyab@example.com', 'Male', '2004-06-25', 'FMDb backend enthusiast.', 'Admin', 'Public'),
+
+('Muhammad Wahaj', 'wahaj_admin', 'hashed_wahaj_pw', 'wahaj@example.com', 'Male', '2005-06-18', 'FMDb frontend wizard.', 'Admin', 'Public'),
+
+('Areeba Khan', 'areeba.k', 'areebapass123', 'areeba.khan@example.com', 'Female', '2004-07-15', 'Movie lover and part-time critic.', 'Critic', 'Public'),
+
+('Hamza Sheikh', 'hamzas',  'hamzapass456', 'hamza.sheikh@example.com', 'Male', '2003-11-02', 'I enjoy thrillers and deep sci-fi plots.', 'Critic', 'Public'),
+
+('Alice Johnson', 'alicej', 'hashed_pw1', 'alice@example.com', 'Female', '1995-06-15', 'Movie lover & critic.', 'User', 'Public'),
+
+('Bob Smith', 'bobsmith', 'hashed_pw2', 'bob@example.com', 'Male', '1990-03-22', 'Fan of thrillers and mysteries.', 'User', 'Public'),
+
+('Charlie Brown', 'charlieb', 'hashed_pw3', 'charlie@example.com', 'Male', '1988-12-05', 'Sci-fi addict and popcorn fan.', 'User', 'Public'),
+
+('Diana Prince', 'dianap', 'hashed_pw4', 'diana@example.com', 'Female', '1992-11-08', 'Action movie junkie.', 'User', 'Private'),
+
+('Ethan Hunt', 'ethanh', 'hashed_pw5', 'ethan@example.com', 'Male', '1987-07-30', 'Adventure is my middle name.', 'User', 'Public');
+
+GO 
+
+
+-- Friends
+
+-- Insert unique symmetric friendships (UserID1 < UserID2)
+INSERT INTO Friends (User1ID, User2ID)
+VALUES
+(1, 2),  -- Ibrahim & Tayyab
+(1, 3),  -- Ibrahim & Wahaj
+(2, 3),  -- Tayyab & Wahaj
+(4, 5),
+(4, 6),
+(5, 7),
+(4, 7),
+(6, 8),
+(5, 9),
+(6, 9),
+(7, 10),
+(4, 8),
+(8, 10),
+(5, 10),
+(7, 9),
+(6, 10);
+
+GO
+
+-- UserFavourites
+
+-- Ibrahim (UserID 1)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (1, 2, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (1, 4, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (1, 6, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (1, 8, 4);
+
+-- Tayyab (UserID 2)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (2, 1, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (2, 3, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (2, 5, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (2, 7, 4);
+
+-- Wahaj (UserID 3)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (3, 4, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (3, 6, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (3, 9, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (3, 2, 4);
+
+-- Areeba (UserID 4)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (4, 1, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (4, 5, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (4, 8, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (4, 10, 4);
+
+-- Hamza (UserID 5)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (5, 3, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (5, 6, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (5, 7, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (5, 9, 4);
+
+-- User6 (UserID 6)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (6, 2, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (6, 4, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (6, 6, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (6, 8, 4);
+
+-- User7 (UserID 7)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (7, 1, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (7, 3, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (7, 7, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (7, 10, 4);
+
+-- User8 (UserID 8)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (8, 4, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (8, 5, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (8, 8, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (8, 10, 4);
+
+-- User9 (UserID 9)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (9, 1, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (9, 6, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (9, 7, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (9, 9, 4);
+
+-- User10 (UserID 10)
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (10, 2, 1);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (10, 3, 2);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (10, 5, 3);
+INSERT INTO UserFavorites (UserID, MovieID, Rank) VALUES (10, 9, 4);
+
+
+GO
+
+-- UserLikesMovies 
+-- Ibrahim (UserID 1)
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (1, 1);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (1, 3);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (1, 5);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (1, 7);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (1, 9);
+
+-- Tayyab (UserID 2)
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (2, 2);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (2, 4);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (2, 6);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (2, 8);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (2, 10);
+
+-- Wahaj (UserID 3)
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (3, 1);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (3, 4);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (3, 7);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (3, 10);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (3, 11);
+
+-- Areeba (UserID 4)
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (4, 3);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (4, 6);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (4, 9);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (4, 12);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (4, 14);
+
+-- Hamza (UserID 5)
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (5, 2);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (5, 5);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (5, 8);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (5, 11);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (5, 13);
+
+-- User6
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (6, 1);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (6, 4);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (6, 7);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (6, 10);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (6, 13);
+
+-- User7
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (7, 3);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (7, 5);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (7, 9);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (7, 11);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (7, 15);
+
+-- User8
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (8, 2);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (8, 6);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (8, 8);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (8, 12);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (8, 14);
+
+-- User9
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (9, 1);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (9, 5);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (9, 10);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (9, 13);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (9, 15);
+
+-- User10
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (10, 4);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (10, 6);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (10, 8);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (10, 12);
+INSERT INTO UserLikedMovies (UserID, MovieID) VALUES (10, 14);
+
+
+-- UserWatchlist
+
+-- User 1 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (1, 101);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (1, 102);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (1, 103);
+
+-- User 2 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (2, 104);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (2, 101);
+
+-- User 3 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (3, 105);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (3, 106);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (3, 107);
+
+-- User 4 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (4, 102);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (4, 104);
+
+-- User 5 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (5, 108);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (5, 109);
+
+-- User 6 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (6, 103);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (6, 106);
+
+-- User 7 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (7, 110);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (7, 105);
+
+-- User 8 Watchlist
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (8, 101);
+INSERT INTO UserWatchlist (UserID, MovieID) VALUES (8, 109);
+
+-- User 9 ( Does not have any watchlist ) 
+-- User 10( Does not have any watchlist )
+
+
+
+-- Activity 
+-- User 1 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 1, 101, 8, 'Great movie with an engaging storyline.', 0);
+
+-- User 2 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 2, 104, 7, 'Good movie, but a bit slow at times.', 0);
+
+-- User 3 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 3, 105, 9, 'Loved the visuals and soundtrack!', 0);
+
+-- User 4 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 4, 102, 6, 'Interesting concept but poor execution.', 0);
+
+-- User 5 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 5, 108, 10, 'Masterpiece! A must-watch.', 0);
+
+-- User 6 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 6, 106, 5, 'Average movie. Could be better.', 0);
+
+-- User 7 Activity (Reply to someone’s review)
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (1, 7, 105, 8, 'I totally agree with your review!', 1);
+
+-- User 8 Activity
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES (0, 3, 105, 1, 'Fuck OFF.', 1);
+
+GO 
+-- User 1
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 1, 110, 7, NULL, 0),
+(0, 1, 111, NULL, 'Looks interesting, might watch later.', 0),
+(0, 1, 112, 6, 'Not really my type of film.', 0);
+
+-- User 2
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 2, 113, 8, NULL, 0),
+(0, 2, 114, NULL, 'Saw the trailer, seems cool.', 0),
+(0, 2, 115, 5, 'Too predictable.', 0);
+
+-- User 3
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 3, 116, 9, NULL, 0),
+(0, 3, 117, NULL, 'Nice visuals, might check it out.', 0),
+(0, 3, 118, 4, 'Didn’t like the pacing.', 0);
+
+-- User 4
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 4, 119, 6, NULL, 0),
+(0, 4, 120, NULL, 'Acting seems weak from the trailer.', 0),
+(0, 4, 121, 3, 'Probably not going to finish it.', 0);
+
+-- User 5
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 5, 122, 8, NULL, 0),
+(0, 5, 123, NULL, 'Story looks fresh!', 0),
+(0, 5, 124, 7, 'Not bad, solid performance.', 0);
+
+-- User 6
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 6, 125, 5, NULL, 0),
+(0, 6, 126, NULL, 'Feels cliché.', 0),
+(0, 6, 127, 6, 'Mid-tier thriller.', 0);
+
+-- User 7
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 7, 128, 9, NULL, 0),
+(0, 7, 129, NULL, 'Saw someone recommend it.', 0),
+(0, 7, 130, 8, 'Definitely going on my watchlist.', 0);
+
+-- User 8
+INSERT INTO Activity (IsLogged, UserID, MovieID, Ratings, Review, IsReply)
+VALUES 
+(0, 8, 131, 6, NULL, 0),
+(0, 8, 132, NULL, 'Loved the soundtrack.', 0),
+(0, 8, 133, 7, 'Solid weekend watch.', 0);
+
+
+GO 
+
+-- Reply 
+
+INSERT INTO Reply (ActivityID, ReplyID)
+VALUES (3, 7);  -- 3 = original activity id by User 1, 7 = reply id  (reply by User 7 to user 1 on activity id 3 )
+
+
+
+INSERT INTO Reply (ActivityID, ReplyID)
+VALUES (7, 8);  -- 7 = original activity id by User 7, 8 = reply id (reply by User 3 to user 1 on activity id 3) 
+
+-- ActivityLikes 
+
+
+-- User 1 likes ActivityID 3
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (3, 1);
+
+-- User 2 likes ActivityID 5
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (5, 2);
+
+-- User 3 likes ActivityID 6
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (6, 3);
+
+-- User 4 likes ActivityID 9
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (9, 4);
+
+-- User 5 likes ActivityID 12
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (12, 5);
+
+-- User 6 likes ActivityID 14
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (14, 6);
+
+-- User 7 likes ActivityID 17
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (17, 7);
+
+-- User 8 likes ActivityID 19
+INSERT INTO ActivityLikes (ActivityID, UserID)
+VALUES (19, 8);
+
+Go 
+
+-- Notifications 
+
+INSERT INTO Notifications (SenderID, ReceiverID, Message, NotificationType)
+VALUES 
+(1, 4, 'You have a new friend request from User1.', 'FriendReq'),
+(2, 5, 'Your review on Movie1 has been approved by the admin.', 'AdminReq'),
+(3, 6, 'CriticReview: Movie2 is a must-watch!', 'CriticReq'),
+(4, 5, 'You have a new general notification regarding your activity.', 'General'),
+(5, 6, 'You have a new comment on your review of Movie3.', 'General'),
+(6, 7, 'Your request to follow User5 has been accepted.', 'FriendReq'),
+(7, 8, 'Your review has been liked by User7.', 'General'),
+(3, 4, 'Will you Marry me.', 'General'),
+(4, 3, 'NO', 'General'),
+(4, 2, 'Remove User 3, He is bullying me', 'General');
+
+
