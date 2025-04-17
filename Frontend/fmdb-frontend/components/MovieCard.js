@@ -1,63 +1,41 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import FMDBLogo from '@/public/Dark.png';
-import MovieSearchDropdown from '@/components/MovieSearchDropdown';
-import { useState } from 'react';
 
-const MovieCard = ({ movie, onFavoriteSelect }) => {
-  const [activeSearchIndex, setActiveSearchIndex] = useState(null);
+const MovieCard = ({ movie }) => {
+  // Debug what's being received
+  console.log('Rendering movie:', movie);
 
-  // If no movie is passed, show 4 selectable placeholders
-  if (!movie || !movie.MovieID || !movie.Poster || !movie.Title) {
+  // Handle loading/empty states better
+  if (!movie || !movie.movieid) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
-        {[...Array(4)].map((_, index) => (
-          <div
-            key={index}
-            className="relative w-full h-80 bg-purpleWhite bg-opacity-80 rounded-lg flex flex-col items-center justify-center text-center text-darkPurple font-bold p-4 space-y-4 cursor-pointer"
-            onClick={() => setActiveSearchIndex(index)}
-          >
-            <div className="w-16">
-              <Image
-                src={FMDBLogo}
-                alt="FMDb Logo"
-                layout="responsive"
-                className="rounded"
-              />
-            </div>
-            <p>Click to add a favorite movie</p>
-
-            {/* Render the dropdown if this card was clicked */}
-            {activeSearchIndex === index && (
-              <MovieSearchDropdown
-                onClose={(selectedMovie) => {
-                  if (selectedMovie) {
-                    onFavoriteSelect(selectedMovie); // Pass the selected movie to the parent
-                    // Add to user favs code here; selected movie has the object
-                  }
-                  setActiveSearchIndex(null); // Always close the dropdown
-                }}
-              />
-            )}
-          </div>
-        ))}
+      <div className="w-full h-96 rounded-lg animate-pulse flex items-center justify-center">
+        <span className="text-white">Loading movie...</span>
       </div>
     );
   }
 
-  // If a movie exists, render the actual card with poster and title
   return (
-    <div className="flex flex-col items-center p-6 space-y-4 rounded-lg bg-veryLightGray transition-all duration-300 w-full">
-      <Link href={`/movie/${movie.MovieID}`}>
-        <img
-          src={movie.Poster}
-          className="w-full h-80 object-cover -mt-14 shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
-          alt={movie.Title}
-        />
+    <div className="flex flex-col items-center p-4 space-y-4 rounded-lg  transition-all duration-300 w-full h-full">
+      <Link href={`/movie/${movie.movieid}`} passHref legacyBehavior>
+        <a className="w-full">
+          <img
+            src={movie.movieposterlink || '/placeholder-movie.jpg'}
+            className="w-60 h-90 object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
+            alt={movie.title}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = '/placeholder-movie.jpg';
+            }}
+          />
+        </a>
       </Link>
-      <h5 className="text-xl font-bold text-white text-shadow text-center">
-        {movie.Title}
-      </h5>
+      <div className="text-center w-full px-2">
+        <h5 className="text-lg font-bold text-white truncate">{movie.title}</h5>
+        {movie.directors?.length > 0 && (
+          <p className="text-gray-400 text-sm mt-1">
+            Directed by: {movie.directors.join(', ')}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

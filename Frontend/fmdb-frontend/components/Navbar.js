@@ -3,10 +3,8 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AuthContext } from '@/context/AuthContext';
-import { Bell, X } from 'lucide-react'; // for bell and close icon
-import DropdownSearch from '@/components/MovieSearchDropdown'; // adjust path if needed
-import { Search } from 'lucide-react'; // Import Search icon from lucide-react
-
+import { Bell, X, Search, User } from 'lucide-react';
+import DropdownSearch from '@/components/MovieSearchDropdown';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,38 +12,36 @@ function Navbar() {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [showDropdownSearch, setShowDropdownSearch] = useState(false);
   
-  const handleMovieSelect = (movie) => {
-    setShowDropdownSearch(false);
-    // Navigate to the movie page or handle the selected movie object
-    console.log("Selected movie:", movie);
-  };
-  
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const pathname = usePathname();
 
   const profileRef = useRef(null);
   const notifRef = useRef(null);
 
+  const handleMovieSelect = (movie) => {
+    setShowDropdownSearch(false);
+    // Navigate to the movie page or handle the selected movie object
+    console.log("Selected movie:", movie);
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const getLinkClass = (href, baseClass = '') =>
-    `${baseClass} ${pathname === href ? 'text-purple' : 'text-white'} hover:text-purple`;
+  const handleLogout = () => {
+    logout();
+    setProfileDropdownOpen(false);
+  };
 
-  // 📦 Close dropdowns if clicked outside
+  const getLinkClass = (href, baseClass = '') =>
+    `${baseClass} ${pathname === href ? 'text-purple' : 'text-white'} hover:text-purple transition-colors duration-200`;
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        profileRef.current &&
-        !profileRef.current.contains(event.target)
-      ) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
         setProfileDropdownOpen(false);
       }
-      if (
-        notifRef.current &&
-        !notifRef.current.contains(event.target)
-      ) {
+      if (notifRef.current && !notifRef.current.contains(event.target)) {
         setNotificationsOpen(false);
       }
     };
@@ -60,137 +56,207 @@ function Navbar() {
           {/* Logo */}
           <div className="pt-1">
             <Link href="/">
-              <img src="/Light.png" alt="Logo" className="w-[170px] cursor-pointer" />
+              <img src="/Light.png" alt="Logo" className="w-[170px] cursor-pointer hover:opacity-90 transition-opacity" />
             </Link>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-10 font-bold">
+          <div className="hidden md:flex items-center space-x-8 font-bold">
             <Link href="/" className={getLinkClass('/')}>Home</Link>
-
             <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage')}>Films</Link>
             <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage')}>Series</Link>
             <Link href="/Members" className={getLinkClass('/Members')}>Members</Link>
             <Link
               href="/VerifiedCritics"
-              className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
+              className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple transition-colors duration-200`}
             >
               Verified Critics
             </Link>
           </div>
 
-          {/* Desktop Right Section: Search + Notification */}
+          {/* Desktop Right Section */}
           <div className="hidden md:flex items-center space-x-4">
-          <button
-  onClick={() => setShowDropdownSearch(true)}
-  className="relative z-50 w-12 h-12 flex items-center justify-center text-white rounded-xl  hover:text-purple transition"
->               
+            {/* Search Button */}
+            <button
+              onClick={() => setShowDropdownSearch(true)}
+              className="relative z-50 w-10 h-10 flex items-center justify-center text-white rounded-xl hover:text-purple transition-all duration-200 hover:bg-purpleWhite hover:bg-opacity-20"
+            >
+              <Search className="w-6 h-6" />
+            </button>
 
-  <Search className="w-7 h-7" />
-</button>
-
-            {/* 🔔 Notifications */}
-            <div className="relative mt-1" ref={notifRef}>
+            {/* Notifications */}
+            <div className="relative" ref={notifRef}>
               <button
                 onClick={() => setNotificationsOpen(!notificationsOpen)}
-                className="text-white hover:text-purple"
+                className="w-10 h-10 flex items-center justify-center text-white rounded-xl hover:text-purple transition-all duration-200 hover:bg-purpleWhite hover:bg-opacity-20"
               >
-                <Bell className="w-7 h-7" />
+                <Bell className="w-6 h-6" />
+                {notificationsOpen && (
+                  <div className="absolute right-0 top-12 w-72 bg-white text-darkPurple rounded-xl shadow-xl z-50 p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <p className="font-semibold">Notifications</p>
+                      <button onClick={() => setNotificationsOpen(false)}>
+                        <X className="w-5 h-5 text-darkPurple hover:text-purple" />
+                      </button>
+                    </div>
+                    <div className="text-sm text-gray-700 space-y-2">
+                      <p>You have a new review reply.</p>
+                      <p>Someone followed you.</p>
+                      <p>Film added to your watchlist.</p>
+                    </div>
+                  </div>
+                )}
               </button>
-              {notificationsOpen && (
-                <div className="absolute right-0 top-10 w-72 bg-white text-darkPurple rounded-xl shadow-xl z-50 p-4 space-y-3">
-                  <div className="flex justify-between items-center">
-                    <p className="font-semibold">Notifications</p>
-                    <button onClick={() => setNotificationsOpen(false)}>
-                      <X className="w-5 h-5 text-darkPurple hover:text-purple" />
-                    </button>
-                  </div>
-                  <div className="text-sm text-gray-700 space-y-2">
-                    <p>You have a new review reply.</p>
-                    <p>Someone followed you.</p>
-                    <p>Film added to your watchlist.</p>
-                  </div>
-                </div>
-              )}
             </div>
-          </div>
-          {user ? (
-              <div
-                className="relative"
-                ref={profileRef}
-              >
+
+            {/* User Profile */}
+            {user ? (
+              <div className="relative" ref={profileRef}>
                 <button
-                  onClick={() => setProfileDropdownOpen((prev) => !prev)}
-                  className="text-white hover:text-purple"
+                  onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+                  className="flex items-center space-x-2 px-3 py-2 rounded-xl hover:bg-purpleWhite hover:bg-opacity-20 transition-all duration-200"
                 >
-                  My Profile
+                  <User className="w-5 h-5 text-white" />
+                  <span className="text-white font-medium">{user.username}</span>
                 </button>
                 {profileDropdownOpen && (
-                  <div className="absolute top-10 right-0 bg-white text-darkPurple rounded-xl shadow-lg w-40 py-2 space-y-2">
-                    <Link href={`/profile/${user.userID}`} className="block px-4 py-2 hover:bg-purpleWhite">See Profile</Link>
-                    <button className="block w-full text-left px-4 py-2 hover:bg-purpleWhite">Log out</button>
+                  <div className="absolute top-12 right-0 bg-white text-darkPurple rounded-xl shadow-lg w-48 py-2 space-y-1 z-50">
+                    <Link 
+                      href={`/profile/${user.userID}`} 
+                      className="block px-4 py-2 hover:bg-purpleWhite transition-colors duration-200"
+                      onClick={() => setProfileDropdownOpen(false)}
+                    >
+                      My Profile
+                    </Link>
+                    <Link 
+                      href="/settings" 
+                      className="block px-4 py-2 hover:bg-purpleWhite transition-colors duration-200"
+                      onClick={() => setProfileDropdownOpen(false)}
+                    >
+                      Settings
+                    </Link>
+                    <button 
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 hover:bg-purpleWhite transition-colors duration-200"
+                    >
+                      Log out
+                    </button>
                   </div>
                 )}
               </div>
             ) : (
-              <Link href="/LoginSignup" className={getLinkClass('/LoginSignup')}>Login / Signup</Link>
+              <Link 
+                href="/LoginSignup" 
+                className="px-4 py-2 rounded-xl bg-purple text-white hover:bg-purpleWhite hover:text-darkPurple transition-colors duration-200 font-medium"
+              >
+                Login / Signup
+              </Link>
             )}
+          </div>
 
-          {/* Hamburger for Mobile */}
-          <button className="block md:hidden focus:outline-none" onClick={toggleMobileMenu}>
+          {/* Mobile Menu Button */}
+          <button 
+            className="block md:hidden focus:outline-none" 
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
             <div className="space-y-1.5">
-              <span className="block w-6 h-0.5 bg-white"></span>
-              <span className="block w-6 h-0.5 bg-white"></span>
-              <span className="block w-6 h-0.5 bg-white"></span>
+              <span className={`block w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block w-6 h-0.5 bg-white ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block w-6 h-0.5 bg-white transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>
       </nav>
 
+      {/* Spacer for fixed nav */}
       <div className="h-24"></div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden relative z-40 ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="absolute left-6 right-6 rounded-3xl flex-col items-center py-8 mt-4 space-y-6 font-bold bg-purpleWhite drop-shadow-md">
-          <Link href="/" className={getLinkClass('/', 'text-darkPurple')}>Home</Link>
-          {user ? (
-            <div className="space-y-2 text-center">
-              <Link href={`/profile/${user.userID}`} className={getLinkClass(`/profile/${user.userID}`, 'text-darkPurple')}>See Profile</Link>
-              <button className="text-darkPurple hover:text-purple">Log out</button>
-            </div>
-          ) : (
-            <Link href="/LoginSignup" className={getLinkClass('/LoginSignup', 'text-darkPurple')}>Login / Signup</Link>
-          )}
-          <Link href="/MoviesListPage" className={getLinkClass('/MoviesListPage', 'text-darkPurple')}>Films</Link>
-          <Link href="/SeriesListPage" className={getLinkClass('/SeriesListPage', 'text-darkPurple')}>Series</Link>
-          <Link href="/Members" className={getLinkClass('/Members', 'text-darkPurple')}>Members</Link>
-          <Link
-            href="/VerifiedCritics"
-            className={`${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} hover:text-purple`}
+      <div className={`md:hidden fixed top-24 left-0 right-0 z-40 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+        <div className="mx-6 bg-purpleWhite rounded-2xl shadow-lg py-6 px-4 space-y-6 font-bold">
+          <Link 
+            href="/" 
+            className={`block text-center py-2 ${getLinkClass('/', 'rounded-lg hover:bg-purpleWhite hover:bg-opacity-50')}`}
+            onClick={toggleMobileMenu}
+          >
+            Home
+          </Link>
+          <Link 
+            href="/MoviesListPage" 
+            className={`block text-center py-2 ${getLinkClass('/MoviesListPage', 'rounded-lg hover:bg-purpleWhite hover:bg-opacity-50')}`}
+            onClick={toggleMobileMenu}
+          >
+            Films
+          </Link>
+          <Link 
+            href="/SeriesListPage" 
+            className={`block text-center py-2 ${getLinkClass('/SeriesListPage', 'rounded-lg hover:bg-purpleWhite hover:bg-opacity-50')}`}
+            onClick={toggleMobileMenu}
+          >
+            Series
+          </Link>
+          <Link 
+            href="/Members" 
+            className={`block text-center py-2 ${getLinkClass('/Members', 'rounded-lg hover:bg-purpleWhite hover:bg-opacity-50')}`}
+            onClick={toggleMobileMenu}
+          >
+            Members
+          </Link>
+          <Link 
+            href="/VerifiedCritics" 
+            className={`block text-center py-2 ${pathname === '/VerifiedCritics' ? 'text-purple' : 'text-gold'} rounded-lg hover:bg-purpleWhite hover:bg-opacity-50`}
+            onClick={toggleMobileMenu}
           >
             Verified Critics
           </Link>
 
-          {/* Mobile Search */}
-          <form className="w-full px-4">
-            <input
-              type="text"
-              placeholder="Quick Search for a film"
-              className="w-full px-4 py-2 rounded-xl text-darkPurple focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="w-full mt-3 px-6 py-2 bg-purple text-white font-semibold rounded-xl hover:bg-darkPurple hover:text-purpleWhite transition"
+          {/* Mobile Auth Section */}
+          {user ? (
+            <div className="space-y-4 pt-4 border-t border-purpleWhite border-opacity-30">
+              <Link
+                href={`/profile/${user.userID}`}
+                className="block text-center py-2 text-white bg-purple rounded-lg hover:bg-opacity-90 transition-colors"
+                onClick={toggleMobileMenu}
+              >
+                {user.username}
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="w-full text-center py-2 text-white bg-darkPurple rounded-lg hover:bg-opacity-90 transition-colors"
+              >
+                Log out
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/LoginSignup"
+              className="block text-center py-2 text-white bg-purple rounded-lg hover:bg-opacity-90 transition-colors"
+              onClick={toggleMobileMenu}
             >
-              Go
+              Login / Signup
+            </Link>
+          )}
+
+          {/* Mobile Search */}
+          <div className="pt-4 border-t border-purpleWhite border-opacity-30">
+            <button
+              onClick={() => {
+                setShowDropdownSearch(true);
+                toggleMobileMenu();
+              }}
+              className="w-full flex items-center justify-center space-x-2 py-2 px-4 bg-white text-darkPurple rounded-lg hover:bg-opacity-90 transition-colors"
+            >
+              <Search className="w-5 h-5" />
+              <span>Search Films</span>
             </button>
-          </form>
+          </div>
         </div>
       </div>
 
       {/* Movie Search Dropdown */}
       {showDropdownSearch && (
-        <DropdownSearch onClose={handleMovieSelect} />
+        <DropdownSearch onClose={() => setShowDropdownSearch(false)} />
       )}
     </div>
   );

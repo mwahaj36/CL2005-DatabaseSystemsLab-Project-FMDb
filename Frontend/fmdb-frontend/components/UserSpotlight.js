@@ -5,9 +5,6 @@ const Spotlight = ({ movies }) => {
   return (
     <section id="Spotlight" className="relative z-10">
       <div className="max-w-8xl px-5 mx-auto mt-10 text-center">
-      <h1 className="text-8xl text-white text-shadow font-bold text-center mb-10">
-        Welcome Back!        
-        </h1>
         <h2 className="text-6xl text-white text-shadow font-bold text-center">
           Popular In Your Circle
         </h2>

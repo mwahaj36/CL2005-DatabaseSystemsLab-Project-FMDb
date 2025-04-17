@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext } from "react";
-import { users } from "../data/Users"; // Simulated static data (read-only in frontend)
 import { useRouter } from "next/router";
 
 export const AuthContext = createContext();
@@ -7,118 +6,142 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState(null);
   const router = useRouter();
 
-  // Function to login
-  const login = (email, password) => {
-    const foundUser = users.find((user) => user.email === email);
+  const API_BASE_URL = "http://localhost:5000";
 
-    if (!foundUser) {
-      setError("User not found");
-      return;
+  const login = async (username, password, rememberMe) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/signin`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: username,
+          password: password
+        }),
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Login failed');
+      }
+
+      const data = await response.json();
+      setUser({ username: data.userName, userID: data.userId });
+      setToken(data.token);
+      setError(null);
+
+      if (rememberMe) {
+        localStorage.setItem('token', data.token);
+      } else {
+        sessionStorage.setItem('token', data.token);
+      }
+
+      router.push("/");
+    } catch (err) {
+      setError(err.message);
+      throw err;
     }
-
-    if (foundUser.password !== password) {
-      setError("Incorrect password");
-      return;
-    }
-
-    setUser(foundUser);
-    setError(null);
-    router.push("/");
   };
 
-  // Function to logout
   const logout = () => {
     setUser(null);
+    setToken(null);
+    setError(null);
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     router.push("/");
   };
 
-  // Function to signup (mock)
-  const signup = (firstName, lastName, username, email, password) => {
-    const existingUser = users.find((user) => user.email === email || user.username === username);
+  const signup = async (firstName, lastName, username, email, password) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: `${firstName} ${lastName}`,
+          userName: username,
+          email: email,
+          password: password
+        }),
+        credentials: 'include'
+      });
 
-    if (existingUser) {
-      setError("User with this email or username already exists.");
-      return;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Signup failed');
+      }
+
+      const data = await response.json();
+      setUser({ username: data.userName, userID: data.userId });
+      setToken(data.token);
+      setError(null);
+      
+      router.push("/EditProfile");
+      return data;
+    } catch (err) {
+      setError(err.message);
+      throw err;
     }
-
-    const newUser = {
-      userID: `u00${users.length + 1}`,
-      fullName: `${firstName} ${lastName}`,
-      email,
-      username,
-      password,
-      bio: "This user hasn't written a bio yet.",
-      dob: "2000-01-01", // default
-      userType: "user",
-      gender: "unspecified",
-      privacy: true,
-      userFavs: [], // empty list initially
-      friends: [],
-      profilePic: "https://i.pravatar.cc/150?img=65" // random avatar
-    };
-
-    // ❗ This just logs to the console; it doesn't persist
-    console.log("New user created (mock):", newUser);
-
-    setUser(newUser);
-    setError(null);
   };
 
-  // Function to add a movie to favorites
-  const addFavorite = (movieId) => {
-    if (!user) {
-      setError("Please log in first");
-      return;
+  const resetPassword = async (email, newPassword) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/reset`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password: newPassword
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Password reset failed');
+      }
+
+      return data;
+    } catch (err) {
+      setError(err.message);
+      throw err;
     }
-
-    // Check if the movie is already in the favorites
-    if (user.userFavs.includes(movieId)) {
-      setError("This movie is already in your favorites");
-      return;
-    }
-
-    // Add the movieId to userFavs
-    const updatedUser = {
-      ...user,
-      userFavs: [...user.userFavs, movieId],
-    };
-
-    // Update user in state
-    setUser(updatedUser);
-    setError(null);
   };
 
-  // Function to remove a movie from favorites
-  const removeFavorite = (movieId) => {
-    if (!user) {
-      setError("Please log in first");
-      return;
+  const checkAuth = async () => {
+    const storedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (storedToken && !user) {
+      try {
+        setToken(storedToken);
+        // You might want to verify the token with your backend here
+      } catch (err) {
+        console.error('Session validation failed:', err);
+        logout();
+      }
     }
-
-    // Remove the movieId from userFavs
-    const updatedUser = {
-      ...user,
-      userFavs: user.userFavs.filter((favId) => favId !== movieId),
-    };
-
-    // Update user in state
-    setUser(updatedUser);
-    setError(null);
   };
 
   return (
     <AuthContext.Provider
       value={{
         user,
+        token,
         setUser,
         login,
         signup,
-        logout,
-        addFavorite,
-        removeFavorite,
+        logout, // Now properly included
+        resetPassword,
         error,
+        checkAuth
       }}
     >
       {children}
@@ -126,7 +149,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the AuthContext
 export const useAuth = () => {
   return useContext(AuthContext);
 };
