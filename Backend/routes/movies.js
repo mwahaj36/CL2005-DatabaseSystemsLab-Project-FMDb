@@ -3,6 +3,46 @@ const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
+// Function to process movies and fetch directors
+async function processMoviesWithDirectors(recordset) {
+    if (!recordset || recordset.length === 0) {
+        return [];
+    }
+
+    // Extract movie IDs from the recordset
+    const movieIds = recordset.map(row => row.MovieID).join(',');
+
+    // Query to fetch directors for the movies
+    const directorsQuery = `
+        SELECT MD.MovieID, D.DirectorName
+        FROM MovieDirectors MD
+        JOIN Directors D ON MD.DirectorID = D.DirectorID
+        WHERE MD.MovieID IN (${movieIds})
+    `;
+    const sqlRequest = new sql.Request();
+    const directorsResult = await sqlRequest.query(directorsQuery);
+
+    // Process the result to group directors for each movie
+    const movies = {};
+    recordset.forEach(row => {
+        movies[row.MovieID] = {
+            movieid: row.MovieID,
+            title: row.Title,
+            movieposterlink: row.MoviePosterLink,
+            directors: []
+        };
+    });
+
+    directorsResult.recordset.forEach(row => {
+        if (movies[row.MovieID]) {
+            movies[row.MovieID].directors.push(row.DirectorName);
+        }
+    });
+
+    // Convert the movies object to an array
+    return Object.values(movies);
+}
+
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
 });
@@ -10,13 +50,12 @@ router.get('/search/:string', async (req, res) => {
 // Get top 5 trending movies based on count of logged movies
 router.get('/trending', async (req, res) => {
     const query = `
-        SELECT t.MovieID, t.Title, t.MoviePosterLink, d.DirectorName
-        FROM (SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink, COUNT(A.IsWatched) as WatchCount
+        SELECT t.MovieID, t.Title, t.MoviePosterLink
+        FROM (SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink, COUNT(A.IsLogged) as WatchCount
             FROM Movies M JOIN Activity A ON M.MovieID = A.MovieID
-            WHERE A.IsWatched = 1 AND DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7
+            WHERE A.IsLogged = 1 AND DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7
             GROUP BY M.MovieID, M.Title, M.MoviePosterLink
             ORDER BY WatchCount DESC) t 
-        join MovieDirectors md on t.MovieID = md.MovieID join Directors d on md.DirectorID = d.DirectorID 
     `;
 
     try {
@@ -37,61 +76,174 @@ router.get('/trending', async (req, res) => {
             result.recordset.push(...randomResult.recordset);
         } 
         
-        // Process the result to group directors for each movie
-        const movies = {};
-        result.recordset.forEach(row => {
-            if (!movies[row.MovieID]) {
-                movies[row.MovieID] = {
-                    movieid: row.MovieID,
-                    title: row.Title,
-                    movieposterlink: row.MoviePosterLink,
-                    directors: []
-                };
-            }
-            movies[row.MovieID].directors.push(row.DirectorName);
-        });
-
-        // Convert the movies object to an array
-        const response = Object.values(movies);
-        res.json(response); // Send the formatted JSON response
+        
+        const response = await processMoviesWithDirectors(result.recordset);
+        res.json({ success: true, movies: response }); // Send the formatted JSON response
     } catch (error) {
         res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
 
-// Log a movie or TV show
-router.post('/log', async (req, res) => {
+// Get 5 Recent Movies from Friend Activities
+router.get('/friends', authenticateToken, async (req, res) => {
+    const userId = req.userId; // Extract userId from the token payload
+
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            return res.status(401).json({ message: 'Authorization token missing' });
+        // Fetch the user's friends
+        const friendsQuery = `
+                SELECT User2ID FROM Friends WHERE User1ID = @CurrentUserID
+                UNION
+                SELECT User1ID FROM Friends WHERE User2ID = @CurrentUserID
+        `;
+        const friendsRequest = new sql.Request();
+        friendsRequest.input('CurrentUserID', sql.Int, userId);
+        const friendsResult = await friendsRequest.query(friendsQuery);
+
+        if (friendsResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No friends found' });
         }
 
-        const decoded = jwt.verify(token, 'your_jwt_secret'); // Replace 'your_jwt_secret' with your actual secret
-        const userId = decoded.userId;
+        const friendIdsString = friendsResult.recordset.map(row => row.User2ID).join(', ');
 
-        // Add movie to logged list with user rating and review
-        // Use userId to associate the logged movie with the user
+        // Fetch the 5 most recent movies watched by friends
+        const recentMoviesQuery = `
+            SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
+            FROM Activity A
+            JOIN Users U ON A.UserID = U.UserID
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.UserID IN (${friendIdsString})
+            ORDER BY A.ActivityDateTime DESC;
+        `;
+        const recentMoviesRequest = new sql.Request();
+        const recentMoviesResult = await recentMoviesRequest.query(recentMoviesQuery);
+
+        if (recentMoviesResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No recent friend activities found' });
+        }
+        
+        const response = await processMoviesWithDirectors(recentMoviesResult.recordset);
+        res.status(200).json({ success: true, movies: response });
     } catch (error) {
-        res.status(401).json({ message: 'Invalid or expired token' });
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get 5 Recent Movies added to watchlist by friends
+router.get('/friends/watchlist', authenticateToken, async (req, res) => {
+    const userId = req.userId; // Extract userId from the token payload
+
+    try {
+        // Fetch the user's friends
+        const friendsQuery = `
+                SELECT User2ID FROM Friends WHERE User1ID = @CurrentUserID
+                UNION
+                SELECT User1ID FROM Friends WHERE User2ID = @CurrentUserID
+        `;
+        const friendsRequest = new sql.Request();
+        friendsRequest.input('CurrentUserID', sql.Int, userId);
+        const friendsResult = await friendsRequest.query(friendsQuery);
+
+        if (friendsResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No friends found' });
+        }
+        const friendIdsString = friendsResult.recordset.map(row => row.User2ID).join(', ');
+
+        // Fetch the 5 most recent movies added to watchlist by friends
+        const recentMoviesQuery = `
+            SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
+            FROM UserWatchlist UW
+            JOIN Users U ON UW.UserID = U.UserID
+            JOIN Movies M ON UW.MovieID = M.MovieID
+            WHERE UW.UserID IN (${friendIdsString})
+            ORDER BY UW.AddedAt DESC;
+        `;
+        const recentMoviesRequest = new sql.Request();
+        const recentMoviesResult = await recentMoviesRequest.query(recentMoviesQuery);
+
+        if (recentMoviesResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No recent friend activities found' });
+        }
+
+        const response = await processMoviesWithDirectors(recentMoviesResult.recordset);
+        res.status(200).json({ success: true, movies: response });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get 5 Recommendations based on user's log history via keyword matching
+router.get('/recommended', authenticateToken, async (req, res) => {
+    const userId = req.userId; // Extract userId from the token payload
+
+    try {
+        // Fetch 1 movie from users's 3 most recent logged movies to get keywords
+        const recentMoviesQuery = `
+            SELECT TOP 1 *
+            FROM (
+                SELECT TOP 3 M.MovieID, M.Title
+                FROM Activity A
+                JOIN Movies M ON A.MovieID = M.MovieID
+                WHERE A.UserID = @CurrentUserID AND A.IsLogged = 1
+                ORDER BY A.ActivityDateTime DESC
+            ) AS TopThree
+            ORDER BY NEWID();
+        `;
+        const recentMoviesRequest = new sql.Request();
+        recentMoviesRequest.input('CurrentUserID', sql.Int, userId);
+        const recentMoviesResult = await recentMoviesRequest.query(recentMoviesQuery);
+
+        
+        if (recentMoviesResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No logged movies found' });
+        }
+
+        // Fetch the logged movie's keywords
+        const keywordsQuery = `
+            SELECT MK.KeywordID 
+            FROM MovieKeywords MK 
+            WHERE MK.MovieID = @MovieID
+        `;
+        const keywordsRequest = new sql.Request();
+        keywordsRequest.input('MovieID', sql.Int, recentMoviesResult.recordset[0].MovieID);
+        const keywordsResult = await keywordsRequest.query(keywordsQuery);
+
+        const keywordIdsString = keywordsResult.recordset.map(row => row.KeywordID).join(', ');
+
+        // Fetch the logged movie's genres
+        const genresQuery = `
+            SELECT MG.GenreID 
+            FROM MovieGenres MG 
+            WHERE MG.MovieID = @MovieID
+        `;
+        const genresRequest = new sql.Request();
+        genresRequest.input('MovieID', sql.Int, recentMoviesResult.recordset[0].MovieID);
+        const genresResult = await genresRequest.query(genresQuery);
+
+        const genreIdsString = genresResult.recordset.map(row => row.GenreID).join(', ');
+
+        // Fetch recommendations based on keywords or genres from logged movies
+        const recommendationsQuery = `
+            SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
+            FROM Movies M JOIN MovieKeywords MK ON M.MovieID = MK.MovieID JOIN MovieGenres MG ON M.MovieID = MG.MovieID
+            WHERE MK.KeywordID IN (${keywordIdsString}) OR MG.GenreID IN (${genreIdsString}) AND M.MovieID != @MovieID
+            ORDER BY NEWID();  -- Randomize the selection for diversity in recommendations
+        `;        
+        const recommendationsRequest = new sql.Request();
+        recommendationsRequest.input('MovieID', sql.Int, recentMoviesResult.recordset[0].MovieID);
+        const recommendationsResult = await recommendationsRequest.query(recommendationsQuery);
+
+        if (recommendationsResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No recommendations found' });
+        }
+
+        const response = await processMoviesWithDirectors(recommendationsResult.recordset);
+        res.status(200).json({ success: true, recommendedOn: recentMoviesResult.recordset[0].Title , movies: response });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
 });
 
 router.get('/logged/:userId', async (req, res) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        const targetUserId = req.params.userId;
-
-        let loggedInUserId = null;
-        if (token) {
-            try {
-                const decoded = jwt.verify(token, 'your_jwt_secret'); // Replace 'your_jwt_secret' with your actual secret
-                loggedInUserId = decoded.userId;
-            } catch (error) {
-                return res.status(401).json({ message: 'Invalid or expired token' });
-            }
-        }
-
         // Fetch target user's privacy settings and logged movies
         const targetUser = await getUserById(targetUserId); // Replace with actual DB query to fetch user details
         if (!targetUser) {
@@ -117,9 +269,7 @@ router.get('/logged/:userId', async (req, res) => {
         }
 
         return res.status(403).json({ message: 'Access denied' });
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
-    }
+    
 });
 
 module.exports = router;
