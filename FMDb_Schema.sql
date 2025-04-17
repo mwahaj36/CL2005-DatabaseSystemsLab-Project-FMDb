@@ -219,7 +219,7 @@ CREATE TABLE
         Review TEXT,
         IsReply BIT Not NULL,
         FOREIGN KEY (UserID) REFERENCES Users (UserID) ,
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON Delete Cascade
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) 
     );
 
 GO
@@ -343,6 +343,30 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER trg_DeleteMovie_All
+ON Movies
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- Step 1: Delete replies related to activities for this movie
+    DELETE FROM Reply
+    WHERE ActivityID IN (SELECT ActivityID FROM Activity WHERE MovieID IN (SELECT MovieID FROM DELETED))
+
+    -- Step 2: Delete activities related to this movie
+    DELETE FROM Activity
+    WHERE MovieID IN (SELECT MovieID FROM DELETED)
+
+    -- Step 3: Delete from MovieGenres, MovieActors, etc.
+    DELETE FROM MovieGenres WHERE MovieID IN (SELECT MovieID FROM DELETED)
+    DELETE FROM MovieDirectors WHERE MovieID IN (SELECT MovieID FROM DELETED)
+    DELETE FROM MovieWriters WHERE MovieID IN (SELECT MovieID FROM DELETED)
+    DELETE FROM MovieKeywords WHERE MovieID IN (SELECT MovieID FROM DELETED)
+
+    -- Step 4: Now finally delete the movie
+    DELETE FROM Movies WHERE MovieID IN (SELECT MovieID FROM DELETED)
+END
+
+
 
 GO 
 CREATE VIEW v_Leaderboard AS
@@ -368,3 +392,4 @@ RankedUsers AS (
 )
 SELECT * FROM RankedUsers;
  GO 
+ 
