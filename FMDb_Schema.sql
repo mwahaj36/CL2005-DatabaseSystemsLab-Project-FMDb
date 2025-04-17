@@ -82,16 +82,7 @@ CREATE TABLE
 
 GO
 
-CREATE TRIGGER trg_DeleteUser_Friends
-ON Users
-AFTER DELETE
-AS
-BEGIN
-    DELETE FROM Friends WHERE User1ID IN (SELECT UserID FROM DELETED)
-    DELETE FROM Friends WHERE User2ID IN (SELECT UserID FROM DELETED)
-END
 
-GO 
 -- UserFavorites, UserLikedMovies, UserWatchlist
 CREATE TABLE
     UserFavorites (
@@ -244,20 +235,26 @@ CREATE TABLE
     );
 
 GO
+-- Drop the current trigger and re-create as INSTEAD OF DELETE
+DROP TRIGGER IF EXISTS trg_DeleteActivity_Replies
+GO
 
 CREATE TRIGGER trg_DeleteActivity_Replies
 ON Activity
-AFTER DELETE
+INSTEAD OF DELETE
 AS
 BEGIN
-    -- Step 1: Delete reply relationships (Reply table) where the original post is deleted
+    -- First delete Reply rows
     DELETE FROM Reply
     WHERE ActivityID IN (SELECT ActivityID FROM DELETED)
+       OR ReplyID IN (SELECT ActivityID FROM DELETED)
 
-    -- Step 2: Delete reply relationships where the reply itself is deleted
-    DELETE FROM Reply
-    WHERE ReplyID IN (SELECT ActivityID FROM DELETED)
+    -- Then delete from Activity
+    DELETE FROM Activity
+    WHERE ActivityID IN (SELECT ActivityID FROM DELETED)
 END
+GO
+
 
 GO
 
@@ -313,20 +310,41 @@ CREATE TABLE Notifications (
     FOREIGN KEY (SenderID) REFERENCES Users(UserID) ,
     FOREIGN KEY (ReceiverID) REFERENCES Users(UserID) 
 );
- GO 
 
- CREATE TRIGGER trg_DeleteUser_Notifications
+GO 
+-- Drop existing unified trigger
+DROP TRIGGER IF EXISTS trg_DeleteUser_All
+GO
+
+-- Recreate with Activity cleanup added
+CREATE TRIGGER trg_DeleteUser_All
 ON Users
-AFTER DELETE
+INSTEAD OF DELETE
 AS
 BEGIN
+    -- Step 1: Delete replies related to deleted user's activities
+    DELETE FROM Reply 
+    WHERE ActivityID IN (SELECT ActivityID FROM Activity WHERE UserID IN (SELECT UserID FROM DELETED))
+       OR ReplyID IN (SELECT ActivityID FROM Activity WHERE UserID IN (SELECT UserID FROM DELETED))
+
+    -- Step 2: Delete user's activities
+    DELETE FROM Activity WHERE UserID IN (SELECT UserID FROM DELETED)
+
+    -- Step 3: Delete from Friends (both directions)
+    DELETE FROM Friends WHERE User1ID IN (SELECT UserID FROM DELETED)
+    DELETE FROM Friends WHERE User2ID IN (SELECT UserID FROM DELETED)
+
+    -- Step 4: Delete from Notifications
     DELETE FROM Notifications WHERE SenderID IN (SELECT UserID FROM DELETED)
     DELETE FROM Notifications WHERE ReceiverID IN (SELECT UserID FROM DELETED)
+
+    -- Step 5: Now finally delete the user
+    DELETE FROM Users WHERE UserID IN (SELECT UserID FROM DELETED)
 END
-
-
-
 GO
+
+
+GO 
 CREATE VIEW v_Leaderboard AS
 WITH ActivityStats AS (
     SELECT 
@@ -349,3 +367,4 @@ RankedUsers AS (
     FROM ActivityStats
 )
 SELECT * FROM RankedUsers;
+ 
