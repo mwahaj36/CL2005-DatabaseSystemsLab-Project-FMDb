@@ -56,3 +56,39 @@ WHERE UF.UserID = @CurrentUserID
 ORDER BY UF.Rank ASC;
 
 
+
+
+-- FOR LOVE (you can directly DELETE USER as it will work the same)
+
+
+-- 1. Delete replies related to user's activities or replies
+
+DECLARE @UserID INT = 4;
+
+
+DELETE FROM Reply
+WHERE ActivityID IN (SELECT ActivityID FROM Activity WHERE UserID = @UserID)
+   OR ReplyID IN (SELECT ActivityID FROM Activity WHERE UserID = @UserID)
+
+-- 2. Delete user's activities
+DELETE FROM Activity WHERE UserID = @UserID
+
+
+-- 3. Delete from Watchlist
+DELETE FROM UserWatchlist WHERE UserID = @UserID
+
+-- 4. Delete from UserFavorites
+DELETE FROM UserFavorites WHERE UserID = @UserID
+
+-- 5. Delete from UserLikedMovies
+DELETE FROM UserLikedMovies WHERE UserID = @UserID
+
+-- 6. Delete from Friends (both directions)
+DELETE FROM Friends WHERE User1ID = @UserID OR User2ID = @UserID
+
+-- 7. Delete from Notifications (sender/receiver)
+DELETE FROM Notifications WHERE SenderID = @UserID OR ReceiverID = @UserID
+
+-- 8. Now, finally delete the user
+DELETE FROM Users WHERE UserID = @UserID
+
