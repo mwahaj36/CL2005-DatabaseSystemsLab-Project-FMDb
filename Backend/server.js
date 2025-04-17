@@ -2,6 +2,7 @@ const express = require('express');
 const { connectToDatabase } = require('./config/dbConfig'); // Import database connection
 const app = express();
 const cors = require('cors'); // Import CORS middleware
+require('dotenv').config(); // Load environment variables from .env file
 const port = parseInt(process.env.PORT, 10) || 5000; // Convert environment variable to integer or default to 5000
 
 app.use(express.json()); // Middleware to parse JSON request bodies
