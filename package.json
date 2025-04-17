@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "lucide-react": "^0.488.0"
   },
   "scripts": {
     "dev": "concurrently \"cd Backend && nodemon server.js\" \"npm run dev --prefix Frontend/fmdb-frontend\""
   }
 }
-
