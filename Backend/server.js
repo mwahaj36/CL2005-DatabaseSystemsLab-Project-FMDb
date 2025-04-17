@@ -2,7 +2,11 @@ const express = require('express');
 const { connectToDatabase } = require('./config/dbConfig'); // Import database connection
 const app = express();
 const port = 5000;
-
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000', // Your frontend URL
+  credentials: true
+}));
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
