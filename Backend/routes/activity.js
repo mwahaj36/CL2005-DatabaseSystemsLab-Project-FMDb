@@ -262,7 +262,6 @@ router.post('/like/:reviewId', authenticateToken, async (req, res) => {
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
-
 });
 
 // Unlike a review (requires JWT token containing userId and reviewId in request body)

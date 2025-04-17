@@ -316,4 +316,75 @@ router.get('/logged/:userId', async (req, res) => {
     
 });
 
+// Add Movie to liked movies
+router.post('/like/:movieId', authenticateToken, async (req, res) => {
+        const movieId = req.params.movieId;
+        const userId = req.userId; // Extract userId from the token payload
+    
+        try {
+            // Check if the movie exists in the database
+            const checkMovieQuery = 'SELECT MovieID FROM Movies WHERE MovieID = @movieId';
+            const movieRequest = new sql.Request();
+            movieRequest.input('movieId', sql.Int, movieId);
+            const movieCheckResult = await movieRequest.query(checkMovieQuery);
+    
+            if (movieCheckResult.recordset.length === 0) {
+                return res.status(404).json({ success: false, message: 'Movie not found' });
+            }
+    
+            // Check if the user has already liked the movie
+            const checkLikeQuery = 'SELECT * FROM UserLikedMovies WHERE MovieID = @movieId AND UserID = @userId';
+            const likeCheckRequest = new sql.Request();
+            likeCheckRequest.input('movieId', sql.Int, movieId);
+            likeCheckRequest.input('userId', sql.Int, userId);
+            const likeCheckResult = await likeCheckRequest.query(checkLikeQuery);
+    
+            if (likeCheckResult.recordset.length === 1) {
+                return res.status(400).json({ success: false, message: 'You have already liked this movie' });
+            }
+    
+            // Insert the like into the database
+            const insertLikeQuery = 'INSERT INTO UserLikedMovies (MovieID, UserID) VALUES (@movieId, @userId)';
+            const insertLikeRequest = new sql.Request();
+            insertLikeRequest.input('movieId', sql.Int, movieId);
+            insertLikeRequest.input('userId', sql.Int, userId);
+    
+            await insertLikeRequest.query(insertLikeQuery);
+            res.status(200).json({ success: true, message: 'Movie liked successfully' });
+        } catch (error) {
+            return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+        }
+});
+
+// Unlike a movie (requires JWT token containing userId and movieId in request params)
+router.delete('/like/:movieId', authenticateToken, async (req, res) => {
+    const movieId = req.params.movieId;
+    const userId = req.userId; // Extract userId from the token payload
+
+    try {
+        // Check if the movie like exists in the database
+        const checkLikeQuery = 'SELECT * FROM UserLikedMovies WHERE MovieID = @movieId AND UserID = @userId';
+        const likeRequest = new sql.Request();
+        likeRequest.input('movieId', sql.Int, movieId);
+        likeRequest.input('userId', sql.Int, userId);
+        const likeCheckResult = await likeRequest.query(checkLikeQuery);
+
+        if (likeCheckResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'Movie not liked' });
+        }
+
+        // Delete the like from the database
+        const deleteLikeQuery = 'DELETE FROM UserLikedMovies WHERE MovieID = @movieId AND UserID = @userId';
+        const deleteLikeRequest = new sql.Request();
+        deleteLikeRequest.input('movieId', sql.Int, movieId);
+        deleteLikeRequest.input('userId', sql.Int, userId);
+
+        await deleteLikeRequest.query(deleteLikeQuery);
+        res.status(200).json({ success: true, message: 'Movie unliked successfully' });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+
 module.exports = router;

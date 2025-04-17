@@ -31,7 +31,7 @@ router.post('/:movieId', authenticateToken, async (req, res) => {
 });
 
 router.get('/public/:userid', async (req, res) => {
-    const { userid } = req.params;
+    let { userid } = req.params;
     
 
 
@@ -40,7 +40,7 @@ router.get('/public/:userid', async (req, res) => {
 
 // Get user's watchlist logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
 router.get('/:userid', authenticateToken, async (req, res) => {
-    const { userid } = req.params;
+    let { userid } = req.params;
     if (!userid) {
         return res.status(400).send({ success: false, message: 'userid parameter is required.' });
     } 
@@ -97,8 +97,30 @@ router.get('/:userid', authenticateToken, async (req, res) => {
 });
 
 // Remove movie from watchlist (Requires JWT token with userid)
-router.delete('/:movieid', async (req, res) => {
-    // Remove a movie from the logged-in user's watchlist
+router.delete('/:movieid', authenticateToken, async (req, res) => {
+    let { movieid } = req.params;
+    if (!movieid) {
+        return res.status(400).send({ success: false, message: 'movieId parameter is required.' });
+    }
+    movieid = parseInt(movieid, 10);
+    if (isNaN(movieid)) {
+        return res.status(400).send({ success: false, message: 'Invalid movieId. It must be a number.' });
+    }
+
+    const userId = req.userId; // Extract user ID from the authenticated token
+
+    const query = `DELETE FROM UserWatchlist WHERE UserID = @userId AND MovieID = @movieId`;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        request.input('movieId', sql.Int, movieid);
+
+        await request.query(query);
+        res.status(200).send({ success: true, message: 'Movie removed from watchlist successfully.' });
+    } catch (error) {
+        console.error('Unexpected error:', error);
+        res.status(500).send({ success: false, message: 'An error occurred while removing the movie from the watchlist.' });
+    }
 });
 
 module.exports = router;
