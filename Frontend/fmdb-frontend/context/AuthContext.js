@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { users } from "../data/Users"; // Simulated static data (read-only in frontend)
 import { useRouter } from "next/router";
 
@@ -9,8 +9,16 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  // Function to login
-  const login = (email, password) => {
+  // On initial load, check if user is stored in localStorage
+  useEffect(() => {
+    const storedUser = localStorage.getItem("fmdb-user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // Login function with rememberMe flag
+  const login = (email, password, rememberMe = false) => {
     const foundUser = users.find((user) => user.email === email);
 
     if (!foundUser) {
@@ -25,18 +33,25 @@ export const AuthProvider = ({ children }) => {
 
     setUser(foundUser);
     setError(null);
+
+    if (rememberMe) {
+      localStorage.setItem("fmdb-user", JSON.stringify(foundUser));
+    }
+
     router.push("/");
   };
 
-  // Function to logout
+  // Logout clears both state and localStorage
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("fmdb-user");
     router.push("/");
   };
 
-  // Function to signup (mock)
   const signup = (firstName, lastName, username, email, password) => {
-    const existingUser = users.find((user) => user.email === email || user.username === username);
+    const existingUser = users.find(
+      (user) => user.email === email || user.username === username
+    );
 
     if (existingUser) {
       setError("User with this email or username already exists.");
@@ -50,61 +65,54 @@ export const AuthProvider = ({ children }) => {
       username,
       password,
       bio: "This user hasn't written a bio yet.",
-      dob: "2000-01-01", // default
+      dob: "2000-01-01",
       userType: "user",
       gender: "unspecified",
       privacy: true,
-      userFavs: [], // empty list initially
+      userFavs: [],
       friends: [],
-      profilePic: "https://i.pravatar.cc/150?img=65" // random avatar
+      profilePic: "https://i.pravatar.cc/150?img=65",
     };
 
-    // ❗ This just logs to the console; it doesn't persist
     console.log("New user created (mock):", newUser);
-
     setUser(newUser);
     setError(null);
   };
 
-  // Function to add a movie to favorites
   const addFavorite = (movieId) => {
     if (!user) {
       setError("Please log in first");
       return;
     }
 
-    // Check if the movie is already in the favorites
     if (user.userFavs.includes(movieId)) {
       setError("This movie is already in your favorites");
       return;
     }
 
-    // Add the movieId to userFavs
     const updatedUser = {
       ...user,
       userFavs: [...user.userFavs, movieId],
     };
 
-    // Update user in state
     setUser(updatedUser);
+    localStorage.setItem("fmdb-user", JSON.stringify(updatedUser)); // Update localStorage
     setError(null);
   };
 
-  // Function to remove a movie from favorites
   const removeFavorite = (movieId) => {
     if (!user) {
       setError("Please log in first");
       return;
     }
 
-    // Remove the movieId from userFavs
     const updatedUser = {
       ...user,
       userFavs: user.userFavs.filter((favId) => favId !== movieId),
     };
 
-    // Update user in state
     setUser(updatedUser);
+    localStorage.setItem("fmdb-user", JSON.stringify(updatedUser)); // Update localStorage
     setError(null);
   };
 
@@ -126,7 +134,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the AuthContext
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);

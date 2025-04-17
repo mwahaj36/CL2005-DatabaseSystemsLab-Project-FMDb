@@ -16,10 +16,11 @@ export default function LoginSignupPage() {
   const [isSignup, setIsSignup] = useState(false);
   const [signupError, setSignupError] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false); // New state
 
   const handleLogin = (e) => {
     e.preventDefault();
-    login(email, password);
+    login(email, password, rememberMe); // Pass rememberMe
   };
 
   const handleSignup = async (e) => {
@@ -28,19 +29,17 @@ export default function LoginSignupPage() {
       setSignupError("Passwords do not match");
       return;
     }
-  
+
     setSignupError("");
     await signup(firstName, lastName, username, email, password);
-  
+
     if (!error) {
       setSignupSuccess(true);
-      // Wait a bit for the user to see success message (optional)
       setTimeout(() => {
         router.push("/EditProfile");
       }, 1500);
     }
   };
-  
 
   useEffect(() => {
     if (signupSuccess && !error) {
@@ -117,14 +116,27 @@ export default function LoginSignupPage() {
               />
 
               {!isSignup && (
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
+                <>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  {/* Remember Me */}
+                  <div className="flex items-center text-darkPurple text-left text-md">
+                    <input
+                      type="checkbox"
+                      id="rememberMe"
+                      className="mr-2"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                    />
+                    <label htmlFor="rememberMe">Remember Me</label>
+                  </div>
+                </>
               )}
 
               {isSignup && (
@@ -175,14 +187,9 @@ export default function LoginSignupPage() {
               )}
 
               {!isSignup && (
-                <div className="mt-6 text-center text-md text-darkPurple hover:text-purple font-bold"> {/* Add margin-top to the div */}
-                <a
-                  href="/ForgotPass"
-                  className=""
-                >
-                  Forgot Username / Password
-                </a>
-              </div>
+                <div className="mt-6 text-center text-md text-darkPurple hover:text-purple font-bold">
+                  <a href="/ForgotPass">Forgot Username / Password</a>
+                </div>
               )}
 
               <button
