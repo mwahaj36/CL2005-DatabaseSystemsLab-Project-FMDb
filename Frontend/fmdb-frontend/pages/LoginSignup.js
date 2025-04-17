@@ -16,11 +16,11 @@ export default function LoginSignupPage() {
   const [isSignup, setIsSignup] = useState(false);
   const [signupError, setSignupError] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false); // New state
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    login(email, password, rememberMe); // Pass rememberMe
+    login(email, password, rememberMe);
   };
 
   const handleSignup = async (e) => {
@@ -29,10 +29,10 @@ export default function LoginSignupPage() {
       setSignupError("Passwords do not match");
       return;
     }
-
+  
     setSignupError("");
     await signup(firstName, lastName, username, email, password);
-
+  
     if (!error) {
       setSignupSuccess(true);
       setTimeout(() => {
@@ -40,7 +40,7 @@ export default function LoginSignupPage() {
       }, 1500);
     }
   };
-
+  
   useEffect(() => {
     if (signupSuccess && !error) {
       const timer = setTimeout(() => {
@@ -69,152 +69,151 @@ export default function LoginSignupPage() {
       <Navbar />
       <section
         id="hero"
-        className="relative z-10 flex items-center justify-center min-h-screen"
+        className="relative -mt-14 z-10 flex items-center justify-center min-h-screen"
       >
-        <div className="container flex flex-col ml-20 justify-center items-center px-6 mx-auto space-y-20 md:space-y-0">
-          <div className="flex flex-col mb-32 space-y-5 md:space-y-5 md:w-1/2 text-center">
-            <h1 className="max-w-md ml-24 text-center text-white text-7xl font-bold md:text-7xl">
-              {isSignup ? "Sign Up" : "Login"}
-            </h1>
+        <div className="container flex flex-col justify-center items-center px-6 mx-auto">
+          <div className="w-full max-w-md">
+            <div className="bg-purpleWhite bg-opacity-90 px-8 py-10 rounded-3xl space-y-6 drop-shadow-xl">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-darkPurple mb-2">
+                  {isSignup ? "Create Account" : "Welcome Back"}
+                </h1>
+                <p className="text-purple">
+                  {isSignup ? "Join our community today" : "Sign in to continue"}
+                </p>
+              </div>
 
-            <form
-              className="w-full max-w-lg ml-16 bg-purpleWhite bg-opacity-80 px-5 py-8 rounded-3xl space-y-6 drop-shadow-xl"
-              onSubmit={isSignup ? handleSignup : handleLogin}
-            >
-              {isSignup && (
-                <div className="flex flex-wrap -mx-3">
-                  <div className="w-full md:w-1/2 px-3">
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                    />
+              <form onSubmit={isSignup ? handleSignup : handleLogin}>
+                {isSignup && (
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="w-full md:w-1/2 px-3">
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                      required
-                    />
-                  </div>
+                )}
+
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
                 </div>
-              )}
 
-              <input
-                type="email"
-                placeholder="Email"
-                className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-darkPurple"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+                {isSignup && (
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      placeholder="Username"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      required
+                    />
+                  </div>
+                )}
 
-              {!isSignup && (
-                <>
+                <div className="mb-4">
                   <input
                     type="password"
                     placeholder="Password"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
-                  {/* Remember Me */}
-                  <div className="flex items-center text-darkPurple text-left text-md">
-                    <input
-                      type="checkbox"
-                      id="rememberMe"
-                      className="mr-2"
-                      checked={rememberMe}
-                      onChange={(e) => setRememberMe(e.target.checked)}
-                    />
-                    <label htmlFor="rememberMe">Remember Me</label>
-                  </div>
-                </>
-              )}
-
-              {isSignup && (
-                <>
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                  />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:bg-purpleWhite focus:border-purple"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                  />
-                </>
-              )}
-
-              {error && (
-                <p className="text-red-500 font-semibold text-md text-center">
-                  {error}
-                </p>
-              )}
-
-              {signupError && (
-                <p className="text-red-500 font-semibold text-md text-center">
-                  {signupError}
-                </p>
-              )}
-
-              {signupSuccess && !error && (
-                <p className="text-green-600 font-semibold text-md text-center">
-                  Signed Up
-                </p>
-              )}
-
-              {!isSignup && (
-                <div className="mt-6 text-center text-md text-darkPurple hover:text-purple font-bold">
-                  <a href="/ForgotPass">Forgot Username / Password</a>
                 </div>
-              )}
 
-              <button
-                type="submit"
-                className="w-full px-6 py-3 text-xl font-bold text-white rounded-xl bg-darkPurple hover:bg-purpleWhite hover:text-darkPurple transition-all duration-300"
-              >
-                {isSignup ? "Sign Up" : "Login"}
-              </button>
-            </form>
+                {isSignup ? (
+                  <div className="mb-4">
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center">
+                      <input
+                        id="remember-me"
+                        name="remember-me"
+                        type="checkbox"
+                        className="h-4 w-4 text-darkPurple focus:ring-darkPurple border-gray-300 rounded"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                      />
+                      <label htmlFor="remember-me" className="ml-2 block text-sm text-darkPurple">
+                        Remember me
+                      </label>
+                    </div>
+                    <div className="text-sm">
+                      <a href="#" className="font-medium text-darkPurple hover:text-purple">
+                        Forgot password?
+                      </a>
+                    </div>
+                  </div>
+                )}
 
-            <p className="text-center text-white text-lg">
-              {isSignup
-                ? "Already have an account?"
-                : "Don't have an account?"}{" "}
-              <button
-                className="text-purple font-bold"
-                onClick={() => {
-                  setIsSignup(!isSignup);
-                  setSignupError("");
-                  setSignupSuccess(false);
-                }}
-              >
-                {isSignup ? "Login here" : "Sign up here"}
-              </button>
-            </p>
+                {(error || signupError) && (
+                  <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
+                    {error || signupError}
+                  </div>
+                )}
+
+                {signupSuccess && !error && (
+                  <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm">
+                    Account created successfully! Redirecting...
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-lg font-bold text-white bg-darkPurple hover:bg-purple focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-darkPurple transition-all duration-300"
+                >
+                  {isSignup ? "Sign Up" : "Sign In"}
+                </button>
+              </form>
+
+              <div className="text-center mt-4">
+                <p className="text-darkPurple">
+                  {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
+                  <button
+                    onClick={() => {
+                      setIsSignup(!isSignup);
+                      setSignupError("");
+                      setSignupSuccess(false);
+                    }}
+                    className="font-bold text-purple hover:text-darkPurple transition-colors duration-300"
+                  >
+                    {isSignup ? "Sign in" : "Sign up"}
+                  </button>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
