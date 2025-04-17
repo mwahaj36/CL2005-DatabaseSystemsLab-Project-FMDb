@@ -42,7 +42,10 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
         const notification = result.recordset[0];
         if (notification.NotificationType === 'General') {
             return res.status(400).send({ success: false, message: 'Cannot accept a general notification' });
-        } 
+        }
+        if (notification.ReceiverId !== req.userId) {
+            return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
+        }
 
         // Delete the notification after accepting it
         sql.query(`DELETE FROM Notifications WHERE NotificationId = @notificationId`);
@@ -134,6 +137,9 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
         if (notification.NotificationType === 'General') {
             return res.status(400).send({ success: false, message: 'Cannot reject a general notification' });
         } 
+        if (notification.ReceiverId !== req.userId) {
+            return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
+        }
 
         // Delete the notification after rejecting it
         sql.query(`DELETE FROM Notifications WHERE NotificationId = @notificationId`);
@@ -208,7 +214,10 @@ router.delete('/close/:notiID', authenticateToken, async (req, res) => {
             return res.status(404).send({ success: false, message: 'Notification not found' });
         }
         const notification = result.recordset[0];
-
+        if (notification.ReceiverId !== req.userId) {
+            return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
+        }
+        
         // Delete the notification to close it
         const deleteQuery = `DELETE FROM Notifications WHERE NotificationId = @notificationId`;
         const deleteRequest = new sql.Request();

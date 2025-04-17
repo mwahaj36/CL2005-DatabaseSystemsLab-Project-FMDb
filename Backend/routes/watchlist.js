@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Add a movie to watchlist (Requires JWT token with userid)
 router.post('/:movieId', authenticateToken, async (req, res) => {
-    const { movieId } = req.params;
+    let { movieId } = req.params;
     if (!movieId) {
         return res.status(400).send({ success: false, message: 'movieId parameter is required.' });
     }
