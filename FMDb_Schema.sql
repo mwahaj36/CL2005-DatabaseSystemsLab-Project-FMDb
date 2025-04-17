@@ -219,7 +219,7 @@ CREATE TABLE
         Review TEXT,
         IsReply BIT Not NULL,
         FOREIGN KEY (UserID) REFERENCES Users (UserID) ,
-        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID)
+        FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON Delete Cascade
     );
 
 GO
@@ -366,5 +366,5 @@ RankedUsers AS (
         ROW_NUMBER() OVER (ORDER BY Score DESC) AS Rank
     FROM ActivityStats
 )
---SELECT * FROM RankedUsers;
+SELECT * FROM RankedUsers;
  GO 
