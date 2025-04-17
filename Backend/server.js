@@ -26,6 +26,7 @@ const activityRoutes = require('./routes/activity');
 const watchlistRoutes = require('./routes/watchlist');
 const notificationRoutes = require('./routes/notification'); // Import notification routes
 const messageRoutes = require('./routes/message'); // Import message routes
+const adminRoutes = require('./routes/admin'); // Import admin routes
 
 app.use('/auth', authRoutes); // Routes for authentication
 app.use('/data', dataRoutes); // Routes for data-related operations
@@ -36,6 +37,7 @@ app.use('/activity', activityRoutes); // Routes for activity-related operations
 app.use('/watchlist', watchlistRoutes); // Routes for watchlist-related operations
 app.use('/notification', notificationRoutes); // Routes for notification-related operations
 app.use('/message', messageRoutes); // Routes for message-related operations
+app.use('/admin', adminRoutes); // Routes for admin-related operations
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

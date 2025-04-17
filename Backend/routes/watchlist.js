@@ -3,32 +3,6 @@ const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
-// Add a movie to watchlist (Requires JWT token with userid)
-router.post('/:movieId', authenticateToken, async (req, res) => {
-    let { movieId } = req.params;
-    if (!movieId) {
-        return res.status(400).send({ success: false, message: 'movieId parameter is required.' });
-    }
-    movieId = parseInt(movieId, 10);
-    if (isNaN(movieId)) {
-        return res.status(400).send({ success: false, message: 'Invalid movieId. It must be a number.' });
-    }
-
-    const userId = req.userId; // Extract user ID from the authenticated token
-
-    const query = `INSERT INTO UserWatchlist (UserID, MovieID) VALUES (@userId, @movieId)`;
-    try {
-        const request = new sql.Request();
-        request.input('userId', sql.Int, userId);
-        request.input('movieId', sql.Int, movieId);
-
-        await request.query(query);
-        res.status(201).send({ success: true, message: 'Movie added to watchlist successfully.' });
-    } catch (error) {
-        console.error('Unexpected error:', error);
-        res.status(500).send({ success: false, message: 'An error occurred while adding the movie to the watchlist.' });
-    }
-});
 
 router.get('/public/:userid', async (req, res) => {
     let { userid } = req.params;
@@ -93,6 +67,33 @@ router.get('/:userid', authenticateToken, async (req, res) => {
     } catch (error) {
         console.error('Unexpected error:', error);
         res.status(500).send({ success: false, message: 'An error occurred while fetching the watchlist.' });
+    }
+});
+
+// Add a movie to watchlist (Requires JWT token with userid)
+router.post('/:movieId', authenticateToken, async (req, res) => {
+    let { movieId } = req.params;
+    if (!movieId) {
+        return res.status(400).send({ success: false, message: 'movieId parameter is required.' });
+    }
+    movieId = parseInt(movieId, 10);
+    if (isNaN(movieId)) {
+        return res.status(400).send({ success: false, message: 'Invalid movieId. It must be a number.' });
+    }
+
+    const userId = req.userId; // Extract user ID from the authenticated token
+
+    const query = `INSERT INTO UserWatchlist (UserID, MovieID) VALUES (@userId, @movieId)`;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        request.input('movieId', sql.Int, movieId);
+
+        await request.query(query);
+        res.status(201).send({ success: true, message: 'Movie added to watchlist successfully.' });
+    } catch (error) {
+        console.error('Unexpected error:', error);
+        res.status(500).send({ success: false, message: 'An error occurred while adding the movie to the watchlist.' });
     }
 });
 
