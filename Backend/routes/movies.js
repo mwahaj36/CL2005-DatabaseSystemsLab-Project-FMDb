@@ -22,32 +22,29 @@ async function processMoviesWithDirectors(recordset) {
     const sqlRequest = new sql.Request();
     const directorsResult = await sqlRequest.query(directorsQuery);
 
-    // Process the result to group directors for each movie
-    const movies = {};
-    recordset.forEach(row => {
-        movies[row.MovieID] = {
-            movieid: row.MovieID,
-            title: row.Title,
-            movieposterlink: row.MoviePosterLink,
-            directors: []
-        };
-    });
-
+    // Group directors by MovieID
+    const directorsMap = {};
     directorsResult.recordset.forEach(row => {
-        if (movies[row.MovieID]) {
-            movies[row.MovieID].directors.push(row.DirectorName);
+        if (!directorsMap[row.MovieID]) {
+            directorsMap[row.MovieID] = [];
         }
+        directorsMap[row.MovieID].push(row.DirectorName);
     });
 
-    // Convert the movies object to an array
-    return Object.values(movies);
-}
+    // Map the directors back to the original recordset
+    return recordset.map(row => ({
+        movieid: row.MovieID,
+        title: row.Title,
+        movieposterlink: row.MoviePosterLink,
+        directors: directorsMap[row.MovieID] || []
+    }));
+};
 
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
 });
 
-// Get top 5 trending movies based on count of logged movies
+// Get top 5 trending movies based on count of overall logged movies over the course of 7 days
 router.get('/trending', async (req, res) => {
     const query = `
         SELECT t.MovieID, t.Title, t.MoviePosterLink
@@ -122,7 +119,7 @@ router.get('/friends', authenticateToken, async (req, res) => {
         }
         
         const response = await processMoviesWithDirectors(recentMoviesResult.recordset);
-        res.status(200).json({ success: true, movies: response });
+        res.json({ success: true, movies: response });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
@@ -165,13 +162,13 @@ router.get('/friends/watchlist', authenticateToken, async (req, res) => {
         }
 
         const response = await processMoviesWithDirectors(recentMoviesResult.recordset);
-        res.status(200).json({ success: true, movies: response });
+        res.json({ success: true, movies: response });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
 });
 
-// Get 5 Recommendations based on user's log history via keyword matching
+// Get 5 Recommendations based on user's log history via keyword + genre matching
 router.get('/recommended', authenticateToken, async (req, res) => {
     const userId = req.userId; // Extract userId from the token payload
 
@@ -221,16 +218,36 @@ router.get('/recommended', authenticateToken, async (req, res) => {
 
         const genreIdsString = genresResult.recordset.map(row => row.GenreID).join(', ');
 
-        // Fetch recommendations based on keywords or genres from logged movies
-        const recommendationsQuery = `
+        // Fetch recommendations based on keywords
+        let recommendationsQuery = `
             SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
-            FROM Movies M JOIN MovieKeywords MK ON M.MovieID = MK.MovieID JOIN MovieGenres MG ON M.MovieID = MG.MovieID
-            WHERE MK.KeywordID IN (${keywordIdsString}) OR MG.GenreID IN (${genreIdsString}) AND M.MovieID != @MovieID
-            ORDER BY NEWID();  -- Randomize the selection for diversity in recommendations
-        `;        
+            FROM Movies M 
+            JOIN MovieKeywords MK ON M.MovieID = MK.MovieID
+            WHERE MK.KeywordID IN (${keywordIdsString}) AND M.MovieID != @MovieID
+            ORDER BY NEWID();
+        `;
         const recommendationsRequest = new sql.Request();
         recommendationsRequest.input('MovieID', sql.Int, recentMoviesResult.recordset[0].MovieID);
-        const recommendationsResult = await recommendationsRequest.query(recommendationsQuery);
+        let recommendationsResult = await recommendationsRequest.query(recommendationsQuery);
+
+        // If fewer than 5 movies are found, fetch additional movies based on genres
+        if (recommendationsResult.recordset.length < 5) {
+            const missingCount = 5 - recommendationsResult.recordset.length;
+            const genreRecommendationsQuery = `
+                SELECT TOP ${missingCount} M.MovieID, M.Title, M.MoviePosterLink
+                FROM Movies M 
+                JOIN MovieGenres MG ON M.MovieID = MG.MovieID
+                WHERE MG.GenreID IN (${genreIdsString}) 
+                AND M.MovieID NOT IN (${recommendationsResult.recordset.map(row => row.MovieID).join(', ') || '-1'}, @MovieID)
+                ORDER BY NEWID();
+            `;
+            const genreRecommendationsRequest = new sql.Request();
+            genreRecommendationsRequest.input('MovieID', sql.Int, recentMoviesResult.recordset[0].MovieID);
+            const genreRecommendationsResult = await genreRecommendationsRequest.query(genreRecommendationsQuery);
+
+            // Combine keyword-based and genre-based recommendations
+            recommendationsResult.recordset.push(...genreRecommendationsResult.recordset);
+        }
 
         if (recommendationsResult.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'No recommendations found' });
@@ -240,6 +257,33 @@ router.get('/recommended', authenticateToken, async (req, res) => {
         res.status(200).json({ success: true, recommendedOn: recentMoviesResult.recordset[0].Title , movies: response });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get Top 5 Movies based on Critics movie ratings on last 7 days
+router.get('/critics', async (req, res) => {
+    const query = `
+        SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink, AVG(A.Ratings) AS AverageRating
+        FROM Movies M
+        JOIN Activity A ON M.MovieID = A.MovieID
+        JOIN Users U ON U.UserID = A.UserID
+        WHERE DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7 AND U.UserType = 'Critic'
+        GROUP BY M.MovieID, M.Title, M.MoviePosterLink
+        ORDER BY AverageRating DESC;
+    `;
+
+    try {
+        const request = new sql.Request();
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No movies found' });
+        }
+
+        const response = await processMoviesWithDirectors(result.recordset);
+        res.json({ success: true, movies: response });
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
 
