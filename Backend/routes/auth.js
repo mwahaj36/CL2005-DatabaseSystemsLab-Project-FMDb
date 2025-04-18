@@ -167,7 +167,7 @@ router.post('/signup', async (req, res) => {
         const payload = { userId: insertResult.recordset[0].UserId };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
 
-        res.json({ success: true, message: 'User registered successfully', token });
+        res.json({ success: true, message: 'User registered successfully', token: token, userId: payload.userId });
     } catch (err) {
         console.error('Error during sign up:', err.message);
         res.status(500).send('Error during sign up');

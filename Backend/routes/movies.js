@@ -386,5 +386,34 @@ router.delete('/like/:movieId', authenticateToken, async (req, res) => {
     }
 });
 
+// Get IsLiked status of a movie (requires JWT token containing userId and movieId in request params)
+router.get('/like', async (req, res) => {
+    const { movieId, userId } = req.body;
+
+    if (!movieId || !userId) {
+        return res.status(400).json({ success: false, message: 'movieId and userId are required in the request body' });
+    }
+    // Validate that movieId and userId are integers
+    if (!Number.isInteger(movieId) || !Number.isInteger(userId)) {
+        return res.status(400).json({ success: false, message: 'movieId and userId must be integers' });
+    }
+
+    try {
+        // Check if the movie is liked by the user
+        const checkLikeQuery = 'SELECT * FROM UserLikedMovies WHERE MovieID = @movieId AND UserID = @userId';
+        const likeRequest = new sql.Request();
+        likeRequest.input('movieId', sql.Int, movieId);
+        likeRequest.input('userId', sql.Int, userId);
+        const likeCheckResult = await likeRequest.query(checkLikeQuery);
+
+        if (likeCheckResult.recordset.length === 0) {
+            return res.status(200).json({ success: true, isLiked: false });
+        } else {
+            return res.status(200).json({ success: true, isLiked: true });
+        }
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
 
 module.exports = router;
