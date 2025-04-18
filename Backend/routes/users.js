@@ -21,4 +21,34 @@ router.put('/', async (req, res) => {
     // Update user details (bio, username, profile picture, etc.) (Requires authentication via JWT)
 });
 
+router.get('/logged/:userId', async (req, res) => {
+    // Fetch target user's privacy settings and logged movies
+    const targetUser = await getUserById(targetUserId); // Replace with actual DB query to fetch user details
+    if (!targetUser) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (loggedInUserId === targetUserId) {
+        // Logged-in user viewing their own logged movies
+        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
+        return res.json(movies);
+    }
+
+    if (loggedInUserId && isFriend(loggedInUserId, targetUserId)) {
+        // Logged-in user viewing a friend's logged movies
+        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
+        return res.json(movies);
+    }
+
+    if (targetUser.privacy === 'public') {
+        // Public account, anyone can view
+        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
+        return res.json(movies);
+    }
+
+    return res.status(403).json({ message: 'Access denied' });
+
+});
+
+
 module.exports = router;

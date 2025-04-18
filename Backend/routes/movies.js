@@ -2,8 +2,7 @@ const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
-const { processMoviesWithDirectors } = require('../utils/processMovies'); // Assuming you have a utility function to process movies
-
+const { processMoviesWithDirectors } = require('../utils/processMovies'); 
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
 });
@@ -375,35 +374,6 @@ router.get('/recommended', authenticateToken, async (req, res) => {
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
-});
-
-router.get('/logged/:userId', async (req, res) => {
-        // Fetch target user's privacy settings and logged movies
-        const targetUser = await getUserById(targetUserId); // Replace with actual DB query to fetch user details
-        if (!targetUser) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        if (loggedInUserId === targetUserId) {
-            // Logged-in user viewing their own logged movies
-            const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-            return res.json(movies);
-        }
-
-        if (loggedInUserId && isFriend(loggedInUserId, targetUserId)) {
-            // Logged-in user viewing a friend's logged movies
-            const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-            return res.json(movies);
-        }
-
-        if (targetUser.privacy === 'public') {
-            // Public account, anyone can view
-            const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-            return res.json(movies);
-        }
-
-        return res.status(403).json({ message: 'Access denied' });
-    
 });
 
 // Add Movie to liked movies
