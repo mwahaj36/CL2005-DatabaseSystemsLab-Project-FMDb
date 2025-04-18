@@ -70,7 +70,24 @@ const HomePage = () => {
             Authorization: `Bearer ${token}`
           }
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          // If 404, set empty data and no error (we'll hide the section)
+          if (res.status === 404) {
+            if (isMounted) {
+              setApiState(prev => ({
+                ...prev,
+                recommended: {
+                  data: [],
+                  recommendedOn: "",
+                  loading: false,
+                  error: null
+                }
+              }));
+            }
+            return;
+          }
+          throw new Error(`HTTP ${res.status}`);
+        }
         const json = await res.json();
 
         if (isMounted) {
@@ -117,7 +134,23 @@ const HomePage = () => {
             Authorization: `Bearer ${token}`
           }
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          // If 404, set empty data and no error (we'll hide the section)
+          if (res.status === 404) {
+            if (isMounted) {
+              setApiState(prev => ({
+                ...prev,
+                friendsActivity: {
+                  data: [],
+                  loading: false,
+                  error: null
+                }
+              }));
+            }
+            return;
+          }
+          throw new Error(`HTTP ${res.status}`);
+        }
         const json = await res.json();
 
         if (isMounted) {
@@ -163,7 +196,23 @@ const HomePage = () => {
             'Authorization': `Bearer ${token}`
           }
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          // If 404, set empty data and no error (we'll hide the section)
+          if (res.status === 404) {
+            if (isMounted) {
+              setApiState(prev => ({
+                ...prev,
+                friendsWatchlist: {
+                  data: [],
+                  loading: false,
+                  error: null
+                }
+              }));
+            }
+            return;
+          }
+          throw new Error(`HTTP ${res.status}`);
+        }
         const json = await res.json();
 
         if (isMounted) {
@@ -200,6 +249,16 @@ const HomePage = () => {
     { username: "mark_twain", image: "", activities: 30, moviesWatched: 10 }
   ];
 
+  // Helper to determine if a section should be shown
+  const shouldShowSection = (section) => {
+    // Don't show if there was an error (other than 404 which we've handled)
+    if (section.error && section.error.includes('404')) return false;
+    if (section.error) return false;
+    
+    // Show if there's data or if it's still loading (we'll show loading state)
+    return section.data.length > 0 || section.loading;
+  };
+
   return (
     <div className="relative bg-cover bg-center bg-fixed min-h-screen" 
          style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
@@ -231,62 +290,56 @@ const HomePage = () => {
       </section>
 
       {/* Logged in user content */}
-      {user ? (
+      {user && (
         <>
-          {/* Recommended for you */}
-          <section className="relative z-10 pt-16">
-            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-2">
-              Recommended For You
-            </h2>
-            {apiState.recommended.recommendedOn && (
-              <p className="text-center text-purple-300 text-xl mb-6">
-                Based on your interest in: {apiState.recommended.recommendedOn}
-              </p>
-            )}
-            {apiState.recommended.loading ? (
-              <div className="text-center text-white py-10">Loading recommendations...</div>
-            ) : apiState.recommended.error ? (
-              <div className="text-center text-red-400 py-10">{apiState.recommended.error}</div>
-            ) : apiState.recommended.data.length > 0 ? (
-              <Spotlight movies={apiState.recommended.data} />
-            ) : (
-              <div className="text-center text-white py-10">No recommendations available</div>
-            )}
-          </section>
+          {/* Recommended for you - only show if there's data or loading */}
+          {shouldShowSection(apiState.recommended) && (
+            <section className="relative z-10 pt-16">
+              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-2">
+                Recommended For You
+              </h2>
+              {apiState.recommended.recommendedOn && (
+                <p className="text-center text-purple-300 text-xl mb-6">
+                  Based on your interest in: {apiState.recommended.recommendedOn}
+                </p>
+              )}
+              {apiState.recommended.loading ? (
+                <div className="text-center text-white py-10">Loading recommendations...</div>
+              ) : apiState.recommended.data.length > 0 ? (
+                <Spotlight movies={apiState.recommended.data} />
+              ) : null}
+            </section>
+          )}
 
-          {/* Friends' Recent Activity */}
-          <section className="relative z-10 pt-16">
-            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-              Friends' Recent Activity
-            </h2>
-            {apiState.friendsActivity.loading ? (
-              <div className="text-center text-white py-10">Loading friends activity...</div>
-            ) : apiState.friendsActivity.error ? (
-              <div className="text-center text-red-400 py-10">{apiState.friendsActivity.error}</div>
-            ) : apiState.friendsActivity.data.length > 0 ? (
-              <Spotlight movies={apiState.friendsActivity.data} />
-            ) : (
-              <div className="text-center text-white py-10">No recent friend activity</div>
-            )}
-          </section>
+          {/* Friends' Recent Activity - only show if there's data or loading */}
+          {shouldShowSection(apiState.friendsActivity) && (
+            <section className="relative z-10 pt-16">
+              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
+                Friends' Recent Activity
+              </h2>
+              {apiState.friendsActivity.loading ? (
+                <div className="text-center text-white py-10">Loading friends activity...</div>
+              ) : apiState.friendsActivity.data.length > 0 ? (
+                <Spotlight movies={apiState.friendsActivity.data} />
+              ) : null}
+            </section>
+          )}
 
-          {/* Popular in Your Circle */}
-          <section className="relative z-10 pt-16">
-            <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-              Popular in Your Circle
-            </h2>
-            {apiState.friendsWatchlist.loading ? (
-              <div className="text-center text-white py-10">Loading watchlist...</div>
-            ) : apiState.friendsWatchlist.error ? (
-              <div className="text-center text-red-400 py-10">{apiState.friendsWatchlist.error}</div>
-            ) : apiState.friendsWatchlist.data.length > 0 ? (
-              <Spotlight movies={apiState.friendsWatchlist.data} />
-            ) : (
-              <div className="text-center text-white py-10">No watchlist items found</div>
-            )}
-          </section>
+          {/* Popular in Your Circle - only show if there's data or loading */}
+          {shouldShowSection(apiState.friendsWatchlist) && (
+            <section className="relative z-10 pt-16">
+              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
+                Popular in Your Circle
+              </h2>
+              {apiState.friendsWatchlist.loading ? (
+                <div className="text-center text-white py-10">Loading watchlist...</div>
+              ) : apiState.friendsWatchlist.data.length > 0 ? (
+                <Spotlight movies={apiState.friendsWatchlist.data} />
+              ) : null}
+            </section>
+          )}
         </>
-      ) : null}
+      )}
 
       {/* Leaderboard (for all users) */}
       <Leaderboard topThree={topThreeUsers} />
