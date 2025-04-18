@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext'; // Adjust the import path as needed
 
 const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onDiscard }) => {
@@ -9,12 +9,81 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
   const [liked, setLiked] = useState(false);
   const [rating, setRating] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLikeLoading, setIsLikeLoading] = useState(false);
   const [error, setError] = useState(null);
   
-  const { token } = useAuth();
+  const { token, user } = useAuth();
+
+  // Check if movie is already liked when component mounts
+  useEffect(() => {
+    const checkIfLiked = async () => {
+      if (!token || !user?.userID || !movieId) return;
+      
+      try {
+        setIsLikeLoading(true);
+        const response = await fetch(
+          `http://localhost:5000/movies/like?movieId=${movieId}&userId=${user.userID}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to check like status');
+        }
+
+        const data = await response.json();
+        setLiked(data.isLiked);
+      } catch (err) {
+        console.error('Error checking like status:', err);
+      } finally {
+        setIsLikeLoading(false);
+      }
+    };
+
+    checkIfLiked();
+  }, [token, user?.userID, movieId]);
 
   const handleRating = (index) => {
     setRating(index + 1);
+  };
+
+  const handleLike = async () => {
+    if (!token || !movieId) {
+      setError('You need to be logged in to like movies');
+      return;
+    }
+
+    try {
+      setIsLikeLoading(true);
+      setError(null);
+
+      const method = liked ? 'DELETE' : 'POST';
+      const url = `http://localhost:5000/movies/like/${movieId}`;
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update like status');
+      }
+
+      const data = await response.json();
+      setLiked(!liked); // Toggle like state
+      console.log(data.message);
+    } catch (err) {
+      console.error('Error updating like status:', err);
+      setError(err.message);
+    } finally {
+      setIsLikeLoading(false);
+    }
   };
 
   const handleSaveActivity = async () => {
@@ -22,18 +91,25 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setError('You need to be logged in to save activities');
       return;
     }
-
+  
+    // Optional: Validate at least one field is filled
+    if (!review && rating === 0 && !watchedBefore) {
+      setError('Please provide at least a rating, review, or watched status');
+      return;
+    }
+  
     setIsSubmitting(true);
     setError(null);
-
+  
     try {
+      // Prepare activity data with optional fields
       const activityData = {
         movieId,
-        review,
-        ratings: rating,
-        isLogged: watchedBefore
+        review: review || " ", // Send null if review is empty
+        ratings: rating || 0, // Send null if rating is 0
+        isLogged: watchedBefore // This is a boolean so it's always defined
       };
-
+  
       const response = await fetch('http://localhost:5000/activity/submit', {
         method: 'POST',
         headers: {
@@ -42,15 +118,15 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         },
         body: JSON.stringify(activityData)
       });
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to save activity');
       }
-
+  
       const result = await response.json();
       console.log('Activity saved:', result);
-
+  
       // Call the onSave callback if provided
       if (onSave) {
         onSave({
@@ -161,27 +237,33 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
 
             {/* Like button */}
             <button
-              onClick={() => !isSubmitting && setLiked(!liked)}
+              onClick={handleLike}
               className="text-3xl"
-              title="Like"
-              disabled={isSubmitting}
+              title={liked ? "Unlike movie" : "Like movie"}
+              disabled={isSubmitting || isLikeLoading}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill={liked ? 'red' : 'none'}
-                viewBox="0 0 24 24"
-                stroke={liked ? 'none' : 'currentColor'}
-                strokeWidth={1}
-                className={`w-7 h-7 transition-all hover:scale-110 ${
-                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
+              {isLikeLoading ? (
+                <div className="w-7 h-7 flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                </div>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill={liked ? 'red' : 'none'}
+                  viewBox="0 0 24 24"
+                  stroke={liked ? 'none' : 'currentColor'}
+                  strokeWidth={1}
+                  className={`w-7 h-7 transition-all hover:scale-110 ${
+                    isSubmitting || isLikeLoading ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+              )}
             </button>
           </div>
 
