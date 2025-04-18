@@ -23,8 +23,6 @@ connectToDatabase().catch(err => {
 
 // Import and use routes
 const authRoutes = require('./routes/auth');
-const dataRoutes = require('./routes/data');
-const defaultRoutes = require('./routes/default');
 const userRoutes = require('./routes/users');
 const movieRoutes = require('./routes/movies');
 const activityRoutes = require('./routes/activity');
@@ -34,8 +32,6 @@ const messageRoutes = require('./routes/message'); // Import message routes
 const adminRoutes = require('./routes/admin'); // Import admin routes
 
 app.use('/auth', authRoutes); // Routes for authentication
-app.use('/data', dataRoutes); // Routes for data-related operations
-app.use('/', defaultRoutes); // Use default route
 app.use('/users', userRoutes); // Routes for user-related operations
 app.use('/movies', movieRoutes); // Routes for movie-related operations
 app.use('/activity', activityRoutes); // Routes for activity-related operations

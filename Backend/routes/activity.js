@@ -97,7 +97,7 @@ router.post('/reply', authenticateToken, async (req, res) => {
 });
 
 // Get ALL reviews/activities of a movie along with replies (movieid will be passed as a URL parameter)
-router.get('/:movieid', async (req, res) => {
+router.get('/all/:movieid', async (req, res) => {
     const movieid = parseInt(req.params.movieid, 10);
 
     if (isNaN(movieid)) {
@@ -289,6 +289,36 @@ router.delete('/like/:reviewId', authenticateToken, async (req, res) => {
 
         await deleteLikeRequest.query(deleteLikeQuery);
         res.status(200).json({ success: true, message: 'Review unliked successfully' });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get IsActivity status of a movie (requires JWT token containing userId and movieId in request params)
+router.get('/isActivity', async (req, res) => {
+    const { movieId, userId } = req.body;
+
+    if (!movieId || !userId) {
+        return res.status(400).json({ success: false, message: 'movieId and userId are required in the request body' });
+    }
+    // Validate that movieId and userId are integers
+    if (!Number.isInteger(movieId) || !Number.isInteger(userId)) {
+        return res.status(400).json({ success: false, message: 'movieId and userId must be integers' });
+    }
+
+    try {
+        // Check if the movie is in the user's activity
+        const checkActivityQuery = 'SELECT * FROM Activity WHERE MovieID = @movieId AND UserID = @userId';
+        const activityRequest = new sql.Request();
+        activityRequest.input('movieId', sql.Int, movieId);
+        activityRequest.input('userId', sql.Int, userId);
+        const activityCheckResult = await activityRequest.query(checkActivityQuery);
+
+        if (activityCheckResult.recordset.length === 0) {
+            return res.status(200).json({ success: true, isActivity: false });
+        } else {
+            return res.status(200).json({ success: true, isActivity: true });
+        }
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
