@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { useAuth } from '@/context/AuthContext';
+import ErrorPopup from '@/components/Error';
 
 const AllReviewsPage = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ const AllReviewsPage = () => {
   const [newReply, setNewReply] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const formatTimeAgo = (date) => {
     const diff = (new Date() - new Date(date)) / 1000;
@@ -30,6 +32,11 @@ const AllReviewsPage = () => {
     return isNaN(date) ? '' : date.getFullYear();
   };
 
+  const closeErrorPopup = () => {
+    setShowErrorPopup(false);
+    setError(null);
+  };
+
   useEffect(() => {
     if (!slug) return;
 
@@ -41,7 +48,9 @@ const AllReviewsPage = () => {
         const res = await fetch(`http://localhost:5000/activity/all/${slug}`);
         const data = await res.json();
 
-        if (!data.success) throw new Error(data.message || 'Failed to fetch reviews');
+        if (!data.success) {
+          throw new Error(data.message || 'Failed to fetch reviews');
+        }
 
         setMovie({
           movieId: data.movie.movieid,
@@ -81,6 +90,7 @@ const AllReviewsPage = () => {
         }
       } catch (err) {
         setError(err.message);
+        setShowErrorPopup(true);
       } finally {
         setLoading(false);
       }
@@ -92,6 +102,7 @@ const AllReviewsPage = () => {
   const handleLikeClick = async (reviewID) => {
     if (!user || !token) {
       setError("Please log in to like a review!");
+      setShowErrorPopup(true);
       return;
     }
 
@@ -147,6 +158,39 @@ const AllReviewsPage = () => {
         )
       );
       setError(err.message);
+      setShowErrorPopup(true);
+    }
+  };
+
+  const handleDeleteReview = async (activityId) => {
+    if (!user || !token) {
+      setError("Please log in to delete a review!");
+      setShowErrorPopup(true);
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/activity/${activityId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.message || 'Failed to delete review');
+      }
+
+      const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message || 'Failed to delete review');
+      }
+
+      // Remove the deleted review from state
+      setReviews(prev => prev.filter(review => review.ActivityID !== activityId));
+    } catch (err) {
+      console.error('Delete action failed:', err);
+      setError(err.message);
+      setShowErrorPopup(true);
     }
   };
 
@@ -160,6 +204,7 @@ const AllReviewsPage = () => {
   const handleReplySubmit = async (reviewID) => {
     if (!user || !token) {
       setError('Please log in to submit a reply!');
+      setShowErrorPopup(true);
       return;
     }
 
@@ -211,6 +256,7 @@ const AllReviewsPage = () => {
     } catch (err) {
       console.error('Error submitting reply:', err);
       setError(err.message);
+      setShowErrorPopup(true);
     }
   };
 
@@ -251,14 +297,6 @@ const AllReviewsPage = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-red-500 text-2xl">Error: {error}</div>
-      </div>
-    );
-  }
-
   if (!movie) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -284,7 +322,6 @@ const AllReviewsPage = () => {
           </p>
           <div className="mt-8 text-white">
             <h2 className="text-2xl">All Reviews</h2>
-            {error && <p className="text-red-500 mb-4">{error}</p>}
             {reviews.length === 0 ? (
               <p className="text-white">No reviews found for this movie.</p>
             ) : (
@@ -292,6 +329,8 @@ const AllReviewsPage = () => {
                 if (review.IsReply) return null;
 
                 const isLiked = likedReviews[review.ActivityID];
+                const isOwner = user?.userID === review.UserID;
+                const isAdmin = user?.userType === 'admin';
 
                 return (
                   <div
@@ -334,6 +373,16 @@ const AllReviewsPage = () => {
                                      3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                           </svg>
                         </button>
+                        
+                          <button
+                            onClick={() => handleDeleteReview(review.ActivityID)}
+                            className="ml-2 text-white hover:text-red-500 transition-colors duration-200"
+                            title="Delete review"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
                       </div>
                     </div>
 
@@ -362,6 +411,13 @@ const AllReviewsPage = () => {
         </div>
         <Footer />
       </section>
+
+      {showErrorPopup && (
+        <ErrorPopup
+          message={error || 'An unexpected error occurred'}
+          onClose={closeErrorPopup}
+        />
+      )}
     </div>
   );
 };
