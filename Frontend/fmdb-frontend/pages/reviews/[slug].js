@@ -24,6 +24,12 @@ const AllReviewsPage = () => {
     return new Date(date).toLocaleDateString();
   };
 
+  const formatReleaseYear = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return isNaN(date) ? '' : date.getFullYear();
+  };
+
   useEffect(() => {
     if (!slug) return;
 
@@ -38,40 +44,36 @@ const AllReviewsPage = () => {
         if (!data.success) throw new Error(data.message || 'Failed to fetch reviews');
 
         setMovie({
-          MovieID: slug,
-          Backdrop: data.backdrop,
-          Title: data.title || 'Unknown Title',
-          ReleaseDate: data.releaseDate || '0000',
-          Director: data.director || 'Unknown Director',
+          movieId: data.movie.movieid,
+          title: data.movie.title,
+          backdrop: data.movie.moviebackdroplink,
+          directors: data.movie.directors,
+          releaseDate: data.movie.releasedate || ''
         });
 
         setReviews(data.reviews || []);
 
-        // Check which reviews are liked by user
-        if (user) {
+        if (user && token) {
           const likes = {};
           await Promise.all(
-            (data.reviews || []).map(async (review) => {
+            data.reviews.map(async (review) => {
               try {
-                const response = await fetch('http://localhost:5000/activity/isActivity', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                  },
-                  body: JSON.stringify({
-                    movieId: slug,
-                    userId: user.userID,
-                    activityID: review.ActivityID
-                  })
+                const url = new URL('http://localhost:5000/activity/isLiked');
+                url.searchParams.set('activityId', review.ActivityID);
+                url.searchParams.set('userId', user.userID);
+
+                const response = await fetch(url, {
+                  method: 'GET',
+                  headers: { 'Authorization': `Bearer ${token}` }
                 });
 
                 if (response.ok) {
                   const likeData = await response.json();
-                  likes[review.ActivityID] = likeData.isActivity;
+                  likes[review.ActivityID] = likeData.isLiked;
                 }
               } catch (err) {
                 console.error(`Error checking like for review ${review.ActivityID}:`, err);
+                likes[review.ActivityID] = false;
               }
             })
           );
@@ -87,75 +89,59 @@ const AllReviewsPage = () => {
     fetchData();
   }, [slug, user, token]);
 
-const handleLikeClick = async (reviewID) => {
+  const handleLikeClick = async (reviewID) => {
     if (!user || !token) {
       setError("Please log in to like a review!");
       return;
     }
 
-    const isLike = !likedReviews[reviewID];
+    const isLiked = !!likedReviews[reviewID];
 
     try {
       // Optimistic update
-      setLikedReviews(prev => ({ ...prev, [reviewID]: isLike }));
+      setLikedReviews(prev => ({ ...prev, [reviewID]: !isLiked }));
       setReviews(prev =>
         prev.map(review =>
           review.ActivityID === reviewID
             ? {
                 ...review,
-                ActivityLikeCount: isLike
-                  ? (review.ActivityLikeCount || 0) + 1
-                  : Math.max(0, (review.ActivityLikeCount || 1) - 1)
+                ActivityLikeCount: isLiked
+                  ? (review.ActivityLikeCount || 0) - 1
+                  : (review.ActivityLikeCount || 0) + 1
               }
             : review
         )
       );
 
-      let response;
-      if (isLike) {
-        response = await fetch('http://localhost:5000/activity/like', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            activityID: reviewID,
-            userID: user.userID
-          })
-        });
-      } else {
-        response = await fetch(`http://localhost:5000/activity/like/${reviewID}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+      const response = await fetch(
+        `http://localhost:5000/activity/like/${reviewID}`,
+        {
+          method: isLiked ? 'DELETE' : 'POST',
+          headers: { 'Authorization': `Bearer ${token}` }
+        }
+      );
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.message || 'Like toggle failed');
       }
 
-      // Check if response is JSON
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        throw new Error(`Unexpected response: ${text.substring(0, 100)}`);
-      }
-
-      const data = await response.json();
-      if (!data.success) {
-        throw new Error(data.message || 'Like action failed');
+      const { success, message } = await response.json();
+      if (!success) {
+        throw new Error(message);
       }
     } catch (err) {
       console.error('Like action failed:', err);
       // Rollback
-      setLikedReviews(prev => ({ ...prev, [reviewID]: !isLike }));
+      setLikedReviews(prev => ({ ...prev, [reviewID]: isLiked }));
       setReviews(prev =>
         prev.map(review =>
           review.ActivityID === reviewID
             ? {
                 ...review,
-                ActivityLikeCount: isLike
-                  ? Math.max(0, (review.ActivityLikeCount || 1) - 1)
-                  : (review.ActivityLikeCount || 0) + 1
+                ActivityLikeCount: isLiked
+                  ? (review.ActivityLikeCount || 0)
+                  : Math.max(0, (review.ActivityLikeCount || 0) - 1)
               }
             : review
         )
@@ -228,6 +214,12 @@ const handleLikeClick = async (reviewID) => {
     }
   };
 
+  const renderDirectors = (directors) => {
+    if (!directors || directors.length === 0) return 'Unknown Director';
+    if (directors.length === 1) return `Directed by ${directors[0]}`;
+    return `Directed by ${directors.join(' and ')}`;
+  };
+
   const renderReplies = (replyList) => {
     if (!replyList || replyList.length === 0) {
       return null;
@@ -279,15 +271,17 @@ const handleLikeClick = async (reviewID) => {
     <div>
       <section
         className="relative bg-cover bg-center bg-fixed min-h-screen"
-        style={{ backgroundImage: `url(${movie.Backdrop})` }}
+        style={{ backgroundImage: `url(${movie.backdrop})` }}
       >
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
         <Navbar />
         <div className="container px-6 mx-auto mt-16 text-center relative z-10">
-          <h1 className="text-white font-bold text-6xl pb-5">
-            {movie.Title} ({movie.ReleaseDate?.slice(-4)})
+          <h1 className="text-white font-bold text-4xl md:text-6xl pb-5">
+            {movie.title} ({formatReleaseYear(movie.releaseDate)})
           </h1>
-          <p className="text-white text-2xl">Directed by {movie.Director}</p>
+          <p className="text-white text-xl md:text-2xl">
+            {renderDirectors(movie.directors)}
+          </p>
           <div className="mt-8 text-white">
             <h2 className="text-2xl">All Reviews</h2>
             {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -297,7 +291,7 @@ const handleLikeClick = async (reviewID) => {
               reviews.map((review) => {
                 if (review.IsReply) return null;
 
-                const hasLiked = likedReviews[review.ActivityID];
+                const isLiked = likedReviews[review.ActivityID];
 
                 return (
                   <div
@@ -327,11 +321,18 @@ const handleLikeClick = async (reviewID) => {
                         <span className="text-white mr-2">{review.ActivityLikeCount || 0}</span>
                         <button
                           onClick={() => handleLikeClick(review.ActivityID)}
-                          className={`text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
-                            hasLiked ? 'text-red-500' : 'text-white'
+                          className={`text-2xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
+                            isLiked ? 'text-red-500' : 'text-white'
                           }`}
                         >
-                          ♥
+                          <svg xmlns="http://www.w3.org/2000/svg"
+                               viewBox="0 0 24 24" fill="currentColor"
+                               className="w-6 h-6">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 
+                                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                          </svg>
                         </button>
                       </div>
                     </div>
