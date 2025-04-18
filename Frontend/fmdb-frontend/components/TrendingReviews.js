@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter }           from 'next/router';
-import { useAuth }             from '@/context/AuthContext';
-import ErrorPopup              from '@/components/Error';
+import { useRouter } from 'next/router';
+import { useAuth } from '@/context/AuthContext';
+import ErrorPopup from '@/components/Error';
 
 const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
   const router = useRouter();
   const { token } = useAuth();
 
-  const [likedReviews, setLikedReviews]     = useState({});
-  const [reviews,       setReviews]         = useState(reviewsData);
-  const [error,         setError]           = useState(null);
+  const [likedReviews, setLikedReviews] = useState({});
+  const [reviews, setReviews] = useState(reviewsData);
+  const [error, setError] = useState(null);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
 
-  // 1) On mount: fetch isActivity? for each review via query params
+  // 1) On mount: fetch isLiked status for each review via query params
   useEffect(() => {
     if (!user || !token) return;
 
@@ -23,7 +23,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
         try {
           const url = new URL('http://localhost:5000/activity/isLiked');
           url.searchParams.set('activityId', review.ActivityID);
-          url.searchParams.set('userId',  user.userID);
+          url.searchParams.set('userId', user.userID);
 
           const res = await fetch(url, {
             method: 'GET',
@@ -31,10 +31,10 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
           });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-          const { isActivity } = await res.json();
-          statusMap[review.ActivityID] = !!isActivity;
+          const { isLiked } = await res.json();
+          statusMap[review.ActivityID] = isLiked;
         } catch (err) {
-          console.error('isActivity error for', review.ActivityID, err);
+          console.error('isLiked error for', review.ActivityID, err);
           statusMap[review.ActivityID] = false;
         }
       }
@@ -45,7 +45,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     fetchLikedStatus();
   }, [reviewsData, user, token]);
 
-  // 2) Go to the “See All Reviews” page
+  // 2) Go to the "See All Reviews" page
   const handleSeeAllClick = () => {
     const movieId = movie.movieId || movie.MovieID;
     if (movieId) router.push(`/reviews/${movieId}`);
@@ -64,17 +64,17 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
       return;
     }
 
-    const id    = review.ActivityID;
-    const liked = !!likedReviews[id];
+    const id = review.ActivityID;
+    const isLiked = !!likedReviews[id];
 
-    // Optimistic UI
-    setLikedReviews(prev => ({ ...prev, [id]: !liked }));
+    // Optimistic UI update
+    setLikedReviews(prev => ({ ...prev, [id]: !isLiked }));
     setReviews(prev =>
       prev.map(r =>
         r.ActivityID === id
           ? {
               ...r,
-              ActivityLikeCount: liked
+              ActivityLikeCount: isLiked
                 ? (r.ActivityLikeCount || 0) - 1
                 : (r.ActivityLikeCount || 0) + 1
             }
@@ -86,24 +86,31 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
       const res = await fetch(
         `http://localhost:5000/activity/like/${id}`,
         {
-          method: liked ? 'DELETE' : 'POST',
+          method: isLiked ? 'DELETE' : 'POST',
           headers: { 'Authorization': `Bearer ${token}` }
         }
       );
+      
       if (!res.ok) {
         const errData = await res.json();
         throw new Error(errData.message || 'Like toggle failed');
       }
+
+      // Confirm the action was successful
+      const { success, message } = await res.json();
+      if (!success) {
+        throw new Error(message);
+      }
     } catch (err) {
       console.error('Like toggle error:', err);
-      // Rollback
-      setLikedReviews(prev => ({ ...prev, [id]: liked }));
+      // Rollback on error
+      setLikedReviews(prev => ({ ...prev, [id]: isLiked }));
       setReviews(prev =>
         prev.map(r =>
           r.ActivityID === id
             ? {
                 ...r,
-                ActivityLikeCount: liked
+                ActivityLikeCount: isLiked
                   ? (r.ActivityLikeCount || 0)
                   : Math.max(0, (r.ActivityLikeCount || 0) - 1)
               }
@@ -131,7 +138,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
 
       <div className="space-y-6">
         {reviews.map(review => {
-          const hasLiked = !!likedReviews[review.ActivityID];
+          const isLiked = !!likedReviews[review.ActivityID];
           return (
             <div
               key={review.ActivityID}
@@ -161,8 +168,9 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
                 <button
                   onClick={() => handleLikeToggle(review)}
                   className={`text-2xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
-                    hasLiked ? 'text-red-500' : 'text-white'
+                    isLiked ? 'text-red-500' : 'text-white'
                   }`}
+                  aria-label={isLiked ? 'Unlike review' : 'Like review'}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg"
                        viewBox="0 0 24 24" fill="currentColor"

@@ -1,4 +1,3 @@
-// pages/MoviesListPage.js
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
@@ -7,18 +6,18 @@ import Footer from '../components/Footer';
 const MovieCard = ({ movie }) => {
   if (!movie || !movie.movieid) {
     return (
-      <div className="w-full h-96 rounded-lg animate-pulse flex items-center justify-center bg-gray-800">
+      <div className="w-full h-96 rounded-lg animate-pulse flex items-center justify-center">
         <span className="text-white">Loading movie...</span>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center p-4 space-y-4 rounded-lg transition-all duration-300 w-full h-full hover:bg-gray-800 hover:bg-opacity-50">
+    <div className="flex flex-col items-center p-4 space-y-4 rounded-lg transition-all duration-300 w-full h-full">
       <Link href={`/movie/${movie.movieid}`} passHref legacyBehavior>
         <a className="w-full flex flex-col items-center">
           <img
-            src={movie.movieposterlink || '/placeholder-movie.jpg'}
+            src={movie.movieposterlink}
             className="w-60 h-90 object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
             alt={movie.title}
             onError={(e) => {
@@ -46,23 +45,24 @@ const MoviesListPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [sort, setSort] = useState('ReleaseDate');
-  const [order, setOrder] = useState('DESC');
+  const [sort, setSort] = useState('releasedate');
+  const [order, setOrder] = useState('desc');
   const [totalPages, setTotalPages] = useState(1);
-  const [totalMovies, setTotalMovies] = useState(0);
 
   const fetchMovies = async () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/movies/page?page=${page}&sort=${sort}&order=${order}&type=movie`
+        `http://localhost:5000/movies/page?page=${page}&sort=${sort}&order=${order}&type=movie`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+          },
+        }
       );
       const data = await response.json();
       if (data.success) {
         setMovies(data.movies);
-        // Calculate total pages based on fixed pageSize of 25 from backend
-        setTotalMovies(data.totalMovies || data.movies.length);
-        setTotalPages(Math.ceil((data.totalMovies || data.movies.length) / 25));
       }
     } catch (error) {
       console.error('Error fetching movies:', error);
@@ -71,73 +71,117 @@ const MoviesListPage = () => {
     }
   };
 
+  const fetchPageCount = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/movies/pageCount?type=movie', {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        },
+      });
+      const data = await response.json();
+      if (data.success) {
+        setTotalPages(data.totalPages);
+      }
+    } catch (error) {
+      console.error('Error fetching total pages:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPageCount();
+  }, []);
+
   useEffect(() => {
     fetchMovies();
   }, [page, sort, order]);
 
   const handleSortChange = (newSort) => {
     if (sort === newSort) {
-      setOrder(order === 'ASC' ? 'DESC' : 'ASC');
+      setOrder(order === 'asc' ? 'desc' : 'asc');
     } else {
       setSort(newSort);
-      setOrder('DESC'); // Default to DESC for most sorts
+      setOrder('desc');
     }
-    setPage(1); // Reset to first page when changing sort
+    setPage(1);
   };
 
   const sortOptions = [
-    { value: 'ReleaseDate', label: 'Release Date' },
-    { value: 'FMDB_Rating', label: 'FMDB Rating' },
-    { value: 'IMDB_Rating', label: 'IMDB Rating' },
-    { value: 'Title', label: 'Title' },
+    { value: 'releasedate', label: 'Release Date' },
+    { value: 'fmdb_rating', label: 'FMDB Rating' },
+    { value: 'imdb_rating', label: 'IMDB Rating' },
+    { value: 'title', label: 'Title' },
   ];
+
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxVisiblePages = 5;
+    
+    // Always show first page
+    pages.push(1);
+    
+    // Show current page and surrounding pages
+    const startPage = Math.max(2, page - 1);
+    const endPage = Math.min(totalPages - 1, page + 1);
+    
+    if (startPage > 2) {
+      pages.push('...');
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+    
+    if (endPage < totalPages - 1) {
+      pages.push('...');
+    }
+    
+    // Always show last page if there's more than one page
+    if (totalPages > 1) {
+      pages.push(totalPages);
+    }
+    
+    return pages;
+  };
 
   return (
     <div className="relative min-h-screen">
-      {/* Background image with purple overlay */}
       <div
         className="relative bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg')" }}
+        style={{
+          backgroundImage:
+            "url('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg')",
+        }}
       >
-        {/* Purple overlay */}
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-
-        {/* Navbar Component */}
         <Navbar />
 
-        {/* Page Content */}
         <div className="relative z-10 pb-20">
-          {/* Heading for the Movies List Page */}
           <section className="text-center pt-10">
-            <h2 className="text-6xl text-white text-shadow font-bold">All Films</h2>
-            <p className="text-gray-300 mt-2">
-              Showing {(page - 1) * 25 + 1}-{Math.min(page * 25, totalMovies)} of {totalMovies} movies
-            </p>
+            <h2 className="text-6xl text-white font-bold text-shadow">All Films</h2>
+            <p className="text-purple-300 mt-2">Browse our collection of {totalPages > 1 ? `${totalPages} pages` : 'films'}</p>
           </section>
 
-          {/* Sorting Controls */}
           <div className="flex justify-center mt-6 mb-8">
-            <div className="bg-gray-900 bg-opacity-80 rounded-full p-1 shadow-lg">
+            <div className="bg-darkPurple bg-opacity-90 rounded-full p-1 shadow-lg ">
               {sortOptions.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => handleSortChange(option.value)}
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     sort === option.value
-                      ? 'bg-purple-600 text-white shadow-md'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                      ? 'bg-purple text-white shadow-md'
+                      : 'text-purple-200 hover:text-white hover:bg-purple hover:bg-opacity-70'
                   }`}
                 >
                   {option.label}
                   {sort === option.value && (
-                    <span className="ml-1">{order === 'ASC' ? '↑' : '↓'}</span>
+                    <span className="ml-1 text-purple-200">{order === 'asc' ? '↑' : '↓'}</span>
                   )}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Movie List */}
           {loading ? (
             <div className="flex justify-center items-center h-64">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
@@ -150,77 +194,62 @@ const MoviesListPage = () => {
                 ))}
               </div>
 
-              {/* Pagination Controls */}
-              <div className="flex justify-center gap-4 mt-12">
+              {/* Enhanced Pagination Controls */}
+              <div className="flex justify-center gap-2 mt-12">
                 <button
                   onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                   disabled={page === 1}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-1 ${
                     page === 1
-                      ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                      : 'bg-purple-600 text-white hover:bg-purple-700'
+                      ? 'bg-darkPurple text-gray-500 cursor-not-allowed'
+                      : 'bg-darkPurple text-white hover:bg-purple hover:shadow-lg'
                   }`}
                 >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
                   Previous
                 </button>
-                
-                <div className="flex items-center gap-2">
-                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                    let pageNum;
-                    if (totalPages <= 5) {
-                      pageNum = i + 1;
-                    } else if (page <= 3) {
-                      pageNum = i + 1;
-                    } else if (page >= totalPages - 2) {
-                      pageNum = totalPages - 4 + i;
-                    } else {
-                      pageNum = page - 2 + i;
-                    }
-                    
-                    return (
+
+                <div className="flex items-center gap-1">
+                  {getPageNumbers().map((pageNum, index) => (
+                    pageNum === '...' ? (
+                      <span key={`ellipsis-${index}`} className="px-3 py-1 text-purple-300">...</span>
+                    ) : (
                       <button
                         key={pageNum}
                         onClick={() => setPage(pageNum)}
-                        className={`w-10 h-10 rounded-full text-sm font-medium transition-all ${
+                        className={`w-10 h-10 rounded-lg text-md font-medium transition-all flex items-center justify-center ${
                           page === pageNum
-                            ? 'bg-purple-600 text-white'
-                            : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                            ? 'bg-purple text-white shadow-md'
+                            : 'bg-darkPurple text-purple-200 hover:bg-purple hover:text-white'
                         }`}
                       >
                         {pageNum}
                       </button>
-                    );
-                  })}
-                  {totalPages > 5 && page < totalPages - 2 && (
-                    <span className="text-gray-400 mx-1">...</span>
-                  )}
-                  {totalPages > 5 && page < totalPages - 2 && (
-                    <button
-                      onClick={() => setPage(totalPages)}
-                      className="w-10 h-10 rounded-full text-sm font-medium bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    >
-                      {totalPages}
-                    </button>
-                  )}
+                    )
+                  ))}
                 </div>
-                
+
                 <button
                   onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
                   disabled={page === totalPages}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-1 ${
                     page === totalPages
-                      ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                      : 'bg-purple-600 text-white hover:bg-purple-700'
+                      ? 'bg-darkPurple text-white cursor-not-allowed'
+                      : 'bg-darkPurple text-white hover:bg-purple hover:shadow-lg'
                   }`}
                 >
                   Next
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </button>
               </div>
             </>
           )}
         </div>
 
-        {/* Footer Component */}
         <Footer />
       </div>
     </div>
