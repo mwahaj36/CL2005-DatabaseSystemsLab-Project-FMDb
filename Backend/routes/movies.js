@@ -8,6 +8,112 @@ const { processMoviesWithDirectors } = require('../utils/processMovies'); // Ass
 router.get('/search/:string', async (req, res) => {
 });
 
+// Get movie details by ID
+router.get('/details/:movieId', async (req, res) => {
+    const movieId = parseInt(req.params.movieId, 10); // Parse movieId as an integer
+
+    if (isNaN(movieId)) {
+        return res.status(400).json({ success: false, message: 'Invalid movieId' });
+    }
+    
+    try {
+        // SQL query to fetch movie details and genres
+        const query = `
+            SELECT M.Title, M.ReleaseDate, M.Synopsis, M.MovieLength, M.MoviePosterLink, 
+                M.MovieBackdropLink, M.Language, M.IMDB_Rating, M.FMDB_Rating, 
+                M.Awards, M.BoxOffice, M.MPAA_Rating, M.MovieID, M.Type
+            FROM Movies M WHERE M.MovieID = @movieId;
+
+            SELECT STRING_AGG(G.GenreName, ', ') AS Genres
+            FROM MovieGenres MG 
+            LEFT JOIN Genres G ON MG.GenreID = G.GenreID
+            WHERE MG.MovieID = @movieId
+            GROUP BY MG.MovieID;
+        `;
+
+        // Create a new SQL request
+        const request = new sql.Request();
+        request.input('movieId', sql.Int, movieId);
+
+        // Execute the query
+        const result = await request.query(query);
+
+        // Check if the movie exists
+        if (result.recordsets[0].length === 0) {
+            res.status(404).json({ success: false, message: 'Movie not found' });
+        }
+
+        // Extract movie details
+        const movie = result.recordsets[0][0];
+        const genres = result.recordsets[1][0]?.Genres || ''; // Handle case where genres might be null
+        const response = {
+            title: movie.Title,
+            releaseDate: movie.ReleaseDate,
+            synopsis: movie.Synopsis,
+            movieLength: movie.MovieLength,
+            moviePosterLink: movie.MoviePosterLink,
+            movieBackdropLink: movie.MovieBackdropLink,
+            language: movie.Language,
+            imdbRating: movie.IMDB_Rating,
+            fmdbRating: movie.FMDB_Rating,
+            awards: movie.Awards,
+            boxOffice: movie.BoxOffice,
+            mpaaRating: movie.MPAA_Rating,
+            movieId: movie.MovieID,
+            type: movie.Type,
+            genres: genres ? genres.split(', ') : [] // Convert genres string to an array
+        };
+
+        res.json({ success: true, movie: response }); // Send the formatted JSON response
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get Cast & Crew by movieId
+router.get('/cast/:movieId', async (req, res) => {
+    const movieId = parseInt(req.params.movieId, 10); // Parse movieId as an integer
+
+    if (isNaN(movieId)) {
+        return res.status(400).json({ message: 'Invalid movieId' });
+    }
+        try {
+            // SQL queries to fetch writers, directors, and actors
+            const query = `
+                SELECT W.WriterName FROM MovieWriters MW
+                JOIN Writers W ON MW.WriterID = W.WriterID
+                WHERE MW.MovieID = @movieId;
+    
+                SELECT D.DirectorName FROM MovieDirectors MD
+                JOIN Directors D ON MD.DirectorID = D.DirectorID
+                WHERE MD.MovieID = @movieId;
+    
+                SELECT A.ActorName, MA.CharacterName FROM MovieActors MA
+                JOIN Actors A ON MA.ActorID = A.ActorID
+                WHERE MA.MovieID = @movieId;
+            `;
+    
+            // Create a new SQL request
+            const request = new sql.Request();
+            request.input('movieId', sql.Int, movieId);
+    
+            // Execute the query
+            const result = await request.query(query);
+    
+            // Extract results
+            const writers = result.recordsets[0].map(row => row.WriterName);
+            const directors = result.recordsets[1].map(row => row.DirectorName);
+            const actors = result.recordsets[2].map(row => ({
+                name: row.ActorName,
+                character: row.CharacterName
+            }));
+
+        res.json({ success: true, writers: writers, directors: directors, actors: actors }); // Send the formatted JSON response
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+});
+
 // Get top 5 trending movies based on count of overall logged movies over the course of 7 days
 router.get('/trending', async (req, res) => {
     const query = `
@@ -323,7 +429,7 @@ router.delete('/like/:movieId', authenticateToken, async (req, res) => {
     }
 });
 
-// Get IsLiked status of a movie (requires JWT token containing userId and movieId in request params)
+// Get IsLiked status of a movie (requires userId and movieId in request body)
 router.get('/like', async (req, res) => {
     const { movieId, userId } = req.body;
 
