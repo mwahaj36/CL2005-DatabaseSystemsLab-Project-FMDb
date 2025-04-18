@@ -3,17 +3,20 @@ import { AuthContext } from "../context/AuthContext";
 import ThirdScreenReviews from "@/components/ThirdScreenReviews";
 import Spotlight from "../components/Spotlight";
 import Navbar from "../components/Navbar";
-import HeroSection from "../components/HeroSection";
-import MovieList from "../components/MovieList";
-import Leaderboard from "../components/Leaderboard";
 import Footer from "../components/Footer";
-import UserSpotlight from "../components/UserSpotlight";
 
 const HomePage = () => {
   const { user } = useContext(AuthContext);
   const [topMovies, setTopMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [topReviews, setTopReviews] = useState([]);
+  const [loading, setLoading] = useState({
+    movies: true,
+    reviews: true
+  });
+  const [error, setError] = useState({
+    movies: null,
+    reviews: null
+  });
 
   // Fetch top 5 movies based on critic ratings
   useEffect(() => {
@@ -27,38 +30,42 @@ const HomePage = () => {
         if (data.success && data.movies) {
           setTopMovies(data.movies);
         } else {
-          setError('No movies found');
+          setError(prev => ({...prev, movies: 'No movies found'}));
         }
       } catch (err) {
-        setError(err.message);
+        setError(prev => ({...prev, movies: err.message}));
       } finally {
-        setLoading(false);
+        setLoading(prev => ({...prev, movies: false}));
       }
     };
 
     fetchTopMovies();
   }, []);
 
-  const topThreeUsers = [
-    {
-      username: "john_doe",
-      image: "https://example.com/gold.jpg",
-      activities: 50,
-      moviesWatched: 20,
-    },
-    {
-      username: "jane_smith",
-      image: "https://example.com/silver.jpg",
-      activities: 38,
-      moviesWatched: 12,
-    },
-    {
-      username: "mark_twain",
-      image: "https://example.com/bronze.jpg",
-      activities: 30,
-      moviesWatched: 10,
-    },
-  ];
+  // Fetch top 10 critic reviews from past 7 days
+  useEffect(() => {
+    const fetchTopReviews = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/critic/reviews');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (data.success && data.reviews) {
+          setTopReviews(data.reviews);
+        } else {
+          setError(prev => ({...prev, reviews: 'No reviews found'}));
+        }
+      } catch (err) {
+        setError(prev => ({...prev, reviews: err.message}));
+      } finally {
+        setLoading(prev => ({...prev, reviews: false}));
+      }
+    };
+
+    fetchTopReviews();
+  }, []);
+
 
   return (
     <div>
@@ -70,10 +77,10 @@ const HomePage = () => {
           This Week's Top 5
         </h2>
         
-        {loading ? (
+        {loading.movies ? (
           <div className="text-center text-white py-10">Loading top movies...</div>
-        ) : error ? (
-          <div className="text-center text-red-400 py-10">{error}</div>
+        ) : error.movies ? (
+          <div className="text-center text-red-400 py-10">{error.movies}</div>
         ) : (
           <Spotlight movies={topMovies} />
         )}
@@ -81,7 +88,15 @@ const HomePage = () => {
         <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-gold font-bold text-center drop-shadow-lg">
           Top Critics' Activity
         </h2>
-        <ThirdScreenReviews />
+        
+        {loading.reviews ? (
+          <div className="text-center text-white py-10">Loading top reviews...</div>
+        ) : error.reviews ? (
+          <div className="text-center text-red-400 py-10">{error.reviews}</div>
+        ) : (
+          <ThirdScreenReviews reviews={topReviews} />
+        )}
+        
         <Footer />
       </div>
     </div>
