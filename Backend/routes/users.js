@@ -20,10 +20,50 @@ router.get('/leaderboard', async (req, res) => {
     }
 });
 
+// Send Friend Request (Requires JWT token with userid)
+router.post('/friendRequest', authenticateToken, async (req, res) => {
+    const { userId, message } = req.body; // Extract userId and message from the request body
+    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
 
-// Follow another user (Requires JWT token with userid)
-router.post('/follow', async (req, res) => {
-    // Add user to following list (Requires authentication via JWT)
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    if (loggedInUserId === userId) {
+        return res.status(400).json({ success: false, message: 'You cannot send a friend request to yourself' });
+    }
+
+    try {
+        // Check if a friend request already exists
+        const checkRequestQuery = `
+            SELECT * FROM Notifications 
+            WHERE SenderID = @senderId AND ReceiverID = @receiverId AND NotificationType = 'FriendReq'
+        `;
+        const checkRequest = new sql.Request();
+        checkRequest.input('senderId', sql.Int, loggedInUserId);
+        checkRequest.input('receiverId', sql.Int, userId);
+        const checkResult = await checkRequest.query(checkRequestQuery);
+
+        if (checkResult.recordset.length > 0) {
+            return res.status(400).json({ success: false, message: 'Friend request already sent' });
+        }
+
+        // Insert the friend request into the database
+        const insertRequestQuery = `
+            INSERT INTO Notifications(SenderID, ReceiverID, Message, NotificationType) 
+            VALUES (@senderId, @receiverId, @message, 'FriendReq')
+        `;
+        const insertRequest = new sql.Request();
+        insertRequest.input('senderId', sql.Int, loggedInUserId);
+        insertRequest.input('receiverId', sql.Int, userId);
+        insertRequest.input('message', sql.NVarChar, message || `User ${loggedInUserId} sent you a friend request`);
+        await insertRequest.query(insertRequestQuery);
+
+        res.status(200).json({ success: true, message: 'Friend request sent successfully' });
+    } catch (error) {
+        console.error('Error sending friend request:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
 
 // Get friends list (Works only if accounts are public or if JWT token is passed and account is friend of the logged-in user)
