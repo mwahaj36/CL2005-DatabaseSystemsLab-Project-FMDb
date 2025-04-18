@@ -6,108 +6,141 @@ import { useRouter } from "next/router";
 
 export default function LoginSignupPage() {
   const router = useRouter();
-  const { login, signup, error, resetPassword } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const { login, signup, resetPassword } = useContext(AuthContext);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
   const [isSignup, setIsSignup] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
-  const [signupError, setSignupError] = useState("");
-  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [formError, setFormError] = useState("");
+  const [formSuccess, setFormSuccess] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      await login(username, password, rememberMe);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-  const handleSignup = async (e) => {
+
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    });
+    setFormError("");
+  };
+
+  const validateForm = () => {
+    if (isResetPassword) {
+      if (!formData.email.trim() || !formData.password.trim()) {
+        setFormError("Please fill in all fields");
+        return false;
+      }
+      if (formData.password.length < 6) {
+        setFormError("Password must be at least 6 characters");
+        return false;
+      }
+    } else if (isSignup) {
+      if (!formData.firstName.trim() || !formData.lastName.trim() || 
+          !formData.username.trim() || !formData.email.trim() || 
+          !formData.password.trim() || !formData.confirmPassword.trim()) {
+        setFormError("Please fill in all fields");
+        return false;
+      }
+      if (formData.password !== formData.confirmPassword) {
+        setFormError("Passwords do not match");
+        return false;
+      }
+      if (formData.password.length < 6) {
+        setFormError("Password must be at least 6 characters");
+        return false;
+      }
+    } else {
+      if (!formData.username.trim() || !formData.password.trim()) {
+        setFormError("Please fill in all fields");
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError("");
     
-    // Client-side validation
-    if (password !== confirmPassword) {
-      setSignupError("Passwords do not match");
-      return;
-    }
-  
-    if (password.length < 6) {
-      setSignupError("Password must be at least 6 characters");
-      return;
-    }
-  
-    setSignupError("");
+    if (!validateForm()) return;
+
     setIsLoading(true);
-  
+
     try {
-      await signup(firstName, lastName, username, email, password);
-      setSignupSuccess(true);
-      setTimeout(() => {
-        router.push("/EditProfile");
-      }, 1500);
+      if (isResetPassword) {
+        await resetPassword(formData.email, formData.password);
+        setFormSuccess("Password reset successfully!");
+        setTimeout(() => {
+          setIsResetPassword(false);
+          resetForm();
+        }, 1500);
+      } else if (isSignup) {
+        await signup(
+          formData.firstName,
+          formData.lastName,
+          formData.username,
+          formData.email,
+          formData.password
+        );
+        setFormSuccess("Account created successfully! Redirecting...");
+        setTimeout(() => router.push("/EditProfile"), 1500);
+      } else {
+        await login(formData.username, formData.password, rememberMe);
+      }
     } catch (err) {
-      setSignupError(err.message || "Failed to create account. Please try again.");
+      setFormError(err.message || 
+        (isResetPassword ? "Failed to reset password" : 
+         isSignup ? "Failed to create account" : "Invalid credentials"));
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleResetPassword = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      await resetPassword(email, password);
-      setSignupSuccess(true);
-      setSignupError("");
-      setTimeout(() => {
-        setIsResetPassword(false);
-        setEmail("");
-        setPassword("");
-      }, 1500);
-    } catch (err) {
-      setSignupError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
+  const toggleFormType = () => {
+    setIsSignup(!isSignup);
+    setIsResetPassword(false);
+    resetForm();
   };
-  
+
+  const showResetPassword = () => {
+    setIsResetPassword(true);
+    setIsSignup(false);
+    resetForm();
+  };
+
   useEffect(() => {
-    if (signupSuccess && !error) {
-      const timer = setTimeout(() => {
-        setIsSignup(false);
-        setSignupSuccess(false);
-        setFirstName("");
-        setLastName("");
-        setUsername("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-      }, 2000);
+    if (formSuccess) {
+      const timer = setTimeout(() => setFormSuccess(""), 3000);
       return () => clearTimeout(timer);
     }
-  }, [signupSuccess, error]);
+  }, [formSuccess]);
 
   return (
-    <div
-      className="relative bg-cover bg-center bg-fixed min-h-screen"
-      style={{
-        backgroundImage:
-          "url('https://image.tmdb.org/t/p/original/8mnXR9rey5uQ08rZAvzojKWbDQS.jpg')",
-      }}
-    >
+    <div className="relative bg-cover bg-center bg-fixed min-h-screen" style={{
+      backgroundImage: "url('https://image.tmdb.org/t/p/original/8mnXR9rey5uQ08rZAvzojKWbDQS.jpg')"
+    }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
-      <section
-        id="hero"
-        className="relative -mt-14 z-10 flex items-center justify-center min-h-screen"
-      >
+      
+      <section className="relative -mt-14 z-10 flex items-center justify-center min-h-screen">
         <div className="container flex flex-col justify-center items-center px-6 mx-auto">
           <div className="w-full max-w-md">
             <div className="bg-purpleWhite bg-opacity-70 px-8 py-10 rounded-3xl space-y-6 drop-shadow-xl">
@@ -122,42 +155,44 @@ export default function LoginSignupPage() {
                 </p>
               </div>
 
-              <form onSubmit={isResetPassword ? handleResetPassword : 
-                              isSignup ? handleSignup : handleLogin}>
+              <form onSubmit={handleSubmit}>
                 {isSignup && !isResetPassword && (
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                       <input
                         type="text"
+                        name="firstName"
                         placeholder="First Name"
                         className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         required
                       />
                     </div>
                     <div className="w-full md:w-1/2 px-3">
                       <input
                         type="text"
+                        name="lastName"
                         placeholder="Last Name"
                         className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         required
                       />
                     </div>
                   </div>
                 )}
 
-                {!isSignup && !isResetPassword && (
+                {(isSignup || !isResetPassword) && (
                   <div className="mb-4">
                     <input
                       type="text"
+                      name="username"
                       placeholder="Username"
                       className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      required
+                      value={formData.username}
+                      onChange={handleInputChange}
+                      required={!isResetPassword}
                     />
                   </div>
                 )}
@@ -166,23 +201,11 @@ export default function LoginSignupPage() {
                   <div className="mb-4">
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email Address"
                       className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                )}
-
-                {isSignup && (
-                  <div className="mb-4">
-                    <input
-                      type="text"
-                      placeholder="Username"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -191,10 +214,11 @@ export default function LoginSignupPage() {
                 <div className="mb-4">
                   <input
                     type="password"
+                    name="password"
                     placeholder={isResetPassword ? "New Password" : "Password"}
                     className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={formData.password}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -203,10 +227,11 @@ export default function LoginSignupPage() {
                   <div className="mb-4">
                     <input
                       type="password"
+                      name="confirmPassword"
                       placeholder="Confirm Password"
                       className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      value={formData.confirmPassword}
+                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -230,11 +255,7 @@ export default function LoginSignupPage() {
                     <div className="text-sm">
                       <button 
                         type="button"
-                        onClick={() => {
-                          setIsResetPassword(true);
-                          setIsSignup(false);
-                          setSignupError("");
-                        }}
+                        onClick={showResetPassword}
                         className="font-medium text-darkPurple hover:text-purple"
                       >
                         Forgot password?
@@ -243,16 +264,15 @@ export default function LoginSignupPage() {
                   </div>
                 )}
 
-                {(error || signupError) && (
+                {formError && (
                   <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg text-sm">
-                    {error || signupError}
+                    {formError}
                   </div>
                 )}
 
-                {signupSuccess && !error && (
+                {formSuccess && (
                   <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg text-sm">
-                    {isResetPassword ? "Password reset successfully!" : 
-                     isSignup ? "Account created successfully! Redirecting..." : ""}
+                    {formSuccess}
                   </div>
                 )}
 
@@ -276,34 +296,24 @@ export default function LoginSignupPage() {
                 </button>
               </form>
 
-              {!isResetPassword && (
+              {!isResetPassword ? (
                 <div className="text-center mt-4">
                   <p className="text-darkPurple">
                     {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
                     <button
-                      onClick={() => {
-                        setIsSignup(!isSignup);
-                        setIsResetPassword(false);
-                        setSignupError("");
-                        setSignupSuccess(false);
-                      }}
+                      onClick={toggleFormType}
                       className="font-bold text-purple hover:text-darkPurple transition-colors duration-300"
                     >
                       {isSignup ? "Sign in" : "Sign up"}
                     </button>
                   </p>
                 </div>
-              )}
-
-              {isResetPassword && (
+              ) : (
                 <div className="text-center mt-4">
                   <p className="text-darkPurple">
                     Remember your password?{" "}
                     <button
-                      onClick={() => {
-                        setIsResetPassword(false);
-                        setSignupError("");
-                      }}
+                      onClick={toggleFormType}
                       className="font-bold text-purple hover:text-darkPurple transition-colors duration-300"
                     >
                       Sign in
@@ -315,6 +325,7 @@ export default function LoginSignupPage() {
           </div>
         </div>
       </section>
+      
       <Footer />
     </div>
   );
