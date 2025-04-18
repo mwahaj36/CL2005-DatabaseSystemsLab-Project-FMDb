@@ -3,6 +3,33 @@ const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 
+// Check to see if movie is in watchlist of current user (Requires JWT token with userid)
+router.get('/isWatchlist/:movieId', authenticateToken, async (req, res) => {
+    let { movieId } = req.params;
+    if (!movieId) {
+        return res.status(400).send({ success: false, message: 'movieId parameter is required.' });
+    }
+    movieId = parseInt(movieId, 10);
+    if (isNaN(movieId)) {
+        return res.status(400).send({ success: false, message: 'Invalid movieId. It must be a number.' });
+    }
+
+    const userId = req.userId; // Extract user ID from the authenticated token
+
+    const query = `SELECT COUNT(*) AS Count FROM UserWatchlist WHERE UserID = @userId AND MovieID = @movieId`;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        request.input('movieId', sql.Int, movieId);
+
+        const result = await request.query(query);
+
+        res.status(200).send({ success: true, isWatchlist: result.recordset[0].Count > 0 });
+    } catch (error) {
+        console.error('Unexpected error:', error);
+        res.status(500).send({ success: false, message: 'An error occurred while checking the watchlist.' });
+    }
+});
 
 router.get('/public/:userid', async (req, res) => {
     let { userid } = req.params;
