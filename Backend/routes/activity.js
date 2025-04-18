@@ -294,6 +294,63 @@ router.delete('/like/:reviewId', authenticateToken, async (req, res) => {
     }
 });
 
+// Delete User Activity (CurrentUser or Admin) (requires JWT token containing userId and activityId in request params)
+router.delete('/:activityId', authenticateToken, async (req, res) => {
+    let { activityId } = req.params;
+    if (!activityId) {
+        return res.status(400).send({ success: false, message: 'activityId parameter is required.' });
+    }
+    activityId = parseInt(activityId, 10);
+    if (isNaN(activityId)) {
+        return res.status(400).send({ success: false, message: 'Invalid activityId. It must be a number.' });
+    }
+
+    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
+
+    try {
+        // Check if the activity exists
+        const checkActivityQuery = `SELECT * FROM Activity WHERE ActivityID = @activityId`;
+        const activityCheckRequest = new sql.Request();
+        activityCheckRequest.input('activityId', sql.Int, activityId);
+        const activityResult = await activityCheckRequest.query(checkActivityQuery);
+
+        if (activityResult.recordset.length === 0) {
+            return res.status(404).send({ success: false, message: 'Activity not found.' });
+        }
+        
+        // Check if the logged-in user is an admin or if they are the owner of the activity
+        const checkAdminOrOwnerQuery = `
+            SELECT *
+            FROM Users U
+            JOIN Activity A ON A.UserID = U.UserID
+            WHERE (U.UserID = @loggedInUserId AND U.UserType = 'admin') 
+                OR (A.ActivityID = @activityId AND A.UserID = @loggedInUserId)
+        `;
+
+        const request = new sql.Request();
+        request.input('loggedInUserId', sql.Int, loggedInUserId);
+        request.input('activityId', sql.Int, activityId);
+        const adminOrOwnerResult = await request.query(checkAdminOrOwnerQuery);
+
+        if (adminOrOwnerResult.recordset.length === 0) {
+            return res.status(403).send({ success: false, message: 'You do not have permission to delete this activity.' });
+        }
+
+        // Delete the activity
+        const deleteActivityQuery = `DELETE FROM Activity WHERE ActivityID = @activityId`;
+
+        const delRequest = new sql.Request();
+        delRequest.input('activityId', sql.Int, activityId);
+        await delRequest.query(deleteActivityQuery);
+
+        res.send({ success: true, message: 'Activity deleted successfully.' });
+    } catch (err) {
+        console.error('Error deleting activity:', err.message);
+        res.status(500).send({ success: false, message: 'Error deleting activity.' });
+    }
+
+});
+
 // Get IsActivity status of a movie (requires JWT token containing userId and movieId in request params)
 router.get('/isActivity', async (req, res) => {
     const { movieId, userId } = req.body;
