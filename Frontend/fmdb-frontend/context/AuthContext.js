@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
-      setUser({ username: data.userName, userID: data.userId });
+      setUser({ username: data.username, userID: data.userId });
       setToken(data.token);
       setError(null);
 

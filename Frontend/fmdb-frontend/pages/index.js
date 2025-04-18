@@ -8,7 +8,8 @@ import Footer from "../components/Footer";
 import UserSpotlight from "../components/UserSpotlight";
 
 const HomePage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, token } = useContext(AuthContext);
+
   const [apiState, setApiState] = useState({
     trending: { data: [], loading: true, error: null },
     recommended: { data: [], loading: false, error: null, recommendedOn: "" },
@@ -64,7 +65,10 @@ const HomePage = () => {
     const fetchRecommended = async () => {
       try {
         const res = await fetch('http://localhost:5000/movies/recommended', {
-          credentials: 'include'
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
@@ -108,7 +112,10 @@ const HomePage = () => {
     const fetchFriendsActivity = async () => {
       try {
         const res = await fetch('http://localhost:5000/movies/friends', {
-          credentials: 'include'
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
@@ -151,8 +158,9 @@ const HomePage = () => {
     const fetchFriendsWatchlist = async () => {
       try {
         const res = await fetch('http://localhost:5000/movies/friends/watchlist', {
+          credentials: 'include',
           headers: {
-            'Authorization': `Bearer ${user.token}`
+            'Authorization': `Bearer ${token}`
           }
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);

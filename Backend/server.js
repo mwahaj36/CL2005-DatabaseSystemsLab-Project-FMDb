@@ -6,9 +6,10 @@ require('dotenv').config(); // Load environment variables from .env file
 const port = parseInt(process.env.PORT, 10); // Convert environment variable to integer or default to 5000
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL, // Your frontend URL
-  credentials: true
-  
+  origin: process.env.FRONTEND_URL, // Allow your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow all HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow Content-Type and Authorization headers
+  credentials: true // Allow cookies and credentials
 }));
 
 app.use(express.json()); // Middleware to parse JSON request bodies

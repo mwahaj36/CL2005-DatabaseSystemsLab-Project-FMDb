@@ -36,7 +36,7 @@ router.post('/signin', async (req, res) => {
             if (isMatch) {
                 const payload = { userId: result.recordset[0].UserId }; // Add userId to the payload of jwt token for info fetching in other calls.
                 const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
-                res.json({ success: true, message: 'Authentication successful', token });
+                res.json({ success: true, message: 'Authentication successful', token: token, userId: payload.userId });
             } else {
                 res.status(401).json({ success: false, message: 'Invalid Password' });
             }
