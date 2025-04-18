@@ -8,6 +8,53 @@ const { processMoviesWithDirectors } = require('../utils/processMovies'); // Ass
 router.get('/search/:string', async (req, res) => {
 });
 
+// Get All Movies by Page# (with pagination) sort params = releaseDate, FMBD_Rating, IMDB_Rating, Title
+router.get('/page', async (req, res) => {
+    const page = parseInt(req.query.page, 10) || 1; // Default to page 1 if not provided
+    const sortParam = req.query.sort || 'ReleaseDate'; // Default sort by ReleaseDate
+    const sortOrder = req.query.order.toLowerCase() === 'asc' ? 'ASC' : 'DESC'; // Default to descending order
+    const type = req.query.type?.toLowerCase() === 'series' ? 'Series' : 'Movie'; // Default to 'Movie'
+    const pageSize = 25; // Number of movies per page
+    const offset = (page - 1) * pageSize; // Calculate the offset for pagination
+
+    if (page < 1) {
+        return res.status(400).json({ success: false, message: 'Page number must be greater than or equal to 1' });
+    }
+
+    // Validate sortParam to prevent SQL injection
+    const validSortParams = ['releasedate', 'fmdb_rating', 'imdb_rating', 'title']; // Convert to lowercase
+    if (!validSortParams.includes(sortParam.toLowerCase())) {
+        return res.status(400).json({ success: false, message: 'Invalid sort parameter' });
+    }
+
+    try {
+        // SQL query to fetch movies with pagination and dynamic sorting
+        const query = `
+            SELECT M.MovieID, M.Title, M.MoviePosterLink
+            FROM Movies M
+            WHERE M.Type = @type
+            ORDER BY M.${sortParam} ${sortOrder}
+            OFFSET @offset ROWS FETCH NEXT @pageSize ROWS ONLY;
+        `;
+
+        const request = new sql.Request();
+        request.input('offset', sql.Int, offset);
+        request.input('pageSize', sql.Int, pageSize);
+        request.input('type', sql.VarChar, type); // Use sql.VarChar for string input
+
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No movies found for the given page' });
+        }
+
+        const response = await processMoviesWithDirectors(result.recordset);
+        res.json({ success: true, movies: response });
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
+});
+
 // Get movie details by ID
 router.get('/details/:movieId', async (req, res) => {
     const movieId = parseInt(req.params.movieId, 10); // Parse movieId as an integer
