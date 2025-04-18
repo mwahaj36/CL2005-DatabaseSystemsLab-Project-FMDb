@@ -30,6 +30,7 @@ const watchlistRoutes = require('./routes/watchlist');
 const notificationRoutes = require('./routes/notification'); // Import notification routes
 const messageRoutes = require('./routes/message'); // Import message routes
 const adminRoutes = require('./routes/admin'); // Import admin routes
+const criticRoutes = require('./routes/critic'); // Import critic routes
 
 app.use('/auth', authRoutes); // Routes for authentication
 app.use('/users', userRoutes); // Routes for user-related operations
@@ -39,7 +40,7 @@ app.use('/watchlist', watchlistRoutes); // Routes for watchlist-related operatio
 app.use('/notification', notificationRoutes); // Routes for notification-related operations
 app.use('/message', messageRoutes); // Routes for message-related operations
 app.use('/admin', adminRoutes); // Routes for admin-related operations
-
+app.use('/critic', criticRoutes); // Routes for critic-related operations
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

@@ -2,43 +2,7 @@ const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
-
-// Function to process movies and fetch directors
-async function processMoviesWithDirectors(recordset) {
-    if (!recordset || recordset.length === 0) {
-        return [];
-    }
-
-    // Extract movie IDs from the recordset
-    const movieIds = recordset.map(row => row.MovieID).join(',');
-
-    // Query to fetch directors for the movies
-    const directorsQuery = `
-        SELECT MD.MovieID, D.DirectorName
-        FROM MovieDirectors MD
-        JOIN Directors D ON MD.DirectorID = D.DirectorID
-        WHERE MD.MovieID IN (${movieIds})
-    `;
-    const sqlRequest = new sql.Request();
-    const directorsResult = await sqlRequest.query(directorsQuery);
-
-    // Group directors by MovieID
-    const directorsMap = {};
-    directorsResult.recordset.forEach(row => {
-        if (!directorsMap[row.MovieID]) {
-            directorsMap[row.MovieID] = [];
-        }
-        directorsMap[row.MovieID].push(row.DirectorName);
-    });
-
-    // Map the directors back to the original recordset
-    return recordset.map(row => ({
-        movieid: row.MovieID,
-        title: row.Title,
-        movieposterlink: row.MoviePosterLink,
-        directors: directorsMap[row.MovieID] || []
-    }));
-};
+const { processMoviesWithDirectors } = require('../utils/processMovies'); // Assuming you have a utility function to process movies
 
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
@@ -257,33 +221,6 @@ router.get('/recommended', authenticateToken, async (req, res) => {
         res.status(200).json({ success: true, recommendedOn: recentMoviesResult.recordset[0].Title , movies: response });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
-    }
-});
-
-// Get Top 5 Movies based on Critics movie ratings on last 7 days
-router.get('/critics', async (req, res) => {
-    const query = `
-        SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink, AVG(A.Ratings) AS AverageRating
-        FROM Movies M
-        JOIN Activity A ON M.MovieID = A.MovieID
-        JOIN Users U ON U.UserID = A.UserID
-        WHERE DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7 AND U.UserType = 'Critic'
-        GROUP BY M.MovieID, M.Title, M.MoviePosterLink
-        ORDER BY AverageRating DESC;
-    `;
-
-    try {
-        const request = new sql.Request();
-        const result = await request.query(query);
-
-        if (result.recordset.length === 0) {
-            return res.status(404).json({ success: false, message: 'No movies found' });
-        }
-
-        const response = await processMoviesWithDirectors(result.recordset);
-        res.json({ success: true, movies: response });
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
     }
 });
 
