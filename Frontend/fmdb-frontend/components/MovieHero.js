@@ -129,6 +129,7 @@ const MovieHero = ({ movieData }) => {
             movieYear={new Date(movieData.releaseDate).getFullYear()}
             moviePoster={movieData.moviePosterLink}
             onSave={() => setShowActivityCard(false)}
+            onDiscard={() => setShowActivityCard(false)} // 🟢 Add this line
           />
         </div>
       )}
