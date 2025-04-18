@@ -3,7 +3,13 @@ const { connectToDatabase } = require('./config/dbConfig'); // Import database c
 const app = express();
 const cors = require('cors'); // Import CORS middleware
 require('dotenv').config(); // Load environment variables from .env file
-const port = parseInt(process.env.PORT, 10) || 5000; // Convert environment variable to integer or default to 5000
+const port = parseInt(process.env.PORT, 10); // Convert environment variable to integer or default to 5000
+
+app.use(cors({
+  origin: process.env.FRONTEND_URL, // Your frontend URL
+  credentials: true
+  
+}));
 
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
@@ -37,10 +43,6 @@ app.use('/notification', notificationRoutes); // Routes for notification-related
 app.use('/message', messageRoutes); // Routes for message-related operations
 app.use('/admin', adminRoutes); // Routes for admin-related operations
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL, // Your frontend URL
-  credentials: true
-}));
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
