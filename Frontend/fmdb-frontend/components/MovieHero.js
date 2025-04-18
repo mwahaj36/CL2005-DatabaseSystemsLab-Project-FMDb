@@ -107,6 +107,13 @@ const MovieHero = ({ movieData }) => {
       day: 'numeric'
     });
   };
+  const handleSave = () => {
+    setShowActivityCard(false); // Close the card or save review logic
+  };
+
+  const handleDiscard = () => {
+    setShowActivityCard(false); // Close the card or reset review logic
+  };
 
   // Format genres for display
   const formatGenres = (genres) => {
@@ -124,13 +131,13 @@ const MovieHero = ({ movieData }) => {
           className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center p-4"
         >
           <ActivityCard
-            movieTitle={movieData.title}
-            movieId={movieData.movieId}
-            movieYear={new Date(movieData.releaseDate).getFullYear()}
-            moviePoster={movieData.moviePosterLink}
-            onSave={() => setShowActivityCard(false)}
-            onDiscard={() => setShowActivityCard(false)} // 🟢 Add this line
-          />
+          movieTitle={movieData.title}
+          movieId={movieData.movieId}
+          movieYear={new Date(movieData.releaseDate).getFullYear()}
+          moviePoster={movieData.moviePosterLink}
+          onSave={handleSave}
+          onDiscard={handleDiscard}
+        />
         </div>
       )}
 
