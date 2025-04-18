@@ -21,9 +21,9 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
 
       for (let review of reviewsData) {
         try {
-          const url = new URL('http://localhost:5000/activity/isActivity');
-          url.searchParams.set('movieId', review.ActivityID);
-          url.searchParams.set('userId',  user.UserID);
+          const url = new URL('http://localhost:5000/activity/isLiked');
+          url.searchParams.set('activityId', review.ActivityID);
+          url.searchParams.set('userId',  user.userID);
 
           const res = await fetch(url, {
             method: 'GET',

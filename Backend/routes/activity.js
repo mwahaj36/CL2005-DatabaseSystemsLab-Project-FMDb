@@ -397,15 +397,45 @@ router.delete('/:activityId', authenticateToken, async (req, res) => {
 
 });
 
-// Get IsActivity status of a movie (requires JWT token containing userId and movieId in request params)
+// Get IsLiked status of a Activity (requires activityId and userId in query parameters)
+router.get('/isLiked', async (req, res) => {
+    const { activityId, userId } = req.query; // Extract from query parameters
+
+    if (activityId === undefined || userId === undefined) {
+        return res.status(400).json({ success: false, message: 'activityId and userId are required in the query parameters' });
+    }
+    
+    if (!Number.isInteger(parseInt(activityId, 10)) || !Number.isInteger(parseInt(userId, 10))) {
+        return res.status(400).json({ success: false, message: 'activityId and userId must be integers' });
+    }
+
+    try {
+        // Check if the user has liked the activity
+        const checkActivityQuery = 'SELECT * FROM ActivityLikes WHERE ActivityID = @activityId AND UserID = @userId';
+        const activityRequest = new sql.Request();
+        activityRequest.input('activityId', sql.Int, parseInt(activityId, 10));
+        activityRequest.input('userId', sql.Int, parseInt(userId, 10));
+        const activityCheckResult = await activityRequest.query(checkActivityQuery);
+
+        if (activityCheckResult.recordset.length === 0) {
+            return res.status(200).json({ success: true, isLiked: false });
+        } else {
+            return res.status(200).json({ success: true, isLiked: true });
+        }
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get IsActivity status of a movie (requires movieId and userId in query parameters)
 router.get('/isActivity', async (req, res) => {
-    const { movieId, userId } = req.body;
+    const { movieId, userId } = req.query;
 
     if (!movieId || !userId) {
-        return res.status(400).json({ success: false, message: 'movieId and userId are required in the request body' });
+        return res.status(400).json({ success: false, message: 'movieId and userId are required in the query parameters' });
     }
     // Validate that movieId and userId are integers
-    if (!Number.isInteger(movieId) || !Number.isInteger(userId)) {
+    if (!Number.isInteger(parseInt(movieId, 10)) || !Number.isInteger(parseInt(userId, 10))) {
         return res.status(400).json({ success: false, message: 'movieId and userId must be integers' });
     }
 
@@ -413,8 +443,8 @@ router.get('/isActivity', async (req, res) => {
         // Check if the movie is in the user's activity
         const checkActivityQuery = 'SELECT * FROM Activity WHERE MovieID = @movieId AND UserID = @userId';
         const activityRequest = new sql.Request();
-        activityRequest.input('movieId', sql.Int, movieId);
-        activityRequest.input('userId', sql.Int, userId);
+        activityRequest.input('movieId', sql.Int, parseInt(movieId, 10));
+        activityRequest.input('userId', sql.Int, parseInt(userId, 10));
         const activityCheckResult = await activityRequest.query(checkActivityQuery);
 
         if (activityCheckResult.recordset.length === 0) {

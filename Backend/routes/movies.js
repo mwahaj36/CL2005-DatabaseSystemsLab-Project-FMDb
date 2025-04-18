@@ -446,15 +446,15 @@ router.delete('/like/:movieId', authenticateToken, async (req, res) => {
     }
 });
 
-// Get IsLiked status of a movie (requires userId and movieId in request body)
+// Get IsLiked status of a movie (requires userId and movieId in query parameters)
 router.get('/like', async (req, res) => {
-    const { movieId, userId } = req.body;
+    const { movieId, userId } = req.query; // Extract from query parameters
 
     if (!movieId || !userId) {
-        return res.status(400).json({ success: false, message: 'movieId and userId are required in the request body' });
+        return res.status(400).json({ success: false, message: 'movieId and userId are required in the query parameters' });
     }
     // Validate that movieId and userId are integers
-    if (!Number.isInteger(movieId) || !Number.isInteger(userId)) {
+    if (!Number.isInteger(parseInt(movieId, 10)) || !Number.isInteger(parseInt(userId, 10))) {
         return res.status(400).json({ success: false, message: 'movieId and userId must be integers' });
     }
 
@@ -462,8 +462,8 @@ router.get('/like', async (req, res) => {
         // Check if the movie is liked by the user
         const checkLikeQuery = 'SELECT * FROM UserLikedMovies WHERE MovieID = @movieId AND UserID = @userId';
         const likeRequest = new sql.Request();
-        likeRequest.input('movieId', sql.Int, movieId);
-        likeRequest.input('userId', sql.Int, userId);
+        likeRequest.input('movieId', sql.Int, parseInt(movieId, 10));
+        likeRequest.input('userId', sql.Int, parseInt(userId, 10));
         const likeCheckResult = await likeRequest.query(checkLikeQuery);
 
         if (likeCheckResult.recordset.length === 0) {
