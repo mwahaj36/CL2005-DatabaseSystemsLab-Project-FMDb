@@ -3,8 +3,35 @@ const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
 const { processMoviesWithDirectors } = require('../utils/processMovies'); 
+
 // Search movies by title
 router.get('/search/:string', async (req, res) => {
+});
+
+// Get total page# of all movies or series
+router.get('/pageCount', async (req, res) => {
+    const type = req.query.type?.toLowerCase() === 'series' ? 'Series' : 'Movie'; // Default to 'Movie'
+    const pageSize = 25; // Number of movies per page
+
+    try {
+        // SQL query to count the total number of movies or series
+        const query = `
+            SELECT COUNT(*) AS TotalCount
+            FROM Movies
+            WHERE Type = @type;
+        `;
+
+        const request = new sql.Request();
+        request.input('type', sql.VarChar, type);
+
+        const result = await request.query(query);
+        const totalCount = result.recordset[0].TotalCount;
+        const totalPages = Math.ceil(totalCount / pageSize); // Calculate total pages
+
+        res.json({ success: true, totalPages: totalPages });
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+    }
 });
 
 // Get All Movies by Page# (with pagination) sort params = releaseDate, FMBD_Rating, IMDB_Rating, Title
