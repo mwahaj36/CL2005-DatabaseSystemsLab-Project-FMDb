@@ -1,33 +1,73 @@
-import React from "react";
-import Link from "next/link"; // ✅ Next.js Link for client-side routing
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import ErrorPopup from "@/components/Error";
 
 const Leaderboard = () => {
-  const topThree = [
-    {
-      username: "john_doe",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqVf5Tl5ULlCK3DBDOTjDEt23eKSYMOl33A&s",
-      activities: 42,
-      moviesWatched: 14,
-    },
-    {
-      username: "jane_smith",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShs8BCMNDaaydLAWMp9FZDjd2niJyTiHBCog&s",
-      activities: 38,
-      moviesWatched: 12,
-    },
-    {
-      username: "alex_lee",
-      image:
-        "https://preview.redd.it/cool-pfp-type-fanart-i-made-v0-000ob270kp7e1.png?width=640&crop=smart&auto=webp&s=0e399d56fac07442153386515fbb7a9bffff4c8c",
-      activities: 33,
-      moviesWatched: 11,
-    },
-  ];
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
-  const medalColors = ["#d4af37", "#757575", "#FF5733"];
-  const places = ["1st Place", "2nd Place", "3rd Place"];
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/users/leaderboard');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch leaderboard data');
+        }
+
+        const data = await response.json();
+        
+        if (!data.success) {
+          throw new Error('Failed to load leaderboard');
+        }
+
+        setLeaderboardData(data.users.slice(0, 3)); // Only take top 3 users
+      } catch (err) {
+        console.error('Error fetching leaderboard:', err);
+        setError(err.message);
+        setShowErrorPopup(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
+
+  const medalColors = [
+    "rgba(214, 175, 54, 0.6)",  // Gold with 70% opacity
+    "rgba(167, 167, 173, 0.6)", // Silver with 70% opacity
+    "rgba(130, 74, 2, 0.6)",    // Bronze with 70% opacity
+  ];  const places = ["1st Place", "2nd Place", "3rd Place"];
+
+  const closeErrorPopup = () => {
+    setShowErrorPopup(false);
+    setError(null);
+  };
+
+  if (loading) {
+    return (
+      <section id="leaderboard" className="relative">
+        <div className="text-center py-20">
+          <h2 className="text-white text-6xl font-bold mb-8">Leaderboard</h2>
+          <div className="text-white text-xl">Loading leaderboard...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (leaderboardData.length === 0 && !loading) {
+    return (
+      <section id="leaderboard" className="relative">
+        <div className="text-center py-20">
+          <h2 className="text-white text-6xl font-bold mb-8">Leaderboard</h2>
+          <div className="text-white text-xl">No leaderboard data available</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="leaderboard" className="relative">
@@ -36,22 +76,22 @@ const Leaderboard = () => {
           Leaderboard
         </h2>
         <div className="flex justify-center space-x-20">
-          {topThree.map((user, index) => (
-            <Link href={`/profile/${user.username}`} key={index}>
+          {leaderboardData.map((user, index) => (
+            <Link href={`/profile/${user.Username}`} key={user.UserID}>
               <div
                 className={`flex items-center p-4 bg-opacity-60 rounded-xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
-                style={{ backgroundColor: medalColors[index] }}
+                style={{ backgroundColor: medalColors[index]  }}
               >
                 <div className="w-32 h-32 bg-white rounded-xl overflow-hidden shadow-md">
                   <img
-                    src={user.image}
-                    alt={user.username}
+                    src={`https://ui-avatars.com/api/?name=${user.Username}&background=random`}
+                    alt={user.Username}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="flex flex-col items-center justify-center mx-4 text-center flex-1">
                   <h3 className="text-white text-lg font-semibold">
-                    {user.username}
+                    {user.Username}
                   </h3>
                   <span
                     className="text-white text-xl font-bold py-1 px-3 rounded-full"
@@ -60,10 +100,13 @@ const Leaderboard = () => {
                     {places[index]}
                   </span>
                   <p className="text-white text-sm mt-2">
-                    Activities Last Week: {user.activities}
+                    Activities: {user.ActivityCount}
                   </p>
                   <p className="text-white text-sm mt-2">
-                    Movies Watched: {user.moviesWatched}
+                    Movies Watched: {user.MoviesWatchedCount}
+                  </p>
+                  <p className="text-white text-sm mt-2 font-bold">
+                    Total Score: {user.Score}
                   </p>
                 </div>
               </div>
@@ -71,6 +114,13 @@ const Leaderboard = () => {
           ))}
         </div>
       </div>
+
+      {showErrorPopup && (
+        <ErrorPopup 
+          message={error || 'An error occurred while loading the leaderboard'} 
+          onClose={closeErrorPopup} 
+        />
+      )}
     </section>
   );
 };
