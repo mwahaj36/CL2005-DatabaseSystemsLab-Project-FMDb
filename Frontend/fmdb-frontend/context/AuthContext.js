@@ -31,7 +31,12 @@ export const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
-      setUser({ username: data.username, userID: data.userId });
+      setUser({
+        userID: data.user.userId,
+        username: data.user.userName,
+        userType: data.user.userType,
+        privacy: data.user.privacy
+      });
       setToken(data.token);
       setError(null);
 
@@ -78,8 +83,13 @@ export const AuthProvider = ({ children }) => {
         throw new Error(errorData.message || 'Signup failed');
       }
 
-      const data = await response.json();
-      setUser({ username: data.userName, userID: data.userId });
+      const data = await response.json();      
+      setUser({
+        userID: data.user.userId,
+        username: data.user.userName,
+        userType: data.user.userType,
+        privacy: data.user.privacy
+      });
       setToken(data.token);
       setError(null);
       

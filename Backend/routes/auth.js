@@ -20,7 +20,7 @@ router.post('/signin', async (req, res) => {
 
     try {
         const query = `
-            SELECT UserId, PasswordHash 
+            SELECT UserId, PasswordHash, UserType, Privacy, Username
             FROM Users 
             WHERE Username = @userName
         `;
@@ -36,7 +36,13 @@ router.post('/signin', async (req, res) => {
             if (isMatch) {
                 const payload = { userId: result.recordset[0].UserId }; // Add userId to the payload of jwt token for info fetching in other calls.
                 const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
-                res.json({ success: true, message: 'Authentication successful', token: token, userId: payload.userId });
+                const user = {
+                    userId: result.recordset[0].UserId,
+                    userName: result.recordset[0].Username,
+                    userType: result.recordset[0].UserType,
+                    privacy: result.recordset[0].Privacy
+                };
+                res.json({ success: true, message: 'Authentication successful', token: token, user: user });
             } else {
                 res.status(401).json({ success: false, message: 'Invalid Password' });
             }
@@ -166,8 +172,13 @@ router.post('/signup', async (req, res) => {
         // Generate JWT token
         const payload = { userId: insertResult.recordset[0].UserId };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60d' });
-
-        res.json({ success: true, message: 'User registered successfully', token: token, userId: payload.userId });
+        const user = {
+            userId: insertResult.recordset[0].UserId,
+            userName: userName,
+            userType: 'User',
+            privacy: 'Private'
+        };
+        res.json({ success: true, message: 'User registered successfully', token: token, user: user });
     } catch (err) {
         console.error('Error during sign up:', err.message);
         res.status(500).send('Error during sign up');
