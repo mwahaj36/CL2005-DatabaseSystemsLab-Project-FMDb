@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTopMovies = async () => {
       try {
-        const response = await fetch('http://localhost:5000/critics/movies');
+        const response = await fetch('http://localhost:5000/critic/movies');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
