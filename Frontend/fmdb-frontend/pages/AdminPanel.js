@@ -18,7 +18,7 @@ export default function AdminPanel() {
     movieLength: "",
     moviePosterLink: "",
     movieBackdropLink: "",
-    language: "English",
+    language: "English", // Added language field
     imdbRating: "",
     fmdbRating: "",
     awards: "",
