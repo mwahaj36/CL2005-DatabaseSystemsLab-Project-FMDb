@@ -17,7 +17,6 @@ router.get('/user', authenticateToken, async (req, res) => {
         }
         res.send({ success: true, requests: result.recordset });
     } catch (error) {
-        console.error('Unexpected error:', error);
         res.status(500).send({ success: false, message: 'Internal server error' });
     }
 });
