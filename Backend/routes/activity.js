@@ -1,6 +1,7 @@
 const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
+const { processMoviesWithDirectors } = require('../utils/processMovies');
 const router = express.Router();
 
 // Submit an activity [NOT REPLY] (requires JWT token containing userId)
@@ -169,14 +170,18 @@ router.get('/all/:movieid', async (req, res) => {
             review.Replies = repliesResult.recordset;
         }
 
-        // Fetch backdrop image for the movie
-        const getBackdropQuery = `SELECT MovieBackdropLink FROM Movies WHERE MovieID = @movieid`;
-        const backdropRequest = new sql.Request();
-        backdropRequest.input('movieid', sql.Int, movieid);
-        const backdropResult = await backdropRequest.query(getBackdropQuery);
+        // Fetch some movie deets
+        const movieDeetsQuery = `
+            SELECT MovieBackdropLink, Title, MovieID  
+            FROM Movies 
+            WHERE MovieID = @movieid
+        `;
+        const movieDeetsRequest = new sql.Request();
+        movieDeetsRequest.input('movieid', sql.Int, movieid);
+        const deetsResult = await movieDeetsRequest.query(movieDeetsQuery);
+        const movieDetails = await processMoviesWithDirectors(deetsResult.recordset);
 
-
-        return res.json({ success: true, backdrop: backdropResult.recordset[0].MovieBackdropLink, reviews: reviews });
+        return res.json({ success: true, movie: movieDetails[0], reviews: reviews });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }

@@ -2,7 +2,7 @@ const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const router = express.Router();
-const { processMoviesWithDirectors } = require('../utils/processMovies'); // Assuming you have a utility function to process movies
+const { processMoviesWithDirectors } = require('../utils/processMovies');
 
 // Get Top 5 Movies based on Critics movie ratings on last 7 days
 router.get('/movies', async (req, res) => {

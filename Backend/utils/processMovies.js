@@ -33,6 +33,7 @@ async function processMoviesWithDirectors(recordset) {
         movieid: row.MovieID,
         title: row.Title,
         movieposterlink: row.MoviePosterLink,
+        moviebackdroplink: row.MovieBackdropLink,
         directors: directorsMap[row.MovieID] || []
     }));
 };
