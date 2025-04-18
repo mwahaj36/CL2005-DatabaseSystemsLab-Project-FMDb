@@ -832,6 +832,20 @@ video {
   margin-top: 2rem;
 }
 
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .block {
   display: block;
 }
@@ -914,6 +928,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .max-h-60 {

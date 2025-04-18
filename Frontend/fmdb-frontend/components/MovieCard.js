@@ -14,9 +14,9 @@ const MovieCard = ({ movie }) => {
   }
 
   return (
-    <div className="flex flex-col items-center p-4 space-y-4 rounded-lg  transition-all duration-300 w-full h-full">
+    <div className="flex flex-col items-center p-4 space-y-4 rounded-lg transition-all duration-300 w-full h-full">
       <Link href={`/movie/${movie.movieid}`} passHref legacyBehavior>
-        <a className="w-full">
+        <a className="w-full flex flex-col items-center">
           <img
             src={movie.movieposterlink || '/placeholder-movie.jpg'}
             className="w-60 h-90 object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
@@ -28,10 +28,12 @@ const MovieCard = ({ movie }) => {
           />
         </a>
       </Link>
-      <div className="text-center w-full px-2">
-        <h5 className="text-lg font-bold text-white truncate">{movie.title}</h5>
+      <div className="text-center w-full px-2 h-20 flex flex-col justify-center">
+        <h5 className="text-lg font-bold text-white line-clamp-2" title={movie.title}>
+          {movie.title}
+        </h5>
         {movie.directors?.length > 0 && (
-          <p className="text-gray-400 text-sm mt-1">
+          <p className="text-gray-400 text-sm mt-1 line-clamp-1" title={movie.directors.join(', ')}>
             Directed by: {movie.directors.join(', ')}
           </p>
         )}
