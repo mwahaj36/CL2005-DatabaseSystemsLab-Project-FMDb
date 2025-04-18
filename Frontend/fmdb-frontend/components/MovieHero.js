@@ -1,15 +1,49 @@
-import React, { useState } from 'react';
-import ActivityCard from './ActivityCard'; // adjust the path if needed
-import Error from '@/components/Error'; // adjust the path as necessary
+
+import React, { useState, useEffect } from 'react';
+import ActivityCard from './ActivityCard';
+import Error from '@/components/Error';
+import { useAuth } from '@/context/AuthContext';
 
 const MovieHero = ({ movieData }) => {
   const [showActivityCard, setShowActivityCard] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [currentUser, setCurrentUser] = useState(null); // Mock user data
-  const [user, setUser] = useState({
-    name: 'Test User',
-    watchlist: [],
-  });
+  const [isInWatchlist, setIsInWatchlist] = useState(false);
+  const [loadingWatchlist, setLoadingWatchlist] = useState(true);
+  const { user: currentUser, token } = useAuth();
+
+  useEffect(() => {
+    const checkWatchlistStatus = async () => {
+      if (!currentUser || !movieData?.movieId) {
+        setLoadingWatchlist(false);
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `http://localhost:5000/watchlist/isWatchlist/${movieData.movieId}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch watchlist status');
+        }
+
+        const data = await response.json();
+        setIsInWatchlist(data.isWatchlist);
+      } catch (error) {
+        console.error('Error checking watchlist:', error);
+        setErrorMessage('Failed to check watchlist status');
+      } finally {
+        setLoadingWatchlist(false);
+      }
+    };
+
+    checkWatchlistStatus();
+  }, [currentUser, movieData?.movieId, token]);
 
   const handleOverlayClick = (e) => {
     if (e.target.id === 'activity-overlay') {
@@ -17,20 +51,42 @@ const MovieHero = ({ movieData }) => {
     }
   };
 
-  const isInWatchlist = user.watchlist.includes(movieData.movieId);
-
-  const handleWatchlistToggle = () => {
+  const handleWatchlistToggle = async () => {
     if (!currentUser) {
-      setErrorMessage("You must be logged in to add movies to your watchlist.");
+      setErrorMessage("You must be logged in to manage your watchlist.");
       return;
     }
-    
-    setUser((prevUser) => ({
-      ...prevUser,
-      watchlist: isInWatchlist
-        ? prevUser.watchlist.filter((id) => id !== movieData.movieId)
-        : [...prevUser.watchlist, movieData.movieId]
-    }));
+
+    try {
+      setLoadingWatchlist(true);
+      const method = isInWatchlist ? 'DELETE' : 'POST';
+      const response = await fetch(
+        `http://localhost:5000/watchlist/${movieData.movieId}`,
+        {
+          method,
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to ${isInWatchlist ? 'remove from' : 'add to'} watchlist`);
+      }
+
+      const data = await response.json();
+      if (data.success) {
+        setIsInWatchlist(!isInWatchlist);
+      } else {
+        throw new Error(data.message || 'Operation failed');
+      }
+    } catch (error) {
+      console.error('Watchlist error:', error);
+      setErrorMessage(error.message || 'Failed to update watchlist');
+    } finally {
+      setLoadingWatchlist(false);
+    }
   };
 
   const handleAddActivity = () => {
@@ -109,9 +165,18 @@ const MovieHero = ({ movieData }) => {
               </button>
               <button
                 onClick={handleWatchlistToggle}
-                className="bg-purpleWhite hover:bg-purple hover:text-purple transition-colors duration-200 text-darkPurple hover:text-white font-semibold py-2 px-4 rounded-2xl shadow-md"
+                disabled={loadingWatchlist}
+                className={`bg-purpleWhite hover:bg-purple hover:text-purple transition-colors duration-200 text-darkPurple hover:text-white font-semibold py-2 px-4 rounded-2xl shadow-md ${
+                  loadingWatchlist ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
-                {isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
+                {loadingWatchlist ? (
+                  'Loading...'
+                ) : isInWatchlist ? (
+                  'Remove from Watchlist'
+                ) : (
+                  'Add to Watchlist'
+                )}
               </button>
             </div>
           </div>
