@@ -124,7 +124,7 @@ router.get('/all/:movieid', async (req, res) => {
                 a.Ratings, 
                 a.IsLogged, 
                 a.ActivityDateTime, 
-                (SELECT COUNT(*) FROM ActivityLikes WHERE ActivityID = a.ActivityID) AS LikeCount
+                (SELECT COUNT(*) FROM ActivityLikes WHERE ActivityID = a.ActivityID) AS ActivityLikeCount
             FROM 
                 Activity a
             JOIN 
@@ -151,7 +151,7 @@ router.get('/all/:movieid', async (req, res) => {
                     a.Ratings, 
                     a.IsLogged, 
                     a.ActivityDateTime, 
-                    (SELECT COUNT(*) FROM ActivityLikes WHERE ActivityID = a.ActivityID) AS LikeCount
+                    (SELECT COUNT(*) FROM ActivityLikes WHERE ActivityID = a.ActivityID) AS ActivityLikeCount
                 FROM 
                     Reply r
                 JOIN 
@@ -169,9 +169,50 @@ router.get('/all/:movieid', async (req, res) => {
             review.Replies = repliesResult.recordset;
         }
 
-        return res.status(200).json({ success: true, reviews });
+        // Fetch backdrop image for the movie
+        const getBackdropQuery = `SELECT MovieBackdropLink FROM Movies WHERE MovieID = @movieid`;
+        const backdropRequest = new sql.Request();
+        backdropRequest.input('movieid', sql.Int, movieid);
+        const backdropResult = await backdropRequest.query(getBackdropQuery);
+
+
+        return res.json({ success: true, backdrop: backdropResult.recordset[0].MovieBackdropLink, reviews: reviews });
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Get Top 5 reviews of a movie (movieid will be passed as a URL parameter)
+router.get('/top/:movieid', async (req, res) => {
+    const movieid = parseInt(req.params.movieid, 10);
+
+    if (isNaN(movieid)) {
+        return res.status(400).json({ success: false, message: 'Invalid Movie ID' });
+    }
+
+    const query = `
+        WITH Activities AS (
+            SELECT TOP 10 U.Username, A.ActivityDateTime, A.ActivityID, A.Ratings, COUNT(AL.UserID) AS ActivityLikeCount
+            FROM Activity A
+            JOIN Movies M ON M.MovieID = A.MovieID
+            JOIN Users U ON U.UserID = A.UserID
+            LEFT JOIN ActivityLikes AL ON A.ActivityID = AL.ActivityID
+            WHERE A.IsReply = 0 AND A.Ratings IS NOT NULL AND A.Review IS NOT NULL AND M.MovieID = @movieid 
+            GROUP BY M.Title, M.MoviePosterLink, M.ReleaseDate, A.ActivityDateTime, U.Username, A.Ratings, A.ActivityID
+            ORDER BY ActivityLikeCount DESC
+        )
+        SELECT AC.ActivityDateTime, AC.Username, AC.Ratings, AC.ActivityID, AC.ActivityLikeCount, A.Review
+        FROM Activities AC JOIN Activity A ON AC.ActivityID = A.ActivityID
+    `;
+
+    try {
+        const request = new sql.Request();
+        request.input('movieid', sql.Int, movieid);
+        const result = await request.query(query);
+
+        res.json({ success: true, topReviews: result.recordset });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
 });
 

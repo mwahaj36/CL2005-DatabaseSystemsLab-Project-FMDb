@@ -35,16 +35,16 @@ router.get('/movies', async (req, res) => {
 router.get('/reviews', async (req, res) => {
     const query = `
         WITH Activities AS (
-            SELECT TOP 10 M.Title, M.MoviePosterLink, M.ReleaseDate, U.Username, A.ActivityDateTime, A.ActivityID, A.Ratings, COUNT(AL.UserID) AS ActivityLikes
+            SELECT TOP 10 M.Title, M.MoviePosterLink, M.ReleaseDate, U.Username, A.ActivityDateTime, A.ActivityID, A.Ratings, COUNT(AL.UserID) AS ActivityLikeCount
             FROM Activity A
             JOIN Movies M ON M.MovieID = A.MovieID
             JOIN Users U ON U.UserID = A.UserID
-            JOIN ActivityLikes AL ON A.ActivityID = AL.ActivityID
+            LEFT JOIN ActivityLikes AL ON A.ActivityID = AL.ActivityID
             WHERE U.UserType = 'Critic' AND A.IsReply = 0 AND A.Ratings IS NOT NULL AND A.Review IS NOT NULL AND DATEDIFF(DAY, A.ActivityDateTime, GETDATE()) <= 7 
             GROUP BY M.Title, M.MoviePosterLink, M.ReleaseDate, A.ActivityDateTime, U.Username, A.Ratings, A.ActivityID
-            ORDER BY ActivityLikes DESC
+            ORDER BY ActivityLikeCount DESC
         )
-        SELECT AC.Title, AC.MoviePosterLink, AC.ReleaseDate, AC.ActivityDateTime, AC.Username, AC.Ratings, AC.ActivityLikes, A.Review
+        SELECT AC.Title, AC.MoviePosterLink, AC.ReleaseDate, AC.ActivityDateTime, AC.Username, AC.Ratings, AC.ActivityLikeCount, A.Review, A.ActivityID
         FROM Activities AC JOIN Activity A ON AC.ActivityID = A.ActivityID
     `;
 
