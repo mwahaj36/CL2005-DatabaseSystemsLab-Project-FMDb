@@ -267,7 +267,7 @@ const HomePage = () => {
       
       {/* Welcome message for logged in users */}
       {user && (
-        <h1 className="mt-10 relative z-10 text-8xl text-white text-shadow font-bold text-center">
+        <h1 className=" relative z-10 text-8xl text-white text-shadow font-bold text-center">
           Welcome Back!
         </h1>
       )}
@@ -277,7 +277,7 @@ const HomePage = () => {
 
       {/* Spotlight section (for all users) */}
       <section className="relative z-10 pt-10">
-        <h2 className="text-6xl text-white text-shadow font-bold text-center">
+        <h2 className="-mt-5 text-6xl text-white text-shadow font-bold text-center">
           In the Spotlight
         </h2>
         {apiState.trending.loading ? (
@@ -299,7 +299,7 @@ const HomePage = () => {
                 Recommended For You
               </h2>
               {apiState.recommended.recommendedOn && (
-                <p className="text-center text-purple-300 text-xl mb-6">
+                <p className="text-center text-purple-300 text-xl mb-6]]">
                   Based on your interest in: {apiState.recommended.recommendedOn}
                 </p>
               )}

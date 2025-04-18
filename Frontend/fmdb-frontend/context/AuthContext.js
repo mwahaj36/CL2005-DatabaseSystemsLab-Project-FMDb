@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 
 export const AuthContext = createContext();
@@ -7,10 +7,55 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   const API_BASE_URL = "http://localhost:5000";
 
+  // 1. Restore session on initial load
+  useEffect(() => {
+    const initializeAuth = async () => {
+      const storedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
+      const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+
+      if (storedToken && storedUser) {
+        try {
+          // Immediately set user for UI (navbar)
+          setUser(JSON.parse(storedUser));
+          setToken(storedToken);
+          
+          // Verify token in background
+          await verifyToken(storedToken);
+        } catch (err) {
+          console.error('Session restoration failed:', err);
+          logout();
+        }
+      }
+      setLoading(false);
+    };
+
+    initializeAuth();
+  }, []);
+
+  // 2. Token verification function
+  const verifyToken = async (token) => {
+    try {
+      // Use any protected endpoint - we'll use critic/movies as example
+      const response = await fetch(`${API_BASE_URL}/critic/movies`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Token verification failed');
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  // 3. Login function
   const login = async (username, password, rememberMe) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/signin`, {
@@ -31,19 +76,25 @@ export const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
-      setUser({
+      const userData = {
         userID: data.user.userId,
         username: data.user.userName,
         userType: data.user.userType,
         privacy: data.user.privacy
-      });
+      };
+      
+      // Update state
+      setUser(userData);
       setToken(data.token);
       setError(null);
 
+      // Store data
       if (rememberMe) {
         localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(userData));
       } else {
         sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('user', JSON.stringify(userData));
       }
 
       router.push("/");
@@ -53,15 +104,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 4. Logout function
   const logout = () => {
+    // Clear state
     setUser(null);
     setToken(null);
     setError(null);
+    
+    // Clear all storage
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
+    
     router.push("/");
   };
 
+  // 5. Signup function
   const signup = async (firstName, lastName, username, email, password) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/signup`, {
@@ -83,15 +142,21 @@ export const AuthProvider = ({ children }) => {
         throw new Error(errorData.message || 'Signup failed');
       }
 
-      const data = await response.json();      
-      setUser({
+      const data = await response.json();
+      const userData = {
         userID: data.user.userId,
         username: data.user.userName,
         userType: data.user.userType,
         privacy: data.user.privacy
-      });
+      };
+      
+      // Update state and storage
+      setUser(userData);
       setToken(data.token);
       setError(null);
+      
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(userData));
       
       router.push("/EditProfile");
       return data;
@@ -101,6 +166,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // 6. Reset password function
   const resetPassword = async (email, newPassword) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/reset`, {
@@ -127,34 +193,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const checkAuth = async () => {
-    const storedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
-    if (storedToken && !user) {
-      try {
-        setToken(storedToken);
-        // You might want to verify the token with your backend here
-      } catch (err) {
-        console.error('Session validation failed:', err);
-        logout();
-      }
-    }
-  };
-
   return (
     <AuthContext.Provider
       value={{
         user,
         token,
-        setUser,
-        login,
-        signup,
-        logout, // Now properly included
-        resetPassword,
         error,
-        checkAuth
+        loading,
+        login,
+        logout,
+        signup,
+        resetPassword
       }}
     >
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 };
