@@ -12,6 +12,7 @@ const AllReviewsPage = () => {
   const [movie, setMovie] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [likedReviews, setLikedReviews] = useState({});
+  const [deletableReviews, setDeletableReviews] = useState({});
   const [newReply, setNewReply] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,12 +30,27 @@ const AllReviewsPage = () => {
   const formatReleaseYear = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
-    return isNaN(date) ? '' : date.getFullYear();
+    return isNaN(date.getTime()) ? '' : date.getFullYear();
   };
 
   const closeErrorPopup = () => {
     setShowErrorPopup(false);
     setError(null);
+  };
+
+  const checkDeletableStatus = async (activityId) => {
+    if (!user || !token) return false;
+    
+    try {
+      const response = await fetch(`http://localhost:5000/activity/isDeletable/${activityId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await response.json();
+      return data.success && data.isDeletable;
+    } catch (err) {
+      console.error('Error checking deletable status:', err);
+      return false;
+    }
   };
 
   useEffect(() => {
@@ -57,36 +73,55 @@ const AllReviewsPage = () => {
           title: data.movie.title,
           backdrop: data.movie.moviebackdroplink,
           directors: data.movie.directors,
-          releaseDate: data.movie.releasedate || ''
+          releaseDate: data.movie.releaseDate || ''
         });
 
-        setReviews(data.reviews || []);
+        const reviewsData = data.reviews || [];
+        setReviews(reviewsData);
 
         if (user && token) {
+          // Check likes and deletable status for all reviews and replies
           const likes = {};
-          await Promise.all(
-            data.reviews.map(async (review) => {
-              try {
-                const url = new URL('http://localhost:5000/activity/isLiked');
-                url.searchParams.set('activityId', review.ActivityID);
-                url.searchParams.set('userId', user.userID);
+          const deletable = {};
+          
+          const processActivities = async (activities) => {
+            await Promise.all(
+              activities.map(async (activity) => {
+                // Check like status
+                try {
+                  const url = new URL('http://localhost:5000/activity/isLiked');
+                  url.searchParams.set('activityId', activity.ActivityID);
+                  url.searchParams.set('userId', user.userID);
 
-                const response = await fetch(url, {
-                  method: 'GET',
-                  headers: { 'Authorization': `Bearer ${token}` }
-                });
+                  const likeResponse = await fetch(url, {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                  });
 
-                if (response.ok) {
-                  const likeData = await response.json();
-                  likes[review.ActivityID] = likeData.isLiked;
+                  if (likeResponse.ok) {
+                    const likeData = await likeResponse.json();
+                    likes[activity.ActivityID] = likeData.isLiked;
+                  }
+                } catch (err) {
+                  console.error(`Error checking like for activity ${activity.ActivityID}:`, err);
+                  likes[activity.ActivityID] = false;
                 }
-              } catch (err) {
-                console.error(`Error checking like for review ${review.ActivityID}:`, err);
-                likes[review.ActivityID] = false;
-              }
-            })
-          );
+
+                // Check deletable status
+                deletable[activity.ActivityID] = await checkDeletableStatus(activity.ActivityID);
+
+                // Process replies recursively
+                if (activity.Replies && activity.Replies.length > 0) {
+                  await processActivities(activity.Replies);
+                }
+              })
+            );
+          };
+
+          await processActivities(reviewsData);
+          
           setLikedReviews(likes);
+          setDeletableReviews(deletable);
         }
       } catch (err) {
         setError(err.message);
@@ -99,33 +134,47 @@ const AllReviewsPage = () => {
     fetchData();
   }, [slug, user, token]);
 
-  const handleLikeClick = async (reviewID) => {
+  const handleLikeClick = async (activityID) => {
     if (!user || !token) {
       setError("Please log in to like a review!");
       setShowErrorPopup(true);
       return;
     }
 
-    const isLiked = !!likedReviews[reviewID];
+    const isLiked = !!likedReviews[activityID];
 
     try {
       // Optimistic update
-      setLikedReviews(prev => ({ ...prev, [reviewID]: !isLiked }));
-      setReviews(prev =>
-        prev.map(review =>
-          review.ActivityID === reviewID
-            ? {
-                ...review,
-                ActivityLikeCount: isLiked
-                  ? (review.ActivityLikeCount || 0) - 1
-                  : (review.ActivityLikeCount || 0) + 1
-              }
-            : review
-        )
-      );
+      setLikedReviews(prev => ({ ...prev, [activityID]: !isLiked }));
+      
+      // Update reviews state
+      const updateActivityLikes = (activities) => {
+        return activities.map(activity => {
+          if (activity.ActivityID === activityID) {
+            return {
+              ...activity,
+              ActivityLikeCount: isLiked
+                ? (activity.ActivityLikeCount || 0) - 1
+                : (activity.ActivityLikeCount || 0) + 1
+            };
+          }
+          
+          // Check replies
+          if (activity.Replies && activity.Replies.length > 0) {
+            return {
+              ...activity,
+              Replies: updateActivityLikes(activity.Replies)
+            };
+          }
+          
+          return activity;
+        });
+      };
+
+      setReviews(prev => updateActivityLikes(prev));
 
       const response = await fetch(
-        `http://localhost:5000/activity/like/${reviewID}`,
+        `http://localhost:5000/activity/like/${activityID}`,
         {
           method: isLiked ? 'DELETE' : 'POST',
           headers: { 'Authorization': `Bearer ${token}` }
@@ -144,19 +193,31 @@ const AllReviewsPage = () => {
     } catch (err) {
       console.error('Like action failed:', err);
       // Rollback
-      setLikedReviews(prev => ({ ...prev, [reviewID]: isLiked }));
-      setReviews(prev =>
-        prev.map(review =>
-          review.ActivityID === reviewID
-            ? {
-                ...review,
-                ActivityLikeCount: isLiked
-                  ? (review.ActivityLikeCount || 0)
-                  : Math.max(0, (review.ActivityLikeCount || 0) - 1)
-              }
-            : review
-        )
-      );
+      setLikedReviews(prev => ({ ...prev, [activityID]: isLiked }));
+      
+      const rollbackActivityLikes = (activities) => {
+        return activities.map(activity => {
+          if (activity.ActivityID === activityID) {
+            return {
+              ...activity,
+              ActivityLikeCount: isLiked
+                ? (activity.ActivityLikeCount || 0)
+                : Math.max(0, (activity.ActivityLikeCount || 0) - 1)
+            };
+          }
+          
+          if (activity.Replies && activity.Replies.length > 0) {
+            return {
+              ...activity,
+              Replies: rollbackActivityLikes(activity.Replies)
+            };
+          }
+          
+          return activity;
+        });
+      };
+
+      setReviews(prev => rollbackActivityLikes(prev));
       setError(err.message);
       setShowErrorPopup(true);
     }
@@ -185,8 +246,21 @@ const AllReviewsPage = () => {
         throw new Error(data.message || 'Failed to delete review');
       }
 
-      // Remove the deleted review from state
-      setReviews(prev => prev.filter(review => review.ActivityID !== activityId));
+      // Remove the deleted activity from state
+      const removeActivity = (activities) => {
+        return activities.filter(activity => activity.ActivityID !== activityId)
+          .map(activity => {
+            if (activity.Replies && activity.Replies.length > 0) {
+              return {
+                ...activity,
+                Replies: removeActivity(activity.Replies)
+              };
+            }
+            return activity;
+          });
+      };
+
+      setReviews(prev => removeActivity(prev));
     } catch (err) {
       console.error('Delete action failed:', err);
       setError(err.message);
@@ -239,20 +313,37 @@ const AllReviewsPage = () => {
         Replies: [],
         IsReply: true,
         ReplyTo: reviewID,
+        ActivityLikeCount: 0,
+        UserID: user.userID
       };
 
-      setReviews(prev =>
-        prev.map(review =>
-          review.ActivityID === reviewID
-            ? {
-                ...review,
-                Replies: [...(review.Replies || []), newReplyObj],
-              }
-            : review
-        )
-      );
+      // Update reviews state with the new reply
+      const addReplyToActivity = (activities) => {
+        return activities.map(activity => {
+          if (activity.ActivityID === reviewID) {
+            return {
+              ...activity,
+              Replies: [...(activity.Replies || []), newReplyObj]
+            };
+          }
+          
+          if (activity.Replies && activity.Replies.length > 0) {
+            return {
+              ...activity,
+              Replies: addReplyToActivity(activity.Replies)
+            };
+          }
+          
+          return activity;
+        });
+      };
 
+      setReviews(prev => addReplyToActivity(prev));
       setNewReply(prev => ({ ...prev, [reviewID]: '' }));
+
+      // Update likedReviews and deletableReviews for the new reply
+      setLikedReviews(prev => ({ ...prev, [data.activityID]: false }));
+      setDeletableReviews(prev => ({ ...prev, [data.activityID]: true }));
     } catch (err) {
       console.error('Error submitting reply:', err);
       setError(err.message);
@@ -271,22 +362,58 @@ const AllReviewsPage = () => {
       return null;
     }
 
-    return replyList.map((reply) => (
-      <div key={reply.ActivityID} className="pl-8 mt-4 items-center text-left ml-20 p-4 rounded-lg">
-        <div className="flex items-center space-x-4">
-          <img
-            src={'/default-pic.jpg'}
-            alt={reply.Username}
-            className="w-12 h-12 mt-2 rounded-md object-cover"
-          />
-          <div>
-            <p className="text-purpleWhite font-bold text-xl mt-2">{reply.Username}</p>
-            <p className="text-white text-xs italic">{formatTimeAgo(reply.ActivityDateTime)}</p>
-            <p className="text-white text-lg mt-2">{reply.ReviewText}</p>
+    return replyList.map((reply) => {
+      const isLiked = likedReviews[reply.ActivityID] || false;
+      const isDeletable = deletableReviews[reply.ActivityID] || false;
+
+      return (
+        <div key={reply.ActivityID} className="pl-8 mt-4 items-center text-left ml-20 p-4 rounded-lg bg-black bg-opacity-30">
+          <div className="flex items-center space-x-4 relative">
+            <img
+              src={'/default-pic.jpg'}
+              alt={reply.Username}
+              className="w-12 h-12 rounded-md object-cover"
+            />
+            <div className="flex-1">
+              <p className="text-purpleWhite font-bold text-xl">{reply.Username}</p>
+              <p className="text-white text-xs italic">{formatTimeAgo(reply.ActivityDateTime)}</p>
+              <p className="text-white text-lg mt-2">{reply.ReviewText}</p>
+            </div>
+            <div className="absolute bottom-4 right-4 flex items-center">
+              <span className="text-white mr-2">{reply.ActivityLikeCount || 0}</span>
+              <button
+                onClick={() => handleLikeClick(reply.ActivityID)}
+                className={`text-2xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
+                  isLiked ? 'text-red-500' : 'text-white'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24" fill="currentColor"
+                     className="w-6 h-6">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                           2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 
+                           3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                           3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+              </button>
+              
+              {isDeletable && (
+                <button
+                  onClick={() => handleDeleteReview(reply.ActivityID)}
+                  className="ml-2 text-white hover:text-red-500 transition-colors duration-200"
+                  title="Delete reply"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              )}
+            </div>
           </div>
+          {renderReplies(reply.Replies)}
         </div>
-      </div>
-    ));
+      );
+    });
   };
 
   if (loading) {
@@ -328,9 +455,8 @@ const AllReviewsPage = () => {
               reviews.map((review) => {
                 if (review.IsReply) return null;
 
-                const isLiked = likedReviews[review.ActivityID];
-                const isOwner = user?.userID === review.UserID;
-                const isAdmin = user?.userType === 'admin';
+                const isLiked = likedReviews[review.ActivityID] || false;
+                const isDeletable = deletableReviews[review.ActivityID] || false;
 
                 return (
                   <div
@@ -374,6 +500,7 @@ const AllReviewsPage = () => {
                           </svg>
                         </button>
                         
+                        {isDeletable && (
                           <button
                             onClick={() => handleDeleteReview(review.ActivityID)}
                             className="ml-2 text-white hover:text-red-500 transition-colors duration-200"
@@ -383,6 +510,7 @@ const AllReviewsPage = () => {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
+                        )}
                       </div>
                     </div>
 
