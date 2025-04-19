@@ -11,8 +11,8 @@ router.post('/submit', authenticateToken, async (req, res) => {
 
     try {
         // Validate input
-        if (!movieId || !review || !ratings || typeof isLogged !== 'boolean') {
-            return res.status(400).json({ success: false, message: 'Invalid input data' });
+        if (!movieId || !isLogged) {
+            return res.status(400).json({ success: false, message: 'Give movieId and isLogged u buffoon' });
         }
 
         // Check if the movie exists in the database
@@ -26,16 +26,34 @@ router.post('/submit', authenticateToken, async (req, res) => {
         }
 
         // Insert the activity into the database
-        const insertActivityQuery = `
-            INSERT INTO Activity (UserID, MovieID, Review, Ratings, IsLogged, IsReply)
-            VALUES (@userId, @movieId, @review, @ratings, @isLogged, 0)
-        `;
+        const columns = ['UserID', 'MovieID', 'IsLogged', 'IsReply'];
+        const values = ['@userId', '@movieId', '@isLogged', '0'];
+        
         const insertRequest = new sql.Request();
+        
         insertRequest.input('userId', sql.Int, userId);
         insertRequest.input('movieId', sql.Int, movieId);
-        insertRequest.input('review', sql.NVarChar, review);
-        insertRequest.input('ratings', sql.Int, ratings);
         insertRequest.input('isLogged', sql.Bit, isLogged);
+        
+        // Optional: Review
+        if (review !== undefined && review !== null) {
+          columns.push('Review');
+          values.push('@review');
+          insertRequest.input('review', sql.NVarChar, review);
+        }
+        
+        // Optional: Ratings
+        if (ratings !== undefined && ratings !== null) {
+          columns.push('Ratings');
+          values.push('@ratings');
+          insertRequest.input('ratings', sql.Int, ratings);
+        }
+        
+        // Final query
+        const insertActivityQuery = `
+          INSERT INTO Activity (${columns.join(', ')})
+          VALUES (${values.join(', ')})
+        `;
 
         await insertRequest.query(insertActivityQuery);
         res.status(200).json({ success: true, message: 'Review submitted successfully' });
@@ -172,7 +190,7 @@ router.get('/all/:movieid', async (req, res) => {
 
         // Fetch some movie deets
         const movieDeetsQuery = `
-            SELECT MovieBackdropLink, Title, MovieID  
+            SELECT MovieBackdropLink, Title, MovieID, ReleaseDate  
             FROM Movies 
             WHERE MovieID = @movieid
         `;
@@ -393,6 +411,56 @@ router.delete('/:activityId', authenticateToken, async (req, res) => {
     } catch (err) {
         console.error('Error deleting activity:', err.message);
         res.status(500).send({ success: false, message: 'Error deleting activity.' });
+    }
+
+});
+
+// Check if Activity is Deletable (CurrentUser or Admin) (requires JWT token containing userId and activityId in request params)
+router.get('/isDeletable/:activityId', authenticateToken, async (req, res) => {
+    let { activityId } = req.params;
+    if (!activityId) {
+        return res.status(400).send({ success: false, message: 'activityId parameter is required.' });
+    }
+    activityId = parseInt(activityId, 10);
+    if (isNaN(activityId)) {
+        return res.status(400).send({ success: false, message: 'Invalid activityId. It must be a number.' });
+    }
+
+    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
+
+    try {
+        // Check if the activity exists
+        const checkActivityQuery = `SELECT * FROM Activity WHERE ActivityID = @activityId`;
+        const activityCheckRequest = new sql.Request();
+        activityCheckRequest.input('activityId', sql.Int, activityId);
+        const activityResult = await activityCheckRequest.query(checkActivityQuery);
+
+        if (activityResult.recordset.length === 0) {
+            return res.status(404).send({ success: false, message: 'Activity not found.' });
+        }
+        
+        // Check if the logged-in user is an admin or if they are the owner of the activity
+        const checkAdminOrOwnerQuery = `
+            SELECT *
+            FROM Users U
+            JOIN Activity A ON A.UserID = U.UserID
+            WHERE (U.UserID = @loggedInUserId AND U.UserType = 'admin') 
+                OR (A.ActivityID = @activityId AND A.UserID = @loggedInUserId)
+        `;
+
+        const request = new sql.Request();
+        request.input('loggedInUserId', sql.Int, loggedInUserId);
+        request.input('activityId', sql.Int, activityId);
+        const adminOrOwnerResult = await request.query(checkAdminOrOwnerQuery);
+
+        if (adminOrOwnerResult.recordset.length === 0) {
+            return res.status(403).send({ success: false, isDeletable: false});
+        }
+
+        res.send({ success: true, isDeletable: true });
+    } catch (err) {
+        console.error('Error:', err.message);
+        res.status(500).send({ success: false, message: 'Error' });
     }
 
 });
