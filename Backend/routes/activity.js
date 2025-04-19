@@ -56,7 +56,7 @@ router.post('/submit', authenticateToken, async (req, res) => {
         `;
 
         await insertRequest.query(insertActivityQuery);
-        res.status(200).json({ success: true, message: 'Review submitted successfully' });
+        return res.status(200).json({ success: true, message: 'Review submitted successfully' });
 
     } catch (error) {
         return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });

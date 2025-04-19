@@ -1,6 +1,7 @@
 const express = require('express');
 const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
+const { getUserBaseStats, getUserExtraStats, isFriend } = require('../utils/userDetails');
 const router = express.Router();
 
 // Get Top 3 Users (Leaderboard)
@@ -34,6 +35,23 @@ router.post('/friendRequest', authenticateToken, async (req, res) => {
     }
 
     try {
+        // check if the user exists
+        const userCheckQuery = `
+            SELECT * FROM Users WHERE UserID = @userId
+        `;
+        const userCheckRequest = new sql.Request();
+        userCheckRequest.input('userId', sql.Int, userId);
+        const userCheckResult = await userCheckRequest.query(userCheckQuery);
+        
+        if (userCheckResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        // check if the logged-in user is already friends with the target user
+        if (await isFriend(loggedInUserId, userId)) {
+            return res.status(400).json({ success: false, message: 'You are already friends with this user' });
+        }
+
         // Check if a friend request already exists
         const checkRequestQuery = `
             SELECT * FROM Notifications 
@@ -66,14 +84,113 @@ router.post('/friendRequest', authenticateToken, async (req, res) => {
     }
 });
 
+// Get user profile logged out ver.
+router.get('/public/:userid', async (req, res) => {
+    const userId = parseInt(req.params.userid, 10); // Extract userId from the request parameters
+
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Fetch user details from the database
+        const query = `
+            SELECT FullName, Username, Email, Gender, DateOfBirth, Bio, UserType, Privacy FROM Users WHERE UserID = @userId
+        `;
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const user = result.recordset[0];
+
+        // 2. Always fetch general activity stats
+        const basicDetails = await getUserBaseStats(userId);
+        
+        // 3. Only fetch extended info if profile is public
+        if (user.Privacy === 'Public') {
+            const extraDetails = await getUserExtraStats(userId);
+       
+            return res.status(200).json({
+                success: true,
+                user,
+                basicDetails,
+                favoriteMovies: extraDetails.favoriteMovies,
+                recentActivities: extraDetails.recentActivities,
+                yearlyStats: extraDetails.yearlyStats                
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                user,
+                basicDetails
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user profile logged in ver. (if JWT token is passed and account is a friend of the logged-in user or account is public)
+router.get('/:userid', authenticateToken, async (req, res) => {
+    const userId = parseInt(req.params.userid, 10); // Extract userId from the request parameters
+
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
+
+    try {
+        // Fetch user details from the database
+        const query = `
+            SELECT FullName, Username, Email, Gender, DateOfBirth, Bio, UserType, Privacy FROM Users WHERE UserID = @userId
+        `;
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const user = result.recordset[0];
+
+        // 2. Always fetch general activity stats
+        const basicDetails = await getUserBaseStats(userId);
+        
+        // 3. Only fetch extended info if profile is public, or if the logged-in user is a friend
+        if (user.Privacy === 'Public' || await isFriend(loggedInUserId, userId)) {
+            const extraDetails = await getUserExtraStats(userId);
+       
+            return res.status(200).json({
+                success: true,
+                user,
+                basicDetails,
+                favoriteMovies: extraDetails.favoriteMovies,
+                recentActivities: extraDetails.recentActivities,
+                yearlyStats: extraDetails.yearlyStats                
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                user,
+                basicDetails
+            });
+        }
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
 // Get friends list (Works only if accounts are public or if JWT token is passed and account is friend of the logged-in user)
 router.get('/friends/:userid', async (req, res) => {
     // Fetch friends of a user (Check account visibility and friendship status)
-});
-
-// Get user profile (Works only if account is public or if JWT token is passed and account is a friend of the logged-in user)
-router.get('/:userid', async (req, res) => {
-    // Fetch user profile details by userid (Check account visibility and friendship status)
 });
 
 // Update user profile (Requires JWT token with userid)

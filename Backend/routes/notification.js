@@ -52,12 +52,16 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
         let messageSender;
 
         if (notification.NotificationType === 'FriendRequest') {
-            query = `INSERT INTO Friends (UserId1, UserId2) VALUES (@userId1, @userId2)`;
-            request.input('userId1', sql.Int, notification.SenderId);
-            request.input('userId2', sql.Int, notification.ReceiverId);
-            await request.query(query);
-            messageSender = `User ${notification.ReceiverId} accepted your friend request!`;
+            const [u1, u2] = notification.ReceiverId < notification.SenderId
+                ? [notification.ReceiverId, notification.SenderId]
+                : [notification.SenderId, notification.ReceiverId];
             
+            const request = new sql.Request();
+            request.input('u1', sql.Int, u1);
+            request.input('u2', sql.Int, u2);
+        
+            await request.query(`INSERT INTO Friends (User1ID, User2ID) VALUES (@u1, @u2)`);
+            messageSender = `User ${notification.ReceiverId} accepted your friend request!`;            
             console.log(`Accepted friend request from user ${notification.SenderId}`);
         } else {
             // Delete this request for all admins

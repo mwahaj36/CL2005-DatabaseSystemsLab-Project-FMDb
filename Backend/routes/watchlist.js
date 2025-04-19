@@ -31,6 +31,7 @@ router.get('/isWatchlist/:movieId', authenticateToken, async (req, res) => {
     }
 });
 
+// Get user's watchlist public ver. (Works if account is public)
 router.get('/public/:userid', async (req, res) => {
     let { userid } = req.params;
     
