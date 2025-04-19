@@ -1,30 +1,147 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useAuth } from '@/context/AuthContext'; // Adjust the import path as needed
 
-const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard }) => {
+const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onDiscard }) => {
   const [watchedBefore, setWatchedBefore] = useState(true);
   const [watchedDate, setWatchedDate] = useState(new Date().toISOString().split('T')[0]);
   const [review, setReview] = useState('');
   const [tags, setTags] = useState('');
   const [liked, setLiked] = useState(false);
   const [rating, setRating] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLikeLoading, setIsLikeLoading] = useState(false);
+  const [error, setError] = useState(null);
+  
+  const { token, user } = useAuth();
+
+  // Check if movie is already liked when component mounts
+  useEffect(() => {
+    const checkIfLiked = async () => {
+      if (!token || !user?.userID || !movieId) return;
+      
+      try {
+        setIsLikeLoading(true);
+        const response = await fetch(
+          `http://localhost:5000/movies/like?movieId=${movieId}&userId=${user.userID}`,
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to check like status');
+        }
+
+        const data = await response.json();
+        setLiked(data.isLiked);
+      } catch (err) {
+        console.error('Error checking like status:', err);
+      } finally {
+        setIsLikeLoading(false);
+      }
+    };
+
+    checkIfLiked();
+  }, [token, user?.userID, movieId]);
 
   const handleRating = (index) => {
     setRating(index + 1);
   };
 
-  const handleSaveActivity = () => {
-    const activityData = {
-      movieTitle,
-      year: movieYear,
-      watchedBefore,
-      watchedDate: watchedBefore ? watchedDate : null,
-      review,
-      liked,
-      rating,
-    };
-    console.log('Saved Activity:', activityData);
-    if (onSave) {
-      onSave(activityData); // Call with data
+  const handleLike = async () => {
+    if (!token || !movieId) {
+      setError('You need to be logged in to like movies');
+      return;
+    }
+
+    try {
+      setIsLikeLoading(true);
+      setError(null);
+
+      const method = liked ? 'DELETE' : 'POST';
+      const url = `http://localhost:5000/movies/like/${movieId}`;
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update like status');
+      }
+
+      const data = await response.json();
+      setLiked(!liked); // Toggle like state
+      console.log(data.message);
+    } catch (err) {
+      console.error('Error updating like status:', err);
+      setError(err.message);
+    } finally {
+      setIsLikeLoading(false);
+    }
+  };
+
+  const handleSaveActivity = async () => {
+    if (!token) {
+      setError('You need to be logged in to save activities');
+      return;
+    }
+  
+    // Optional: Validate at least one field is filled
+    if (!review && rating === 0 && !watchedBefore) {
+      setError('Please provide at least a rating, review, or watched status');
+      return;
+    }
+  
+    setIsSubmitting(true);
+    setError(null);
+  
+    try {
+      // Prepare activity data with optional fields
+      const activityData = {
+        movieId,
+        review: review || " ", // Send null if review is empty
+        ratings: rating || 0, // Send null if rating is 0
+        isLogged: watchedBefore // This is a boolean so it's always defined
+      };
+  
+      const response = await fetch('http://localhost:5000/activity/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(activityData)
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save activity');
+      }
+  
+      const result = await response.json();
+      console.log('Activity saved:', result);
+  
+      // Call the onSave callback if provided
+      if (onSave) {
+        onSave({
+          ...activityData,
+          movieTitle,
+          year: movieYear,
+          liked,
+          watchedDate: watchedBefore ? watchedDate : null
+        });
+      }
+    } catch (err) {
+      console.error('Error saving activity:', err);
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -35,6 +152,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
         onClick={onDiscard}
         className="absolute top-4 right-4 text-white text-2xl font-bold hover:scale-110 transition"
         title="Discard"
+        disabled={isSubmitting}
       >
         &times;
       </button>
@@ -62,6 +180,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
                 checked={watchedBefore}
                 onChange={() => setWatchedBefore(!watchedBefore)}
                 className="w-4 h-4"
+                disabled={isSubmitting}
               />
               Watched on
               <input
@@ -71,7 +190,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
                 className={`bg-purple text-white p-1 rounded-xl border border-gray-500 ${
                   watchedBefore ? '' : 'opacity-50 cursor-not-allowed'
                 }`}
-                disabled={!watchedBefore}
+                disabled={!watchedBefore || isSubmitting}
               />
             </label>
           </div>
@@ -83,6 +202,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
             rows={4}
             value={review}
             onChange={(e) => setReview(e.target.value)}
+            disabled={isSubmitting}
           />
 
           {/* Tags + Rating + Like */}
@@ -95,13 +215,15 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
                 return (
                   <svg
                     key={index}
-                    onClick={() => handleRating(index)}
+                    onClick={() => !isSubmitting && handleRating(index)}
                     xmlns="http://www.w3.org/2000/svg"
                     fill={isSelected ? 'yellow' : 'none'}
                     viewBox="0 0 24 24"
                     stroke={isSelected ? 'none' : 'currentColor'}
                     strokeWidth={1}
-                    className="w-6 h-6 cursor-pointer transition-all hover:scale-110"
+                    className={`w-6 h-6 cursor-pointer transition-all hover:scale-110 ${
+                      isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   >
                     <path
                       strokeLinecap="round"
@@ -115,33 +237,52 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, onSave, onDiscard })
 
             {/* Like button */}
             <button
-              onClick={() => setLiked(!liked)}
+              onClick={handleLike}
               className="text-3xl"
-              title="Like"
+              title={liked ? "Unlike movie" : "Like movie"}
+              disabled={isSubmitting || isLikeLoading}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill={liked ? 'red' : 'none'}
-                viewBox="0 0 24 24"
-                stroke={liked ? 'none' : 'currentColor'}
-                strokeWidth={1}
-                className="w-7 h-7 transition-all hover:scale-110"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </svg>
+              {isLikeLoading ? (
+                <div className="w-7 h-7 flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                </div>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill={liked ? 'red' : 'none'}
+                  viewBox="0 0 24 24"
+                  stroke={liked ? 'none' : 'currentColor'}
+                  strokeWidth={1}
+                  className={`w-7 h-7 transition-all hover:scale-110 ${
+                    isSubmitting || isLikeLoading ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+              )}
             </button>
           </div>
+
+          {/* Error message */}
+          {error && (
+            <div className="mt-4 text-red-400 text-sm">
+              {error}
+            </div>
+          )}
 
           {/* Save button at bottom */}
           <button
             onClick={handleSaveActivity}
-            className="mt-6 bg-purpleWhite hover:bg-purple hover:text-purple transition-colors duration-200 text-darkPurple hover:text-white font-semibold py-2 px-4 rounded-xl shadow-md w-full"
+            disabled={isSubmitting}
+            className={`mt-6 bg-purpleWhite hover:bg-purple hover:text-purple transition-colors duration-200 text-darkPurple hover:text-white font-semibold py-2 px-4 rounded-xl shadow-md w-full ${
+              isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+            }`}
           >
-            Save Activity
+            {isSubmitting ? 'Saving...' : 'Save Activity'}
           </button>
         </div>
       </div>
