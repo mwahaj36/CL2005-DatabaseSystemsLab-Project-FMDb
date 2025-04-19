@@ -333,13 +333,14 @@ export default function EditProfile() {
                 <button type="button" onClick={() => router.back()} className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">
                   Cancel
                 </button>
-                <button 
-                  type="submit" 
+                <a 
+                  type="submit"
+                  href="/"
                   className="px-4 py-2 font-bold bg-purple text-white rounded-lg disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Saving...' : 'Save Changes'}
-                </button>
+                </a>
               </div>
             </form>
           </div>
