@@ -28,6 +28,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     }
   };
 
+  // 1) On mount: fetch isLiked and deletable status for each review
   useEffect(() => {
     if (!user || !token) return;
 
@@ -66,6 +67,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     fetchStatuses();
   }, [reviewsData, user, token]);
 
+  // 2) Go to the "See All Reviews" page
   const handleSeeAllClick = () => {
     const movieId = movie.movieId || movie.MovieID;
     if (movieId) router.push(`/reviews/${movieId}`);
@@ -76,6 +78,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     setError(null);
   };
 
+  // 3) Toggle like/unlike
   const handleLikeToggle = async (review) => {
     if (!user || !token) {
       setError('You must be logged in to like reviews');
@@ -115,12 +118,14 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
         throw new Error(errData.message || 'Like toggle failed');
       }
 
+      // Confirm the action was successful
       const { success, message } = await res.json();
       if (!success) {
         throw new Error(message);
       }
     } catch (err) {
       console.error('Like toggle error:', err);
+      // Rollback on error
       setLikedReviews(prev => ({ ...prev, [id]: isLiked }));
       setReviews(prev =>
         prev.map(r =>
@@ -139,6 +144,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     }
   };
 
+  // 4) Handle delete review
   const handleDeleteReview = async (activityId) => {
     if (!user || !token) {
       setError("Please log in to delete a review!");
@@ -162,6 +168,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
         throw new Error(data.message || 'Failed to delete review');
       }
 
+      // Remove the deleted review from state
       setReviews(prev => prev.filter(review => review.ActivityID !== activityId));
     } catch (err) {
       console.error('Delete action failed:', err);
@@ -188,27 +195,24 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
         {reviews.map(review => {
           const isLiked = !!likedReviews[review.ActivityID];
           const isDeletable = !!deletableReviews[review.ActivityID];
-          const hasRating = review.Ratings !== null;
           
           return (
             <div
               key={review.ActivityID}
               className="flex items-center min-h-40 bg-black bg-opacity-60 p-4 rounded-3xl shadow-md hover:scale-105 transition-transform duration-300"
             >
-              {/* Rating - only show if rating exists */}
-              {hasRating && (
-                <div className={`
-                  font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner
-                  ${review.userType === 'verified critic' ? 'bg-gold' : 'bg-purpleWhite'}
-                `}>
-                  {review.Ratings % 1 === 0
-                    ? `${review.Ratings}.0`
-                    : review.Ratings}
-                </div>
-              )}
+              {/* Rating */}
+              <div className={`
+                font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner
+                ${review.userType === 'verified critic' ? 'bg-gold' : 'bg-purpleWhite'}
+              `}>
+                {review.Ratings % 1 === 0
+                  ? `${review.Ratings}.0`
+                  : review.Ratings}
+              </div>
 
               {/* Text */}
-              <div className={`${hasRating ? 'ml-6' : ''} flex-1`}>
+              <div className="ml-6 flex-1">
                 <p className="text-white italic">{review.Review}</p>
                 <p className="text-purpleWhite font-bold mt-2 text-sm">
                   {review.Username || 'Anonymous'}
