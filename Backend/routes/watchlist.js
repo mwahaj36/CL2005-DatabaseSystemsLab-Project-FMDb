@@ -1,6 +1,8 @@
 const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
+const { processMoviesWithDirectors } = require('../utils/processMovies');
+const { isFriend } = require('../utils/userDetails');
 const router = express.Router();
 
 // Check to see if movie is in watchlist of current user (Requires JWT token with userid)
@@ -34,67 +36,105 @@ router.get('/isWatchlist/:movieId', authenticateToken, async (req, res) => {
 // Get user's watchlist public ver. (Works if account is public)
 router.get('/public/:userid', async (req, res) => {
     let { userid } = req.params;
-    
+    userid = parseInt(userid, 10);
 
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
 
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
 
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public') {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the watchlist
+        const watchlistReq = new sql.Request();
+        watchlistReq.input('userid', sql.Int, userid);
+
+        const watchlistRes = await watchlistReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                UW.AddedAt
+            FROM UserWatchlist UW
+            JOIN Movies M ON UW.MovieID = M.MovieID
+            WHERE UW.UserID = @userid
+            ORDER BY UW.AddedAt DESC
+        `);
+        const movies = await processMoviesWithDirectors(watchlistRes.recordset);
+        return res.status(200).json({
+            success: true,
+            watchlist: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching public watchlist:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
 
 // Get user's watchlist logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
-router.get('/:userid', authenticateToken, async (req, res) => {
+router.get('/:userid', async (req, res) => {
     let { userid } = req.params;
-    if (!userid) {
-        return res.status(400).send({ success: false, message: 'userid parameter is required.' });
-    } 
-    userId = parseInt(userId, 10);
-    if (isNaN(userId)) {
-        return res.status(400).send({ success: false, message: 'Invalid userId. It must be a number.' });
+    userid = parseInt(userid, 10);
+    currentUserId = req.userId; // Extract user ID from the authenticated token
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
     }
 
-    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
-
     try {
-        const request = new sql.Request();
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
 
-        // Check if the account is public or if the logged-in user is a friend
-        const visibilityQuery = `
-            SELECT 
-                CASE 
-                    WHEN u.IsPublic = 1 THEN 1
-                    WHEN EXISTS (
-                        SELECT 1 
-                        FROM UserFriends uf 
-                        WHERE uf.UserID = @userid AND uf.FriendID = @loggedInUserId
-                    ) THEN 1
-                    ELSE 0
-                END AS HasAccess
-            FROM Users u
-            WHERE u.UserID = @userid
-        `;
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
 
-        request.input('userid', sql.Int, userid);
-        request.input('loggedInUserId', sql.Int, loggedInUserId);
-
-        const visibilityResult = await request.query(visibilityQuery);
-        const hasAccess = visibilityResult.recordset[0]?.HasAccess;
-
-        if (!hasAccess) {
-            return res.status(403).send({ success: false, message: 'Access denied to this user\'s watchlist.' });
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Fetch the user's watchlist
-        const watchlistQuery = `
-            SELECT m.MovieID, m.Title, m.Genre, m.ReleaseDate
-            FROM UserWatchlist uw
-            INNER JOIN Movies m ON uw.MovieID = m.MovieID
-            WHERE uw.UserID = @userid
-        `;
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public' && !await isFriend(currentUserId, userid)) {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
 
-        const watchlistResult = await request.query(watchlistQuery);
-        res.status(200).send({ success: true, watchlist: watchlistResult.recordset });
+        // Step 2: Fetch the watchlist
+        const watchlistReq = new sql.Request();
+        watchlistReq.input('userid', sql.Int, userid);
+
+        const watchlistRes = await watchlistReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                UW.AddedAt
+            FROM UserWatchlist UW
+            JOIN Movies M ON UW.MovieID = M.MovieID
+            WHERE UW.UserID = @userid
+            ORDER BY UW.AddedAt DESC
+        `);
+        const movies = await processMoviesWithDirectors(watchlistRes.recordset);
+        return res.status(200).json({
+            success: true,
+            watchlist: movies
+        });
+
     } catch (error) {
-        console.error('Unexpected error:', error);
-        res.status(500).send({ success: false, message: 'An error occurred while fetching the watchlist.' });
+        console.error('Error fetching public watchlist:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
 
