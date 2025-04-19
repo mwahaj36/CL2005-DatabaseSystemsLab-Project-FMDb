@@ -19,12 +19,17 @@ const ProfileHero = ({
   const [sentMessages, setSentMessages] = useState([]);
   const [modalError, setModalError] = useState('');
 
+  // Determine if the current user can see private content
+  const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
+                               isFriend || 
+                               profileUser.privacy === true;
+
   const handleAddFriend = () => {
     if (!currentUser) {
       setErrorMessage("You must be logged in to add friends.");
       return;
     }
-    onAddFriend();
+    onAddFriend?.();
   };
 
   const handleRemoveFriend = () => {
@@ -32,11 +37,13 @@ const ProfileHero = ({
       setErrorMessage("You must be logged in to remove friends.");
       return;
     }
-    onRemoveFriend();
+    onRemoveFriend?.();
   };
 
   const handleLoggedMoviesClick = () => {
-    router.push(`/logged/${profileUser.userID}`);
+    if (canViewPrivateContent) {
+      router.push(`/logged/${profileUser.userID}`);
+    }
   };
 
   const handleSendMessage = () => {
@@ -56,12 +63,29 @@ const ProfileHero = ({
     setModalError('');
   };
 
+  // Stats display components
+  const StatButton = ({ label, value, onClick, href }) => {
+    const content = (
+      <div 
+        className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
+          canViewPrivateContent ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
+        }`}
+        onClick={onClick}
+      >
+        <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
+        <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
+      </div>
+    );
+
+    return href && canViewPrivateContent ? (
+      <Link href={href}>{content}</Link>
+    ) : content;
+  };
+
   return (
     <section id="hero" className="relative -mt-14">
-      {/* Global Error */}
       {errorMessage && <Error message={errorMessage} onClose={() => setErrorMessage('')} />}
 
-      {/* Message Modal */}
       {showMessageModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center">
           <div className="bg-white p-6 rounded-xl w-11/12 md:w-1/2 lg:w-1/3 shadow-lg relative">
@@ -86,7 +110,7 @@ const ProfileHero = ({
             <textarea
               className="w-full h-32 p-3 border rounded-md text-black"
               value={messageText}
-              onChange={(e) => setMessageText(e.target.value)}
+              onChange={(e) => setMessageText(e.value)}
               placeholder="Type your message..."
             />
             <button
@@ -99,17 +123,14 @@ const ProfileHero = ({
         </div>
       )}
 
-      {/* Hero Content */}
       <div className="relative z-10 mt-20 items-center container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
-        {/* Profile Picture */}
         <div className="flex flex-col items-center p-6 rounded-xl md:w-1/5">
           <img
-            src={profileUser.profilePic}
+            src={profileUser.profilePic || '/default-pic.jpg'}
             alt="Profile"
             className="shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
           />
 
-          {/* Friends / Watchlist */}
           <div className="mt-4 grid grid-cols-2 gap-4">
             <button
               onClick={() => setErrorMessage("View Following (coming soon)")}
@@ -127,14 +148,12 @@ const ProfileHero = ({
           </div>
         </div>
 
-        {/* Profile Info */}
         <div className="flex flex-col mb-40 md:w-4/5">
           <div className="w-full flex items-center justify-between flex-wrap">
             <div className="flex items-end space-x-4">
               <h1 className="text-white text-3xl font-bold md:text-6xl">{profileUser.fullName}</h1>
             </div>
 
-            {/* Buttons */}
             <div className="flex space-x-4 items-center">
               {profileUser.userID === currentUser?.userID && (
                 <Link
@@ -155,8 +174,6 @@ const ProfileHero = ({
                       >
                         Remove Friend
                       </button>
-
-                      {/* Only show if isFriend and currentUser exists */}
                       {currentUser && (
                         <button
                           onClick={() => setShowMessageModal(true)}
@@ -177,7 +194,7 @@ const ProfileHero = ({
                 </>
               )}
 
-              {profileUser.userType === 'admin' && profileUser.userID === currentUser?.userID && (
+              {profileUser.userType?.toLowerCase() === 'admin' && profileUser.userID === currentUser?.userID && (
                 <Link
                   href="/AdminPanel"
                   className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
@@ -188,43 +205,37 @@ const ProfileHero = ({
             </div>
           </div>
 
-          <div>
-            {profileUser.userID && (
-              <p className="text-white text-md md:text-3xl font-semibold">{profileUser.userID}</p>
-            )}
-          </div>
-
           <div className="mt-2 bg-black bg-opacity-40 p-6 rounded-xl shadow-xl">
             <p className="text-white text-sm md:text-xl leading-relaxed drop-shadow-xl">
-              {profileUser.bio || 'up wonking me willy'}
+              {profileUser.bio || 'No bio provided.'}
             </p>
           </div>
 
-          {/* Stats */}
           <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center">
-              <p className="text-purpleWhite text-md md:text-lg font-semibold">Movies Watched</p>
-              <p className="text-white text-sm md:text-7xl font-bold">{profileUser.moviesWatched || 1421}</p>
-            </div>
+            <StatButton
+              label="Movies Watched"
+              value={profileUser.basicDetails?.uniqueMoviesWatched}
+              href={canViewPrivateContent ? '/' : undefined}
+            />
 
-            <button
+            <StatButton
+              label="Movies Logged"
+              value={profileUser.basicDetails?.loggedMoviesCount}
               onClick={handleLoggedMoviesClick}
-              className="bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center hover:scale-105 transition-transform"
-            >
-              <p className="text-purpleWhite text-md md:text-lg font-semibold">Movies Logged</p>
-              <p className="text-white text-sm md:text-7xl font-bold">{profileUser.moviesLogged || 62}</p>
-            </button>
+              href={canViewPrivateContent ? '/' : undefined}
+            />
 
-            <div className="bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center">
-              <p className="text-purpleWhite text-md md:text-lg font-semibold">Likes</p>
-              <p className="text-white text-sm md:text-7xl font-bold">{profileUser.likes || 142}</p>
-            </div>
+            <StatButton
+              label="Likes"
+              value={profileUser.basicDetails?.likedMoviesCount}
+              href={canViewPrivateContent ? '/' : undefined}
+            />
 
             <div
               className={`${
-                profileUser.userType === 'admin'
+                profileUser.userType?.toLowerCase() === 'admin'
                   ? 'bg-emeraldGreen'
-                  : profileUser.userType === 'verified critic'
+                  : profileUser.userType?.toLowerCase() === 'verified critic'
                   ? 'bg-gold'
                   : 'bg-darkPurple'
               } bg-opacity-60 items-center pt-7 rounded-xl p-4 shadow-lg text-center`}
