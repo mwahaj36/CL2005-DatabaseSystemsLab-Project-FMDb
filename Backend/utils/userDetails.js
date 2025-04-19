@@ -192,6 +192,10 @@ async function getUserExtraStats(userId) {
 }
 
 async function isFriend(loggedInUserId, otherUserId) {
+    // if same user, return true
+    if (loggedInUserId === otherUserId) {
+      return true;
+    }
     // ensure the smaller ID goes into User1ID
     const [u1, u2] = loggedInUserId < otherUserId
       ? [loggedInUserId, otherUserId]

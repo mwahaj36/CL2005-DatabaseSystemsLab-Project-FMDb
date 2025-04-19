@@ -293,15 +293,18 @@ router.put('/', authenticateToken, async (req, res) => {
     const userId = req.userId;  // set by authenticateToken
     const {FullName, Username, Email, Bio, Privacy, Gender, DateOfBirth} = req.body;
     
+    
+
     // Validate privacy
-    const allowedPrivacy = ['public', 'private'];
-    if (Privacy && !allowedPrivacy.includes(Privacy.toLowerCase())) {
+    const allowedPrivacy = ['Public', 'Private'];
+    if (Privacy && !allowedPrivacy.includes(Privacy)) {
         return res.status(400).json({ success: false, message: 'Invalid privacy value' });
     }
 
+
     // Validate Gender
-    const allowedGender = ['male', 'female', 'other'];
-    if (Gender && !allowedGender.includes(Gender.toLowerCase())) {
+    const allowedGender = ['Male', 'Female', 'Other'];
+    if (Gender && !allowedGender.includes(Gender)) {
         return res.status(400).json({ success: false, message: 'Invalid Gender Value' });
     }
     
@@ -438,34 +441,66 @@ router.put('/favoriteMovies', authenticateToken, async (req, res) => {
     }
 });
 
-router.get('/logged/:userId', async (req, res) => {
-    // Fetch target user's privacy settings and logged movies
-    const targetUser = await getUserById(targetUserId); // Replace with actual DB query to fetch user details
-    if (!targetUser) {
-        return res.status(404).json({ message: 'User not found' });
+// Request User Type Change (Requires JWT token with userid)
+router.put('/userType', authenticateToken, async (req, res) => {
+    const userId = req.userId;
+    const { userType, message } = req.body;
+
+    const allowedUserTypes = ['Admin', 'User', 'Critic'];
+    if (!userType || !allowedUserTypes.includes(userType)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing new user type' });
     }
 
-    if (loggedInUserId === targetUserId) {
-        // Logged-in user viewing their own logged movies
-        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-        return res.json(movies);
+    try {
+        const userReq = new sql.Request();
+        userReq.input('userId', sql.Int, userId);
+        const userResult = await userReq.query(`SELECT UserType, Username FROM Users WHERE UserID = @userId`);
+
+        if (userResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const currentType = userResult.recordset[0].UserType;
+
+        if (currentType === userType) {
+            return res.status(400).json({ success: false, message: 'You already have this user type' });
+        }
+
+        const rank = { 'User': 1, 'Critic': 2, 'Admin': 3 };
+
+        if (rank[userType] > rank[currentType]) {
+            // Requesting promotion — insert request into UserTypeChangeRequests table
+            const notiType = userType === 'Admin' ? 'AdminReq' : 'CriticReq';
+
+            const insertReq = new sql.Request();
+            insertReq.input('userId', sql.Int, userId);
+            insertReq.input('notiType', sql.VarChar(20), notiType);
+            insertReq.input('message', sql.Text, message || `User ${userResult.recordset[0].Username} requested a user type change to ${userType}`);
+            await insertReq.query(`
+                INSERT INTO Notifications (SenderID, ReceiverID, NotificationType, Message)
+                SELECT 
+                    @userId,
+                    U.UserID,
+                    @notiType,
+                    @message
+                    FROM Users U
+                WHERE U.UserType = 'Admin'
+            `);
+
+            return res.status(200).json({ success: true, message: 'User type change request sent for approval' });
+        } else {
+            // Downgrade or lateral — update immediately
+            const updateReq = new sql.Request();
+            updateReq.input('userId', sql.Int, userId);
+            updateReq.input('newType', sql.VarChar(20), userType);
+            await updateReq.query(`UPDATE Users SET UserType = @newType WHERE UserID = @userId`);
+
+            return res.status(200).json({ success: true, message: 'User type updated successfully' });
+        }
+    } catch (error) {
+        console.error('Error handling user type change:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
     }
-
-    if (loggedInUserId && isFriend(loggedInUserId, targetUserId)) {
-        // Logged-in user viewing a friend's logged movies
-        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-        return res.json(movies);
-    }
-
-    if (targetUser.privacy === 'public') {
-        // Public account, anyone can view
-        const movies = await getLoggedMoviesByUser(targetUserId); // Replace with actual DB query
-        return res.json(movies);
-    }
-
-    return res.status(403).json({ message: 'Access denied' });
-
 });
-
 
 module.exports = router;
