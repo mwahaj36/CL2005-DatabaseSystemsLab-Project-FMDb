@@ -403,6 +403,32 @@ router.get('/recommended', authenticateToken, async (req, res) => {
     }
 });
 
+// GET /movies/check/:movieId
+router.get('/check/:movieId', async (req, res) => {
+    const { movieId } = req.params;
+  
+    if (!movieId || isNaN(movieId)) {
+      return res.status(400).json({ exists: false, message: 'Invalid Movie ID' });
+    }
+  
+    try {
+      const checkMovieQuery = 'SELECT MovieID FROM Movies WHERE MovieID = @movieId';
+      const movieRequest = new sql.Request();
+      movieRequest.input('movieId', sql.Int, parseInt(movieId));
+      
+      const movieCheckResult = await movieRequest.query(checkMovieQuery);
+  
+      const exists = movieCheckResult.recordset.length > 0;
+  
+      return res.status(200).json({ exists });
+    } catch (err) {
+      console.error('Error checking movie:', err);
+      return res.status(500).json({ exists: false, message: 'Server error' });
+    }
+  });
+  
+  
+
 // Add Movie to liked movies
 router.post('/like/:movieId', authenticateToken, async (req, res) => {
         const movieId = req.params.movieId;

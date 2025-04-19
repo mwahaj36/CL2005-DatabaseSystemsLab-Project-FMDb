@@ -24,44 +24,60 @@ export default function EditProfile() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [formErrors, setFormErrors] = useState({});
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
-  // Fetch user profile data
+  // Fetch user profile data including favorites
   useEffect(() => {
     const fetchUserProfile = async () => {
-      if (!user?.userID || !token) {
+      if (!user?.userID) {
         setIsLoading(false);
         return;
       }
 
       try {
-        const response = await fetch(`http://localhost:5000/users/${user.userID}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        // First fetch the public data including favorites
+        const publicResponse = await fetch(`http://localhost:5000/users/public/${user.userID}`);
+        const publicData = await publicResponse.json();
 
-        if (response.ok) {
-          const data = await response.json();
-          
-          // Split full name into first and last names
-          const nameParts = data.user?.FullName?.split(" ") || [];
-          setFirstName(nameParts[0] || "");
-          setLastName(nameParts.slice(1).join(" ") || "");
-          
-          // Set other fields with proper null checks
-          setEmail(data.user?.Email || "");
-          setBio(data.user?.Bio || "");
-          setUserType(data.user?.UserType || "");
-          setGender(data.user?.Gender || "Not Specified");
-          setDob(data.user?.DateOfBirth?.split('T')[0] || ""); 
-          setPrivacy(data.user?.Privacy?.toLowerCase() || "public");
-          
-          // Set background from basicDetails if available
-          if (data.basicDetails?.firstFavoriteBackdrop) {
-            setBackground(data.basicDetails.firstFavoriteBackdrop);
-          }
-        } else {
-          throw new Error('Failed to fetch user profile');
+        if (!publicResponse.ok) {
+          throw new Error(publicData.message || 'Failed to fetch public user profile');
+        }
+
+        // Split full name into first and last names
+        const nameParts = publicData.user?.FullName?.split(" ") || [];
+        setFirstName(nameParts[0] || "");
+        setLastName(nameParts.slice(1).join(" ") || "");
+        
+        // Set other fields with proper null checks
+        setEmail(publicData.user?.Email || "");
+        setBio(publicData.user?.Bio || "");
+        setUserType(publicData.user?.UserType || "");
+        setGender(publicData.user?.Gender || "Not Specified");
+        setDob(publicData.user?.DateOfBirth?.split('T')[0] || ""); 
+        setPrivacy(publicData.user?.Privacy?.toLowerCase() || "public");
+        
+        // Set background from basicDetails if available
+        if (publicData.basicDetails?.firstFavoriteBackdrop) {
+          setBackground(publicData.basicDetails.firstFavoriteBackdrop);
+        }
+
+        // Set favorite movies with ranks
+        if (publicData.favoriteMovies) {
+          const rankedFavorites = publicData.favoriteMovies.map((movie, index) => ({
+            ...movie,
+            rank: index + 1 // Assign ranks 1-4 based on position
+          }));
+          setFavoriteMovies(rankedFavorites);
+        }
+
+        // If we have a token, fetch private data (if needed)
+        if (token) {
+          const privateResponse = await fetch(`http://localhost:5000/users/${user.userID}`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          // Handle private data if needed
         }
       } catch (error) {
         console.error("Error fetching user profile:", error);
@@ -73,6 +89,15 @@ export default function EditProfile() {
 
     fetchUserProfile();
   }, [user, token]);
+
+  const handleFavoriteUpdate = (updatedRank, movieData) => {
+    setFavoriteMovies(prev => {
+      // Remove any existing movie with this rank
+      const filtered = prev.filter(movie => movie.rank !== updatedRank);
+      // Add the new movie with its rank
+      return [...filtered, { ...movieData, rank: updatedRank }];
+    });
+  };
 
   const validateForm = () => {
     const errors = {};
@@ -121,10 +146,10 @@ export default function EditProfile() {
           FullName: `${firstName} ${lastName}`,
           Username: user.username,
           Email: email,
-          Bio: bio || "", // Ensure empty string if bio is null
+          Bio: bio || "",
           Privacy: privacy === 'public' ? 'Public' : 'Private',
           Gender: gender,
-          DateOfBirth: dob // Already validated as required
+          DateOfBirth: dob
         })
       });
 
@@ -176,6 +201,21 @@ export default function EditProfile() {
           <h2 className="text-6xl text-white text-shadow font-bold text-center">
             Edit Favourites
           </h2>
+          <div className="flex flex-row space-x-4 w-full mt-8">
+            {[1, 2, 3, 4].map(rank => {
+              const movie = favoriteMovies.find(m => m.rank === rank);
+              return (
+                <div key={rank} className="flex-1">
+                  <EditFavorite 
+                    movie={movie}
+                    rank={rank}
+                    token={token}
+                    onFavoriteUpdate={handleFavoriteUpdate}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -190,9 +230,6 @@ export default function EditProfile() {
               alt="Profile Picture"
               className="w-72 h-72 rounded-xl mx-auto mb-4"
             />
-            <button className="bg-purpleWhite px-16 text-darkPurple px-4 py-2 rounded-lg hover:bg-purple hover:text-white transition-colors duration-300">
-              Change Profile Picture
-            </button>
           </div>
 
           <div className="w-full md:w-2/3">
@@ -260,16 +297,16 @@ export default function EditProfile() {
                 <div className="w-1/2">
                   <label htmlFor="userType" className="block text-sm font-bold text-xl text-white">User Type</label>
                   <select
-  id="userType"
-  className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
-  value={userType}
-  onChange={(e) => setUserType(e.target.value)}
-  disabled
->
-  <option value="User">User</option>
-  <option value="Verified Critic">Verified Critic</option>
-  <option value="Admin">Admin</option>
-</select>
+                    id="userType"
+                    className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    value={userType}
+                    onChange={(e) => setUserType(e.target.value)}
+                    disabled
+                  >
+                    <option value="User">User</option>
+                    <option value="Verified Critic">Verified Critic</option>
+                    <option value="Admin">Admin</option>
+                  </select>
                 </div>
               </div>
 
@@ -333,14 +370,13 @@ export default function EditProfile() {
                 <button type="button" onClick={() => router.back()} className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">
                   Cancel
                 </button>
-                <a 
-                  type="submit"
-                  href="/"
+                <button 
+                  type="submit" 
                   className="px-4 py-2 font-bold bg-purple text-white rounded-lg disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Saving...' : 'Save Changes'}
-                </a>
+                </button>
               </div>
             </form>
           </div>

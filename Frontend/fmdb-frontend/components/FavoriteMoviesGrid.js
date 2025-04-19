@@ -4,11 +4,10 @@ import Link from 'next/link';
 
 const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [movieId, setMovieId] = useState(movie?.movieid || '');
+  const [movieId, setMovieId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const [currentMovie, setCurrentMovie] = useState(movie);
 
   const handleAddFavorite = async () => {
     if (!movieId) {
@@ -21,18 +20,6 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
     setSuccess(null);
 
     try {
-      // First validate the movie exists
-      const movieExistRes = await fetch(`http://localhost:5000/movies/check/${movieId}`);
-      if (!movieExistRes.ok) {
-        throw new Error('Failed to validate movie');
-      }
-      const movieExistData = await movieExistRes.json();
-      
-      if (!movieExistData.exists) {
-        throw new Error('Movie not found');
-      }
-
-      // Update favorite movie
       const response = await fetch('http://localhost:5000/users/favoriteMovies', {
         method: 'PUT',
         headers: {
@@ -41,16 +28,9 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
         },
         body: JSON.stringify({
           movieId: parseInt(movieId),
-          rank: rank
+          rank: parseInt(rank)
         })
       });
-
-      // Check if response is JSON before parsing
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        throw new Error(text || 'Failed to update favorites');
-      }
 
       const data = await response.json();
 
@@ -59,36 +39,32 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       }
 
       // Fetch full movie data after successful update
-      const movieDetailsRes = await fetch(`http://localhost:5000/movies/details/${movieId}`);
-      if (!movieDetailsRes.ok) {
-        throw new Error('Failed to fetch movie details');
-      }
+      const movieDetailsRes = await fetch(`http://localhost:5000/movies/${movieId}`);
       const movieData = await movieDetailsRes.json();
 
-      // Update local state with the new movie data
-      setCurrentMovie(movieData);
+      if (!movieDetailsRes.ok) {
+        throw new Error(movieData.message || 'Failed to fetch movie details');
+      }
+
       setSuccess('Favorite movie updated successfully!');
       
-      // Notify parent component about the update
       if (onFavoriteUpdate) {
         onFavoriteUpdate(rank, movieData);
       }
 
-      // Close modal after delay
       setTimeout(() => {
         setIsModalOpen(false);
         setSuccess(null);
       }, 1500);
     } catch (err) {
-      console.error('Update favorite error:', err);
-      setError(err.message || 'Failed to update favorite movie');
+      setError(err.message);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   // If no movie exists for this rank
-  if (!currentMovie || !currentMovie.movieid) {
+  if (!movie || !movie.movieid) {
     return (
       <div className="flex flex-col items-center justify-center p-4 w-full h-full bg-white bg-opacity-10 rounded-lg">
         <button 
@@ -98,14 +74,24 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
           Add Favorite
         </button>
 
+        {/* Add Favorite Modal */}
         <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
           <div className="fixed inset-0 flex items-center justify-center p-4">
             <Dialog.Panel className="w-full max-w-md rounded bg-darkPurple p-6 text-white">
-              <Dialog.Title className="text-2xl font-bold mb-4">Add Favorite Movie</Dialog.Title>
+              <Dialog.Title className="text-2xl font-bold mb-4">Add Favorite Movie (Rank #{rank})</Dialog.Title>
               
-              {error && <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{error}</div>}
-              {success && <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">{success}</div>}
+              {error && (
+                <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
+                  {error}
+                </div>
+              )}
+              
+              {success && (
+                <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">
+                  {success}
+                </div>
+              )}
 
               <div className="space-y-4">
                 <div>
@@ -146,12 +132,14 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
   // If a movie exists for this rank
   return (
     <div className="flex flex-col items-center p-4 w-full h-full">
-      <Link href={`/movie/${currentMovie.movieid}`} passHref legacyBehavior>
+      <div className="text-white text-lg font-bold mb-2">Rank #{rank}</div>
+      
+      <Link href={`/movie/${movie.movieid}`} passHref legacyBehavior>
         <a className="w-full flex flex-col items-center">
           <img
-            src={currentMovie.movieposterlink || '/placeholder-movie.jpg'}
-            className="w-60 h-90 object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
-            alt={currentMovie.title}
+            src={movie.movieposterlink || '/placeholder-movie.jpg'}
+            className=" object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
+            alt={movie.title}
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = '/placeholder-movie.jpg';
@@ -161,34 +149,44 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       </Link>
       
       <div className="text-center w-full px-2 mt-2 h-16 flex flex-col justify-center">
-        <h5 className="text-lg font-bold text-white line-clamp-1" title={currentMovie.title}>
-          {currentMovie.title}
+        <h5 className="text-lg font-bold text-white line-clamp-1" title={movie.title}>
+          {movie.title}
         </h5>
-        {currentMovie.directors?.length > 0 && (
-          <p className="text-gray-400 text-sm line-clamp-1" title={currentMovie.directors.join(', ')}>
-            {currentMovie.directors.join(', ')}
+        {movie.directors?.length > 0 && (
+          <p className="text-gray-400 text-sm line-clamp-1" title={movie.directors.join(', ')}>
+            {movie.directors.join(', ')}
           </p>
         )}
       </div>
       
       <button 
         onClick={() => {
-          setMovieId(currentMovie.movieid);
+          setMovieId(movie.movieid);
           setIsModalOpen(true);
         }}
-        className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple transition-colors mt-2"
+        className="px-4 py-2 bg-darkPurple text-white rounded-lg hover:bg-purple transition-colors mt-2"
       >
         Change Movie
       </button>
 
+      {/* Change Movie Modal */}
       <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="w-full max-w-md rounded bg-darkPurple p-6 text-white">
-            <Dialog.Title className="text-2xl font-bold mb-4">Change Favorite Movie</Dialog.Title>
+            <Dialog.Title className="text-2xl font-bold mb-4">Change Favorite Movie (Rank #{rank})</Dialog.Title>
             
-            {error && <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">{error}</div>}
-            {success && <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">{success}</div>}
+            {error && (
+              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
+                {error}
+              </div>
+            )}
+            
+            {success && (
+              <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">
+                {success}
+              </div>
+            )}
 
             <div className="space-y-4">
               <div>
@@ -211,14 +209,13 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
               >
                 Cancel
               </button>
-              <a
+              <button
                 onClick={handleAddFavorite}
-                href='/EditProfile'
                 className="px-4 py-2 bg-purple rounded hover:bg-purple-700 disabled:opacity-50"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Saving...' : 'Save'}
-              </a>
+              </button>
             </div>
           </Dialog.Panel>
         </div>
