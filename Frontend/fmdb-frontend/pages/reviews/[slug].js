@@ -76,7 +76,11 @@ const AllReviewsPage = () => {
           releaseDate: data.movie.releaseDate || ''
         });
 
-        const reviewsData = data.reviews || [];
+        // Filter out reviews that have no text (skip entirely if no ReviewText)
+        const reviewsData = (data.reviews || []).filter(
+          review => review.ReviewText && !review.IsReply
+        );
+        
         setReviews(reviewsData);
 
         if (user && token) {
@@ -362,7 +366,14 @@ const AllReviewsPage = () => {
       return null;
     }
 
-    return replyList.map((reply) => {
+    // Filter out replies that have no text
+    const filteredReplies = replyList.filter(reply => reply.ReviewText);
+
+    if (filteredReplies.length === 0) {
+      return null;
+    }
+
+    return filteredReplies.map((reply) => {
       const isLiked = likedReviews[reply.ActivityID] || false;
       const isDeletable = deletableReviews[reply.ActivityID] || false;
 
@@ -453,8 +464,6 @@ const AllReviewsPage = () => {
               <p className="text-white">No reviews found for this movie.</p>
             ) : (
               reviews.map((review) => {
-                if (review.IsReply) return null;
-
                 const isLiked = likedReviews[review.ActivityID] || false;
                 const isDeletable = deletableReviews[review.ActivityID] || false;
 
@@ -470,13 +479,15 @@ const AllReviewsPage = () => {
                         className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl"
                       />
 
-                      <div className="font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner bg-purpleWhite">
-                        {review.Ratings % 1 === 0 && review.Ratings !== 10
-                          ? `${review.Ratings}.0`
-                          : review.Ratings}
-                      </div>
+                      {review.Ratings !== null && (
+                        <div className="font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner bg-purpleWhite">
+                          {review.Ratings % 1 === 0 && review.Ratings !== 10
+                            ? `${review.Ratings}.0`
+                            : review.Ratings}
+                        </div>
+                      )}
 
-                      <div className="text-center md:text-left flex-1">
+                      <div className={`${review.Ratings !== null ? 'ml-6' : ''} text-center md:text-left flex-1`}>
                         <p className="text-white text-md md:text-lg italic">{review.ReviewText}</p>
                         <p className="text-purpleWhite font-bold mt-2 text-sm">{review.Username}</p>
                         <p className="text-white text-xs italic">{formatTimeAgo(review.ActivityDateTime)}</p>

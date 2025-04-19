@@ -8,44 +8,64 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
   const { token } = useAuth();
 
   const [likedReviews, setLikedReviews] = useState({});
+  const [deletableReviews, setDeletableReviews] = useState({});
   const [reviews, setReviews] = useState(reviewsData);
   const [error, setError] = useState(null);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
 
-  // 1) On mount: fetch isLiked status for each review via query params
+  const checkDeletableStatus = async (activityId) => {
+    if (!user || !token) return false;
+    
+    try {
+      const response = await fetch(`http://localhost:5000/activity/isDeletable/${activityId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await response.json();
+      return data.success && data.isDeletable;
+    } catch (err) {
+      console.error('Error checking deletable status:', err);
+      return false;
+    }
+  };
+
   useEffect(() => {
     if (!user || !token) return;
 
-    const fetchLikedStatus = async () => {
-      const statusMap = {};
+    const fetchStatuses = async () => {
+      const likedStatusMap = {};
+      const deletableStatusMap = {};
 
       for (let review of reviewsData) {
         try {
-          const url = new URL('http://localhost:5000/activity/isLiked');
-          url.searchParams.set('activityId', review.ActivityID);
-          url.searchParams.set('userId', user.userID);
+          // Check like status
+          const likeUrl = new URL('http://localhost:5000/activity/isLiked');
+          likeUrl.searchParams.set('activityId', review.ActivityID);
+          likeUrl.searchParams.set('userId', user.userID);
 
-          const res = await fetch(url, {
+          const likeRes = await fetch(likeUrl, {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
           });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          if (!likeRes.ok) throw new Error(`HTTP ${likeRes.status}`);
+          const { isLiked } = await likeRes.json();
+          likedStatusMap[review.ActivityID] = isLiked;
 
-          const { isLiked } = await res.json();
-          statusMap[review.ActivityID] = isLiked;
+          // Check deletable status
+          deletableStatusMap[review.ActivityID] = await checkDeletableStatus(review.ActivityID);
         } catch (err) {
-          console.error('isLiked error for', review.ActivityID, err);
-          statusMap[review.ActivityID] = false;
+          console.error('Status check error for', review.ActivityID, err);
+          likedStatusMap[review.ActivityID] = false;
+          deletableStatusMap[review.ActivityID] = false;
         }
       }
 
-      setLikedReviews(statusMap);
+      setLikedReviews(likedStatusMap);
+      setDeletableReviews(deletableStatusMap);
     };
 
-    fetchLikedStatus();
+    fetchStatuses();
   }, [reviewsData, user, token]);
 
-  // 2) Go to the "See All Reviews" page
   const handleSeeAllClick = () => {
     const movieId = movie.movieId || movie.MovieID;
     if (movieId) router.push(`/reviews/${movieId}`);
@@ -56,7 +76,6 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     setError(null);
   };
 
-  // 3) Toggle like/unlike
   const handleLikeToggle = async (review) => {
     if (!user || !token) {
       setError('You must be logged in to like reviews');
@@ -96,14 +115,12 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
         throw new Error(errData.message || 'Like toggle failed');
       }
 
-      // Confirm the action was successful
       const { success, message } = await res.json();
       if (!success) {
         throw new Error(message);
       }
     } catch (err) {
       console.error('Like toggle error:', err);
-      // Rollback on error
       setLikedReviews(prev => ({ ...prev, [id]: isLiked }));
       setReviews(prev =>
         prev.map(r =>
@@ -117,6 +134,37 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
             : r
         )
       );
+      setError(err.message);
+      setShowErrorPopup(true);
+    }
+  };
+
+  const handleDeleteReview = async (activityId) => {
+    if (!user || !token) {
+      setError("Please log in to delete a review!");
+      setShowErrorPopup(true);
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/activity/${activityId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.message || 'Failed to delete review');
+      }
+
+      const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message || 'Failed to delete review');
+      }
+
+      setReviews(prev => prev.filter(review => review.ActivityID !== activityId));
+    } catch (err) {
+      console.error('Delete action failed:', err);
       setError(err.message);
       setShowErrorPopup(true);
     }
@@ -139,30 +187,35 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
       <div className="space-y-6">
         {reviews.map(review => {
           const isLiked = !!likedReviews[review.ActivityID];
+          const isDeletable = !!deletableReviews[review.ActivityID];
+          const hasRating = review.Ratings !== null;
+          
           return (
             <div
               key={review.ActivityID}
               className="flex items-center min-h-40 bg-black bg-opacity-60 p-4 rounded-3xl shadow-md hover:scale-105 transition-transform duration-300"
             >
-              {/* Rating */}
-              <div className={`
-                font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner
-                ${review.userType === 'verified critic' ? 'bg-gold' : 'bg-purpleWhite'}
-              `}>
-                {review.Ratings % 1 === 0
-                  ? `${review.Ratings}.0`
-                  : review.Ratings}
-              </div>
+              {/* Rating - only show if rating exists */}
+              {hasRating && (
+                <div className={`
+                  font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner
+                  ${review.userType === 'verified critic' ? 'bg-gold' : 'bg-purpleWhite'}
+                `}>
+                  {review.Ratings % 1 === 0
+                    ? `${review.Ratings}.0`
+                    : review.Ratings}
+                </div>
+              )}
 
               {/* Text */}
-              <div className="ml-6 flex-1">
+              <div className={`${hasRating ? 'ml-6' : ''} flex-1`}>
                 <p className="text-white italic">{review.Review}</p>
                 <p className="text-purpleWhite font-bold mt-2 text-sm">
                   {review.Username || 'Anonymous'}
                 </p>
               </div>
 
-              {/* Like */}
+              {/* Like and Delete */}
               <div className="flex items-center space-x-2">
                 <span className="text-white">{review.ActivityLikeCount || 0}</span>
                 <button
@@ -181,6 +234,18 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
                              3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                   </svg>
                 </button>
+                
+                {isDeletable && (
+                  <button
+                    onClick={() => handleDeleteReview(review.ActivityID)}
+                    className="text-white hover:text-red-500 transition-colors duration-200"
+                    title="Delete review"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
           );

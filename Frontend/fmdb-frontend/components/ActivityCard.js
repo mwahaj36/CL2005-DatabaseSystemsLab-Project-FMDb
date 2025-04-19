@@ -105,8 +105,8 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       // Prepare activity data with optional fields
       const activityData = {
         movieId,
-        review: review || " ", // Send null if review is empty
-        ratings: rating || 0, // Send null if rating is 0
+        review: review || null, // Send null if review is empty
+        ratings: rating || null, // Send null if rating is 0
         isLogged: watchedBefore // This is a boolean so it's always defined
       };
   
