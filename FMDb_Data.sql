@@ -3807,7 +3807,6 @@ INSERT INTO Movies(Title,ReleaseDate,IMDB_Rating,MovieLength,Language,Type,Synop
 ,('Monkey Man','03 Apr 2024',6.8,'121 minutes','English, Hindi','Movie','Inspired by the legend of Hanuman, an icon embodying strength and courage, Kid is an anonymous young man who ekes out a meager living in an underground fight club. There, night after night, he wears a gorilla mask and is beaten bloody by more popular fighters for cash. After years of suppressed rage, Kid discovers a way to infiltrate the enclave of the city''s sinister elite. As his childhood trauma boils over, his mysteriously scarred hands unleash an explosive campaign of retribution to settle the score with the men who took everything from him.','https://image.tmdb.org/t/p/original/4lhR4L2vzzjl68P1zJyCH755Oz4.jpg','https://image.tmdb.org/t/p/original/9NSXdVHeSfSHUv49OzLispFcpz1.jpg',NULL,NULL,NULL)
 ,('Singin'' in the Rain','10 Apr 1952',8.3,'103 minutes','English','Movie','1927 Hollywood. Monumental Pictures'' biggest stars, glamorous on-screen couple Lina Lamont and Don Lockwood, are also an off-screen couple if the trade papers and gossip columns are to be believed. Both perpetuate the public perception if only to please their adoring fans and bring people into the movie theaters. In reality, Don barely tolerates her, while Lina, despite thinking Don beneath her, simplemindedly believes what she sees on screen in order to bolster her own stardom and sense of self-importance. R.F. Simpson, Monumental''s head, dismisses what he thinks is a flash in the pan: talking pictures. It isn''t until The Jazz Singer (1927) becomes a bona fide hit which results in all the movie theaters installing sound equipment that R.F. knows Monumental, most specifically in the form of Don and Lina, have to jump on the talking picture bandwagon, despite no one at the studio knowing anything about the technology. Musician Cosmo Brown, Don''s best friend, gets hired as Monumental''s ideas man and musical director. And by this time, Don has secretly started dating Kathy Selden, a chorus girl who is trying to make it big in pictures herself. Don and Kathy''s relationship is despite their less than friendly initial meeting. Cosmo and Kathy help Don, who had worked his way up through the movie ranks to stardom, try make the leap to talking picture stardom, with Kathy following along the way. However, they have to overcome the technological issues. But the bigger problem is Lina, who will do anything to ensure she also makes the successful leap into talking pictures, despite her own inabilities and at anyone and everyone else''s expense if they get in her way, especially Kathy as Don''s off screen girlfriend and possibly his new talking picture leading lady.','https://image.tmdb.org/t/p/original/w03EiJVHP8Un77boQeE7hg9DVdU.jpg','https://image.tmdb.org/t/p/original/6qOyw4yfzbzTp5YsCX26C28Do0S.jpg','Nominated for 2 Oscars. 11 wins & 11 nominations total','$1,884,537','G')
 ,('Dune: Part Two','27 Feb 2024',8.5,'166 minutes','English','Movie','Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.','https://image.tmdb.org/t/p/original/6izwz7rsy95ARzTR3poZ8H6c5pp.jpg','https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg','Won 2 Oscars. 106 wins & 367 nominations total','$282,144,358','PG-13')
-,('Money, Guns, and a Merry Christmas',NULL,3.8,NULL,'English','Series',NULL,NULL,NULL,NULL,NULL,NULL)
 ,('Meri Pyaari Bindu','11 May 2017',6.1,'117 minutes','Hindi','Movie','Fed up with the lack of critical appreciation despite being a successful writer, Abhimanyu Roy (Ayushmann Khurrana) returns to his roots in Kolkata to write more meaningful literature and decides on an old-fashioned love story - which was now, 3 years in the making. This writer''s block is called Bindu (Parineeti Chopra). How do you contain this unpredictable, crazy, restless, larger than life, live wire in the pages of a book? As Abhi says ''''You know when a song comes on and you just have to dance? Bindu was that song. That silly infectious joyful tune you couldn''t get out of your head - even if you wanted to." So where should he begin? Where should he end? But when Abhi stumbles across an old audio cassette of their favorite playlist, it sends Abhi down memory lane - and as he waltzes in and out of his past and present through the songs in the mixed tape, he finally faces reality and reconnects with his roots, with his family and his novel starts writing itself. Of course, life in its usual scheming manner surprises him yet again and changes the ending of his book and his life, as he once again finds himself being pulled back into the center of that crazy little thing called love. He realizes, that love, is neither time- nor place-dependent. - All we need is the right person next to us and of course the right soundtrack.','https://image.tmdb.org/t/p/original/hKZZiiHuHFopzJwl0JYttRWEzKD.jpg','https://image.tmdb.org/t/p/original/sFN1KnAVJhy5oV0gIEMf3HicxBb.jpg','8 nominations',NULL,'Not Rated')
 ,('Hasee Toh Phasee','07 Feb 2014',6.8,'141 minutes','Hindi','Movie','Spread across Mumbai over a decade, the film presents the relationship between quirky, rebellious Meeta (Parineeti Chopra) and mischievous Nikhil (Sidharth Malhotra), struggling with their respective families to fit in. Nikhil bumps into Meeta on the occasion of her sister Deeksha''s wedding while Meeta is on the run. He falls in love with Meeta''s sister Karishma on the same day. The film jumps to the eve of Nikhil and Karishma''s engagement. Karishma''s wealthy father, Devesh Solanki, does not approve of Nikhil as he finds him to be a lackadaisical young man. On the day of his engagement, Nikhil promises Karishma that he will prove himself worthy of her within the next seven days. Nikhil is re-introduced to Meeta by Karishma and is instructed to put her up in a hotel. Nikhil recognizes Meeta. In an attempt to please Karishma, he decides to keep Meeta in the flat above his own house, with his crazy extended family. During the course of Meeta''s stay at Nikhil''s house, they get closer to each other and open up to each other. In the midst of this confusion, the truth of relationships is unfolded; the strength of unions is tested and love triumphs.','https://image.tmdb.org/t/p/original/A6s9Nb0bfuH1KqXvnG22FCAgrP7.jpg','https://image.tmdb.org/t/p/original/9XzWOwHn5sKFn0WdBSw56ISk6HN.jpg','3 wins & 16 nominations','$646,035','Not Rated')
 ,('Wonka','06 Dec 2023',7,'116 minutes','English, Latin, French','Movie','Willy Wonka is the mastermind behind some of the most delicious and innovative chocolate creations the world has ever seen. But before shaking up the chocolate industry and making a name for himself as a confectionery genius, the ambitious young creator had to defy all odds. As a result, Willy transformed his wildest dreams into reality with a bold vision, determination, and unexpected help from new friends. After all, hard work and a dash of magic can make anything happen. Because, as Willy already knows, it only takes a dream to make a difference.','https://image.tmdb.org/t/p/original/qhb1qOilapbapxWQn9jtRCMwXJF.jpg','https://image.tmdb.org/t/p/original/yOm993lsJyPmBodlYjgpPwBjXP9.jpg','Nominated for 1 BAFTA Award3 wins & 42 nominations total','$218,402,312','PG')
@@ -4661,77 +4660,6 @@ INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @Act
 INSERT INTO MovieKeywords (MovieID, KeywordID)
 SELECT @MovieID, KeywordID FROM Keywords
 WHERE KeywordName IN ('epic', 'based on novel or book', 'fight', 'politics', 'sandstorm', 'sand', 'spice', 'chosen one', 'cult', 'sequel', 'romance', 'tragedy', 'distant future', 'tragic hero', 'creature', 'planet', 'desert', 'destiny', 'giant worm', 'space opera', 'sand dune', 'allegorical', 'messiah', 'fall from grace', 'shocking', 'domineering', 'vengeance', 'vindictive', 'cautionary', 'religious allegory', 'giant creature', 'power', 'grand', 'violence', 'suspenseful', 'intense', 'ambiguous', 'antagonistic', 'audacious', 'awestruck', 'bold', 'exuberant', 'foreboding', 'melodramatic');
-
-GO
--- ============================================
-
--- Movie: Money, Guns, and a Merry Christmas
-DECLARE @MovieTitle VARCHAR(255) = 'Money, Guns, and a Merry Christmas';
-DECLARE @MovieID INT;
-SELECT @MovieID = MovieID FROM Movies WHERE Title = @MovieTitle;
-
--- ========== Genres ==========
-INSERT INTO MovieGenres (MovieID, GenreID)
-SELECT @MovieID, GenreID FROM Genres
-WHERE GenreName IN ('Romance');
-
--- ========== Actors ==========
-DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
-
-SET @ActorName = 'Isabelle Almoyan';
-SET @Character = 'Amanda';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Drew Ater';
-SET @Character = 'Damian Blaine';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Bob Barna';
-SET @Character = 'Craig';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Nicole Britton';
-SET @Character = 'Anna';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Christian Brunetti';
-SET @Character = 'Browne';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Julia Clarke';
-SET @Character = 'Alice';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Lane Erwin';
-SET @Character = 'Viper #1';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Dean Feldman';
-SET @Character = 'Harvey';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Jennifer Finley';
-SET @Character = 'Guest #1';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
-SET @ActorName = 'Vincent Gurzo';
-SET @Character = 'Harold';
-SELECT @ActorID = ActorID FROM Actors WHERE ActorName = @ActorName;
-INSERT INTO MovieActors (MovieID, ActorID, CharacterName) VALUES (@MovieID, @ActorID, @Character);
-
--- ========== Keywords ==========
-
-
--- No Data Available 
 
 GO
 -- ============================================
