@@ -201,21 +201,23 @@ export default function EditProfile() {
           <h2 className="text-6xl text-white text-shadow font-bold text-center">
             Edit Favourites
           </h2>
-          <div className="flex flex-row space-x-4 w-full mt-8">
-            {[1, 2, 3, 4].map(rank => {
-              const movie = favoriteMovies.find(m => m.rank === rank);
-              return (
-                <div key={rank} className="flex-1">
-                  <EditFavorite 
-                    movie={movie}
-                    rank={rank}
-                    token={token}
-                    onFavoriteUpdate={handleFavoriteUpdate}
-                  />
-                </div>
-              );
-            })}
-          </div>
+         <div className="flex flex-row space-x-4 w-full mt-8">
+  {[1, 2, 3, 4].map(rank => {
+    // Find the movie for this rank (make sure favoriteMovies is properly structured)
+    const movieForRank = favoriteMovies.find(m => m.rank === rank);
+    
+    return (
+      <div key={rank} className="flex-1">
+        <EditFavorite 
+          movie={movieForRank || null} // Pass null if no movie for this rank
+          rank={rank}
+          token={token}
+          onFavoriteUpdate={handleFavoriteUpdate}
+        />
+      </div>
+    );
+  })}
+</div>
         </div>
       </section>
 
