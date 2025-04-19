@@ -289,8 +289,153 @@ router.get('/friends/:userid', authenticateToken, async (req, res) => {
   });
 
 // Update user profile (Requires JWT token with userid)
-router.put('/', async (req, res) => {
-    // Update user details (bio, username, profile picture, etc.) (Requires authentication via JWT)
+router.put('/', authenticateToken, async (req, res) => {
+    const userId = req.userId;  // set by authenticateToken
+    const {FullName, Username, Email, Bio, Privacy, Gender, DateOfBirth} = req.body;
+    
+    // Validate privacy
+    const allowedPrivacy = ['public', 'private'];
+    if (Privacy && !allowedPrivacy.includes(Privacy.toLowerCase())) {
+        return res.status(400).json({ success: false, message: 'Invalid privacy value' });
+    }
+
+    // Validate Gender
+    const allowedGender = ['male', 'female', 'other'];
+    if (Gender && !allowedGender.includes(Gender.toLowerCase())) {
+        return res.status(400).json({ success: false, message: 'Invalid Gender Value' });
+    }
+    
+    // Build dynamic SET clause
+    const fields = [];
+    const request = new sql.Request();
+    request.input('userId', sql.Int, userId);
+    
+    if (FullName !== undefined) {
+        fields.push('FullName = @FullName');
+        request.input('FullName', sql.VarChar(255), FullName);
+    }
+    if (Username !== undefined) {
+        fields.push('Username = @Username');
+        request.input('Username', sql.VarChar(50), Username);
+    }
+    if (Email !== undefined) {
+        fields.push('Email = @Email');
+        request.input('Email', sql.VarChar(255), Email);
+    }
+    if (Bio !== undefined) {
+        fields.push('Bio = @Bio');
+        request.input('Bio', sql.Text, Bio);
+    }
+    if (Privacy !== undefined) {
+        fields.push('Privacy = @Privacy');
+        request.input('Privacy', sql.VarChar(10), Privacy);
+    }
+    if (Gender !== undefined) {
+        fields.push('Gender = @Gender');
+        request.input('Gender', sql.VarChar(10), Gender);
+    }
+    if (DateOfBirth !== undefined) {
+        fields.push('DateOfBirth = @DateOfBirth');
+        request.input('DateOfBirth', sql.Date, DateOfBirth);
+    }
+    
+    if (fields.length === 0) {
+        return res.status(400).json({ success: false, message: 'No profile fields provided to update' });
+    }
+    
+    try {
+        const updateQuery = `
+        UPDATE Users
+        SET ${fields.join(', ')}
+        WHERE UserID = @userId;
+  
+        SELECT FullName, Username, Email, Gender, DateOfBirth, Bio, UserType, Privacy
+        FROM Users
+        WHERE UserID = @userId;
+      `;
+        const result = await request.query(updateQuery);
+        if (result.rowsAffected[0] === 0) {
+            return res.status(404).json({ success: false, message: 'Insertion Failed' });
+        }
+
+        const updatedUser = result.recordset[0];
+        
+        return res.status(200).json({
+            success: true,
+            message: 'Profile updated successfully',
+            user: updatedUser
+        });
+    } catch (error) {
+        console.error('Error updating user profile:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+  
+// Edit Favorite Movies (Requires JWT token with userid)
+router.put('/favoriteMovies', authenticateToken, async (req, res) => {
+    const userId = req.userId;  // set by authenticateToken
+    const { movieId, rank } = req.body; // rank determines the order of the movie in the list
+
+    if (!movieId || isNaN(movieId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing movieId' });
+    }
+    if (!rank || isNaN(rank) || rank < 1 || rank > 4) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing rank' });
+    }
+
+    try {
+        // Check if the movie already exists in the user's favorites
+        const checkQuery = `
+            SELECT * FROM UserFavorites WHERE UserID = @userId AND MovieID = @movieId
+        `;
+        const checkRequest = new sql.Request();
+        checkRequest.input('userId', sql.Int, userId);
+        checkRequest.input('movieId', sql.Int, movieId);
+        const checkResult = await checkRequest.query(checkQuery);
+        
+        // if it exists, check rank, if rank is the same, return. if rank is not the same, delete previous entry and insert new one
+        if (checkResult.recordset.length > 0) {
+            if (checkResult.recordset[0].Rank === rank) {
+                return res.status(200).json({ success: true, message: 'Movie already exists in favorites with the same rank' });
+            } else {
+                // Delete the existing entry
+                const deleteRequest = new sql.Request();
+                deleteRequest.input('userId', sql.Int, userId);
+                deleteRequest.input('movieId', sql.Int, movieId);
+                await deleteRequest.query(`DELETE FROM UserFavorites WHERE UserID = @userId AND MovieID = @movieId`);
+            }
+        }
+
+        // Check if the rank is already taken by another movie
+        const checkRankRequest = new sql.Request();
+        checkRankRequest.input('userId', sql.Int, userId);
+        checkRankRequest.input('rank', sql.Int, rank);
+        const checkRankResult = await checkRankRequest.query(`SELECT * FROM UserFavorites WHERE UserID = @userId AND Rank = @rank`);
+
+        // If rank is taken, delete the existing entry
+        if (checkRankResult.recordset.length > 0) {
+            const deleteRankRequest = new sql.Request();
+            deleteRankRequest.input('userId', sql.Int, userId);
+            deleteRankRequest.input('rank', sql.Int, rank);
+            await deleteRankRequest.query(`DELETE FROM UserFavorites WHERE UserID = @userId AND Rank = @rank`);
+        }
+
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        request.input('movieId', sql.Int, movieId);
+        request.input('rank', sql.Int, rank);
+
+        const result = await request.query(`INSERT INTO UserFavorites(UserID, MovieID, Rank) VALUES (@userId, @movieId, @rank)`);
+
+        if (result.rowsAffected[0] === 0) {
+            return res.status(404).json({ success: false, message: 'Insertion Failed' });
+        }
+
+        return res.status(200).json({ success: true, message: 'Movie added to favorites' });
+    } catch (error) {
+        console.error('Error updating favorite movies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
 
 router.get('/logged/:userId', async (req, res) => {

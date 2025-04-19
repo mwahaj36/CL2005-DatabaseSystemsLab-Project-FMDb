@@ -88,7 +88,7 @@ CREATE TABLE
     UserFavorites (
         UserID INT NOT NULL,
         MovieID INT NOT NULL,
-        Rank INT CHECK (Rank > 0),
+        Rank INT CHECK (Rank BETWEEN 1 AND 4),
         PRIMARY KEY (UserID, MovieID),
         FOREIGN KEY (UserID) REFERENCES Users (UserID) ON DELETE CASCADE,
         FOREIGN KEY (MovieID) REFERENCES Movies (MovieID) ON DELETE CASCADE
