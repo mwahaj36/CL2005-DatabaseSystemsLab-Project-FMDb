@@ -188,10 +188,105 @@ router.get('/:userid', authenticateToken, async (req, res) => {
     }
 });
 
-// Get friends list (Works only if accounts are public or if JWT token is passed and account is friend of the logged-in user)
-router.get('/friends/:userid', async (req, res) => {
-    // Fetch friends of a user (Check account visibility and friendship status)
+// Get friends list logged out ver.(Works only if accounts are public)
+router.get('/public/friends/:userid', async (req, res) => {
+    const userId = parseInt(req.params.userid, 10);
+    if (!userId || isNaN(userId)) {
+      return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+  
+    try {
+        // Check target user's privacy
+        const privacyReq = new sql.Request();
+        privacyReq.input('userId', sql.Int, userId);
+        const privacyRes = await privacyReq.query(`
+            SELECT Privacy 
+            FROM Users 
+            WHERE UserID = @userId
+        `);
+        if (privacyRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        const { Privacy } = privacyRes.recordset[0];
+        if (Privacy !== 'Public') {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Fetch this user's friends 
+        const friendsReq = new sql.Request();
+        friendsReq.input('userId', sql.Int, userId);
+        const friendsRes = await friendsReq.query(`
+        SELECT UserID, FullName, Username, Gender, Bio, UserType, Privacy
+        FROM Users 
+        WHERE UserID IN (
+            SELECT User2ID FROM Friends WHERE User1ID = @userId
+            UNION
+            SELECT User1ID FROM Friends WHERE User2ID = @userId
+        )
+        `);
+
+        // Return list
+        return res.status(200).json({
+        success: true,
+        friends: friendsRes.recordset
+        });
+    } catch (error) {
+      console.error('Error fetching friends list:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
+
+// Get friends list logged in ver. (Works only if accounts are public or if isFriend)
+router.get('/friends/:userid', authenticateToken, async (req, res) => {
+    const userId = parseInt(req.params.userid, 10);
+    const loggedInUserId = req.userId; 
+
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+  
+    try {
+        // Fetch target user's privacy
+        const privacyReq = new sql.Request();
+        privacyReq.input('userId', sql.Int, userId);
+        const privacyRes = await privacyReq.query(`
+        SELECT Privacy
+        FROM Users
+        WHERE UserID = @userId
+        `);
+        if (privacyRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        const { Privacy } = privacyRes.recordset[0];
+
+        // Check if we’re allowed (public profile OR friends)
+        if (Privacy === 'Public' || await isFriend(loggedInUserId, userId)) {  
+            // 3. Fetch this user's friends
+            const friendsReq = new sql.Request();
+            friendsReq.input('userId', sql.Int, userId);
+            const friendsRes = await friendsReq.query(`
+                SELECT UserID, FullName, Username, Gender, Bio, UserType, Privacy
+                FROM Users 
+                WHERE UserID IN (
+                    SELECT User2ID FROM Friends WHERE User1ID = @userId
+                    UNION
+                    SELECT User1ID FROM Friends WHERE User2ID = @userId
+                )
+            `);
+        
+            // 4. Return friends list
+            return res.status(200).json({
+                success: true,
+                friends: friendsRes.recordset
+            });
+        } else {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+    } catch (error) {
+      console.error('Error fetching friends list:', error);
+      return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  });
 
 // Update user profile (Requires JWT token with userid)
 router.put('/', async (req, res) => {
