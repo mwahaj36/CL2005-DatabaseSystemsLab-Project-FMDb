@@ -1,85 +1,181 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import EditFavorite from '@/components/EditFavorite'; // Assuming you already have this component
+import EditFavorite from '@/components/EditFavorite';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import FMDBDatabase from '../data/FMDBDatabase.json'; // Assuming you have the JSON file
+import { useRouter } from 'next/router';
 
 export default function EditProfile() {
-  const { user } = useAuth();
-  const [profilePic, setProfilePic] = useState(user?.profilePic || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKf1Vb-G8-IbQ0eLAAjFYGI62Obzzc-R4WvA&s");
+  const { user, token } = useAuth();
+  const router = useRouter();
   
-  // Split full name from user data
-  const [firstName, setFirstName] = useState(user?.fullName ? user.fullName.split(" ")[0] : "Muhammad");
-  const [lastName, setLastName] = useState(user?.fullName ? user.fullName.split(" ")[1] || "" : "Wahaj");
-  const [gender, setGender] = useState(user?.gender || "Not Specified");
-  const [email, setEmail] = useState(user?.email || "example@email.com");
-  const [bio, setBio] = useState(user?.bio || "");
-  const [userType, setUserType] = useState(user?.userType || "user");
-  const [dob, setDob] = useState(user?.dob || "");  // New state for Date of Birth
-  const [background, setBackground] = useState("https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg");  // New state for background image
-  const [privacy, setprivacy] = useState(user?.privacy || "public"); // New state for account privacy
+  // State for form fields
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [gender, setGender] = useState("Not Specified");
+  const [email, setEmail] = useState("");
+  const [bio, setBio] = useState("");
+  const [userType, setUserType] = useState("");
+  const [dob, setDob] = useState("");
+  const [background, setBackground] = useState("https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg");
+  const [privacy, setPrivacy] = useState("public");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [formErrors, setFormErrors] = useState({});
 
-  // Update favorites data from the user context
-  const favoriteMovies = user?.userFavs || [];
-
+  // Fetch user profile data
   useEffect(() => {
-    if (favoriteMovies.length > 0) {
-      // Get the first favorite movie
-      const firstFavMovie = FMDBDatabase.find((movie) => movie.MovieID === favoriteMovies[0]);
-
-      if (firstFavMovie) {
-        setBackground(firstFavMovie.Backdrop); // Set background using the movie's backdrop
+    const fetchUserProfile = async () => {
+      if (!user?.userID || !token) {
+        setIsLoading(false);
+        return;
       }
+
+      try {
+        const response = await fetch(`http://localhost:5000/users/${user.userID}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          
+          // Split full name into first and last names
+          const nameParts = data.user?.FullName?.split(" ") || [];
+          setFirstName(nameParts[0] || "");
+          setLastName(nameParts.slice(1).join(" ") || "");
+          
+          // Set other fields with proper null checks
+          setEmail(data.user?.Email || "");
+          setBio(data.user?.Bio || "");
+          setUserType(data.user?.UserType || "");
+          setGender(data.user?.Gender || "Not Specified");
+          setDob(data.user?.DateOfBirth?.split('T')[0] || ""); 
+          setPrivacy(data.user?.Privacy?.toLowerCase() || "public");
+          
+          // Set background from basicDetails if available
+          if (data.basicDetails?.firstFavoriteBackdrop) {
+            setBackground(data.basicDetails.firstFavoriteBackdrop);
+          }
+        } else {
+          throw new Error('Failed to fetch user profile');
+        }
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
+        setSubmitError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, [user, token]);
+
+  const validateForm = () => {
+    const errors = {};
+    
+    if (!firstName.trim()) {
+      errors.firstName = "First name is required";
     }
-  }, [favoriteMovies]);
+    
+    if (!lastName.trim()) {
+      errors.lastName = "Last name is required";
+    }
+    
+    if (!email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      errors.email = "Email is invalid";
+    }
+    
+    if (!dob) {
+      errors.dob = "Date of birth is required";
+    }
 
-  // Get the full movie objects for the favorites
-  const favoriteMovieDetails = favoriteMovies.length > 0 
-    ? favoriteMovies.map(movieId => 
-        FMDBDatabase.find(movie => movie.MovieID === movieId)
-      ).filter(movie => movie !== undefined) // Ensure we only pass valid movie objects
-    : [];
-
-  // Dummy function to toggle account privacy
-  const toggleprivacy = () => {
-    setprivacy(prevState => prevState === 'public' ? 'private' : 'public');
-    console.log(`Account is now ${privacy === 'public' ? 'private' : 'public'}`);
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+
+    try {
+      const response = await fetch('http://localhost:5000/users', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          FullName: `${firstName} ${lastName}`,
+          Username: user.username,
+          Email: email,
+          Bio: bio || "", // Ensure empty string if bio is null
+          Privacy: privacy === 'public' ? 'Public' : 'Private',
+          Gender: gender,
+          DateOfBirth: dob // Already validated as required
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to update profile');
+      }
+
+      // Update local storage with new user data
+      const updatedUser = {
+        ...user,
+        fullName: `${firstName} ${lastName}`,
+        email,
+        bio: bio || "",
+        gender,
+        dob,
+        privacy
+      };
+
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      sessionStorage.setItem('user', JSON.stringify(updatedUser));
+
+      setSubmitSuccess(true);
+      setTimeout(() => setSubmitSuccess(false), 3000);
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      setSubmitError(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-darkPurple">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple"></div>
+      </div>
+    );
+  }
+
   return (
-    <section
-      className="relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${background})` }}
-    >
+    <section className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${background})` }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
+      
       <section id="edit-favorite" className="relative">
         <div className="max-w-6xl px-5 mx-auto mt-10 text-center relative z-10">
           <h2 className="text-6xl text-white text-shadow font-bold text-center">
             Edit Favourites
           </h2>
-          <div className="flex flex-col mt-24 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
-            {/* Pass empty array if no favorite movies */}
-            {favoriteMovieDetails.length > 0 ? (
-              favoriteMovieDetails.map((movie, index) => (
-                <EditFavorite
-                  key={movie.MovieID}
-                  movie={movie}
-                  onFavoriteSelect={(selected) => {
-                    console.log("Selected new favorite movie: " + selected.Title);
-                    // Optional: add logic to update user's favorites
-                  }}
-                />
-              ))
-            ) : (
-              // Pass empty array when no favorite movies
-              <EditFavorite
-                movie={[]}
-                onFavoriteSelect={() => {}}
-              />
-            )}
-          </div>
         </div>
       </section>
 
@@ -90,7 +186,7 @@ export default function EditProfile() {
         <div className="relative -pt-30 flex flex-col md:flex-row pr-40 items-start justify-between">
           <div className="w-full md:w-1/3 text-center mb-6 md:mb-0 flex flex-col items-center pt-8 min-h-screen">
             <img
-              src={profilePic}
+              src={`https://ui-avatars.com/api/?name=${firstName}+${lastName}&background=random`}
               alt="Profile Picture"
               className="w-72 h-72 rounded-xl mx-auto mb-4"
             />
@@ -99,54 +195,81 @@ export default function EditProfile() {
             </button>
           </div>
 
-          {/* Right Side: Profile Form */}
           <div className="w-full md:w-2/3">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              {submitError && (
+                <div className="p-4 text-red-500 bg-red-100 rounded-lg">
+                  {submitError}
+                </div>
+              )}
+              {submitSuccess && (
+                <div className="p-4 text-green-500 bg-green-100 rounded-lg">
+                  Profile updated successfully!
+                </div>
+              )}
+
               <div className="flex space-x-4">
                 <div className="w-1/2">
-                  <label htmlFor="first_name" className="block text-sm font-bold text-xl text-white">First Name</label>
+                  <label htmlFor="first_name" className="block text-sm font-bold text-xl text-white">First Name*</label>
                   <input
                     type="text"
                     id="first_name"
-                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    className={`w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md ${
+                      formErrors.firstName ? 'border-2 border-red-500' : ''
+                    }`}
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
+                  {formErrors.firstName && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.firstName}</p>
+                  )}
                 </div>
                 <div className="w-1/2">
-                  <label htmlFor="last_name" className="block text-sm font-bold text-xl text-white">Last Name</label>
+                  <label htmlFor="last_name" className="block text-sm font-bold text-xl text-white">Last Name*</label>
                   <input
                     type="text"
                     id="last_name"
-                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    className={`w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md ${
+                      formErrors.lastName ? 'border-2 border-red-500' : ''
+                    }`}
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
+                  {formErrors.lastName && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.lastName}</p>
+                  )}
                 </div>
               </div>
 
               <div className="flex space-x-4">
                 <div className="w-1/2">
-                  <label htmlFor="email" className="block text-sm font-bold text-xl text-white">Email</label>
+                  <label htmlFor="email" className="block text-sm font-bold text-xl text-white">Email*</label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    className={`w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md ${
+                      formErrors.email ? 'border-2 border-red-500' : ''
+                    }`}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                  {formErrors.email && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+                  )}
                 </div>
                 <div className="w-1/2">
                   <label htmlFor="userType" className="block text-sm font-bold text-xl text-white">User Type</label>
                   <select
-                    id="userType"
-                    className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
-                    value={userType}
-                    onChange={(e) => setUserType(e.target.value)}
-                  >
-                    <option value="user">User</option>
-                    <option value="verified critic">Verified Critic</option>
-                  </select>
+  id="userType"
+  className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+  value={userType}
+  onChange={(e) => setUserType(e.target.value)}
+  disabled
+>
+  <option value="User">User</option>
+  <option value="Verified Critic">Verified Critic</option>
+  <option value="Admin">Admin</option>
+</select>
                 </div>
               </div>
 
@@ -157,19 +280,25 @@ export default function EditProfile() {
                   className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
+                  rows={4}
                 />
               </div>
 
               <div className="flex space-x-4">
                 <div className="w-1/2">
-                  <label htmlFor="dob" className="block text-sm font-bold text-xl text-white">Date of Birth</label>
+                  <label htmlFor="dob" className="block text-sm font-bold text-xl text-white">Date of Birth*</label>
                   <input
                     type="date"
                     id="dob"
-                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    className={`w-full px-3 py-2 bg-purpleWhite text-darkPurple focus:text-purple rounded-md ${
+                      formErrors.dob ? 'border-2 border-red-500' : ''
+                    }`}
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
                   />
+                  {formErrors.dob && (
+                    <p className="text-red-500 text-sm mt-1">{formErrors.dob}</p>
+                  )}
                 </div>
                 <div className="w-1/2">
                   <label htmlFor="gender" className="block text-sm font-bold text-xl text-white">Gender</label>
@@ -187,25 +316,33 @@ export default function EditProfile() {
 
                 <div className="w-1/2">
                   <label htmlFor="privacy" className="block text-sm font-bold text-xl text-white">Account Privacy</label>
-                  <button
-                    type="button"
+                  <select
                     id="privacy"
-                    className="w-full px-3 py-2 bg-purpleWhite text-darkPurple text-left focus:text-purple rounded-md"
-                    onClick={toggleprivacy}
+                    className="w-full px-3 py-3 bg-purpleWhite text-darkPurple focus:text-purple rounded-md"
+                    value={privacy}
+                    onChange={(e) => setPrivacy(e.target.value)}
                   >
-                    {privacy === 'public' ? 'Public' : 'Private'}
-                  </button>
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                  </select>
                 </div>
               </div>
 
               <div className="flex justify-end space-x-4">
                 <a href="/ChangePass" className="px-4 py-2 font-bold text-white hover:text-purpleWhite">Change Password</a>
-                <a href="/Profile" type="button" className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">Cancel</a>
-                <a href="/Profile" type="submit" className="px-4 py-2 font-bold bg-purple text-white rounded-lg">Save Changes</a>
+                <button type="button" onClick={() => router.back()} className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">
+                  Cancel
+                </button>
+                <button 
+                  type="submit" 
+                  className="px-4 py-2 font-bold bg-purple text-white rounded-lg disabled:opacity-50"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Saving...' : 'Save Changes'}
+                </button>
               </div>
             </form>
           </div>
-
         </div>
       </div>
       <Footer />
