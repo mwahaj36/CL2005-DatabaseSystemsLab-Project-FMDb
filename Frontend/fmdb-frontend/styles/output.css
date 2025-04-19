@@ -2159,6 +2159,10 @@ video {
   border-bottom-width: 0px;
 }
 
+.last\:border-none:last-child {
+  border-style: none;
+}
+
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
@@ -2217,6 +2221,11 @@ video {
 .hover\:bg-purpleWhite:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(320 34% 93% / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-opacity-20:hover {
