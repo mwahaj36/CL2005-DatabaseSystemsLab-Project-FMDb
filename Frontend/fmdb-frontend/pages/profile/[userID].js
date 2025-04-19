@@ -7,7 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import MovieCard from '@/components/MovieCard';
 import YearlyStats from '@/components/YearlyStats';
 import ActivityAndReviewSection from '@/components/ActivityAndReview';
-import ThirdScreenReviews from '@/components/ThirdScreenReviews';
+import ThirdScreenReviewsP from '@/components/ThirdScreenReviewsP';
 
 const Profile = () => {
   const router = useRouter();
@@ -58,7 +58,8 @@ const Profile = () => {
           favoriteMovies: data.favoriteMovies || [],
           reviews: data.recentActivities?.filter(activity => activity.Review) || [],
           yearlyStats: data.yearlyStats,
-          basicDetails: data.basicDetails
+          basicDetails: data.basicDetails,
+          recentActivities: data.recentActivities || []
         };
 
         setProfileUser(transformedUser);
@@ -74,6 +75,7 @@ const Profile = () => {
           bio: 'This user profile could not be loaded.',
           favoriteMovies: [],
           reviews: [],
+          recentActivities: [],
           privacy: false
         });
       } finally {
@@ -102,6 +104,17 @@ const Profile = () => {
   const isPublicProfile = profileUser.privacy === true;
 
   const showPrivateContent = isCurrentUser || isFriend || isPublicProfile;
+
+  // Prepare reviews data for ThirdScreenReviewsP component
+  const formattedReviews = profileUser.recentActivities
+    ?.filter(activity => activity.Review)
+    .map(activity => ({
+      id: activity.ActivityID,
+      movieId: activity.MovieID,
+      rating: activity.Ratings,
+      review: activity.Review,
+      date: activity.ActivityDateTime
+    })) || [];
 
   return (
     <section
@@ -132,12 +145,26 @@ const Profile = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
-              <div className=" w-full flex flex-col p-6 rounded-xl">
+              <div className="w-full flex flex-col p-6 rounded-xl">
                 <h1 className='text-5xl font-bold mb-5 text-white text-center'>Recent Reviews</h1>
-                <ThirdScreenReviews reviews={profileUser.reviews} />
+                <ThirdScreenReviewsP 
+                  reviews={formattedReviews} 
+                  userId={profileUser.userID}
+                  userType={profileUser.userType}
+                />
               </div>
+              
               {profileUser.yearlyStats && (
-                <YearlyStats yearlyStats={profileUser.yearlyStats} />
+                <div className="w-full flex flex-col p-6 rounded-xl">
+                  <YearlyStats 
+                    yearlyStats={profileUser.yearlyStats} 
+                    uniqueMoviesWatched={profileUser.basicDetails?.uniqueMoviesWatched}
+                    loggedMoviesCount={profileUser.basicDetails?.loggedMoviesCount}
+                    activitiesCount={profileUser.basicDetails?.activitiesCount}
+                    mostLoggedMovie={profileUser.basicDetails?.mostLoggedMovie}
+                    activityLikes={profileUser.basicDetails?.activityLikes}
+                  />
+                </div>
               )}
             </div>
           </>
