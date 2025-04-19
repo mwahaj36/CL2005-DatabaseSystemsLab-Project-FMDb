@@ -1,35 +1,64 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState } from 'react';
-import Error from '@/components/Error';
+import { useState, useContext } from 'react';
+import ErrorPopup from '@/components/Error';
 import { MessageSquare } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 const ProfileHero = ({
   profileUser,
-  currentUser,
   isFriend,
   onAddFriend,
   onRemoveFriend,
   onEditProfile,
 }) => {
   const router = useRouter();
+  const { user: currentUser, token } = useAuth();
   const [errorMessage, setErrorMessage] = useState('');
   const [showMessageModal, setShowMessageModal] = useState(false);
   const [messageText, setMessageText] = useState('');
-  const [sentMessages, setSentMessages] = useState([]);
   const [modalError, setModalError] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
   // Determine if the current user can see private content
   const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
                                isFriend || 
                                profileUser.privacy === true;
 
-  const handleAddFriend = () => {
+  const handleAddFriend = async () => {
     if (!currentUser) {
       setErrorMessage("You must be logged in to add friends.");
       return;
     }
-    onAddFriend?.();
+    
+    try {
+      setIsSending(true);
+      const response = await fetch('http://localhost:5000/users/friendRequest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          userId: profileUser.userID,
+          message: "I'd like to add you as a friend"
+        })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send friend request');
+      }
+
+      // Call the parent component's callback if provided
+      onAddFriend?.();
+      setErrorMessage('Friend request sent successfully!');
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleRemoveFriend = () => {
@@ -46,7 +75,7 @@ const ProfileHero = ({
     }
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!currentUser) {
       setModalError("You must be logged in to send messages.");
       return;
@@ -57,10 +86,35 @@ const ProfileHero = ({
       return;
     }
 
-    setSentMessages([...sentMessages, { to: profileUser.userID, message: messageText }]);
-    setMessageText('');
-    setShowMessageModal(false);
-    setModalError('');
+    try {
+      setIsSending(true);
+      const response = await fetch('http://localhost:5000/message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          receiverId: profileUser.userID,
+          message: messageText
+        })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
+      setMessageText('');
+      setShowMessageModal(false);
+      setModalError('');
+      setErrorMessage('Message sent successfully!');
+    } catch (error) {
+      setModalError(error.message);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   // Stats display components
@@ -84,7 +138,12 @@ const ProfileHero = ({
 
   return (
     <section id="hero" className="relative -mt-14">
-      {errorMessage && <Error message={errorMessage} onClose={() => setErrorMessage('')} />}
+      {errorMessage && (
+        <ErrorPopup 
+          message={errorMessage} 
+          onClose={() => setErrorMessage('')} 
+        />
+      )}
 
       {showMessageModal && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-70 flex justify-center items-center">
@@ -95,6 +154,7 @@ const ProfileHero = ({
                 setShowMessageModal(false);
                 setModalError('');
               }}
+              disabled={isSending}
             >
               ✕
             </button>
@@ -102,22 +162,25 @@ const ProfileHero = ({
             <h2 className="text-xl font-bold text-darkPurple mb-4">Send a message to {profileUser.fullName}</h2>
 
             {modalError && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
-                {modalError}
-              </div>
+              <ErrorPopup 
+                message={modalError} 
+                onClose={() => setModalError('')} 
+              />
             )}
 
             <textarea
               className="w-full h-32 p-3 border rounded-md text-black"
               value={messageText}
-              onChange={(e) => setMessageText(e.value)}
+              onChange={(e) => setMessageText(e.target.value)}
               placeholder="Type your message..."
+              disabled={isSending}
             />
             <button
-              className="mt-4 px-4 py-2 bg-darkPurple text-purpleWhite rounded-xl hover:bg-purple"
+              className="mt-4 px-4 py-2 bg-darkPurple text-purpleWhite rounded-xl hover:bg-purple disabled:opacity-50"
               onClick={handleSendMessage}
+              disabled={isSending}
             >
-              Send Message
+              {isSending ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </div>
@@ -171,6 +234,7 @@ const ProfileHero = ({
                       <button
                         onClick={handleRemoveFriend}
                         className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
+                        disabled={isSending}
                       >
                         Remove Friend
                       </button>
@@ -178,6 +242,7 @@ const ProfileHero = ({
                         <button
                           onClick={() => setShowMessageModal(true)}
                           className="p-2 bg-purpleWhite rounded-full hover:bg-purple hover:text-purpleWhite"
+                          disabled={isSending}
                         >
                           <MessageSquare className="w-6 h-6 text-darkPurple" />
                         </button>
@@ -187,8 +252,9 @@ const ProfileHero = ({
                     <button
                       onClick={handleAddFriend}
                       className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
+                      disabled={isSending}
                     >
-                      Add Friend
+                      {isSending ? 'Sending...' : 'Add Friend'}
                     </button>
                   )}
                 </>
