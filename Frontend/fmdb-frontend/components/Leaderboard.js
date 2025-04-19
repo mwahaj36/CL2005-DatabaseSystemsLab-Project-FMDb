@@ -77,7 +77,7 @@ const Leaderboard = () => {
         </h2>
         <div className="flex justify-center space-x-20">
           {leaderboardData.map((user, index) => (
-            <Link href={`/profile/${user.Username}`} key={user.UserID}>
+            <Link href={`/profile/${user.UserID}`} key={user.UserID}>
               <div
                 className={`flex items-center p-4 bg-opacity-60 rounded-xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
                 style={{ backgroundColor: medalColors[index]  }}

@@ -4,55 +4,104 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProfileHero from '@/components/ProfileHero';
 import { useAuth } from '@/context/AuthContext';
-import { users } from '@/data/Users'; // Used for mock profile lookup
-import movies from '@/data/FMDbDatabase.json'; // mock movies array
-import MovieCard from '@/components/EditFavorite';
-import YearlyStats from '@/components/YearlyStats'; // Import YearlyStats component
+import MovieCard from '@/components/MovieCard';
+import YearlyStats from '@/components/YearlyStats';
 import ActivityAndReviewSection from '@/components/ActivityAndReview';
+import ThirdScreenReviews from '@/components/ThirdScreenReviews';
 
 const Profile = () => {
   const router = useRouter();
   const { userID } = router.query;
-  const { user: currentUser } = useAuth();
+  const { user: currentUser, token } = useAuth();
   const [profileUser, setProfileUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady || !userID) return;
 
-    // If currentUser is null or userID doesn't match currentUser, fetch the profile from URL
-    if (!currentUser || userID !== currentUser.userID) {
-      const foundUser = users.find((u) => u.userID === userID);
+    const fetchUserProfile = async () => {
+      try {
+        setLoading(true);
+        let response;
+        
+        // If it's the current user's profile, use the authenticated endpoint
+        if (currentUser?.userID === parseInt(userID)) {
+          response = await fetch(`http://localhost:5000/users/${userID}`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+        } else {
+          // For other users, use the public endpoint
+          response = await fetch(`http://localhost:5000/users/public/${userID}`);
+        }
 
-      if (foundUser) {
-        setProfileUser(foundUser);
-      } else {
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+
+        const data = await response.json();
+        
+        // Transform the API response to match our expected profileUser format
+        const transformedUser = {
+          userID: data.user.UserID || parseInt(userID),
+          fullName: data.user.FullName || `User ${userID}`,
+          username: data.user.Username,
+          email: data.user.Email,
+          gender: data.user.Gender,
+          dateOfBirth: data.user.DateOfBirth,
+          bio: data.user.Bio || 'This user has not written a bio yet.',
+          userType: data.user.UserType,
+          privacy: data.user.Privacy === 'Public',
+          profilePic: `https://i.pravatar.cc/150?u=${data.user.Username || userID}`,
+          favoriteMovies: data.favoriteMovies || [],
+          reviews: data.recentActivities?.filter(activity => activity.Review) || [],
+          yearlyStats: data.yearlyStats,
+          basicDetails: data.basicDetails
+        };
+
+        setProfileUser(transformedUser);
+      } catch (err) {
+        console.error('Error fetching user profile:', err);
+        setError(err.message);
+        
+        // Fallback to minimal profile
         setProfileUser({
-          userID,
-          fullName: `${userID} Name`,
+          userID: parseInt(userID),
+          fullName: `User ${userID}`,
           profilePic: `https://i.pravatar.cc/150?u=${userID}`,
-          bio: 'This user has not written a bio yet.',
-          friends: [],
-          userFavs: [],
-          reviews: [], // Add mock reviews if necessary
+          bio: 'This user profile could not be loaded.',
+          favoriteMovies: [],
+          reviews: [],
+          privacy: false
         });
+      } finally {
+        setLoading(false);
       }
-    } else {
-      // If it's the current user's profile, set currentUser as the profileUser
-      setProfileUser(currentUser);
-    }
-  }, [router.isReady, userID, currentUser]);
+    };
 
-  const firstFavMovie = useMemo(() => {
-    if (!profileUser?.userFavs?.length) return null;
-    const firstFavID = profileUser.userFavs[0];
-    return movies?.find((movie) => movie.MovieID === firstFavID);
+    fetchUserProfile();
+  }, [router.isReady, userID, currentUser, token]);
+
+  const backdropUrl = useMemo(() => {
+    if (!profileUser?.basicDetails?.firstFavoriteBackdrop) return '/fallback-backdrop.jpg';
+    return profileUser.basicDetails.firstFavoriteBackdrop || '/fallback-backdrop.jpg';
   }, [profileUser]);
 
-  const backdropUrl = firstFavMovie?.Backdrop ?? '/fallback-backdrop.jpg';
-
-  if (!profileUser) {
+  if (loading) {
     return <div className="text-white text-center p-10">Loading profile...</div>;
   }
+
+  if (!profileUser) {
+    return <div className="text-white text-center p-10">User not found</div>;
+  }
+
+  const isCurrentUser = currentUser?.userID === profileUser.userID;
+  const isFriend = currentUser?.friends?.includes(profileUser.userID);
+  const isPublicProfile = profileUser.privacy === true;
+
+  const showPrivateContent = isCurrentUser || isFriend || isPublicProfile;
 
   return (
     <section
@@ -60,65 +109,56 @@ const Profile = () => {
       style={{ backgroundImage: `url(${backdropUrl})` }}
     >
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-      <div className="relative p-4 z-10 ">
+      <div className="relative p-4 z-10">
         <Navbar />
         <ProfileHero profileUser={profileUser} currentUser={currentUser} />
 
-        {/* Conditional rendering based on user's relationship */}
-        {profileUser.userID === currentUser?.userID || currentUser?.friends.includes(profileUser.userID) || profileUser.privacy === false ? (
+        {showPrivateContent ? (
           <>
             <p className="text-3xl mt-10 mb-20 md:text-6xl font-bold text-center">Favorites</p>
 
             <div className="relative flex flex-col z-10 mt-10 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
-              {/* Dynamically render each favorite movie */}
-              {profileUser.userFavs.map((userFavID, index) => {
-                const movie = movies.find((m) => m.MovieID === userFavID);
-                return movie ? <MovieCard key={index} movie={movie} /> : null;
-              })}
+              {profileUser.favoriteMovies?.map((movie, index) => (
+                <MovieCard 
+                  key={index} 
+                  movie={{
+                    movieid: movie.movieid,
+                    title: movie.title,
+                    movieposterlink: movie.movieposterlink,
+                    directors: movie.directors
+                  }} 
+                />
+              ))}
             </div>
 
-            {/* Section with Reviews (Limited to 5) and Yearly Stats */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
-              {/* Limited Reviews Section */}
-              <div className="w-full flex flex-col p-6 rounded-xl ">
-              {profileUser.reviews?.slice(0, 3).map((review, index) => {
-                  const movie = movies.find((m) => m.MovieID === review.movieID);
-                  return (
-                    <div key={index} className="mb-6 border-b border-purpleWhite pb-4">
-                      <p className="text-purpleWhite font-semibold">
-                        {movie ? movie.Title : 'Unknown Movie'}
-                      </p>
-                      <p className="text-white italic">"{review.text}"</p>
-                    </div>
-                  );
-                })}
-                    <ActivityAndReviewSection currentUser={currentUser} profileUser={profileUser} />
+              <div className=" w-full flex flex-col p-6 rounded-xl">
+                <h1 className='text-5xl font-bold mb-5 text-white text-center'>Recent Reviews</h1>
+                <ThirdScreenReviews reviews={profileUser.reviews} />
               </div>
-
-              {/* Yearly Stats Section */}
-              <YearlyStats profileUser={profileUser} />
+              {profileUser.yearlyStats && (
+                <YearlyStats yearlyStats={profileUser.yearlyStats} />
+              )}
             </div>
           </>
         ) : (
           <p className="text-white mt-10 font-semibold text-center text-3xl">
-            Shh... this user’s movie vault is private.<br></br>
+            Shh... this user's movie vault is private.<br></br>
             Become friends to peek behind the scenes!
           </p>
         )}
-      </div>
-      <div className="flex justify-center space-x-6 mt-12">
-      {profileUser.userID === currentUser?.userID && currentUser?.userType === 'User' && (
-  <div className="flex justify-center space-x-6 mt-12">
-    <a 
-      href='/Apply'
-      className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
-    >
-      Apply to be Verified Critic Or Admin
-    </a>
-  </div>
-)}
 
-</div>
+        {isCurrentUser && currentUser?.userType === 'User' && (
+          <div className="flex justify-center space-x-6 mt-12">
+            <a 
+              href='/Apply'
+              className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
+            >
+              Apply to be Verified Critic Or Admin
+            </a>
+          </div>
+        )}
+      </div>
       <Footer />
     </section>
   );
