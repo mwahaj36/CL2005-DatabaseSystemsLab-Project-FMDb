@@ -153,7 +153,7 @@ const MoviesListPage = () => {
 
         <div className="relative z-10 pb-20">
           <section className="text-center pt-10">
-            <h2 className="text-6xl text-white font-bold text-shadow">All Films</h2>
+            <h2 className="text-6xl text-white font-bold text-shadow">All Series</h2>
             <p className="text-purple-300 mt-2">Browse our collection of {totalPages > 1 ? `${totalPages} pages` : 'films'}</p>
           </section>
 
