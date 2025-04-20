@@ -2,6 +2,7 @@ const express = require('express');
 const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const { getUserBaseStats, getUserExtraStats, isFriend } = require('../utils/userDetails');
+const { processMoviesWithDirectors } = require('../utils/processMovies');
 const router = express.Router();
 
 // Get Top 3 Users (Leaderboard)
@@ -136,7 +137,7 @@ router.get('/public/:userid', async (req, res) => {
 });
 
 // Get user profile logged in ver. (if JWT token is passed and account is a friend of the logged-in user or account is public)
-router.get('/:userid', authenticateToken, async (req, res) => {
+router.get('/logged/:userid', authenticateToken, async (req, res) => {
     const userId = parseInt(req.params.userid, 10); // Extract userId from the request parameters
 
     if (!userId || isNaN(userId)) {
@@ -499,6 +500,37 @@ router.put('/userType', authenticateToken, async (req, res) => {
         }
     } catch (error) {
         console.error('Error handling user type change:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get Current User Favorites (Requires JWT token with userid)
+router.get('/favorites', authenticateToken, async (req, res) => {
+    const userId = req.userId;  // set by authenticateToken
+    
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, userId);
+        const result = await request.query(`
+            SELECT M.Title, M.MoviePosterLink, M.MovieID, UF.Rank
+            FROM UserFavorites UF
+            JOIN Movies M ON UF.MovieID = M.MovieID
+            WHERE UF.UserID = @userId
+            ORDER BY UF.Rank ASC
+        `);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No favorite movies found' });
+        }
+
+        const movies = await processMoviesWithDirectors(result.recordset);
+    
+        return res.status(200).json({
+            success: true,
+            favorites: movies
+        });
+    } catch (error) {
+        console.error('Error fetching favorite movies:', error);
         return res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });

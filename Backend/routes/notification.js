@@ -6,12 +6,17 @@ const router = express.Router();
 // Get all notifications of current user
 router.get('/user', authenticateToken, async (req, res) => {
     const userId = req.userId;
-    const query = `SELECT * FROM Notifications WHERE ReceiverId = @userId`;
     try {
         const request = new sql.Request();
         request.input('userId', sql.Int, userId);
 
-        const result = await request.query(query);
+        const result = await request.query(`
+            SELECT N.NotificationID, N.SenderID, U.Username, N.ReceiverID, N.Message, N.NotificationType, N.SentAt 
+            FROM Notifications N 
+            JOIN Users U ON N.SenderID = U.UserID 
+            WHERE ReceiverId = 2
+        `);
+        
         if (result.recordset.length === 0) {
             return res.status(404).send({ success: false, message: 'No requests found for this user' });
         }

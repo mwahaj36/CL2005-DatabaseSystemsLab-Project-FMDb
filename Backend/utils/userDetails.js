@@ -42,8 +42,8 @@ async function getUserExtraStats(userId) {
         WHERE UF.UserID = @userId
         ORDER BY UF.Rank ASC
 
-        -- 1. Recent activities (top 5)
-        SELECT TOP 5 * FROM Activity 
+        -- 1. Recent activities (top 10)
+        SELECT TOP 10 * FROM Activity 
         WHERE UserID = @userId AND Ratings IS NOT NULL AND Review IS NOT NULL 
         ORDER BY ActivityDateTime DESC
 
@@ -103,13 +103,13 @@ async function getUserExtraStats(userId) {
         ORDER BY COUNT(*) DESC
         
         -- 9. Your most‑logged movie this year
-        SELECT TOP 1 m.Title
+        SELECT TOP 1 m.Title, m.MoviePosterLink
         FROM Activity a
         JOIN Movies m ON a.MovieID = m.MovieID
         WHERE a.UserID = @userId
         AND a.IsLogged = 1
         AND DATEDIFF(YEAR, a.ActivityDateTime, GETDATE()) = 0
-        GROUP BY m.Title
+        GROUP BY m.Title, m.MoviePosterLink
         ORDER BY COUNT(*) DESC
         
         -- 10. Your top genre this year
@@ -165,7 +165,7 @@ async function getUserExtraStats(userId) {
         const activitiesCount    = activitiesRaw[0]?.ActivitiesCount ?? 0;
         const mostWatchedDirector= directorRaw[0]?.DirectorName     ?? null;
         const mostWatchedActor   = actorRaw[0]?.ActorName           ?? null;
-        const mostLoggedMovie    = loggedMovieRaw[0]?.Title         ?? null;
+        const mostLoggedMovie    = loggedMovieRaw;
         const topGenre           = genreRaw[0]?.GenreName           ?? null;
         const topKeywords        = keywordsRaw.map(r => r.KeywordName);
 

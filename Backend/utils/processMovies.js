@@ -36,6 +36,7 @@ async function processMoviesWithDirectors(recordset) {
         moviebackdroplink: row.MovieBackdropLink,
         releaseDate: row.ReleaseDate,
         addedAt: row.AddedAt,
+        rank: row.Rank,
         directors: directorsMap[row.MovieID] || []
     }));
 };
