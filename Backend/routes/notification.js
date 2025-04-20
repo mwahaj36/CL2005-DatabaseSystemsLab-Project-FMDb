@@ -14,7 +14,7 @@ router.get('/user', authenticateToken, async (req, res) => {
             SELECT N.NotificationID, N.SenderID, U.Username, N.ReceiverID, N.Message, N.NotificationType, N.SentAt 
             FROM Notifications N 
             JOIN Users U ON N.SenderID = U.UserID 
-            WHERE ReceiverId = 2
+            WHERE ReceiverID = @userId
         `);
 
         if (result.recordset.length === 0) {
@@ -33,13 +33,18 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
     if (isNaN(notificationId)) {
         return res.status(400).send({ success: false, message: 'Invalid notification ID' });
     }
-        
-    const query = `SELECT * FROM Notifications WHERE NotificationId = @notificationId`; 
+         
     try {
-        const request = new sql.Request();
-        request.input('notificationId', sql.Int, notificationId);
+        const chkRequest = new sql.Request();
+        chkRequest.input('notificationId', sql.Int, notificationId);
 
-        const result = await request.query(query);
+        const result = await chkRequest.query(`            
+            SELECT N.NotificationID, N.SenderID, U.Username AS SenderName, N.ReceiverID, U1.Username AS ReceiverName, N.Message, N.NotificationType, N.SentAt 
+            FROM Notifications N 
+            JOIN Users U ON N.SenderID = U.UserID 
+			JOIN Users U1 ON N.ReceiverID = U1.UserID
+            WHERE NotificationID = @notificationId
+        `);
         if (result.recordset.length === 0) {
             return res.status(404).send({ success: false, message: 'Notification not found' });
         }
@@ -47,81 +52,79 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
         if (notification.NotificationType === 'General') {
             return res.status(400).send({ success: false, message: 'Cannot accept a general notification' });
         }
-        if (notification.ReceiverId !== req.userId) {
+        if (notification.ReceiverID !== req.userId) {
             return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
         }
-
+        
         // Delete the notification after accepting it
-        sql.query(`DELETE FROM Notifications WHERE NotificationId = @notificationId`);
-        request = new sql.Request();
+        sql.query(`DELETE FROM Notifications WHERE NotificationId = ${notification.NotificationID}`);
         let messageSender;
+        const request = new sql.Request();
+        
 
         if (notification.NotificationType === 'FriendRequest') {
-            const [u1, u2] = notification.ReceiverId < notification.SenderId
-                ? [notification.ReceiverId, notification.SenderId]
-                : [notification.SenderId, notification.ReceiverId];
+            const [u1, u2] = notification.ReceiverID < notification.SenderID
+                ? [notification.ReceiverID, notification.SenderID]
+                : [notification.SenderID, notification.ReceiverID];
             
-            const request = new sql.Request();
             request.input('u1', sql.Int, u1);
             request.input('u2', sql.Int, u2);
         
             await request.query(`INSERT INTO Friends (User1ID, User2ID) VALUES (@u1, @u2)`);
-            messageSender = `User ${notification.ReceiverId} accepted your friend request!`;            
-            console.log(`Accepted friend request from user ${notification.SenderId}`);
+            messageSender = `User ${notification.ReceiverName} accepted your friend request!`;            
+            console.log(`Accepted friend request from user ${notification.SenderName}`);
         } else {
             // Delete this request for all admins
-            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderId = @senderId`);
+            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderID = ${notification.SenderID}`);
             let adminMessage;
-
+            console.log(notification.SenderID);
 
             if (notification.NotificationType === 'AdminReq') {
                 // promote sender to admin
-                query = `UPDATE Users SET UserType = Admin WHERE UserId = @senderId`;
-                request.input('senderId', sql.Int, notification.SenderId);
-                await request.query(query);
-                messageSender = `You have been promoted to Admin by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been promoted to Admin!`;
+                request.input('senderId', sql.Int, notification.SenderID);
+                await request.query(`UPDATE Users SET UserType = 'Admin' WHERE UserID = @senderId`);
+                messageSender = `You have been promoted to Admin by user ${notification.ReceiverName}`;
+                adminMessage = `User ${notification.SenderName} has been promoted to Admin!`;
 
             } else if (notification.NotificationType === 'CriticReq') {
                 // promote sender to critic
-                query = `UPDATE Users SET UserType = Critic WHERE UserId = @senderId`;
-                request.input('senderId', sql.Int, notification.SenderId);
-                await request.query(query);
-                messageSender = `You have been promoted to Critic by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been promoted to Critic!`;
+                request.input('senderId', sql.Int, notification.SenderID);
+                await request.query(`UPDATE Users SET UserType = 'Critic' WHERE UserID = @senderId`);
+                messageSender = `You have been promoted to Critic by user ${notification.ReceiverName}`;
+                adminMessage = `User ${notification.SenderName} has been promoted to Critic!`;
             }
             // Send message to all admins that user has been promoted to admin/critic
             // Get all admins from the Users table
-            const adminsQuery = `SELECT UserId FROM Users WHERE UserType = 'Admin' AND UserId NOT IN (@receiverId, @senderId)`;
-            request.input('receiverId', sql.Int, notification.ReceiverId);
-            request.input('senderId', sql.Int, notification.SenderId);
-            const adminsResult = await request.query(adminsQuery);
+            const request1 = new sql.Request();
+            request1.input('receiverId', sql.Int, notification.ReceiverID);
+            request1.input('senderId', sql.Int, notification.SenderID);
+            const adminsResult = await request1.query(`SELECT UserID FROM Users WHERE UserType = 'Admin' AND UserID NOT IN (@receiverId, @senderId)`);
+            console.log(adminsResult.recordset);
+
 
             if (adminsResult.recordset.length > 0) {
                 for (const admin of adminsResult.recordset) {
-                    query = `INSERT INTO Notifications (SenderId, ReceiverId, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`;
                     const adminRequest = new sql.Request();
-                    adminRequest.input('senderId', sql.Int, notification.ReceiverId);
-                    adminRequest.input('receiverId', sql.Int, admin.UserId);
+                    adminRequest.input('senderId', sql.Int, notification.ReceiverID);
+                    adminRequest.input('receiverId', sql.Int, admin.UserID);
                     adminRequest.input('message', sql.NVarChar, adminMessage);
-                    await adminRequest.query(query);
+                    await adminRequest.query(`INSERT INTO Notifications (SenderID, ReceiverID, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`);
                 }
             }
-            
-            console.log(`Accepted adminreq/criticreq from user ${notification.SenderId}`);
+            console.log(`Accepted adminreq/criticreq from user ${notification.SenderName}`);
         }
         // Send message to the sender of the notification
-        query = `INSERT INTO Notifications (SenderId, ReceiverId, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`;
         const messageRequest = new sql.Request();
-        messageRequest.input('senderId', sql.Int, notification.ReceiverId);
-        messageRequest.input('receiverId', sql.Int, notification.SenderId);
+        messageRequest.input('senderId', sql.Int, notification.ReceiverID);
+        messageRequest.input('receiverId', sql.Int, notification.SenderID);
         messageRequest.input('message', sql.NVarChar, messageSender);
-        await messageRequest.query(query);
+        await messageRequest.query(`INSERT INTO Notifications (SenderID, ReceiverID, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`);    
+        res.send({ success: true, message: `Accepted notification`, notification });
+
     } catch (error) {
         console.error('Unexpected error:', error);
         res.status(500).send({ success: false, message: 'Internal server error' });
     }
-    res.send({ success: true, message: `Accepted notification with ID: ${notificationId}` });
 });
 
 // Reject a notification by notificationId
@@ -132,12 +135,17 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
         return res.status(400).send({ success: false, message: 'Invalid notification ID' });
     }
 
-    const query = `SELECT * FROM Notifications WHERE NotificationId = @notificationId`; 
     try {
-        const request = new sql.Request();
-        request.input('notificationId', sql.Int, notificationId);
+        const chkRequest = new sql.Request();
+        chkRequest.input('notificationId', sql.Int, notificationId);
 
-        const result = await request.query(query);
+        const result = await chkRequest.query(`
+            SELECT N.NotificationID, N.SenderID, U.Username AS SenderName, N.ReceiverID, U1.Username AS ReceiverName, N.Message, N.NotificationType, N.SentAt 
+            FROM Notifications N 
+            JOIN Users U ON N.SenderID = U.UserID 
+			JOIN Users U1 ON N.ReceiverID = U1.UserID
+            WHERE NotificationID = @notificationId
+        `);
         if (result.recordset.length === 0) {
             return res.status(404).send({ success: false, message: 'Notification not found' });
         }
@@ -145,63 +153,58 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
         if (notification.NotificationType === 'General') {
             return res.status(400).send({ success: false, message: 'Cannot reject a general notification' });
         } 
-        if (notification.ReceiverId !== req.userId) {
-            return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
+        if (notification.ReceiverID !== req.userId) {
+            return res.status(403).send({ success: false, message: 'You are not authorized to reject this notification' });
         }
 
         // Delete the notification after rejecting it
-        sql.query(`DELETE FROM Notifications WHERE NotificationId = @notificationId`);
-        request = new sql.Request();
+        sql.query(`DELETE FROM Notifications WHERE NotificationID = ${notification.NotificationID}`);
         let messageSender;
 
         if (notification.NotificationType === 'FriendRequest') {
-            messageSender = `User ${notification.ReceiverId} rejected your friend request!`;
-            console.log(`Rejected friend request from user ${notification.SenderId}`);
+            messageSender = `User ${notification.ReceiverName} rejected your friend request!`;
+            console.log(`Rejected friend request from user ${notification.SenderName}`);
         } else {
             // Delete this request for all admins
-            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderId = @senderId`);
+            sql.query(`DELETE FROM Notifications WHERE NotificationType IN ('AdminReq', 'CriticReq') AND SenderID = ${notification.SenderID}`);
             let adminMessage;
 
-
             if (notification.NotificationType === 'AdminReq') {
-                messageSender = `You have been rejected the status of Admin by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been rejected the status of Admin!`;
+                messageSender = `You have been rejected the status of Admin by user ${notification.ReceiverName}`;
+                adminMessage = `User ${notification.SenderName} has been rejected the status of Admin!`;
             } else if (notification.NotificationType === 'CriticReq') {
-                messageSender = `You have been rejected the status of Critic by user ${notification.ReceiverId}`;
-                adminMessage = `User ${notification.SenderId} has been rejected the status of Critic!`;
+                messageSender = `You have been rejected the status of Critic by user ${notification.ReceiverName}`;
+                adminMessage = `User ${notification.SenderName} has been rejected the status of Critic!`;
             }
             // Send message to all admins that user has been rejected the status of admin/critic
             // Get all admins from the Users table
-            const adminsQuery = `SELECT UserId FROM Users WHERE UserType = 'Admin' AND UserId NOT IN (@receiverId, @senderId)`;
-            request.input('receiverId', sql.Int, notification.ReceiverId);
-            request.input('senderId', sql.Int, notification.SenderId);
-            const adminsResult = await request.query(adminsQuery);
+            const request = new sql.Request();
+            request.input('receiverId', sql.Int, notification.ReceiverID);
+            const adminsResult = await request.query(`SELECT UserID FROM Users WHERE UserType = 'Admin' AND UserID != @receiverId`);
 
             if (adminsResult.recordset.length > 0) {
                 for (const admin of adminsResult.recordset) {
-                    query = `INSERT INTO Notifications (SenderId, ReceiverId, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`;
                     const adminRequest = new sql.Request();
-                    adminRequest.input('senderId', sql.Int, notification.ReceiverId);
-                    adminRequest.input('receiverId', sql.Int, admin.UserId);
+                    adminRequest.input('senderId', sql.Int, notification.ReceiverID);
+                    adminRequest.input('receiverId', sql.Int, admin.UserID);
                     adminRequest.input('message', sql.NVarChar, adminMessage);
-                    await adminRequest.query(query);
+                    await adminRequest.query(`INSERT INTO Notifications (SenderID, ReceiverID, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`);
                 }
             }
-            
-            console.log(`Rejected adminreq/criticreq from user ${notification.SenderId}`);
+            console.log(`Rejected adminreq/criticreq from user ${notification.SenderName}`);
         }
         // Send message to the sender of the notification
-        query = `INSERT INTO Notifications (SenderId, ReceiverId, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`;
         const messageRequest = new sql.Request();
-        messageRequest.input('senderId', sql.Int, notification.ReceiverId);
-        messageRequest.input('receiverId', sql.Int, notification.SenderId);
+        messageRequest.input('senderId', sql.Int, notification.ReceiverID);
+        messageRequest.input('receiverId', sql.Int, notification.SenderID);
         messageRequest.input('message', sql.NVarChar, messageSender);
-        await messageRequest.query(query);
+        await messageRequest.query(`INSERT INTO Notifications (SenderID, ReceiverID, NotificationType, Message) VALUES (@senderId, @receiverId, 'General', @message)`);
+        res.send({ success: true, message: `Rejected notification`, notification });
+
     } catch (error) {
         console.error('Unexpected error:', error);
         res.status(500).send({ success: false, message: 'Internal server error' });
     }
-    res.send({ success: true, message: `Rejected notification with ID: ${notificationId}` });
 });
 
 // Close a notification by notificationId
