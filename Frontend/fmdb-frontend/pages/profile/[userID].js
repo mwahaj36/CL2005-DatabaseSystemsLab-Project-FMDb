@@ -6,6 +6,7 @@ import ProfileHero from '@/components/ProfileHero';
 import { useAuth } from '@/context/AuthContext';
 import MovieCard from '@/components/MovieCard';
 import YearlyStats from '@/components/YearlyStats';
+import ActivityAndReviewSection from '@/components/ActivityAndReview';
 import ThirdScreenReviewsP from '@/components/ThirdScreenReviewsP';
 
 const Profile = () => {
@@ -15,8 +16,6 @@ const Profile = () => {
   const [profileUser, setProfileUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [responseMsg, setResponseMsg] = useState('');
-  const [apiLoading, setApiLoading] = useState(false);
 
   useEffect(() => {
     if (!router.isReady || !userID) return;
@@ -25,23 +24,21 @@ const Profile = () => {
       try {
         setLoading(true);
         let response;
-
-        if (currentUser?.userID === parseInt(userID)) {
-          response = await fetch(`http://localhost:5000/users/${userID}`, {
+        
+        // If it's the current user's profile, use the authenticated endpoint
+          response = await fetch(`http://localhost:5000/users/public/${userID}`, {
             headers: {
               'Authorization': `Bearer ${token}`
-            }
-          });
-        } else {
-          response = await fetch(`http://localhost:5000/users/public/${userID}`);
-        }
+            }})
+
 
         if (!response.ok) {
           throw new Error('Failed to fetch user data');
         }
 
         const data = await response.json();
-
+        
+        // Transform the API response to match our expected profileUser format
         const transformedUser = {
           userID: data.user.UserID || parseInt(userID),
           fullName: data.user.FullName || `User ${userID}`,
@@ -64,6 +61,8 @@ const Profile = () => {
       } catch (err) {
         console.error('Error fetching user profile:', err);
         setError(err.message);
+        
+        // Fallback to minimal profile
         setProfileUser({
           userID: parseInt(userID),
           fullName: `User ${userID}`,
@@ -87,12 +86,22 @@ const Profile = () => {
     return profileUser.basicDetails.firstFavoriteBackdrop || '/fallback-backdrop.jpg';
   }, [profileUser]);
 
-  const isCurrentUser = currentUser?.userID === profileUser?.userID;
-  const isFriend = currentUser?.friends?.includes(profileUser?.userID);
-  const isPublicProfile = profileUser?.privacy === true;
+  if (loading) {
+    return <div className="text-white text-center p-10">Loading profile...</div>;
+  }
+
+  if (!profileUser) {
+    return <div className="text-white text-center p-10">User not found</div>;
+  }
+
+  const isCurrentUser = currentUser?.userID === profileUser.userID;
+  const isFriend = currentUser?.friends?.includes(profileUser.userID);
+  const isPublicProfile = profileUser.privacy === true;
+
   const showPrivateContent = isCurrentUser || isFriend || isPublicProfile;
 
-  const formattedReviews = profileUser?.recentActivities
+  // Prepare reviews data for ThirdScreenReviewsP component
+  const formattedReviews = profileUser.recentActivities
     ?.filter(activity => activity.Review)
     .map(activity => ({
       id: activity.ActivityID,
@@ -101,40 +110,6 @@ const Profile = () => {
       review: activity.Review,
       date: activity.ActivityDateTime
     })) || [];
-
-  const requestUserTypeChange = async (type) => {
-    setApiLoading(true);
-    setResponseMsg('');
-    try {
-      const res = await fetch('http://localhost:5000/users/userType', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          userType: type,
-          message: `Requesting upgrade to ${type}`
-        })
-      });
-
-      const data = await res.json();
-      setResponseMsg(data?.message || 'Request sent');
-    } catch (err) {
-      console.error(err);
-      setResponseMsg('Failed to send request.');
-    } finally {
-      setApiLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <div className="text-white text-center p-10">Loading profile...</div>;
-  }
-
-  if (!profileUser) {
-    return <div className="text-white text-center p-10">User not found</div>;
-  }
 
   return (
     <section
@@ -173,7 +148,7 @@ const Profile = () => {
                   userType={profileUser.userType}
                 />
               </div>
-
+              
               {profileUser.yearlyStats && (
                 <div className="w-full flex flex-col p-6 rounded-xl">
                   <YearlyStats 
@@ -196,24 +171,13 @@ const Profile = () => {
         )}
 
         {isCurrentUser && currentUser?.userType === 'User' && (
-          <div className="flex flex-col items-center space-y-4 mt-12">
-            <div className="flex justify-center space-x-6">
-              <button
-                onClick={() => requestUserTypeChange('Critic')}
-                disabled={apiLoading}
-                className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-              >
-                Apply to be Verified Critic
-              </button>
-              <button
-                onClick={() => requestUserTypeChange('Admin')}
-                disabled={apiLoading}
-                className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-              >
-                Apply to be Admin
-              </button>
-            </div>
-            {responseMsg && <p className="text-purpleWhite text-center">{responseMsg}</p>}
+          <div className="flex justify-center space-x-6 mt-12">
+            <a 
+              href='/Apply'
+              className="relative z-10 bg-purple text-white p-3 rounded-xl hover:bg-darkPurple transition"
+            >
+              Apply to be Verified Critic Or Admin
+            </a>
           </div>
         )}
       </div>

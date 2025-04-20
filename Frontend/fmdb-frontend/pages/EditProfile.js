@@ -29,20 +29,20 @@ export default function EditProfile() {
   // Fetch user profile data including favorites
   useEffect(() => {
     const fetchUserProfile = async () => {
-      if (!user?.userID) {
+      if (!user?.userID || !token) {
         setIsLoading(false);
         return;
       }
-
+  
       try {
-        // First fetch the public data including favorites
+        // First fetch the public data
         const publicResponse = await fetch(`http://localhost:5000/users/public/${user.userID}`);
         const publicData = await publicResponse.json();
-
+  
         if (!publicResponse.ok) {
           throw new Error(publicData.message || 'Failed to fetch public user profile');
         }
-
+  
         // Split full name into first and last names
         const nameParts = publicData.user?.FullName?.split(" ") || [];
         setFirstName(nameParts[0] || "");
@@ -60,25 +60,25 @@ export default function EditProfile() {
         if (publicData.basicDetails?.firstFavoriteBackdrop) {
           setBackground(publicData.basicDetails.firstFavoriteBackdrop);
         }
-
-        // Set favorite movies with ranks
-        if (publicData.favoriteMovies) {
-          const rankedFavorites = publicData.favoriteMovies.map((movie, index) => ({
-            ...movie,
-            rank: index + 1 // Assign ranks 1-4 based on position
-          }));
-          setFavoriteMovies(rankedFavorites);
+  
+        // Fetch favorites using the Bearer token
+        const favoritesResponse = await fetch('http://localhost:5000/users/favorites', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (!favoritesResponse.ok) {
+          throw new Error('Failed to fetch favorites');
         }
-
-        // If we have a token, fetch private data (if needed)
-        if (token) {
-          const privateResponse = await fetch(`http://localhost:5000/users/${user.userID}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          });
-          // Handle private data if needed
+  
+        const favoritesData = await favoritesResponse.json();
+        
+        if (favoritesData.success && favoritesData.favorites) {
+          // The API already provides ranks, so we can use them directly
+          setFavoriteMovies(favoritesData.favorites);
         }
+  
       } catch (error) {
         console.error("Error fetching user profile:", error);
         setSubmitError(error.message);
@@ -86,7 +86,7 @@ export default function EditProfile() {
         setIsLoading(false);
       }
     };
-
+  
     fetchUserProfile();
   }, [user, token]);
 

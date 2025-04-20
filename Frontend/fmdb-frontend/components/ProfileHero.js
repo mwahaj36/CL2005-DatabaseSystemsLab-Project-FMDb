@@ -304,7 +304,7 @@ const ProfileHero = ({
               className={`${
                 profileUser.userType?.toLowerCase() === 'admin'
                   ? 'bg-emeraldGreen'
-                  : profileUser.userType?.toLowerCase() === 'verified critic'
+                  : profileUser.userType?.toLowerCase() === 'critic'
                   ? 'bg-gold'
                   : 'bg-darkPurple'
               } bg-opacity-60 items-center pt-7 rounded-xl p-4 shadow-lg text-center`}
