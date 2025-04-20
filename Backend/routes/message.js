@@ -12,21 +12,20 @@ router.post('', authenticateToken, async (req, res) => {
         return res.status(400).send({ success: false, message: 'Missing required fields: senderId, receiverId, or message' });
     }
     try {
-        const checkQuery = `SELECT COUNT(*) AS count FROM Users WHERE UserId IN (@senderId, @receiverId)`;
+        const checkQuery = `SELECT * FROM Users WHERE UserId = @receiverId`;
         const checkRequest = new sql.Request();
-        checkRequest.input('senderId', sql.Int, senderId);
         checkRequest.input('receiverId', sql.Int, receiverId);
 
         const result = await checkRequest.query(checkQuery);
-        if (result.recordset[0].count < 2) {
-            return res.status(404).send({ success: false, message: 'One or both users do not exist' });
+        if (result.recordset.length === 0) {
+            return res.status(404).send({ success: false, message: 'User does not exist' });
         }
     } catch (error) {
         console.error('Error checking user existence:', error);
         return res.status(500).send({ success: false, message: 'Internal server error' });
     }
     try {
-        const query = `INSERT INTO Messages (SenderId, ReceiverId, Message, NotificationType) VALUES (@senderId, @receiverId, @message, General)`;
+        const query = `INSERT INTO Notifications (SenderId, ReceiverId, Message, NotificationType) VALUES (@senderId, @receiverId, @message, 'General')`;
         const request = new sql.Request();
         request.input('senderId', sql.Int, senderId);
         request.input('receiverId', sql.Int, receiverId);
