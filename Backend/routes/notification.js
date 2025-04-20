@@ -16,7 +16,7 @@ router.get('/user', authenticateToken, async (req, res) => {
             JOIN Users U ON N.SenderID = U.UserID 
             WHERE ReceiverId = 2
         `);
-        
+
         if (result.recordset.length === 0) {
             return res.status(404).send({ success: false, message: 'No requests found for this user' });
         }
@@ -222,8 +222,8 @@ router.delete('/close/:notiID', authenticateToken, async (req, res) => {
             return res.status(404).send({ success: false, message: 'Notification not found' });
         }
         const notification = result.recordset[0];
-        if (notification.ReceiverId !== req.userId) {
-            return res.status(403).send({ success: false, message: 'You are not authorized to accept this notification' });
+        if (notification.ReceiverID !== req.userId) {
+            return res.status(403).send({ success: false, message: 'You are not authorized to close this notification' });
         }
         
         // Delete the notification to close it
