@@ -189,9 +189,10 @@ const ProfileHero = ({
       <div className="relative z-10 mt-20 items-center container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
         <div className="flex flex-col items-center p-6 rounded-xl md:w-1/5">
           <img
-            src={profileUser.profilePic || '/default-pic.jpg'}
+            src={`https://ui-avatars.com/api/?name=${profileUser.fullName}&background=random`}
             alt="Profile"
-            className="shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
+            className=" shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
+            style={{ width: '240px', height: '240px' }}
           />
 
           <div className="mt-4 grid grid-cols-2 gap-4">
@@ -270,7 +271,9 @@ const ProfileHero = ({
               )}
             </div>
           </div>
-
+          <div className="flex items-end space-x-4">
+              <h1 className="text-white text-xl font-bold md:text-3xl">{profileUser.username}</h1>
+            </div>
           <div className="mt-2 bg-black bg-opacity-40 p-6 rounded-xl shadow-xl">
             <p className="text-white text-sm md:text-xl leading-relaxed drop-shadow-xl">
               {profileUser.bio || 'No bio provided.'}
