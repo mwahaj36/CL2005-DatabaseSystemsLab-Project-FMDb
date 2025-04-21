@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AuthContext } from '@/context/AuthContext';
-import { Bell, X, Search, User, Check, Clock, UserPlus } from 'lucide-react';
+import { Bell, X, Search, User, Check, Clock, UserPlus, Trash2 } from 'lucide-react';
 import DropdownSearch from '@/components/MovieSearchDropdown';
 
 function Navbar() {
@@ -26,15 +26,20 @@ function Navbar() {
       if (user && notificationsOpen) {
         setLoadingNotifications(true);
         try {
+          const token = localStorage.getItem('token') || sessionStorage.getItem('token');
           const response = await fetch('http://localhost:5000/notification/user', {
             headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}`
+              'Authorization': `Bearer ${token}`
             }
           });
           
           if (response.ok) {
             const data = await response.json();
-            setNotifications(data.notifications || []);
+            // Sort notifications by SentAt (newest first)
+            const sortedNotifications = (data.requests || []).sort((a, b) => 
+              new Date(b.SentAt) - new Date(a.SentAt)
+            );
+            setNotifications(sortedNotifications);
           } else {
             setNotifications([]);
           }
@@ -52,7 +57,6 @@ function Navbar() {
 
   const handleMovieSelect = (movie) => {
     setShowDropdownSearch(false);
-    // Navigate to the movie page or handle the selected movie object
     console.log("Selected movie:", movie);
   };
 
@@ -68,22 +72,60 @@ function Navbar() {
   const getLinkClass = (href, baseClass = '') =>
     `${baseClass} ${pathname === href ? 'text-purple' : 'text-white'} hover:text-purple transition-colors duration-200`;
 
-  // Handle notification actions (accept/reject)
-  const handleNotificationAction = async (notificationId, action) => {
+  // Handle accept notification
+  const handleAccept = async (notificationId) => {
     try {
-      const response = await fetch(`http://localhost:5000/notification/${notificationId}/${action}`, {
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      const response = await fetch(`http://localhost:5000/notification/accept/${notificationId}`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         }
       });
 
       if (response.ok) {
-        // Remove the handled notification from the list
-        setNotifications(prev => prev.filter(n => n.id !== notificationId));
+        setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));
       }
     } catch (error) {
-      console.error('Error handling notification:', error);
+      console.error('Error accepting notification:', error);
+    }
+  };
+
+  // Handle reject notification
+  const handleReject = async (notificationId) => {
+    try {
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      const response = await fetch(`http://localhost:5000/notification/reject/${notificationId}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));
+      }
+    } catch (error) {
+      console.error('Error rejecting notification:', error);
+    }
+  };
+
+  // Handle close notification
+  const handleClose = async (notificationId) => {
+    try {
+      const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+      const response = await fetch(`http://localhost:5000/notification/close/${notificationId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));
+      }
+    } catch (error) {
+      console.error('Error closing notification:', error);
     }
   };
 
@@ -99,6 +141,21 @@ function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Function to get notification icon based on type
+  const getNotificationIcon = (type) => {
+    switch(type) {
+      case 'FriendRequest':
+        return <UserPlus className="w-5 h-5 text-purple" />;
+      case 'Message':
+        return <Clock className="w-5 h-5 text-purple" />;
+      case 'AdminReq':
+      case 'CriticReq':
+        return <User className="w-5 h-5 text-purple" />;
+      default:
+        return <Bell className="w-5 h-5 text-purple" />;
+    }
+  };
 
   return (
     <div>
@@ -172,30 +229,36 @@ function Navbar() {
                   ) : (
                     <div className="max-h-96 overflow-y-auto">
                       {notifications.map((notification) => (
-                        <div key={notification.id} className="p-4 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                        <div key={notification.NotificationID} className="p-4 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
                           <div className="flex items-start space-x-3">
                             <div className="bg-purple bg-opacity-10 p-2 rounded-full">
-                              {notification.type === 'friend_request' ? (
-                                <UserPlus className="w-5 h-5 text-purple" />
-                              ) : (
-                                <Clock className="w-5 h-5 text-purple" />
-                              )}
+                              {getNotificationIcon(notification.NotificationType)}
                             </div>
                             <div className="flex-1">
-                              <p className="text-sm font-medium">{notification.message}</p>
-                              <p className="text-xs text-gray-500 mt-1">
-                                {new Date(notification.createdAt).toLocaleString()}
-                              </p>
-                              {notification.type === 'friend_request' && (
+                              <div className="flex justify-between items-start">
+                                <div>
+                                  <p className="text-sm font-medium">{notification.Message}</p>
+                                  <p className="text-xs text-gray-500 mt-1">
+                                    From: {notification.Username} • {new Date(notification.SentAt).toLocaleString()}
+                                  </p>
+                                </div>
+                                <button 
+                                  onClick={() => handleClose(notification.NotificationID)}
+                                  className="text-gray-400 hover:text-gray-600 ml-2"
+                                >
+                                  <X className="w-4 h-4" />
+                                </button>
+                              </div>
+                              {notification.NotificationType !== 'General' && (
                                 <div className="flex space-x-2 mt-2">
                                   <button
-                                    onClick={() => handleNotificationAction(notification.id, 'accept')}
+                                    onClick={() => handleAccept(notification.NotificationID)}
                                     className="text-xs px-3 py-1 bg-purple text-white rounded-full hover:bg-opacity-90 transition-colors flex items-center"
                                   >
                                     <Check className="w-3 h-3 mr-1" /> Accept
                                   </button>
                                   <button
-                                    onClick={() => handleNotificationAction(notification.id, 'reject')}
+                                    onClick={() => handleReject(notification.NotificationID)}
                                     className="text-xs px-3 py-1 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors"
                                   >
                                     Reject

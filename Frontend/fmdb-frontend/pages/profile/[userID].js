@@ -26,15 +26,11 @@ const Profile = () => {
         setLoading(true);
         let response;
 
-        if (currentUser?.userID === parseInt(userID)) {
-          response = await fetch(`http://localhost:5000/users/${userID}`, {
+          response = await fetch(`http://localhost:5000/users/public/${userID}`, {
             headers: {
               'Authorization': `Bearer ${token}`
-            }
-          });
-        } else {
-          response = await fetch(`http://localhost:5000/users/public/${userID}`);
-        }
+            }})
+
 
         if (!response.ok) {
           throw new Error('Failed to fetch user data');

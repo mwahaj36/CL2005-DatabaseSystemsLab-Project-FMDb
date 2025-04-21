@@ -239,17 +239,10 @@ const ProfileHero = ({
                       >
                         Remove Friend
                       </button>
-                      {currentUser && (
-                        <button
-                          onClick={() => setShowMessageModal(true)}
-                          className="p-2 bg-purpleWhite rounded-full hover:bg-purple hover:text-purpleWhite"
-                          disabled={isSending}
-                        >
-                          <MessageSquare className="w-6 h-6 text-darkPurple" />
-                        </button>
-                      )}
+                     
                     </>
                   ) : (
+                    
                     <button
                       onClick={handleAddFriend}
                       className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
@@ -258,6 +251,15 @@ const ProfileHero = ({
                       {isSending ? 'Sending...' : 'Add Friend'}
                     </button>
                   )}
+                   {currentUser && (
+                        <button
+                          onClick={() => setShowMessageModal(true)}
+                          className="p-2 bg-purpleWhite rounded-full hover:bg-purple hover:text-purpleWhite"
+                          disabled={isSending}
+                        >
+                          <MessageSquare className="w-6 h-6 text-darkPurple" />
+                        </button>
+                      )}
                 </>
               )}
 
@@ -304,7 +306,7 @@ const ProfileHero = ({
               className={`${
                 profileUser.userType?.toLowerCase() === 'admin'
                   ? 'bg-emeraldGreen'
-                  : profileUser.userType?.toLowerCase() === 'verified critic'
+                  : profileUser.userType?.toLowerCase() === 'critic'
                   ? 'bg-gold'
                   : 'bg-darkPurple'
               } bg-opacity-60 items-center pt-7 rounded-xl p-4 shadow-lg text-center`}

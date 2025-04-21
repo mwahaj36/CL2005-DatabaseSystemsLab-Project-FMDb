@@ -166,13 +166,14 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
                 >
                   Cancel
                 </button>
-                <button
+                <a
+                href='/EditProfile'
                   onClick={handleAddFavorite}
                   className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Saving...' : 'Save Changes'}
-                </button>
+                </a>
               </div>
             </Dialog.Panel>
           </div>
