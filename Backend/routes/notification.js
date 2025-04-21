@@ -62,7 +62,7 @@ router.post('/accept/:notiID', authenticateToken, async (req, res) => {
         const request = new sql.Request();
         
 
-        if (notification.NotificationType === 'FriendRequest') {
+        if (notification.NotificationType === 'FriendReq') {
             const [u1, u2] = notification.ReceiverID < notification.SenderID
                 ? [notification.ReceiverID, notification.SenderID]
                 : [notification.SenderID, notification.ReceiverID];
@@ -161,7 +161,7 @@ router.post('/reject/:notiID', authenticateToken, async (req, res) => {
         sql.query(`DELETE FROM Notifications WHERE NotificationID = ${notification.NotificationID}`);
         let messageSender;
 
-        if (notification.NotificationType === 'FriendRequest') {
+        if (notification.NotificationType === 'FriendReq') {
             messageSender = `User ${notification.ReceiverName} rejected your friend request!`;
             console.log(`Rejected friend request from user ${notification.SenderName}`);
         } else {
