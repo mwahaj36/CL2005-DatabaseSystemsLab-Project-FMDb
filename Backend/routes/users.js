@@ -535,4 +535,25 @@ router.get('/favorites', authenticateToken, async (req, res) => {
     }
 });
 
+// Get IsFriend (Requires JWT token with userid)
+router.get('/isFriend/:userid', authenticateToken, async(req, res) => {
+    const userId = parseInt(req.params.userid, 10);
+    const loggedInUserId = req.userId; 
+
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try{
+        if (await isFriend(userId, loggedInUserId))
+            return res.status(200).json({success: true, isFriend: true});
+        else 
+            return res.status(200).json({success: true, isFriend: false});
+    }
+    catch (error) {
+        console.error('Error fetching isFriend:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
 module.exports = router;
