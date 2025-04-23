@@ -17,6 +17,8 @@ const Profile = () => {
   const [error, setError] = useState(null);
   const [responseMsg, setResponseMsg] = useState('');
   const [apiLoading, setApiLoading] = useState(false);
+  const [isFriend, setIsFriend] = useState(false);
+  const [loadingFriendStatus, setLoadingFriendStatus] = useState(true);
 
   useEffect(() => {
     if (!router.isReady || !userID) return;
@@ -25,12 +27,21 @@ const Profile = () => {
       try {
         setLoading(true);
         let response;
+        let endpoint;
 
-          response = await fetch(`http://localhost:5000/users/public/${userID}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }})
+        if (currentUser) {
+          // Use logged-in endpoint if user is authenticated
+          endpoint = `http://localhost:5000/users/logged/${userID}`;
+        } else {
+          // Use public endpoint if user is not authenticated
+          endpoint = `http://localhost:5000/users/public/${userID}`;
+        }
 
+        const headers = currentUser 
+          ? { 'Authorization': `Bearer ${token}` }
+          : {};
+
+        response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
           throw new Error('Failed to fetch user data');
@@ -47,12 +58,12 @@ const Profile = () => {
           dateOfBirth: data.user.DateOfBirth,
           bio: data.user.Bio || 'This user has not written a bio yet.',
           userType: data.user.UserType,
-          privacy: data.user.Privacy === 'Public',
+          privacy: data.user.Privacy === 'Private', // Note: Changed to match API response
           profilePic: `https://i.pravatar.cc/150?u=${data.user.Username || userID}`,
           favoriteMovies: data.favoriteMovies || [],
           reviews: data.recentActivities?.filter(activity => activity.Review) || [],
           yearlyStats: data.yearlyStats,
-          basicDetails: data.basicDetails,
+          basicDetails: data.basicDetails || {},
           recentActivities: data.recentActivities || []
         };
 
@@ -68,14 +79,43 @@ const Profile = () => {
           favoriteMovies: [],
           reviews: [],
           recentActivities: [],
-          privacy: false
+          privacy: true // Default to private if error occurs
         });
       } finally {
         setLoading(false);
       }
     };
 
+    const fetchFriendStatus = async () => {
+      if (!currentUser || !userID) return;
+      
+      try {
+        setLoadingFriendStatus(true);
+        const response = await fetch(`http://localhost:5000/users/isFriend/${userID}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to fetch friend status');
+        }
+
+        setIsFriend(data.isFriend);
+      } catch (error) {
+        console.error('Error fetching friend status:', error);
+        setIsFriend(false);
+      } finally {
+        setLoadingFriendStatus(false);
+      }
+    };
+
     fetchUserProfile();
+    if (currentUser) {
+      fetchFriendStatus();
+    }
   }, [router.isReady, userID, currentUser, token]);
 
   const backdropUrl = useMemo(() => {
@@ -84,9 +124,7 @@ const Profile = () => {
   }, [profileUser]);
 
   const isCurrentUser = currentUser?.userID === profileUser?.userID;
-  const isFriend = currentUser?.friends?.includes(profileUser?.userID);
-  const isPublicProfile = profileUser?.privacy === true;
-  const showPrivateContent = isCurrentUser || isFriend || isPublicProfile;
+  const showPrivateContent = isCurrentUser || isFriend || !profileUser?.privacy;
 
   const formattedReviews = profileUser?.recentActivities
     ?.filter(activity => activity.Review)
@@ -124,7 +162,11 @@ const Profile = () => {
     }
   };
 
-  if (loading) {
+  const handleFriendUpdate = (newStatus) => {
+    setIsFriend(newStatus);
+  };
+
+  if (loading || (currentUser && loadingFriendStatus)) {
     return <div className="text-white text-center p-10">Loading profile...</div>;
   }
 
@@ -140,7 +182,12 @@ const Profile = () => {
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <div className="relative p-4 z-10">
         <Navbar />
-        <ProfileHero profileUser={profileUser} currentUser={currentUser} />
+        <ProfileHero 
+          profileUser={profileUser} 
+          isFriend={isFriend}
+          onRemoveFriend={() => handleFriendUpdate(false)}
+          currentUser={currentUser}
+        />
 
         {showPrivateContent ? (
           <>
@@ -183,33 +230,35 @@ const Profile = () => {
                 </div>
               )}
             </div>
+
+            {isCurrentUser && currentUser?.userType === 'User' && (
+              <div className="flex flex-col items-center space-y-4 mt-12">
+                <div className="flex justify-center space-x-6">
+                  <button
+                    onClick={() => requestUserTypeChange('Critic')}
+                    disabled={apiLoading}
+                    className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
+                  >
+                    Apply to be Verified Critic
+                  </button>
+                  <button
+                    onClick={() => requestUserTypeChange('Admin')}
+                    disabled={apiLoading}
+                    className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
+                  >
+                    Apply to be Admin
+                  </button>
+                </div>
+                {responseMsg && <p className="text-purpleWhite text-center">{responseMsg}</p>}
+              </div>
+            )}
           </>
         ) : (
-          <p className="text-white mt-10 font-semibold text-center text-3xl">
-            Shh... this user's movie vault is private.<br></br>
-            Become friends to peek behind the scenes!
-          </p>
-        )}
-
-        {isCurrentUser && currentUser?.userType === 'User' && (
-          <div className="flex flex-col items-center space-y-4 mt-12">
-            <div className="flex justify-center space-x-6">
-              <button
-                onClick={() => requestUserTypeChange('Critic')}
-                disabled={apiLoading}
-                className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-              >
-                Apply to be Verified Critic
-              </button>
-              <button
-                onClick={() => requestUserTypeChange('Admin')}
-                disabled={apiLoading}
-                className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-              >
-                Apply to be Admin
-              </button>
-            </div>
-            {responseMsg && <p className="text-purpleWhite text-center">{responseMsg}</p>}
+          <div className="mt-10 text-center">
+            <p className="text-white mt-10 font-semibold text-center text-3xl">
+              Shh... this user's movie vault is private.<br></br>
+              {currentUser ? "Become friends to peek behind the scenes!" : "Log in and become friends to see more!"}
+            </p>
           </div>
         )}
       </div>

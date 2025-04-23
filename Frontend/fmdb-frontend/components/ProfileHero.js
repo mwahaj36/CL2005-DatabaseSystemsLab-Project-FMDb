@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import ErrorPopup from '@/components/Error';
 import { MessageSquare } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
@@ -19,10 +19,11 @@ const ProfileHero = ({
   const [messageText, setMessageText] = useState('');
   const [modalError, setModalError] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [friendStatus, setFriendStatus] = useState(isFriend); // Local state to track friend status
 
   // Determine if the current user can see private content
   const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
-                               isFriend || 
+                               friendStatus || 
                                profileUser.privacy === true;
 
   const handleAddFriend = async () => {
@@ -51,7 +52,8 @@ const ProfileHero = ({
         throw new Error(data.message || 'Failed to send friend request');
       }
 
-      // Call the parent component's callback if provided
+      // Update local state and call parent callback
+      setFriendStatus(true);
       onAddFriend?.();
       setErrorMessage('Friend request sent successfully!');
     } catch (error) {
@@ -61,13 +63,38 @@ const ProfileHero = ({
     }
   };
 
-  const handleRemoveFriend = () => {
+  const handleRemoveFriend = async () => {
     if (!currentUser) {
       setErrorMessage("You must be logged in to remove friends.");
       return;
     }
-    onRemoveFriend?.();
+    
+    try {
+      setIsSending(true);
+      const response = await fetch(`http://localhost:5000/users/friends/${profileUser.userID}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to remove friend');
+      }
+
+      // Update local state and call parent callback
+      setFriendStatus(false);
+      onRemoveFriend?.();
+      setErrorMessage('Friend removed successfully!');
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setIsSending(false);
+    }
   };
+
 
   const handleLoggedMoviesClick = () => {
     if (canViewPrivateContent) {
