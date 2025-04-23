@@ -28,7 +28,8 @@ router.get('/search/title/:string', async (req, res) => {
         const response = await processMoviesWithDirectors(result.recordset);
         res.json({ success: true, movies: response });
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+        console.error('Error during movie search:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error'});
     }
 });
 
