@@ -90,8 +90,38 @@ router.delete('/removeFriend', authenticateToken, async (req, res) => {
     const { userId } = req.body; // Extract userId from the request body
     const loggedInUserId = req.userId; // Extract user ID from the authenticated token
 
-    
 
+
+});
+
+// Search users by username or fullname (Simple search)
+router.get('/search/:string', async (req, res) => {
+    const searchString = req.params.string;
+
+    try {
+        const query = `
+            SELECT TOP 10 U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
+            FROM Users U
+            JOIN Activity A ON U.UserID = A.UserID
+            WHERE LOWER(U.FullName) LIKE LOWER(@searchString) OR LOWER(U.Username) LIKE LOWER(@searchString)
+			GROUP BY U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
+            ORDER BY COUNT(A.IsLogged) DESC;
+        `;
+
+        const request = new sql.Request();
+        request.input('searchString', sql.VarChar, `%${searchString}%`); 
+
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No users found' });
+        }
+
+        res.json({ success: true, users: result.recordset });
+    } catch (error) {
+        console.error('Error searching users:', error);
+        res.status(500).json({ success: false, message: 'Internal server error'});
+    }
 });
 
 // Get user profile logged out ver.

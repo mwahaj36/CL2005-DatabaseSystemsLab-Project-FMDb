@@ -12,12 +12,12 @@ router.get('/search/title/:string', async (req, res) => {
         const query = `
             SELECT TOP 10 M.MovieID, M.Title, M.MoviePosterLink
             FROM Movies M
-            WHERE LOWER(M.Title) LIKE '%' + LOWER(@searchString) + '%'
+            WHERE LOWER(M.Title) LIKE LOWER(@searchString)
             ORDER BY M.ReleaseDate DESC;
         `;
 
         const request = new sql.Request();
-        request.input('searchString', sql.VarChar, searchString);
+        request.input('searchString', sql.VarChar, `%${searchString}%`); 
 
         const result = await request.query(query);
 
@@ -28,13 +28,132 @@ router.get('/search/title/:string', async (req, res) => {
         const response = await processMoviesWithDirectors(result.recordset);
         res.json({ success: true, movies: response });
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+        console.error('Error during movie search:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error'});
     }
 });
 
 // Discover movie (Advanced search)
 router.get('/discover', async (req, res) => {
-    
+    try {
+        const {
+            title,
+            type, // 'Movie' or 'Series'
+            genre, // string or array of genre names
+            language,
+            releaseYearFrom,
+            releaseYearTo,
+            imdbRatingMin,
+            imdbRatingMax,
+            fmdbRatingMin,
+            fmdbRatingMax,
+            director,
+            actor,
+            writer,
+            keyword,
+            movieLength
+        } = req.query;
+
+        let query = `
+            SELECT DISTINCT M.MovieID, M.Title, M.MoviePosterLink
+            FROM Movies M
+            LEFT JOIN MovieGenres MG ON M.MovieID = MG.MovieID
+            LEFT JOIN Genres G ON MG.GenreID = G.GenreID
+            LEFT JOIN MovieDirectors MD ON M.MovieID = MD.MovieID
+            LEFT JOIN Directors D ON MD.DirectorID = D.DirectorID
+            LEFT JOIN MovieActors MA ON M.MovieID = MA.MovieID
+            LEFT JOIN Actors A ON MA.ActorID = A.ActorID
+            LEFT JOIN MovieKeywords MK ON M.MovieID = MK.MovieID
+            LEFT JOIN Keywords K ON MK.KeywordID = K.KeywordID
+            LEFT JOIN MovieWriters MW ON M.MovieID = MW.MovieID
+            LEFT JOIN Writers W ON MW.WriterID = W.WriterID
+            WHERE 1=1
+        `;
+
+        const request = new sql.Request();
+
+        if (title) {
+            query += ' AND M.Title LIKE @Title';
+            request.input('Title', sql.VarChar, `%${title}%`);
+        }
+
+        if (type) {
+            query += ' AND LOWER(M.Type) = LOWER(@Type)';
+            request.input('Type', sql.VarChar, type);
+        }
+
+        if (genre) {
+            query += ' AND LOWER(G.GenreName) IN (LOWER(@Genres))';
+            request.input('Genres', sql.VarChar, genre);
+        }
+
+        if (language) {
+            query += ' AND LOWER(M.Language) = LOWER(@Language)';
+            request.input('Language', sql.VarChar, language);
+        }
+
+        if (releaseYearFrom) {
+            query += ' AND YEAR(M.ReleaseDate) >= @ReleaseYearFrom';
+            request.input('ReleaseYearFrom', sql.Int, releaseYearFrom);
+        }
+
+        if (releaseYearTo) {
+            query += ' AND YEAR(M.ReleaseDate) <= @ReleaseYearTo';
+            request.input('ReleaseYearTo', sql.Int, releaseYearTo);
+        }
+
+        if (imdbRatingMin) {
+            query += ' AND M.IMDB_Rating >= @IMDBRatingMin';
+            request.input('IMDBRatingMin', sql.Decimal(3,1), imdbRatingMin);
+        }
+
+        if (imdbRatingMax) {
+            query += ' AND M.IMDB_Rating <= @IMDBRatingMax';
+            request.input('IMDBRatingMax', sql.Decimal(3,1), imdbRatingMax);
+        }
+
+        if (fmdbRatingMin) {
+            query += ' AND M.FMDB_Rating >= @FMDBRatingMin';
+            request.input('FMDBRatingMin', sql.Decimal(3,1), fmdbRatingMin);
+        }
+
+        if (fmdbRatingMax) {
+            query += ' AND M.FMDB_Rating <= @FMDBRatingMax';
+            request.input('FMDBRatingMax', sql.Decimal(3,1), fmdbRatingMax);
+        }
+
+        if (movieLength) {
+            query += ' AND M.MovieLength = @MovieLength';
+            request.input('MovieLength', sql.VarChar, movieLength);
+        }
+
+        if (director) {
+            query += ' AND LOWER(D.DirectorName) LIKE LOWER(@Director)';
+            request.input('Director', sql.VarChar, `%${director}%`);
+        }
+
+        if (actor) {
+            query += ' AND LOWER(A.ActorName) LIKE LOWER(@Actor)';
+            request.input('Actor', sql.VarChar, `%${actor}%`);
+        }
+
+        if (writer) {
+            query += ' AND LOWER(W.WriterName) LIKE LOWER(@Writer)';
+            request.input('Writer', sql.VarChar, `%${writer}%`);
+        }
+
+        if (keyword) {
+            query += ' AND LOWER(K.KeywordName) LIKE LOWER(@Keyword)';
+            request.input('Keyword', sql.VarChar, `%${keyword}%`);
+        }
+
+        const result = await request.query(query);
+        const movies = await processMoviesWithDirectors(result.recordset);
+        res.json({ success: true, movies });
+    } catch (err) {
+        console.error('Error during advanced movie discovery:', err.message);
+        res.status(500).send({success:false, message: 'Error during movie discovery'});
+    }
 });
 
 // Get total page# of all movies or series
