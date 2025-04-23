@@ -85,6 +85,15 @@ router.post('/friendRequest', authenticateToken, async (req, res) => {
     }
 });
 
+// Remove Friend (Requires JWT token with userid)
+router.delete('/removeFriend', authenticateToken, async (req, res) => {
+    const { userId } = req.body; // Extract userId from the request body
+    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
+
+    
+
+});
+
 // Get user profile logged out ver.
 router.get('/public/:userid', async (req, res) => {
     const userId = parseInt(req.params.userid, 10); // Extract userId from the request parameters
