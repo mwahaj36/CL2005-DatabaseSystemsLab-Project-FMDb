@@ -145,7 +145,7 @@ function Navbar() {
   // Function to get notification icon based on type
   const getNotificationIcon = (type) => {
     switch(type) {
-      case 'FriendRequest':
+      case 'FriendReq':
         return <UserPlus className="w-5 h-5 text-purple" />;
       case 'Message':
         return <Clock className="w-5 h-5 text-purple" />;
