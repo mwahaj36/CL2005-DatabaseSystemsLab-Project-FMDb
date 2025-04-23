@@ -196,7 +196,7 @@ const ProfileHero = ({
             )}
 
             <textarea
-              className="w-full h-32 p-3 border rounded-md text-black"
+              className="w-full bg-purpleWhite h-32 p-3 border rounded-md text-black"
               value={messageText}
               onChange={(e) => setMessageText(e.target.value)}
               placeholder="Type your message..."
