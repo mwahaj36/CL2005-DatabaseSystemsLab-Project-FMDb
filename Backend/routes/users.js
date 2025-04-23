@@ -94,6 +94,60 @@ router.delete('/removeFriend', authenticateToken, async (req, res) => {
 
 });
 
+// Get total page# of all users (ranked by activity)
+router.get('/pageCount', async (req, res) => {
+    const pageSize = 25; // Users per page
+
+    try {
+        const result = await sql.query(`
+            SELECT COUNT(*) AS TotalCount
+            FROM Users 
+        `);
+        const totalCount = result.recordset[0].TotalCount;
+        const totalPages = Math.ceil(totalCount / pageSize);
+
+        res.json({ success: true, totalPages });
+    } catch (error) {
+        console.error('Error fetching total user page count:', error);
+        res.status(500).json({ message: 'Internal server error'});
+    }
+});
+
+// Get paginated users ranked by logged movies
+router.get('/page', async (req, res) => {
+    const page = parseInt(req.query.page, 10) || 1;
+    const pageSize = 25;
+    const offset = (page - 1) * pageSize;
+
+    if (page < 1) {
+        return res.status(400).json({ success: false, message: 'Page number must be >= 1' });
+    }
+
+    try {
+        const request = new sql.Request();
+        request.input('offset', sql.Int, offset);
+        request.input('pageSize', sql.Int, pageSize);
+
+        const result = await request.query(`
+            SELECT U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
+            FROM Users U
+            JOIN Activity A ON U.UserID = A.UserID
+            GROUP BY U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
+            ORDER BY COUNT(A.IsLogged) DESC
+            OFFSET @offset ROWS FETCH NEXT @pageSize ROWS ONLY;
+        `);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No users found for the given page' });
+        }
+
+        res.json({ success: true, users: result.recordset });
+    } catch (error) {
+        console.error('Error fetching paginated users:', error);
+        res.status(500).json({ success: false, message: 'Internal server error'});
+    }
+});
+
 // Search users by username or fullname (Simple search)
 router.get('/search/:string', async (req, res) => {
     const searchString = req.params.string;

@@ -178,7 +178,8 @@ router.get('/pageCount', async (req, res) => {
 
         res.json({ success: true, totalPages: totalPages });
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
+        console.error('Error fetching total movie page count:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
 
