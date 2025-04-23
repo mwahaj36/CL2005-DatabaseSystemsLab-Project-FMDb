@@ -4,8 +4,37 @@ const { authenticateToken, jwt } = require('../middleware/authMiddleware');
 const router = express.Router();
 const { processMoviesWithDirectors } = require('../utils/processMovies'); 
 
-// Search movies by title
-router.get('/search/:string', async (req, res) => {
+// Search movies by title (Simple search)
+router.get('/search/title/:string', async (req, res) => {
+    const searchString = req.params.string;
+
+    try {
+        const query = `
+            SELECT TOP 10 M.MovieID, M.Title, M.MoviePosterLink
+            FROM Movies M
+            WHERE LOWER(M.Title) LIKE '%' + LOWER(@searchString) + '%'
+            ORDER BY M.ReleaseDate DESC;
+        `;
+
+        const request = new sql.Request();
+        request.input('searchString', sql.VarChar, searchString);
+
+        const result = await request.query(query);
+
+        if (result.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'No movies found matching the title' });
+        }
+
+        const response = await processMoviesWithDirectors(result.recordset);
+        res.json({ success: true, movies: response });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+    }
+});
+
+// Discover movie (Advanced search)
+router.get('/discover', async (req, res) => {
+    
 });
 
 // Get total page# of all movies or series
@@ -403,7 +432,7 @@ router.get('/recommended', authenticateToken, async (req, res) => {
     }
 });
 
-// GET /movies/check/:movieId
+// Get isMovieExists status of a movie (requires movieId in request params)
 router.get('/check/:movieId', async (req, res) => {
     const { movieId } = req.params;
   
@@ -425,9 +454,7 @@ router.get('/check/:movieId', async (req, res) => {
       console.error('Error checking movie:', err);
       return res.status(500).json({ exists: false, message: 'Server error' });
     }
-  });
-  
-  
+});
 
 // Add Movie to liked movies
 router.post('/like/:movieId', authenticateToken, async (req, res) => {
