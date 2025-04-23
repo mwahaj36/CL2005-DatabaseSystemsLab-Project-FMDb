@@ -87,11 +87,61 @@ router.post('/friendRequest', authenticateToken, async (req, res) => {
 
 // Remove Friend (Requires JWT token with userid)
 router.delete('/removeFriend', authenticateToken, async (req, res) => {
-    const { userId } = req.body; // Extract userId from the request body
-    const loggedInUserId = req.userId; // Extract user ID from the authenticated token
+    const { userId } = req.body;
+    const loggedInUserId = req.userId;
 
+    if (!userId || isNaN(userId)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
 
+    if (loggedInUserId === userId) {
+        return res.status(400).json({ success: false, message: 'You cannot unfriend yourself' });
+    }
+    
+    try {
+        // Check if the user exists
+        const userCheckRequest = new sql.Request();
+        userCheckRequest.input('userId', sql.Int, userId);
+        const userCheckResult = await userCheckRequest.query(`SELECT * FROM Users WHERE UserID = @userId`);
 
+        if (userCheckResult.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        // Check if users are friends
+        if (!(await isFriend(loggedInUserId, userId))) {
+            return res.status(400).json({ success: false, message: 'You are not friends with this user' });
+        }
+
+        // Delete friendship 
+        const [u1, u2] = loggedInUserId < userId  // u1 is the smaller ID
+            ? [loggedInUserId, userId]
+            : [userId, loggedInUserId];
+
+        const deleteRequest = new sql.Request();
+        deleteRequest.input('user1', sql.Int, u1);
+        deleteRequest.input('user2', sql.Int, u2);
+        await deleteRequest.query(`
+            DELETE FROM Friends
+            WHERE User1ID = @user1 AND User2ID = @user2
+        `);
+
+        // Message the poor sod
+        const result = await sql.query(`SELECT Username FROM Users WHERE UserID = ${loggedInUserId}`)
+
+        const message = `User ${result.recordset[0].Username} has removed you from their friends list`;
+        const insertRequest = new sql.Request();
+        insertRequest.input('senderId', sql.Int, loggedInUserId);
+        insertRequest.input('receiverId', sql.Int, userId);
+        insertRequest.input('message', sql.Text, message);
+
+        await insertRequest.query(`INSERT INTO Notifications (SenderId, ReceiverId, Message, NotificationType) VALUES (@senderId, @receiverId, @message, 'General')`)
+
+        res.status(200).json({ success: true, message: 'Friend removed successfully' });
+    } catch (error) {
+        console.error('Error removing friend:', error);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
 });
 
 // Get total page# of all users (ranked by activity)
