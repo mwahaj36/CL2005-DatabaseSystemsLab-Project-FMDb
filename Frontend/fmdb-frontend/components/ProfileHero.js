@@ -19,12 +19,12 @@ const ProfileHero = ({
   const [messageText, setMessageText] = useState('');
   const [modalError, setModalError] = useState('');
   const [isSending, setIsSending] = useState(false);
-  const [friendStatus, setFriendStatus] = useState(isFriend); // Local state to track friend status
+  const [friendStatus, setFriendStatus] = useState(isFriend);
 
   // Determine if the current user can see private content
   const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
                                friendStatus || 
-                               profileUser.privacy === true;
+                               profileUser.privacy === 'Public';
 
   const handleAddFriend = async () => {
     if (!currentUser) {
@@ -71,11 +71,15 @@ const ProfileHero = ({
     
     try {
       setIsSending(true);
-      const response = await fetch(`http://localhost:5000/users/friends/${profileUser.userID}`, {
+      const response = await fetch('http://localhost:5000/users/removeFriend', {
         method: 'DELETE',
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
-        }
+        },
+        body: JSON.stringify({
+          userId: profileUser.userID
+        })
       });
 
       const data = await response.json();
@@ -94,7 +98,6 @@ const ProfileHero = ({
       setIsSending(false);
     }
   };
-
 
   const handleLoggedMoviesClick = () => {
     if (canViewPrivateContent) {
@@ -145,22 +148,29 @@ const ProfileHero = ({
   };
 
   // Stats display components
-  const StatButton = ({ label, value, onClick, href }) => {
+  const StatButton = ({ label, value, href }) => {
     const content = (
       <div 
         className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
           canViewPrivateContent ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
         }`}
-        onClick={onClick}
       >
         <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
         <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
       </div>
     );
 
-    return href && canViewPrivateContent ? (
+    return canViewPrivateContent && href ? (
       <Link href={href}>{content}</Link>
     ) : content;
+  };
+
+  // Link component with conditional clickability
+  const ConditionalLink = ({ href, children }) => {
+    if (canViewPrivateContent && href) {
+      return <Link href={href}>{children}</Link>;
+    }
+    return children;
   };
 
   return (
@@ -218,24 +228,22 @@ const ProfileHero = ({
           <img
             src={`https://ui-avatars.com/api/?name=${profileUser.fullName}&background=random`}
             alt="Profile"
-            className=" shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
+            className="shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
             style={{ width: '240px', height: '240px' }}
           />
 
           <div className="mt-4 grid grid-cols-2 gap-4">
-            <a
-              href={`/friends/${profileUser.userID}`}
-              className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16"
-            >
-              <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
-            </a>
+            <ConditionalLink href={`/friends/${profileUser.userID}`}>
+              <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
+                <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
+              </div>
+            </ConditionalLink>
 
-            <a
-              href={`/watchlist/${profileUser.userID}`}
-              className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16"
-            >
-              <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
-            </a>
+            <ConditionalLink href={`/watchlist/${profileUser.userID}`}>
+              <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
+                <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
+              </div>
+            </ConditionalLink>
           </div>
         </div>
 
@@ -257,28 +265,16 @@ const ProfileHero = ({
 
               {profileUser.userID !== currentUser?.userID && (
                 <>
-                  {isFriend ? (
+                  {friendStatus ? (
                     <>
                       <button
                         onClick={handleRemoveFriend}
                         className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
                         disabled={isSending}
                       >
-                        Remove Friend
+                        {isSending ? 'Removing...' : 'Remove Friend'}
                       </button>
-                     
-                    </>
-                  ) : (
-                    
-                    <button
-                      onClick={handleAddFriend}
-                      className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
-                      disabled={isSending}
-                    >
-                      {isSending ? 'Sending...' : 'Add Friend'}
-                    </button>
-                  )}
-                   {currentUser && (
+                      {currentUser && (
                         <button
                           onClick={() => setShowMessageModal(true)}
                           className="p-2 bg-purpleWhite rounded-full hover:bg-purple hover:text-purpleWhite"
@@ -287,6 +283,16 @@ const ProfileHero = ({
                           <MessageSquare className="w-6 h-6 text-darkPurple" />
                         </button>
                       )}
+                    </>
+                  ) : (
+                    <button
+                      onClick={handleAddFriend}
+                      className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
+                      disabled={isSending}
+                    >
+                      {isSending ? 'Sending...' : 'Add Friend'}
+                    </button>
+                  )}
                 </>
               )}
 
@@ -301,8 +307,8 @@ const ProfileHero = ({
             </div>
           </div>
           <div className="flex items-end space-x-4">
-              <h1 className="text-white text-xl font-bold md:text-3xl">{profileUser.username}</h1>
-            </div>
+            <h1 className="text-white text-xl font-bold md:text-3xl">{profileUser.username}</h1>
+          </div>
           <div className="mt-2 bg-black bg-opacity-40 p-6 rounded-xl shadow-xl">
             <p className="text-white text-sm md:text-xl leading-relaxed drop-shadow-xl">
               {profileUser.bio || 'No bio provided.'}
@@ -319,7 +325,6 @@ const ProfileHero = ({
             <StatButton
               label="Movies Logged"
               value={profileUser.basicDetails?.loggedMoviesCount}
-              onClick={handleLoggedMoviesClick}
               href={canViewPrivateContent ? `/logged/${profileUser.userID}` : undefined}
             />
 
@@ -327,8 +332,6 @@ const ProfileHero = ({
               label="Liked Movies"
               value={profileUser.basicDetails?.likedMoviesCount}
               href={canViewPrivateContent ? `/liked/${profileUser.userID}` : undefined}
-          
-
             />
 
             <div

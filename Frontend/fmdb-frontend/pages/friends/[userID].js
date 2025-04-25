@@ -19,7 +19,7 @@ const FriendsPage = () => {
     const fetchFriends = async () => {
       try {
         let response;
-        
+
         if (token) {
           // Use authenticated endpoint if user is logged in
           response = await fetch(`http://localhost:5000/users/friends/${userID}`, {
@@ -33,22 +33,21 @@ const FriendsPage = () => {
         }
 
         const data = await response.json();
-        
+
         if (data.success) {
           // Transform the API data to match the expected MemberCard props
           const transformedFriends = data.friends.map(friend => ({
-            userID: friend.Username,
+            userID: friend.UserID,
             fullName: friend.FullName,
+            userName: friend.Username,
             imageSrc: `https://ui-avatars.com/api/?name=${encodeURIComponent(friend.FullName)}&background=random`,
             alt: `${friend.Username}'s Profile`,
             userType: friend.UserType.toLowerCase(),
             privacy: friend.Privacy,
             bio: friend.Bio,
             gender: friend.Gender,
-            // These are placeholders - you might want to fetch actual data or remove them
-            activities: Math.floor(Math.random() * 50),
-            movies: Math.floor(Math.random() * 20)
-          }));1
+          }));
+          
           setFriends(transformedFriends);
         }
       } catch (error) {
@@ -69,7 +68,10 @@ const FriendsPage = () => {
 
   if (loading) {
     return (
-      <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}>
+      <div
+        className="relative bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}
+      >
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
         <section id="friends" className="relative z-10">
           <Navbar />
@@ -82,13 +84,15 @@ const FriendsPage = () => {
   }
 
   return (
-    <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}>
+    <div
+      className="relative bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}
+    >
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <section id="friends" className="relative z-10">
         <Navbar />
         <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">{userID}'s Friends</h2>
-        
-        
+
         {sortedFriends.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
             {sortedFriends.map((friend, index) => (
@@ -98,9 +102,9 @@ const FriendsPage = () => {
                 alt={friend.alt}
                 userID={friend.userID}
                 userType={friend.userType}
+                userName={friend.userName} // <-- Passed to MemberCard
                 activities={friend.activities}
                 movies={friend.movies}
-                // You can add more props if your MemberCard supports them
                 bio={friend.bio}
                 gender={friend.gender}
                 privacy={friend.privacy}
@@ -112,7 +116,7 @@ const FriendsPage = () => {
             <p>No friends to display.</p>
           </div>
         )}
-        
+
         <Footer />
       </section>
     </div>
