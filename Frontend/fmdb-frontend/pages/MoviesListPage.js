@@ -58,7 +58,6 @@ const MoviesListPage = () => {
   // Search filters
   const [filters, setFilters] = useState({
     title: '',
-    type: '',
     genre: '',
     language: '',
     releaseYearFrom: '',
@@ -78,7 +77,7 @@ const MoviesListPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/movies/page?page=${page}&sort=${sort}&order=${order}&type=movie`,
+        `http://localhost:5000/movies/page?page=${page}&sort=${sort}&order=${order}`,
         {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
@@ -98,7 +97,7 @@ const MoviesListPage = () => {
 
   const fetchPageCount = async () => {
     try {
-      const response = await fetch('http://localhost:5000/movies/pageCount?type=movie', {
+      const response = await fetch('http://localhost:5000/movies/pageCount', {
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
         },
@@ -168,7 +167,6 @@ const MoviesListPage = () => {
     setSearchResults([]);
     setFilters({
       title: '',
-      type: '',
       genre: '',
       language: '',
       releaseYearFrom: '',
@@ -282,17 +280,6 @@ const MoviesListPage = () => {
                 <div className="mt-4 bg-darkPurple bg-opacity-90 p-4 rounded-lg border border-purple-500">
                   <h3 className="text-white font-semibold mb-3">Advanced Filters</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-purple-200 text-sm mb-1">Type (movie/tv)</label>
-                      <input
-                        type="text"
-                        name="type"
-                        value={filters.type}
-                        onChange={handleFilterChange}
-                        placeholder="e.g., movie"
-                        className="w-full bg-darkPurple border border-purple-500 rounded-md py-2 px-3 text-white placeholder-purple-300 focus:outline-none focus:ring-1 focus:ring-purple-500"
-                      />
-                    </div>
                     <div>
                       <label className="block text-purple-200 text-sm mb-1">Genre</label>
                       <input
