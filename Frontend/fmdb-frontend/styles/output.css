@@ -680,6 +680,10 @@ video {
   z-index: 50;
 }
 
+.z-\[60\] {
+  z-index: 60;
+}
+
 .-mx-3 {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -1998,6 +2002,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: hsl(0 0% 96% / var(--tw-text-opacity, 1));
+}
+
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity, 1));
 }
 
 .opacity-0 {
