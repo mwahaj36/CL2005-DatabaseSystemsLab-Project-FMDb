@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   const verifyToken = async (token) => {
     try {
       // Use any protected endpoint - we'll use critic/movies as example
-      const response = await fetch(`${API_BASE_URL}/critic/movies`, {
+      const response = await fetch(`${API_BASE_URL}/auth/verify`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
