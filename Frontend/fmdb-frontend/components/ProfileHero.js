@@ -223,12 +223,12 @@ const ProfileHero = ({
           />
 
           <div className="mt-4 grid grid-cols-2 gap-4">
-            <button
-              onClick={() => setErrorMessage("View Following (coming soon)")}
+            <a
+              href={`/friends/${profileUser.userID}`}
               className="bg-black bg-opacity-60 transition-transform duration-300 hover:scale-105 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16"
             >
               <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
-            </button>
+            </a>
 
             <a
               href={`/watchlist/${profileUser.userID}`}
