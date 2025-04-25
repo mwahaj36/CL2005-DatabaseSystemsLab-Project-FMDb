@@ -6,9 +6,8 @@ const LoggedMoviesPage = () => {
   const router = useRouter();
   const { userID } = router.query;  // Extract userID from the URL
   const usersData = [
-    { id: 'chamkadar1234', access: 'private', friends: ['2'] },
+    { id: '3', access: 'private', friends: ['2'] },
     { id: '2', access: 'friend', friends: ['chamkadar1234'] },
-    { id: '3', access: 'private' },
   ];
   const backdropUrl='https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg'
 

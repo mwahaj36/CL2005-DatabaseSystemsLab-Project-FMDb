@@ -320,7 +320,7 @@ const ProfileHero = ({
               label="Movies Logged"
               value={profileUser.basicDetails?.loggedMoviesCount}
               onClick={handleLoggedMoviesClick}
-              href={canViewPrivateContent ? '/' : undefined}
+              href={canViewPrivateContent ? `/logged/${profileUser.userID}` : undefined}
             />
 
             <StatButton
