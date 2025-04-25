@@ -17,7 +17,7 @@ const MemberCard = ({ imageSrc, alt, userID, userType, activities, movies }) => 
             {userType}
           </span>
         )}
-        {userType.toLowerCase() === "verified critic" && (
+        {userType.toLowerCase() === "critic" && (
           <span className="text-xl font-bold py-1 px-3 rounded-full text-gold">
             {userType}
           </span>
