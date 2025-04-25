@@ -430,7 +430,213 @@ router.get('/friends/:userid', authenticateToken, async (req, res) => {
       console.error('Error fetching friends list:', error);
       return res.status(500).json({ success: false, message: 'Internal server error' });
     }
-  });
+});
+
+// Get user's liked movies public ver. (Works if account is public)
+router.get('/likedMovies/public/:userid', async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public') {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the liked movies
+        const likedMoviesReq = new sql.Request();
+        likedMoviesReq.input('userid', sql.Int, userid);
+
+        const likedMovieRes = await likedMoviesReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink
+            FROM UserLikedMovies ULM
+            JOIN Movies M ON ULM.MovieID = M.MovieID
+            WHERE ULM.UserID = @userid
+        `);
+        const movies = await processMoviesWithDirectors(likedMovieRes.recordset);
+        return res.status(200).json({
+            success: true,
+            likedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching public liked movies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user's liked movies logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
+router.get('/likedMovies/:userid', async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+    currentUserId = req.userId; // Extract user ID from the authenticated token
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public' && !await isFriend(currentUserId, userid)) {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the liked movies
+        const likedMoviesReq = new sql.Request();
+        likedMoviesReq.input('userid', sql.Int, userid);
+
+        const likedMovieRes = await likedMoviesReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink
+            FROM UserLikedMovies ULM
+            JOIN Movies M ON ULM.MovieID = M.MovieID
+            WHERE ULM.UserID = @userid
+        `);
+        const movies = await processMoviesWithDirectors(likedMovieRes.recordset);
+        return res.status(200).json({
+            success: true,
+            likedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching liked movies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user's loggedMovies public ver. (Works if account is public)
+router.get('/loggedMovies/public/:userid', async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public') {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the loggedMovies
+        const loggedMoviesReq = new sql.Request();
+        loggedMoviesReq.input('userid', sql.Int, userid);
+
+        const loggedMoviesRes = await loggedMoviesReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                A.ActivityDateTime AS AddedAt
+            FROM Activity A
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.UserID = @userid AND A.IsLogged = 1
+            ORDER BY A.ActivityDateTime DESC
+        `);
+        const movies = await processMoviesWithDirectors(loggedMoviesRes.recordset);
+        return res.status(200).json({
+            success: true,
+            loggedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching public loggedMovies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user's loggedMovies logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
+router.get('/loggedMovies/:userid', async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+    currentUserId = req.userId; // Extract user ID from the authenticated token
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public' && !await isFriend(currentUserId, userid)) {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the loggedMovies
+        const loggedMoviesReq = new sql.Request();
+        loggedMoviesReq.input('userid', sql.Int, userid);
+
+        const loggedMoviesRes = await loggedMoviesReq.query(`
+            SELECT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                A.ActivityDateTime AS AddedAt
+            FROM Activity A
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.UserID = @userid AND A.IsLogged = 1
+            ORDER BY A.ActivityDateTime DESC
+        `);
+        const movies = await processMoviesWithDirectors(loggedMoviesRes.recordset);
+        return res.status(200).json({
+            success: true,
+            loggedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching loggedMovies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
 
 // Update user profile (Requires JWT token with userid)
 router.put('/', authenticateToken, async (req, res) => {
