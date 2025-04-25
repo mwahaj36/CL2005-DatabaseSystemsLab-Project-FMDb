@@ -324,9 +324,11 @@ const ProfileHero = ({
             />
 
             <StatButton
-              label="Likes"
+              label="Liked Movies"
               value={profileUser.basicDetails?.likedMoviesCount}
-              href={canViewPrivateContent ? '/' : undefined}
+              href={canViewPrivateContent ? `/liked/${profileUser.userID}` : undefined}
+          
+
             />
 
             <div
