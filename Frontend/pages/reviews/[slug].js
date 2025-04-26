@@ -381,7 +381,7 @@ const AllReviewsPage = () => {
         <div key={reply.ActivityID} className="pl-8 mt-4 items-center text-left ml-20 p-4 rounded-lg bg-black bg-opacity-30">
           <div className="flex items-center space-x-4 relative">
             <img
-              src={'/default-pic.jpg'}
+            src={`https://ui-avatars.com/api/?name=${reply.Username}&background=random`}
               alt={reply.Username}
               className="w-12 h-12 rounded-md object-cover"
             />
