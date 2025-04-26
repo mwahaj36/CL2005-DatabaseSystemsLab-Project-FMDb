@@ -11,7 +11,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users/leaderboard');
+        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//users/leaderboard');
         
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard data');

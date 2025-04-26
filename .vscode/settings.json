@@ -1,3 +1,5 @@
 {
-    "postman.settings.dotenv-detection-notification-visibility": false
+    "postman.settings.dotenv-detection-notification-visibility": false,
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/57fb2496-3432-46ce-96c8-eeb9fa37de88/resourceGroups/appsvc_linux_australiaeast/providers/Microsoft.Web/sites/fmdb-server",
+    "appService.deploySubpath": "Backend"
 }
