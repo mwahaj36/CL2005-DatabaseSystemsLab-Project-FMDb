@@ -9,11 +9,6 @@ const LoggedMovies = ({ movies }) => {
 
   return (
     <section id="LoggedMovies" className="relative z-10 px-4 md:px-0">
-      <h2 className="text-5xl md:text-6xl mt-10 mb-10 text-white font-bold text-center drop-shadow-lg">
-        {user?.userID?.toString() === userID
-          ? 'Your Logged Movies'
-          : `Logged Movies`}
-      </h2>
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
         {movies.map((movie, index) => {
           const date = new Date(movie.addedAt).toDateString().split(' ');
