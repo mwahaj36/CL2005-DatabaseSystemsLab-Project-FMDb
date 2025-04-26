@@ -31,10 +31,10 @@ const Profile = () => {
 
         if (currentUser) {
           // Use logged-in endpoint if user is authenticated
-          endpoint = `http://localhost:5000/users/logged/${userID}`;
+          endpoint = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/logged/${userID}`;
         } else {
           // Use public endpoint if user is not authenticated
-          endpoint = `http://localhost:5000/users/public/${userID}`;
+          endpoint = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${userID}`;
         }
 
         const headers = currentUser 
@@ -91,7 +91,7 @@ const Profile = () => {
       
       try {
         setLoadingFriendStatus(true);
-        const response = await fetch(`http://localhost:5000/users/isFriend/${userID}`, {
+        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/isFriend/${userID}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -140,7 +140,7 @@ const Profile = () => {
     setApiLoading(true);
     setResponseMsg('');
     try {
-      const res = await fetch('http://localhost:5000/users/userType', {
+      const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/userType', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

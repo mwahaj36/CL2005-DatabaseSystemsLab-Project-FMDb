@@ -23,7 +23,7 @@ const HomePage = () => {
 
     const fetchTrending = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//movies/trending');
+        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/trending');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
 
@@ -64,7 +64,7 @@ const HomePage = () => {
 
     const fetchRecommended = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//movies/recommended', {
+        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/recommended', {
           credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`
@@ -128,7 +128,7 @@ const HomePage = () => {
 
     const fetchFriendsActivity = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//movies/friends', {
+        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/friends', {
           credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`
@@ -190,7 +190,7 @@ const HomePage = () => {
 
     const fetchFriendsWatchlist = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//movies/friends/watchlist', {
+        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/friends/watchlist', {
           credentials: 'include',
           headers: {
             'Authorization': `Bearer ${token}`

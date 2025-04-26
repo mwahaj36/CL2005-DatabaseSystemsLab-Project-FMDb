@@ -22,14 +22,14 @@ const FriendsPage = () => {
 
         if (token) {
           // Use authenticated endpoint if user is logged in
-          response = await fetch(`http://localhost:5000/users/friends/${userID}`, {
+          response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/friends/${userID}`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }
           });
         } else {
           // Use public endpoint if user is not logged in
-          response = await fetch(`http://localhost:5000/users/public/friends/${userID}`);
+          response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/friends/${userID}`);
         }
 
         const data = await response.json();

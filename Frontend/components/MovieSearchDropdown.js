@@ -26,7 +26,7 @@ const DropdownSearch = ({ onClose }) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/movies/search/title/${encodeURIComponent(searchTerm)}`
+        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/search/title/${encodeURIComponent(searchTerm)}`
       );
       const data = await response.json();
       if (data.success) {

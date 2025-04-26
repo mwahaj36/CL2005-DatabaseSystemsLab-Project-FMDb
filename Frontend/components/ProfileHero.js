@@ -34,7 +34,7 @@ const ProfileHero = ({
     
     try {
       setIsSending(true);
-      const response = await fetch('http://localhost:5000/users/friendRequest', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/friendRequest', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const ProfileHero = ({
     
     try {
       setIsSending(true);
-      const response = await fetch('http://localhost:5000/users/removeFriend', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/removeFriend', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const ProfileHero = ({
 
     try {
       setIsSending(true);
-      const response = await fetch('http://localhost:5000/message', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

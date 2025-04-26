@@ -77,7 +77,7 @@ const MoviesListPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/movies/page?page=${page}&sort=${sort}&order=${order}`,
+        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/page?page=${page}&sort=${sort}&order=${order}`,
         {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
@@ -97,7 +97,7 @@ const MoviesListPage = () => {
 
   const fetchPageCount = async () => {
     try {
-      const response = await fetch('http://localhost:5000/movies/pageCount', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/pageCount', {
         headers: {
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
         },
@@ -129,7 +129,7 @@ const MoviesListPage = () => {
       // Only search if at least one filter is set
       if (params.toString()) {
         const response = await fetch(
-          `http://localhost:5000/movies/discover?${params.toString()}`,
+          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/discover?${params.toString()}`,
           {
             headers: {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,

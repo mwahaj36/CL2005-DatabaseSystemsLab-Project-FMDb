@@ -85,7 +85,7 @@ export default function AdminPanel() {
         writers: movie.writers.split(',').map(w => w.trim()).filter(w => w)
       };
   
-      const response = await fetch('http://localhost:5000/admin/movie', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/movie', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ export default function AdminPanel() {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`http://localhost:5000/admin/movie/${movieIdToDelete}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/movie/${movieIdToDelete}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -175,7 +175,7 @@ export default function AdminPanel() {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`http://localhost:5000/admin/user/${userIdToRemove}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/user/${userIdToRemove}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

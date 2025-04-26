@@ -24,9 +24,9 @@ const MoviePage = () => {
 
       // Fetch all data in parallel
       const [movieRes, reviewsRes, castRes] = await Promise.all([
-        fetch(`http://localhost:5000/movies/details/${movieID}`),
-        fetch(`http://localhost:5000/activity/top/${movieID}`),
-        fetch(`http://localhost:5000/movies/cast/${movieID}`)
+        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/details/${movieID}`),
+        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/top/${movieID}`),
+        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/cast/${movieID}`)
       ]);
 
       // Check responses and parse JSON

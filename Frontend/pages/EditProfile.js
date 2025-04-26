@@ -36,7 +36,7 @@ export default function EditProfile() {
   
       try {
         // First fetch the public data
-        const publicResponse = await fetch(`http://localhost:5000/users/public/${user.userID}`);
+        const publicResponse = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${user.userID}`);
         const publicData = await publicResponse.json();
   
         if (!publicResponse.ok) {
@@ -62,7 +62,7 @@ export default function EditProfile() {
         }
   
         // Fetch favorites using the Bearer token
-        const favoritesResponse = await fetch('http://localhost:5000/users/favorites', {
+        const favoritesResponse = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favorites', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -136,7 +136,7 @@ export default function EditProfile() {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:5000/users', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

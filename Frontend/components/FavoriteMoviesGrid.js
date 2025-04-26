@@ -20,7 +20,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
     setSuccess(null);
 
     try {
-      const response = await fetch('http://localhost:5000/users/favoriteMovies', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favoriteMovies', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       }
 
       // Fetch full movie data after successful update
-      const movieDetailsRes = await fetch(`http://localhost:5000/movies/${movieId}`);
+      const movieDetailsRes = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/${movieId}`);
       const movieData = await movieDetailsRes.json();
 
       if (!movieDetailsRes.ok) {

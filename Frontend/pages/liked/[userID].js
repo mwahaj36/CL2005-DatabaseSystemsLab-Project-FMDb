@@ -36,14 +36,14 @@ const UserLikedMoviesPage = () => {
         
             if (!token) {
                 // Public liked movies for non-logged-in users
-                url = `http://localhost:5000/users/likedMovies/public/${userID}`;
+                url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/public/${userID}`;
             } else {
                 // Case 1: If the logged-in user is viewing their own liked movies, allow them to see even if it's private
                 if (user && parseInt(user.userID) === parseInt(userID)) {
-                    url = `http://localhost:5000/users/likedMovies/${userID}`; // Allow access to own liked movies
+                    url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`; // Allow access to own liked movies
                 } else {
                     // Case 2: For other users, use the general endpoint
-                    url = `http://localhost:5000/users/likedMovies/${userID}`;
+                    url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`;
                 }
             }
         

@@ -17,7 +17,7 @@ const Members = () => {
   useEffect(() => {
     const fetchPageCount = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users/pageCount');
+        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/pageCount');
         const data = await response.json();
         if (data.success) {
           setTotalPages(data.totalPages);
@@ -29,7 +29,7 @@ const Members = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/users/page?page=${currentPage}`);
+        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/page?page=${currentPage}`);
         const data = await response.json();
         if (data.success) {
           const transformedMembers = data.users.map(user => ({
@@ -64,7 +64,7 @@ const Members = () => {
 
     setIsSearching(true);
     try {
-      const response = await fetch(`http://localhost:5000/users/search/${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/search/${encodeURIComponent(searchQuery)}`);
       const data = await response.json();
       if (data.success) {
         const transformedResults = data.users.map(user => ({

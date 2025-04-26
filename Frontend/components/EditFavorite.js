@@ -35,7 +35,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
 
     try {
       // Validate movie exists
-      const movieExistRes = await fetch(`http://localhost:5000/movies/check/${movie.movieid}`);
+      const movieExistRes = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/check/${movie.movieid}`);
       if (!movieExistRes.ok) {
         throw new Error('Failed to validate movie');
       }
@@ -46,7 +46,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       }
 
       // Update favorite
-      const response = await fetch('http://localhost:5000/users/favoriteMovies', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favoriteMovies', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

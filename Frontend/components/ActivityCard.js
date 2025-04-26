@@ -22,7 +22,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       try {
         setIsLikeLoading(true);
         const response = await fetch(
-          `http://localhost:5000/movies/like?movieId=${movieId}&userId=${user.userID}`,
+          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/like?movieId=${movieId}&userId=${user.userID}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -61,7 +61,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setError(null);
 
       const method = liked ? 'DELETE' : 'POST';
-      const url = `http://localhost:5000/movies/like/${movieId}`;
+      const url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/like/${movieId}`;
 
       const response = await fetch(url, {
         method,
@@ -110,7 +110,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         isLogged: watchedBefore // This is a boolean so it's always defined
       };
   
-      const response = await fetch('http://localhost:5000/activity/submit', {
+      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

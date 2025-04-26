@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const API_BASE_URL = "http://localhost:5000";
+  const API_BASE_URL = "https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net";
 
   // 1. Restore session on initial load
   useEffect(() => {

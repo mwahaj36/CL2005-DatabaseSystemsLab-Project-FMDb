@@ -12,7 +12,7 @@ const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
         const movieId = review.movieId;
         if (movieId && !movieDetails[movieId]) {
           try {
-            const response = await fetch(`http://localhost:5000/movies/details/${movieId}`);
+            const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/details/${movieId}`);
             if (response.ok) {
               const data = await response.json();
               newDetails[movieId] = data.movie;

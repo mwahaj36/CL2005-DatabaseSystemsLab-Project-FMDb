@@ -20,7 +20,7 @@ const MovieHero = ({ movieData }) => {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/watchlist/isWatchlist/${movieData.movieId}`,
+          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/isWatchlist/${movieData.movieId}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -61,7 +61,7 @@ const MovieHero = ({ movieData }) => {
       setLoadingWatchlist(true);
       const method = isInWatchlist ? 'DELETE' : 'POST';
       const response = await fetch(
-        `http://localhost:5000/watchlist/${movieData.movieId}`,
+        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${movieData.movieId}`,
         {
           method,
           headers: {

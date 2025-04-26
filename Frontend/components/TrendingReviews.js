@@ -17,7 +17,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     if (!user || !token) return false;
     
     try {
-      const response = await fetch(`http://localhost:5000/activity/isDeletable/${activityId}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isDeletable/${activityId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await response.json();
@@ -39,7 +39,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
       for (let review of reviewsData) {
         try {
           // Check like status
-          const likeUrl = new URL('http://localhost:5000/activity/isLiked');
+          const likeUrl = new URL('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isLiked');
           likeUrl.searchParams.set('activityId', review.ActivityID);
           likeUrl.searchParams.set('userId', user.userID);
 
@@ -106,7 +106,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/activity/like/${id}`,
+        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/like/${id}`,
         {
           method: isLiked ? 'DELETE' : 'POST',
           headers: { 'Authorization': `Bearer ${token}` }
@@ -153,7 +153,7 @@ const TrendingReviews = ({ reviewsData = [], user, movie = {} }) => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/activity/${activityId}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/${activityId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

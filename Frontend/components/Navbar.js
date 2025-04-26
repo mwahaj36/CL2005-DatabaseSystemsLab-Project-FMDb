@@ -27,7 +27,7 @@ function Navbar() {
       if (user) {
         try {
           const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-          const response = await fetch('http://localhost:5000/notification/user', {
+          const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/user', {
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -58,7 +58,7 @@ function Navbar() {
         setLoadingNotifications(true);
         try {
           const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-          const response = await fetch('http://localhost:5000/notification/user', {
+          const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/user', {
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -105,7 +105,7 @@ function Navbar() {
   const handleAccept = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/notification/accept/${notificationId}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/accept/${notificationId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -124,7 +124,7 @@ function Navbar() {
   const handleReject = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/notification/reject/${notificationId}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/reject/${notificationId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -143,7 +143,7 @@ function Navbar() {
   const handleClose = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/notification/close/${notificationId}`, {
+      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/close/${notificationId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

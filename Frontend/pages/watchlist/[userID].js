@@ -36,14 +36,14 @@ const UserWatchlistPage = () => {
       
           if (!token) {
             // Public watchlist for non-logged-in users
-            url = `http://localhost:5000/watchlist/public/${userID}`;
+            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/public/${userID}`;
           } else {
             // Case 1: If the logged-in user is viewing their own watchlist, allow them to see even if it's private
             if (user && parseInt(user.userID) === parseInt(userID)) {
-              url = `http://localhost:5000/watchlist/${userID}`; // Allow access to own watchlist
+              url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${userID}`; // Allow access to own watchlist
             } else {
               // Case 2: For other users, use the general endpoint
-              url = `http://localhost:5000/watchlist/${userID}`;
+              url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${userID}`;
             }
           }
       
