@@ -175,6 +175,7 @@ export default function EditProfile() {
 
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 3000);
+      router.push(`/profile/${user.userID}`); // <--- this line does the magic
     } catch (error) {
       console.error('Error updating profile:', error);
       setSubmitError(error.message);
@@ -372,14 +373,13 @@ export default function EditProfile() {
                 <button type="button" onClick={() => router.back()} className="px-4 py-2 font-bold bg-purpleWhite text-darkPurple rounded-lg">
                   Cancel
                 </button>
-                <a
-                 href={`/profile/${user.userID}`}
+                <button
                   type="submit" 
                   className="px-4 py-2 font-bold bg-purple text-white rounded-lg disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Saving...' : 'Save Changes'}
-                </a>
+                </button>
               </div>
             </form>
           </div>
