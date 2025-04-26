@@ -60,7 +60,7 @@ const YearlyStats = ({
                 Most Logged Movie
               </p>
               <h3
-                className="text-white text-5xl font-bold truncate max-w-[240px]"
+                className="text-white text-4xl font-bold truncate max-w-[700px]"
                 title={stats.mostLoggedMovie.title}
               >
                 {stats.mostLoggedMovie.title}
@@ -75,7 +75,7 @@ const YearlyStats = ({
                 Most Watched Director
               </p>
               <h4
-                className="text-white text-4xl font-bold truncate max-w-[240px] mx-auto"
+                className="text-white text-3xl font-bold truncate max-w-[700px] mx-auto"
                 title={stats.mostWatchedDirector}
               >
                 {stats.mostWatchedDirector}
@@ -86,7 +86,7 @@ const YearlyStats = ({
                 Most Watched Actor
               </p>
               <h4
-                className="text-white text-4xl font-bold truncate max-w-[700px] mx-auto"
+                className="text-white text-3xl font-bold truncate max-w-[700px] mx-auto"
                 title={stats.mostWatchedActor}
               >
                 {stats.mostWatchedActor}
