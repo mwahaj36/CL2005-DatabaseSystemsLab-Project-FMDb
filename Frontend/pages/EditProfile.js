@@ -373,7 +373,7 @@ export default function EditProfile() {
                   Cancel
                 </button>
                 <a
-                  href='/profile/${userID}'
+                 href={`/profile/${user.userID}`}
                   type="submit" 
                   className="px-4 py-2 font-bold bg-purple text-white rounded-lg disabled:opacity-50"
                   disabled={isSubmitting}
