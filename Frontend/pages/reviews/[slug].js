@@ -474,7 +474,7 @@ const AllReviewsPage = () => {
                   >
                     <div className="flex items-center space-x-4 relative">
                       <img
-                        src={'/default-pic.jpg'}
+                       src={`https://ui-avatars.com/api/?name=${review.Username}&background=random`}
                         alt={review.Username}
                         className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl"
                       />
