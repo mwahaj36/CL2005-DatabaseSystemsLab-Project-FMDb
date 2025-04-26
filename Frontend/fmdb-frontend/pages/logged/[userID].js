@@ -24,37 +24,43 @@ const LoggedMoviesPage = () => {
       setError(null);
 
       try {
-        // Ensure user and token are present
-        if (!user || !token) {
-          setError('User not authenticated.');
-          return;
+        const headers = {};
+
+        // Add authorization if user is logged in
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
         }
 
-        const isOwnProfile = user && user.userID?.toString() === userID;
+        // Determine the correct API endpoint based on profile privacy and login status
+        let url = '';
 
-        console.log('User Profile Check:', { isOwnProfile, userID, user });
+        if (!token) {
+          // Public liked movies for non-logged-in users
+          url = `http://localhost:5000/users/loggedMovies/public/${userID}`;
+        } else {
+          // Case 1: If the logged-in user is viewing their own liked movies, allow them to see even if it's private
+          if (user && parseInt(user.userID) === parseInt(userID)) {
+            url = `http://localhost:5000/users/loggedMovies/${userID}`; // Allow access to own liked movies
+          } else {
+            // Case 2: For other users, use the general endpoint
+            url = `http://localhost:5000/users/loggedMovies/${userID}`;
+          }
+        }
 
-        const url = isOwnProfile
-          ? `http://localhost:5000/users/loggedMovies/${userID}`
-          : `http://localhost:5000/users/loggedMovies/public/${userID}`;
+        console.log('Fetching data from:', url); // Log the URL being called
 
-        const headers = isOwnProfile
-          ? { Authorization: `Bearer ${token}` }
-          : {};
+        const response = await fetch(url, { headers });
+        const data = await response.json();
 
-        console.log('Fetching URL:', url, 'Headers:', headers);
-
-        const res = await fetch(url, { headers });
-        const data = await res.json();
-
-        if (!res.ok) {
+        // Handle any non-OK responses from the backend
+        if (!response.ok) {
           throw new Error(data.message || 'Failed to fetch logged movies');
         }
 
         setMovies(data.loggedMovies || []);
       } catch (err) {
         console.error('Error fetching movies:', err);
-        setError(err.message || 'This account is private');
+        setError(err.message || 'An error occurred while fetching movies');
       } finally {
         setLoading(false);
       }
@@ -85,6 +91,7 @@ const LoggedMoviesPage = () => {
             <h2 className="text-4xl">{error}</h2>
           </div>
         ) : (
+          
           <LoggedMovies movies={movies} />
         )}
 
