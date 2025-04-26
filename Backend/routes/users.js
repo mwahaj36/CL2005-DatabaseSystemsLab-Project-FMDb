@@ -483,7 +483,7 @@ router.get('/likedMovies/public/:userid', async (req, res) => {
 });
 
 // Get user's liked movies logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
-router.get('/likedMovies/:userid', async (req, res) => {
+router.get('/likedMovies/:userid', authenticateToken, async (req, res) => {
     let { userid } = req.params;
     userid = parseInt(userid, 10);
     currentUserId = req.userId; // Extract user ID from the authenticated token
@@ -586,7 +586,7 @@ router.get('/loggedMovies/public/:userid', async (req, res) => {
 });
 
 // Get user's loggedMovies logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
-router.get('/loggedMovies/:userid', async (req, res) => {
+router.get('/loggedMovies/:userid', authenticateToken, async (req, res) => {
     let { userid } = req.params;
     userid = parseInt(userid, 10);
     currentUserId = req.userId; // Extract user ID from the authenticated token

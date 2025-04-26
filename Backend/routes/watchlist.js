@@ -86,7 +86,7 @@ router.get('/public/:userid', async (req, res) => {
 });
 
 // Get user's watchlist logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
-router.get('/:userid', async (req, res) => {
+router.get('/:userid', authenticateToken, async (req, res) => {
     let { userid } = req.params;
     userid = parseInt(userid, 10);
     currentUserId = req.userId; // Extract user ID from the authenticated token
@@ -107,7 +107,7 @@ router.get('/:userid', async (req, res) => {
         }
 
         const { Privacy } = userRes.recordset[0];
-        if (Privacy !== 'Public' && !await isFriend(currentUserId, userid)) {
+        if (Privacy === 'Private' && !(await isFriend(currentUserId, userid))) {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
