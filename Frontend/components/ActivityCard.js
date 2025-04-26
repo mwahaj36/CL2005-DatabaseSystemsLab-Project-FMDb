@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext'; // Adjust the import path as needed
 
 const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onDiscard }) => {
-  const [watchedBefore, setWatchedBefore] = useState(true);
   const [watchedDate, setWatchedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [watchedBefore, setWatchedBefore] = useState(false); // ✅ ADDED
   const [review, setReview] = useState('');
   const [tags, setTags] = useState('');
   const [liked, setLiked] = useState(false);
@@ -11,14 +11,12 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLikeLoading, setIsLikeLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const { token, user } = useAuth();
 
-  // Check if movie is already liked when component mounts
   useEffect(() => {
     const checkIfLiked = async () => {
       if (!token || !user?.userID || !movieId) return;
-      
       try {
         setIsLikeLoading(true);
         const response = await fetch(
@@ -91,25 +89,23 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setError('You need to be logged in to save activities');
       return;
     }
-  
-    // Optional: Validate at least one field is filled
+
     if (!review && rating === 0 && !watchedBefore) {
       setError('Please provide at least a rating, review, or watched status');
       return;
     }
-  
+
     setIsSubmitting(true);
     setError(null);
-  
+
     try {
-      // Prepare activity data with optional fields
       const activityData = {
         movieId,
-        review: review || null, // Send null if review is empty
-        ratings: rating || null, // Send null if rating is 0
-        isLogged: watchedBefore // This is a boolean so it's always defined
+        review: review || null,
+        ratings: rating || null,
+        isLogged: watchedBefore
       };
-  
+
       const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
         method: 'POST',
         headers: {
@@ -118,16 +114,15 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         },
         body: JSON.stringify(activityData)
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to save activity');
       }
-  
+
       const result = await response.json();
       console.log('Activity saved:', result);
-  
-      // Call the onSave callback if provided
+
       if (onSave) {
         onSave({
           ...activityData,
@@ -137,6 +132,13 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
           watchedDate: watchedBefore ? watchedDate : null
         });
       }
+
+      // ✅ Reset form after save
+      setReview('');
+      setRating(0);
+      setWatchedDate(new Date().toISOString().split('T')[0]);
+      setWatchedBefore(false);
+
     } catch (err) {
       console.error('Error saving activity:', err);
       setError(err.message);
@@ -147,7 +149,6 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
 
   return (
     <div className="bg-darkPurple text-white p-6 rounded-xl shadow-lg relative max-w-4xl mx-auto">
-      {/* Close (discard) button */}
       <button
         onClick={onDiscard}
         className="absolute top-4 right-4 text-white text-2xl font-bold hover:scale-110 transition"
@@ -158,22 +159,20 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       </button>
 
       <div className="flex gap-6 flex-col md:flex-row">
-        {/* Poster */}
         <img
           src={moviePoster}
           alt={movieTitle}
           className="h-72 rounded-xl shadow-md object-cover"
         />
 
-        {/* Form content */}
         <div className="flex-1 flex flex-col justify-between">
           <h2 className="text-2xl font-bold">
             {movieTitle}{' '}
             <span className="text-purple text-lg font-normal">{movieYear}</span>
           </h2>
 
-          {/* Watched info */}
-          <div className="flex items-Wcenter gap-4 mt-4">
+          {/* ✅ Typo fixed here */}
+          <div className="flex items-center gap-4 mt-4">
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -195,7 +194,6 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
             </label>
           </div>
 
-          {/* Review */}
           <textarea
             className="bg-purpleWhite text-black mt-4 w-full p-3 rounded-xl"
             placeholder="Add a review..."
@@ -205,9 +203,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
             disabled={isSubmitting}
           />
 
-          {/* Tags + Rating + Like */}
           <div className="flex items-center justify-between mt-4 flex-wrap gap-4">
-            {/* Rating */}
             <div className="flex items-center gap-1">
               <span className="text-sm mr-1 text-white">Rating</span>
               {[...Array(10)].map((_, index) => {
@@ -235,7 +231,6 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
               })}
             </div>
 
-            {/* Like button */}
             <button
               onClick={handleLike}
               className="text-3xl"
@@ -267,14 +262,12 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
             </button>
           </div>
 
-          {/* Error message */}
           {error && (
             <div className="mt-4 text-red-400 text-sm">
               {error}
             </div>
           )}
 
-          {/* Save button at bottom */}
           <button
             onClick={handleSaveActivity}
             disabled={isSubmitting}
