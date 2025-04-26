@@ -1,8 +1,7 @@
+// components/MovieSearchSelect.js
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/router";
 
-const DropdownSearch = ({ onClose }) => {
-  const router = useRouter();
+const MovieSearchSelect = ({ onSelect, onClose }) => {
   const [query, setQuery] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,12 +50,9 @@ const DropdownSearch = ({ onClose }) => {
     debouncedSearch(value);
   };
 
-  const handleSelect = (movie) => {
-    // Navigate to movie details page using Next.js router
-    router.push(`/movie/${movie.movieid}`);
-    // Clear the search results
-    setFilteredMovies([]);
-    setQuery("");
+  const handleMovieSelect = (movie) => {
+    onSelect(movie);
+    onClose();
   };
 
   // Handle outside click to close the dropdown
@@ -70,17 +66,12 @@ const DropdownSearch = ({ onClose }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [onClose]);
 
-  const handleClose = (e) => {
-    e.stopPropagation();
-    onClose();
-  };
-
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-60">
       <div ref={wrapperRef} className="bg-darkPurple p-6 rounded-lg w-full max-w-md shadow-lg relative">
         <button
           className="absolute top-2 right-3 text-xl font-bold text-white hover:text-purple"
-          onClick={handleClose}
+          onClick={onClose}
         >
           &times;
         </button>
@@ -104,7 +95,7 @@ const DropdownSearch = ({ onClose }) => {
               <li
                 key={index}
                 className="px-4 py-2 hover:bg-purple text-white cursor-pointer flex items-center"
-                onClick={() => handleSelect(movie)}
+                onClick={() => handleMovieSelect(movie)}
               >
                 <img
                   src={movie.movieposterlink}
@@ -133,4 +124,4 @@ const DropdownSearch = ({ onClose }) => {
   );
 };
 
-export default DropdownSearch;
+export default MovieSearchSelect;

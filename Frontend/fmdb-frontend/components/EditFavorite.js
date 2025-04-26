@@ -1,22 +1,31 @@
 import { useState, useEffect } from 'react';
-import { Dialog } from '@headlessui/react';
 import MovieCard from '@/components/MovieCard';
+import MovieSearchSelect from '@/components/MovieSearchSelect';
 
 const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [movieId, setMovieId] = useState('');
+  const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  // Initialize movieId when component mounts or movie changes
+  // Initialize selectedMovie when component mounts or movie changes
   useEffect(() => {
-    setMovieId(movie?.movieid?.toString() || '');
+    if (movie?.movieid) {
+      setSelectedMovie({
+        movieid: movie.movieid,
+        title: movie.title,
+        movieposterlink: movie.movieposterlink,
+        directors: movie.directors
+      });
+    } else {
+      setSelectedMovie(null);
+    }
   }, [movie]);
 
-  const handleAddFavorite = async () => {
-    if (!movieId) {
-      setError('Please enter a Movie ID');
+  const handleAddFavorite = async (movie) => {
+    if (!movie?.movieid) {
+      setError('Please select a valid movie');
       return;
     }
 
@@ -26,7 +35,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
 
     try {
       // Validate movie exists
-      const movieExistRes = await fetch(`http://localhost:5000/movies/check/${movieId}`);
+      const movieExistRes = await fetch(`http://localhost:5000/movies/check/${movie.movieid}`);
       if (!movieExistRes.ok) {
         throw new Error('Failed to validate movie');
       }
@@ -44,140 +53,68 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-          movieId: parseInt(movieId),
+          movieId: parseInt(movie.movieid),
           rank: rank
         })
       });
 
-      // Check response content type
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        throw new Error(text || 'Failed to update favorites');
-      }
-
-      const data = await response.json();
       if (!response.ok) {
+        const data = await response.json();
         throw new Error(data.message || 'Failed to update favorites');
       }
 
-      // Fetch updated movie details
-      const movieDetailsRes = await fetch(`http://localhost:5000/movies/details/${movieId}`);
-      if (!movieDetailsRes.ok) {
-        throw new Error('Failed to fetch movie details');
-      }
-      
-      const movieData = await movieDetailsRes.json();
+      setSelectedMovie(movie);
       setSuccess('Favorite updated successfully!');
       
       // Notify parent of update
       if (onFavoriteUpdate) {
-        onFavoriteUpdate(rank, movieData);
+        onFavoriteUpdate(rank, movie);
       }
-
-      // Close modal after delay
-      setTimeout(() => {
-        setIsModalOpen(false);
-      }, 1500);
     } catch (err) {
       console.error('Error updating favorite:', err);
       setError(err.message || 'Failed to update favorite');
     } finally {
       setIsSubmitting(false);
+      setShowSearchDropdown(false);
     }
   };
 
   // Render movie card if we have a movie
-  if (movie?.movieid) {
+  if (selectedMovie?.movieid) {
     return (
       <div className="flex flex-col items-center w-full h-full">
-        {/* Using MovieCard component */}
         <div className="w-full">
           <MovieCard 
-            movie={{
-              movieid: movie.movieid,
-              title: movie.title,
-              movieposterlink: movie.movieposterlink,
-              directors: movie.directors
-            }}
+            movie={selectedMovie}
           />
         </div>
         
-        <button 
-          onClick={() => setIsModalOpen(true)}
-          className="mt-3 px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark transition-colors"
-        >
-          Change Movie
-        </button>
+        <div className="mt-3 flex flex-col items-center">
+          <button 
+            onClick={() => setShowSearchDropdown(true)}
+            className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark transition-colors"
+            disabled={isSubmitting}
+          >
+            Change Movie
+          </button>
+          
+          {isSubmitting && (
+            <span className="mt-2 text-white">Saving...</span>
+          )}
+          {success && (
+            <span className="mt-2 text-green-400">{success}</span>
+          )}
+          {error && (
+            <span className="mt-2 text-red-400">{error}</span>
+          )}
+        </div>
 
-        {/* Change Movie Modal */}
-        <Dialog 
-          open={isModalOpen} 
-          onClose={() => {
-            setIsModalOpen(false);
-            setError(null);
-            setSuccess(null);
-          }} 
-          className="relative z-50"
-        >
-          <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          <div className="fixed inset-0 flex items-center justify-center p-4">
-            <Dialog.Panel className="w-full max-w-md rounded-xl bg-darkPurple p-6 text-white">
-              <Dialog.Title className="text-2xl font-bold mb-4">
-                Change Favorite Movie
-              </Dialog.Title>
-              
-              {error && (
-                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
-                  {error}
-                </div>
-              )}
-              
-              {success && (
-                <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg">
-                  {success}
-                </div>
-              )}
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block mb-2 text-purpleWhite">
-                    Movie ID
-                  </label>
-                  <input
-                    type="number"
-                    value={movieId}
-                    onChange={(e) => setMovieId(e.target.value)}
-                    className="w-full p-3 bg-white text-darkPurple rounded-lg"
-                    placeholder="Enter TMDB Movie ID"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-6 flex justify-end space-x-3">
-                <button
-                  onClick={() => {
-                    setIsModalOpen(false);
-                    setError(null);
-                    setSuccess(null);
-                  }}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-                  disabled={isSubmitting}
-                >
-                  Cancel
-                </button>
-                <a
-                href='/EditProfile'
-                  onClick={handleAddFavorite}
-                  className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark disabled:opacity-50"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Saving...' : 'Save Changes'}
-                </a>
-              </div>
-            </Dialog.Panel>
-          </div>
-        </Dialog>
+        {showSearchDropdown && (
+          <MovieSearchSelect
+            onSelect={handleAddFavorite} // Save immediately on selection
+            onClose={() => setShowSearchDropdown(false)}
+          />
+        )}
       </div>
     );
   }
@@ -186,79 +123,26 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
   return (
     <div className="flex flex-col items-center justify-center p-6 h-full bg-white bg-opacity-10 rounded-lg">
       <button 
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => setShowSearchDropdown(true)}
         className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark transition-colors"
+        disabled={isSubmitting}
       >
-        Add Favorite
+        {isSubmitting ? 'Saving...' : 'Add Favorite'}
       </button>
+      
+      {success && (
+        <span className="mt-2 text-green-400">{success}</span>
+      )}
+      {error && (
+        <span className="mt-2 text-red-400">{error}</span>
+      )}
 
-      {/* Add Movie Modal */}
-      <Dialog 
-        open={isModalOpen} 
-        onClose={() => {
-          setIsModalOpen(false);
-          setError(null);
-          setSuccess(null);
-        }} 
-        className="relative z-50"
-      >
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-md rounded-xl bg-darkPurple p-6 text-white">
-            <Dialog.Title className="text-2xl font-bold mb-4">
-              Add Favorite Movie
-            </Dialog.Title>
-            
-            {error && (
-              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">
-                {error}
-              </div>
-            )}
-            
-            {success && (
-              <div className="mb-4 p-3 bg-green-100 text-green-700 rounded-lg">
-                {success}
-              </div>
-            )}
-
-            <div className="space-y-4">
-              <div>
-                <label className="block mb-2 text-purpleWhite">
-                  Movie ID
-                </label>
-                <input
-                  type="number"
-                  value={movieId}
-                  onChange={(e) => setMovieId(e.target.value)}
-                  className="w-full p-3 bg-white text-darkPurple rounded-lg"
-                  placeholder="Enter TMDB Movie ID"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-end space-x-3">
-              <button
-                onClick={() => {
-                  setIsModalOpen(false);
-                  setError(null);
-                  setSuccess(null);
-                }}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-                disabled={isSubmitting}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleAddFavorite}
-                className="px-4 py-2 bg-purple text-white rounded-lg hover:bg-purple-dark disabled:opacity-50"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Saving...' : 'Add Movie'}
-              </button>
-            </div>
-          </Dialog.Panel>
-        </div>
-      </Dialog>
+      {showSearchDropdown && (
+        <MovieSearchSelect
+          onSelect={handleAddFavorite} // Save immediately on selection
+          onClose={() => setShowSearchDropdown(false)}
+        />
+      )}
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-const MemberCard = ({ imageSrc, alt, userID, userType, activities, movies }) => {
+const MemberCard = ({ imageSrc, alt, userID, userName, userType, activities, movies }) => {
+  console.log("MemberCard props:", { userID, userName });
+
   return (
     <Link
       href={`/profile/${userID}`}
@@ -10,30 +12,31 @@ const MemberCard = ({ imageSrc, alt, userID, userType, activities, movies }) => 
         <img src={imageSrc} alt={alt} className="w-full h-full object-cover" />
       </div>
       <div className="flex flex-col items-center justify-center mx-4 text-center flex-1">
-        <h3 className="text-white text-lg font-semibold">{userID}</h3>
+        <h3 className="text-white text-lg font-semibold break-words">{userName}</h3>
 
-        {userType.toLowerCase() === "admin" && (
-          <span className="text-xl font-bold py-1 px-3 rounded-full text-emeraldGreen">
-            {userType}
-          </span>
-        )}
-        {userType.toLowerCase() === "verified critic" && (
-          <span className="text-xl font-bold py-1 px-3 rounded-full text-gold">
-            {userType}
-          </span>
-        )}
-        {userType.toLowerCase() === "user" && (
-          <span className="text-xl font-bold py-1 px-3 rounded-full text-purpleWhite">
-            {userType}
-          </span>
+        <span
+          className={`text-xl font-bold py-1 px-3 rounded-full ${
+            userType === "admin"
+              ? "text-emeraldGreen"
+              : userType === "critic"
+              ? "text-gold"
+              : "text-purpleWhite"
+          }`}
+        >
+          {userType}
+        </span>
+
+        {typeof activities === "number" && (
+          <p className="text-white text-sm mt-2">
+            Activities Last Week: {activities}
+          </p>
         )}
 
-        <p className="text-white text-sm mt-2">
-          Activities Last Week: {activities}
-        </p>
-        <p className="text-white text-sm mt-2">
-          Movies Watched: {movies}
-        </p>
+        {typeof movies === "number" && (
+          <p className="text-white text-sm mt-1">
+            Movies Watched: {movies}
+          </p>
+        )}
       </div>
     </Link>
   );
