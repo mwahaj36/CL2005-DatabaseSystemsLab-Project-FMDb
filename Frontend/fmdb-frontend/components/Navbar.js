@@ -1,3 +1,4 @@
+
 'use client';
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -20,7 +21,37 @@ function Navbar() {
   const profileRef = useRef(null);
   const notifRef = useRef(null);
 
-  // Fetch notifications when user is logged in and notifications dropdown opens
+  // Fetch notifications when user is logged in (on mount and when user changes)
+  useEffect(() => {
+    const fetchInitialNotifications = async () => {
+      if (user) {
+        try {
+          const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+          const response = await fetch('http://localhost:5000/notification/user', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            const sortedNotifications = (data.requests || []).sort((a, b) => 
+              new Date(b.SentAt) - new Date(a.SentAt)
+            );
+            setNotifications(sortedNotifications);
+          }
+        } catch (error) {
+          console.error('Error fetching initial notifications:', error);
+        }
+      } else {
+        setNotifications([]);
+      }
+    };
+
+    fetchInitialNotifications();
+  }, [user]);
+
+  // Fetch notifications when notifications dropdown opens
   useEffect(() => {
     const fetchNotifications = async () => {
       if (user && notificationsOpen) {
@@ -35,7 +66,6 @@ function Navbar() {
           
           if (response.ok) {
             const data = await response.json();
-            // Sort notifications by SentAt (newest first)
             const sortedNotifications = (data.requests || []).sort((a, b) => 
               new Date(b.SentAt) - new Date(a.SentAt)
             );
@@ -54,7 +84,6 @@ function Navbar() {
 
     fetchNotifications();
   }, [user, notificationsOpen]);
-
   const handleMovieSelect = (movie) => {
     setShowDropdownSearch(false);
     console.log("Selected movie:", movie);
