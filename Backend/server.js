@@ -20,6 +20,9 @@ connectToDatabase().catch(err => {
     console.error('Failed to initialize the server due to database connection issues.');
     process.exit(1); // Exit the application if the database connection fails
 });
+app.get('/', (req, res) => {
+  res.send('Backend server is running 🚀');
+});
 
 // Import and use routes
 const authRoutes = require('./routes/auth');
