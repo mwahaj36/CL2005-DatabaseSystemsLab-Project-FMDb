@@ -319,7 +319,7 @@ const ProfileHero = ({
             <StatButton
               label="Movies Watched"
               value={profileUser.basicDetails?.uniqueMoviesWatched}
-              href={canViewPrivateContent ? '/' : undefined}
+              href={canViewPrivateContent ? `/watched/${profileUser.userID}` : undefined}
             />
 
             <StatButton

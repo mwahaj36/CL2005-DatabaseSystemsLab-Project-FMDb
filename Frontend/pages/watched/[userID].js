@@ -13,7 +13,7 @@ const UserWatchedMoviesPage = () => {
   const [error, setError] = useState(null);
   const [isPrivate, setIsPrivate] = useState(false);
   const [profileUsername, setProfileUsername] = useState(null);
-  const [backdropUrl, setBackdropUrl] = useState('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg');
+  const [backdropUrl, setBackdropUrl] = useState('');
   const { user, token } = useAuth();
 
   useEffect(() => {
@@ -209,8 +209,8 @@ const UserWatchedMoviesPage = () => {
           )}
         </div>
 
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
