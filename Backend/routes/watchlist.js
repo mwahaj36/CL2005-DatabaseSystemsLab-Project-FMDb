@@ -2,7 +2,7 @@ const express = require('express');
 const sql = require('mssql'); 
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
 const { processMoviesWithDirectors } = require('../utils/processMovies');
-const { isFriend } = require('../utils/userDetails');
+const { isFriend, getFavMovieBg } = require('../utils/userDetails');
 const router = express.Router();
 
 // Check to see if movie is in watchlist of current user (Requires JWT token with userid)
@@ -47,7 +47,7 @@ router.get('/public/:userid', async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -58,7 +58,10 @@ router.get('/public/:userid', async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the watchlist
+        // Step 2: get the user's favorite movie backdrop
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the watchlist
         const watchlistReq = new sql.Request();
         watchlistReq.input('userid', sql.Int, userid);
 
@@ -76,6 +79,8 @@ router.get('/public/:userid', async (req, res) => {
         const movies = await processMoviesWithDirectors(watchlistRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             watchlist: movies
         });
 
@@ -100,7 +105,7 @@ router.get('/:userid', authenticateToken, async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -111,7 +116,10 @@ router.get('/:userid', authenticateToken, async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the watchlist
+        // Step 2: get the user's favorite movie backdrop
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the watchlist
         const watchlistReq = new sql.Request();
         watchlistReq.input('userid', sql.Int, userid);
 
@@ -129,6 +137,8 @@ router.get('/:userid', authenticateToken, async (req, res) => {
         const movies = await processMoviesWithDirectors(watchlistRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             watchlist: movies
         });
 

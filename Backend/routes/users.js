@@ -1,7 +1,7 @@
 const express = require('express');
 const sql = require('mssql');
 const { authenticateToken, jwt } = require('../middleware/authMiddleware'); 
-const { getUserBaseStats, getUserExtraStats, isFriend } = require('../utils/userDetails');
+const { getUserBaseStats, getUserExtraStats, isFriend, getFavMovieBg } = require('../utils/userDetails');
 const { processMoviesWithDirectors } = require('../utils/processMovies');
 const router = express.Router();
 
@@ -179,7 +179,8 @@ router.get('/page', async (req, res) => {
         request.input('pageSize', sql.Int, pageSize);
 
         const result = await request.query(`
-            SELECT U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
+            SELECT U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy, COUNT(A.ActivityID) AS ActivitiesCount, 
+            (SELECT COUNT(MovieID) FROM Activity WHERE UserID = U.UserID AND IsLogged = 1) AS loggedMoviesCount
             FROM Users U
             JOIN Activity A ON U.UserID = A.UserID
             GROUP BY U.UserID, U.FullName, U.Username, U.Gender, U.UserType, U.Privacy
@@ -446,7 +447,7 @@ router.get('/likedMovies/public/:userid', async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -457,7 +458,10 @@ router.get('/likedMovies/public/:userid', async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the liked movies
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the liked movies
         const likedMoviesReq = new sql.Request();
         likedMoviesReq.input('userid', sql.Int, userid);
 
@@ -473,6 +477,8 @@ router.get('/likedMovies/public/:userid', async (req, res) => {
         const movies = await processMoviesWithDirectors(likedMovieRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             likedMovies: movies
         });
 
@@ -497,7 +503,7 @@ router.get('/likedMovies/:userid', authenticateToken, async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -508,7 +514,10 @@ router.get('/likedMovies/:userid', authenticateToken, async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the liked movies
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the liked movies
         const likedMoviesReq = new sql.Request();
         likedMoviesReq.input('userid', sql.Int, userid);
 
@@ -524,6 +533,8 @@ router.get('/likedMovies/:userid', authenticateToken, async (req, res) => {
         const movies = await processMoviesWithDirectors(likedMovieRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             likedMovies: movies
         });
 
@@ -547,7 +558,7 @@ router.get('/loggedMovies/public/:userid', async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -558,7 +569,10 @@ router.get('/loggedMovies/public/:userid', async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the loggedMovies
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the loggedMovies
         const loggedMoviesReq = new sql.Request();
         loggedMoviesReq.input('userid', sql.Int, userid);
 
@@ -567,7 +581,9 @@ router.get('/loggedMovies/public/:userid', async (req, res) => {
                 M.MovieID,
                 M.Title,
                 M.MoviePosterLink,
-                A.ActivityDateTime AS AddedAt
+                A.ActivityDateTime AS AddedAt,
+                A.Review,
+                A.Ratings
             FROM Activity A
             JOIN Movies M ON A.MovieID = M.MovieID
             WHERE A.UserID = @userid AND A.IsLogged = 1
@@ -576,6 +592,8 @@ router.get('/loggedMovies/public/:userid', async (req, res) => {
         const movies = await processMoviesWithDirectors(loggedMoviesRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             loggedMovies: movies
         });
 
@@ -600,7 +618,7 @@ router.get('/loggedMovies/:userid', authenticateToken, async (req, res) => {
         const userCheckReq = new sql.Request();
         userCheckReq.input('userid', sql.Int, userid);
 
-        const userRes = await userCheckReq.query(`SELECT Privacy FROM Users WHERE UserID = @userid`);
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
 
         if (userRes.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'User not found' });
@@ -611,7 +629,10 @@ router.get('/loggedMovies/:userid', authenticateToken, async (req, res) => {
             return res.status(403).json({ success: false, message: 'User profile is private' });
         }
 
-        // Step 2: Fetch the loggedMovies
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the loggedMovies
         const loggedMoviesReq = new sql.Request();
         loggedMoviesReq.input('userid', sql.Int, userid);
 
@@ -620,7 +641,9 @@ router.get('/loggedMovies/:userid', authenticateToken, async (req, res) => {
                 M.MovieID,
                 M.Title,
                 M.MoviePosterLink,
-                A.ActivityDateTime AS AddedAt
+                A.ActivityDateTime AS AddedAt,
+                A.Review,
+                A.Ratings
             FROM Activity A
             JOIN Movies M ON A.MovieID = M.MovieID
             WHERE A.UserID = @userid AND A.IsLogged = 1
@@ -629,11 +652,128 @@ router.get('/loggedMovies/:userid', authenticateToken, async (req, res) => {
         const movies = await processMoviesWithDirectors(loggedMoviesRes.recordset);
         return res.status(200).json({
             success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
             loggedMovies: movies
         });
 
     } catch (error) {
         console.error('Error fetching loggedMovies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user's watchedMovies public ver. (Works if account is public)
+router.get('/watchedMovies/public/:userid', async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public') {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the watchedMovies
+        const watchedMoviesReq = new sql.Request();
+        watchedMoviesReq.input('userid', sql.Int, userid);
+
+        const watchedMoviesRes = await watchedMoviesReq.query(`
+            SELECT DISTINCT 
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                A.ActivityDateTime AS AddedAt
+            FROM Activity A
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.UserID = @userid
+            ORDER BY A.ActivityDateTime DESC
+        `);
+        const movies = await processMoviesWithDirectors(watchedMoviesRes.recordset);
+        return res.status(200).json({
+            success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
+            watchedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching public watchedMovies:', error);
+        return res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get user's watchedMovies logged in ver. (Works if account is public or if JWT token is passed and the userid is a friend of the logged-in user)
+router.get('/watchedMovies/:userid', authenticateToken, async (req, res) => {
+    let { userid } = req.params;
+    userid = parseInt(userid, 10);
+    currentUserId = req.userId; // Extract user ID from the authenticated token
+
+    if (!userid || isNaN(userid)) {
+        return res.status(400).json({ success: false, message: 'Invalid or missing userId' });
+    }
+
+    try {
+        // Step 1: Check if user exists and is public
+        const userCheckReq = new sql.Request();
+        userCheckReq.input('userid', sql.Int, userid);
+
+        const userRes = await userCheckReq.query(`SELECT Privacy, Username FROM Users WHERE UserID = @userid`);
+
+        if (userRes.recordset.length === 0) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        const { Privacy } = userRes.recordset[0];
+        if (Privacy !== 'Public' && !await isFriend(currentUserId, userid)) {
+            return res.status(403).json({ success: false, message: 'User profile is private' });
+        }
+
+        // Step 2: Fetch the fav bg
+        const favMovieBg = await getFavMovieBg(userid);
+
+        // Step 3: Fetch the watchedMovies
+        const watchedMoviesReq = new sql.Request();
+        watchedMoviesReq.input('userid', sql.Int, userid);
+
+        const watchedMoviesRes = await watchedMoviesReq.query(`
+            SELECT DISTINCT
+                M.MovieID,
+                M.Title,
+                M.MoviePosterLink,
+                A.ActivityDateTime AS AddedAt
+            FROM Activity A
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.UserID = @userid
+            ORDER BY A.ActivityDateTime DESC
+        `);
+        const movies = await processMoviesWithDirectors(watchedMoviesRes.recordset);
+        return res.status(200).json({
+            success: true,
+            username: userRes.recordset[0].Username,
+            favMovieBg,
+            watchedMovies: movies
+        });
+
+    } catch (error) {
+        console.error('Error fetching watchedMovies:', error);
         return res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });

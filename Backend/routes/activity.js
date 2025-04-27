@@ -11,7 +11,7 @@ router.post('/submit', authenticateToken, async (req, res) => {
 
     try {
         // Validate input
-        if (!movieId || !isLogged) {
+        if (!movieId || isLogged === undefined) {
             return res.status(400).json({ success: false, message: 'Give movieId and isLogged u buffoon' });
         }
 

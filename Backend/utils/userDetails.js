@@ -220,8 +220,32 @@ async function isFriend(loggedInUserId, otherUserId) {
     }
   }
 
+async function getFavMovieBg(userId) {
+    const favMovieBgQuery = `
+        SELECT TOP 1 M.MovieBackdropLink AS firstFavoriteBackdrop
+        FROM UserFavorites UF
+        JOIN Movies M ON UF.MovieID = M.MovieID
+        WHERE UF.UserID = @userId
+        ORDER BY UF.Rank ASC
+    `;
+
+    try {
+        const favMovieBgRequest = new sql.Request();
+        favMovieBgRequest.input('userId', sql.Int, userId);
+        const favMovieBgResult = await favMovieBgRequest.query(favMovieBgQuery);
+        
+        // Return the first row of results
+        return favMovieBgResult.recordset[0]?.firstFavoriteBackdrop || null;
+    } catch (error) {
+        console.error('Error fetching favorite movie backdrop:', error);
+        throw error; 
+    }
+}
+
+
 module.exports = {
     getUserBaseStats,
     getUserExtraStats,
-    isFriend
+    isFriend,
+    getFavMovieBg
 };
