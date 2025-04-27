@@ -87,7 +87,7 @@ const LoggedMoviesPage = () => {
 
   // Determine if the current user is a critic (adjust based on your user model)
   const getUserType = () => {
-    return user?.role === 'critic' ? 'critic' : 'user';
+    return user?.userType === 'critic' ? 'critic' : 'user';
   };
 
   return (

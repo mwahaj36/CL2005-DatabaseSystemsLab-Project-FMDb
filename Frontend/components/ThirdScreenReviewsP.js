@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
   const [movieDetails, setMovieDetails] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch movie details for each review when component mounts or reviews change
     const fetchMovieDetails = async () => {
+      if (!reviews.length) {
+        setLoading(false);
+        return;
+      }
+
       const newDetails = {};
-      
+
       for (const review of reviews) {
         const movieId = review.movieId;
         if (movieId && !movieDetails[movieId]) {
@@ -26,12 +31,23 @@ const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
       if (Object.keys(newDetails).length > 0) {
         setMovieDetails(prev => ({ ...prev, ...newDetails }));
       }
+      
+      setLoading(false); // ✅ Loading is finished
     };
 
+    setLoading(true); // 🔥 Set loading to true whenever reviews change
     fetchMovieDetails();
   }, [reviews]);
 
-  if (!reviews || reviews.length === 0) {
+  if (loading) {
+    return (
+      <div className="text-center text-white mt-20">
+        <h2 className="text-4xl">Loading reviews...</h2>
+      </div>
+    );
+  }
+
+  if (!reviews.length) {
     return (
       <div className="text-center text-white mt-20">
         <h2 className="text-4xl">No reviews found</h2>
