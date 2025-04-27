@@ -131,9 +131,11 @@ const LoggedMoviesPage = () => {
             </div>
           )}
 
-          <Footer />
         </div>
+        <Footer />
+
       </section>
+      
     </>
   );
 };
