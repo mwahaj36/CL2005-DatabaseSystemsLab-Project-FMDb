@@ -110,7 +110,7 @@ const UserLikedMoviesPage = () => {
           <section className="text-center pt-10">
             <h2 className="text-6xl text-white font-bold text-shadow">
               {profileUsername
-                ? `${profileUsername}'s ${isOwnLikedMovies ? 'My ' : ''}Liked Movies`
+                ? `${profileUsername}'s Liked Movies`
                 : 'Liked Movies'}
             </h2>
             <p className="text-purple-300 mt-2">
