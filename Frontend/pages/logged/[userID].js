@@ -15,7 +15,7 @@ const LoggedMoviesPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [username, setUsername] = useState('');
-  const [backdropUrl, setBackdropUrl] = useState('https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg');
+  const [backdropUrl, setBackdropUrl] = useState('');
   const [isPrivateProfile, setIsPrivateProfile] = useState(false);
 
   useEffect(() => {
