@@ -103,8 +103,10 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         movieId,
         review: review || null,
         ratings: rating || null,
-        isLogged: watchedBefore
+        isLogged: watchedBefore,
+        watchedDate: watchedBefore ? watchedDate : null
       };
+      
 
       const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
         method: 'POST',

@@ -31,11 +31,11 @@ const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
       if (Object.keys(newDetails).length > 0) {
         setMovieDetails(prev => ({ ...prev, ...newDetails }));
       }
-      
-      setLoading(false); // ✅ Loading is finished
+
+      setLoading(false);
     };
 
-    setLoading(true); // 🔥 Set loading to true whenever reviews change
+    setLoading(true);
     fetchMovieDetails();
   }, [reviews]);
 
@@ -60,13 +60,18 @@ const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
         {reviews.map((review) => {
           const movie = movieDetails[review.movieId] || {};
-          const activityDate = new Date(review.date);
-          const formattedDate = activityDate.toLocaleDateString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-          });
-          const [month, day, year] = formattedDate.split(/[\s,]+/);
+          const hasDate = review.date !== null && review.date !== undefined;
+          let month = '', day = '', year = '';
+
+          if (hasDate) {
+            const activityDate = new Date(review.date);
+            const formattedDate = activityDate.toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            });
+            [month, day, year] = formattedDate.split(/[\s,]+/);
+          }
 
           return (
             <div
@@ -76,9 +81,19 @@ const ThirdScreenReviewsP = ({ reviews = [], userId, userType = 'user' }) => {
               }`}
             >
               <div className="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
-                <p>{month}</p>
-                <p className="text-2xl">{day}</p>
-                <p>{year}</p>
+                {hasDate ? (
+                  <>
+                    <p>{month}</p>
+                    <p className="text-2xl">{day}</p>
+                    <p>{year}</p>
+                  </>
+                ) : (
+                  <>
+                    <p>&nbsp;</p>
+                    <p className="text-2xl">&nbsp;</p>
+                    <p>&nbsp;</p>
+                  </>
+                )}
               </div>
 
               <img

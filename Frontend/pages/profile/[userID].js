@@ -239,7 +239,7 @@ const Profile = () => {
                     disabled={apiLoading}
                     className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
                   >
-                    Apply to be Verified Critic
+                    Apply to be Critic
                   </button>
                   <button
                     onClick={() => requestUserTypeChange('Admin')}
