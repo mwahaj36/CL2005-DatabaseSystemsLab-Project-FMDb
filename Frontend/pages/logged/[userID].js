@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import LoggedMovies from '../../components/LoggedMovies';
+import ThirdScreenReviewsP from '@/components/ThirdScreenReviewsP';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/context/AuthContext';
@@ -11,57 +11,70 @@ const LoggedMoviesPage = () => {
   const { userID } = router.query;
   const { user, token, loading: authLoading } = useAuth();
 
-  const [movies, setMovies] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [username, setUsername] = useState('');
   const [backdropUrl, setBackdropUrl] = useState('https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg');
+  const [isPrivateProfile, setIsPrivateProfile] = useState(false);
 
   useEffect(() => {
     if (!userID || authLoading) return;
 
-    const fetchMovies = async () => {
+    const fetchLoggedMovies = async () => {
       setLoading(true);
       setError(null);
+      setIsPrivateProfile(false);
 
       try {
         const headers = {};
-
         if (token) {
           headers['Authorization'] = `Bearer ${token}`;
         }
 
+        // Use private endpoint if token exists, otherwise use public endpoint
         const url = token
           ? `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/${userID}`
-          : `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/public/${userID}`;
-
-        console.log('Fetching data from:', url);
+          : `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/public/${userID}`;
 
         const response = await fetch(url, { headers });
         const data = await response.json();
 
-        if (response.status === 403) {
-          throw new Error(data.message || 'This profile is private');
-        }
-
         if (!response.ok) {
-          throw new Error(data.message || 'Failed to fetch movies');
+          if (response.status === 403) {
+            setIsPrivateProfile(true);
+            throw new Error(data.message || 'This profile is private');
+          }
+          throw new Error(data.message || 'Failed to fetch logged movies');
         }
 
-        setMovies(data.loggedMovies || data.watchedMovies || []);
+        // Transform the API response to match ThirdScreenReviewsP format
+        const transformedReviews = data.loggedMovies.map(movie => ({
+          id: `${movie.movieid}-${new Date(movie.addedAt).getTime()}`,
+          movieId: movie.movieid,
+          date: movie.addedAt,
+          review: movie.review,
+          rating: movie.ratings,
+          likes: 0, // Default to 0 if not available
+          title: movie.title,
+          poster: movie.movieposterlink,
+          directors: movie.directors
+        }));
+
+        setReviews(transformedReviews);
         setUsername(data.username || '');
         if (data.favMovieBg) {
           setBackdropUrl(data.favMovieBg);
         }
       } catch (err) {
-        console.error('Error fetching movies:', err);
+        console.error('Error fetching logged movies:', err);
         setError(err.message || 'An error occurred while fetching movies');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchMovies();
+    fetchLoggedMovies();
   }, [userID, token, authLoading]);
 
   if (!userID || authLoading) {
@@ -71,6 +84,11 @@ const LoggedMoviesPage = () => {
       </div>
     );
   }
+
+  // Determine if the current user is a critic (adjust based on your user model)
+  const getUserType = () => {
+    return user?.role === 'critic' ? 'critic' : 'user';
+  };
 
   return (
     <>
@@ -93,11 +111,11 @@ const LoggedMoviesPage = () => {
           ) : error ? (
             <div className="text-center text-white mt-20">
               <h2 className="text-4xl">{error}</h2>
-              {error === 'This profile is private' && token && (
-                <p className="mt-4">You might not have permission to view this profile</p>
-              )}
-              {error === 'This profile is private' && !token && (
+              {isPrivateProfile && !token && (
                 <p className="mt-4">Please sign in to view this profile if you have permission</p>
+              )}
+              {isPrivateProfile && token && (
+                <p className="mt-4">You don't have permission to view this private profile</p>
               )}
             </div>
           ) : (
@@ -105,7 +123,11 @@ const LoggedMoviesPage = () => {
               <h1 className="text-4xl font-bold text-white mb-8 text-center">
                 {username}'s Logged Movies
               </h1>
-              <LoggedMovies movies={movies} />
+              <ThirdScreenReviewsP 
+                reviews={reviews} 
+                userId={userID}
+                userType={getUserType()}
+              />
             </div>
           )}
 
