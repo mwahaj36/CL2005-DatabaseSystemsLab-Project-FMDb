@@ -39,8 +39,6 @@ const Members = () => {
             imageSrc: `https://ui-avatars.com/api/?name=${encodeURIComponent(user.FullName)}&background=random`,
             alt: `${user.Username}'s Profile`,
             userType: user.UserType.toLowerCase(),
-            activities: Math.floor(Math.random() * 50),
-            movies: Math.floor(Math.random() * 20)
           }));
           setMembers(transformedMembers);
         }

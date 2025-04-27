@@ -33,9 +33,22 @@ const LoggedMovies = ({ movies }) => {
                 <div className="text-white font-bold text-lg flex items-center gap-2">
                   {movie.title}
                 </div>
+
                 {movie.directors?.length > 0 && (
                   <p className="text-purpleWhite text-sm mt-1">
                     Directed by: {movie.directors.join(', ')}
+                  </p>
+                )}
+
+                {movie.text && (
+                  <p className="text-gray-400 italic text-sm mt-1">
+                    "{movie.text}"
+                  </p>
+                )}
+
+                {movie.rating !== undefined && (
+                  <p className="text-yellow-400 text-sm font-semibold mt-1">
+                    Rating: {movie.rating}/10
                   </p>
                 )}
               </div>

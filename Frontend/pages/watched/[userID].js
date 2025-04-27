@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import MovieCard from '../../components/MovieCard';
-import { useAuth } from '../../context/AuthContext';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import MovieCard from '@/components/MovieCard';
+import { useAuth } from '@/context/AuthContext';
 
-const UserLikedMoviesPage = () => {
+const UserWatchedMoviesPage = () => {
   const router = useRouter();
   const { userID } = router.query;
   const [movies, setMovies] = useState([]);
@@ -19,7 +19,7 @@ const UserLikedMoviesPage = () => {
   useEffect(() => {
     if (!router.isReady || !userID) return;
 
-    const fetchLikedMovies = async () => {
+    const fetchWatchedMovies = async () => {
       setLoading(true);
       setError(null);
       setIsPrivate(false);
@@ -34,12 +34,12 @@ const UserLikedMoviesPage = () => {
         let url = '';
         
         if (!token) {
-          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/public/${userID}`;
+          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/public/${userID}`;
         } else {
           if (user && parseInt(user.userID) === parseInt(userID)) {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`;
+            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/${userID}`;
           } else {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`;
+            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/${userID}`;
           }
         }
         
@@ -54,46 +54,46 @@ const UserLikedMoviesPage = () => {
         }
 
         if (!response.ok) {
-          throw new Error(data.message || 'Failed to fetch liked movies');
+          throw new Error(data.message || 'Failed to fetch watched movies');
         }
 
         if (data.success) {
-          setMovies(data.likedMovies || []);
+          setMovies(data.watchedMovies || []);
           if (data.username) setProfileUsername(data.username);
           if (data.favMovieBg) setBackdropUrl(data.favMovieBg);
           
           if (data.isPrivate && user && parseInt(user.userID) === parseInt(userID)) {
             setIsPrivate(false);
           } else {
-            setIsPrivate(data.isPrivate);
+            setIsPrivate(data.isPrivate || false);
           }
         } else {
           const isOwn = user && parseInt(user.userID) === parseInt(userID);
           if (data.message === 'User profile is private') {
             if (!isOwn) setIsPrivate(true);
           } else if (!isOwn) {
-            setError(data.message || 'Failed to fetch liked movies');
+            setError(data.message || 'Failed to fetch watched movies');
           } else {
             setMovies([]);
             if (data.username) setProfileUsername(data.username);
           }
         }
       } catch (err) {
-        console.error('Error fetching liked movies:', err);
-        setError(err.message || 'An error occurred while fetching the liked movies');
+        console.error('Error fetching watched movies:', err);
+        setError(err.message || 'An error occurred while fetching the watched movies');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchLikedMovies();
-  }, [userID, token, user]);
+    fetchWatchedMovies();
+  }, [userID, token, user, router.isReady]);
 
   const handleLoginRedirect = () => {
     router.push('/login?redirect=' + encodeURIComponent(router.asPath));
   };
 
-  const isOwnLikedMovies = user && user.userID === parseInt(userID);
+  const isOwnWatchedMovies = user && user.userID === parseInt(userID);
 
   return (
     <div className="relative min-h-screen">
@@ -110,8 +110,8 @@ const UserLikedMoviesPage = () => {
           <section className="text-center pt-10">
             <h2 className="text-6xl text-white font-bold text-shadow">
               {profileUsername
-                ? `${profileUsername}'s ${isOwnLikedMovies ? 'My ' : ''}Liked Movies`
-                : 'Liked Movies'}
+                ? `${profileUsername}'s ${isOwnWatchedMovies ? 'My ' : ''}Watched Movies`
+                : 'Watched Movies'}
             </h2>
             <p className="text-purple-300 mt-2">
               {loading
@@ -119,8 +119,8 @@ const UserLikedMoviesPage = () => {
                 : isPrivate
                 ? 'This profile is private'
                 : error
-                ? 'Error loading liked movies'
-                : `${movies.length} ${movies.length === 1 ? 'movie' : 'movies'} in liked movies`}
+                ? 'Error loading watched movies'
+                : `${movies.length} ${movies.length === 1 ? 'movie' : 'movies'} watched`}
             </p>
           </section>
 
@@ -128,7 +128,7 @@ const UserLikedMoviesPage = () => {
             <div className="flex justify-center items-center h-64">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
             </div>
-          ) : isPrivate && !isOwnLikedMovies ? (
+          ) : isPrivate && !isOwnWatchedMovies ? (
             <div className="flex justify-center items-center h-64">
               <div className="text-center p-6 bg-darkPurple bg-opacity-90 rounded-lg max-w-md">
                 <h3 className="text-xl text-white font-semibold mb-2">Private Profile</h3>
@@ -164,12 +164,16 @@ const UserLikedMoviesPage = () => {
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-4 sm:px-6 lg:px-8">
                 {movies.map((movie) => (
-                  <MovieCard key={movie.movieid} movie={movie} />
+                  <MovieCard 
+                    key={movie.movieid} 
+                    movie={movie} 
+                    showDateAdded={isOwnWatchedMovies}
+                  />
                 ))}
               </div>
               {!token && (
                 <div className="mt-8 text-center">
-                  <p className="text-purple-200 mb-4">Want to create your own liked movies list?</p>
+                  <p className="text-purple-200 mb-4">Want to track your own watched movies?</p>
                   <button
                     onClick={handleLoginRedirect}
                     className="px-6 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors text-white font-medium"
@@ -183,21 +187,21 @@ const UserLikedMoviesPage = () => {
             <div className="flex justify-center items-center h-64">
               <div className="text-center p-6 bg-darkPurple bg-opacity-90 rounded-lg max-w-md">
                 <h3 className="text-xl text-white font-semibold mb-2">
-                  {isOwnLikedMovies ? 'Your Liked Movies List is Empty' : 'No Movies Found'}
+                  {isOwnWatchedMovies ? 'Your Watched List is Empty' : 'No Movies Found'}
                 </h3>
                 <p className="text-purple-200">
-                  {isOwnLikedMovies
-                    ? 'Start liking movies to add them to your list!'
+                  {isOwnWatchedMovies
+                    ? 'Start watching movies to add them to your list!'
                     : profileUsername
-                    ? `${profileUsername} hasn't liked any movies yet.`
-                    : 'This liked movies list is empty.'}
+                    ? `${profileUsername} hasn't watched any movies yet.`
+                    : 'This watched list is empty.'}
                 </p>
                 {!token && (
                   <button
                     onClick={handleLoginRedirect}
                     className="mt-4 px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors"
                   >
-                    Log In to Like Movies
+                    Log In to Track Movies
                   </button>
                 )}
               </div>
@@ -211,4 +215,4 @@ const UserLikedMoviesPage = () => {
   );
 };
 
-export default UserLikedMoviesPage;
+export default UserWatchedMoviesPage;

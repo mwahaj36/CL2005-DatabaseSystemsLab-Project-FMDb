@@ -4,6 +4,7 @@ import LoggedMovies from '../../components/LoggedMovies';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useAuth } from '@/context/AuthContext';
+import Head from 'next/head';
 
 const LoggedMoviesPage = () => {
   const router = useRouter();
@@ -13,8 +14,8 @@ const LoggedMoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const backdropUrl = 'https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg';
+  const [username, setUsername] = useState('');
+  const [backdropUrl, setBackdropUrl] = useState('https://image.tmdb.org/t/p/original/v8Nf6Y1qL1Q3PWTBezXNPPaXqza.jpg');
 
   useEffect(() => {
     if (!userID || authLoading) return;
@@ -26,38 +27,32 @@ const LoggedMoviesPage = () => {
       try {
         const headers = {};
 
-        // Add authorization if user is logged in
         if (token) {
           headers['Authorization'] = `Bearer ${token}`;
         }
 
-        // Determine the correct API endpoint based on profile privacy and login status
-        let url = '';
+        const url = token
+          ? `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/${userID}`
+          : `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/public/${userID}`;
 
-        if (!token) {
-          // Public liked movies for non-logged-in users
-          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/public/${userID}`;
-        } else {
-          // Case 1: If the logged-in user is viewing their own liked movies, allow them to see even if it's private
-          if (user && parseInt(user.userID) === parseInt(userID)) {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/${userID}`; // Allow access to own liked movies
-          } else {
-            // Case 2: For other users, use the general endpoint
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/${userID}`;
-          }
-        }
-
-        console.log('Fetching data from:', url); // Log the URL being called
+        console.log('Fetching data from:', url);
 
         const response = await fetch(url, { headers });
         const data = await response.json();
 
-        // Handle any non-OK responses from the backend
-        if (!response.ok) {
-          throw new Error(data.message || 'Failed to fetch logged movies');
+        if (response.status === 403) {
+          throw new Error(data.message || 'This profile is private');
         }
 
-        setMovies(data.loggedMovies || []);
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to fetch movies');
+        }
+
+        setMovies(data.loggedMovies || data.watchedMovies || []);
+        setUsername(data.username || '');
+        if (data.favMovieBg) {
+          setBackdropUrl(data.favMovieBg);
+        }
       } catch (err) {
         console.error('Error fetching movies:', err);
         setError(err.message || 'An error occurred while fetching movies');
@@ -67,37 +62,57 @@ const LoggedMoviesPage = () => {
     };
 
     fetchMovies();
-  }, [userID, user, token, authLoading]);
+  }, [userID, token, authLoading]);
 
   if (!userID || authLoading) {
-    return <p className="text-white text-center mt-10">Loading...</p>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
   }
 
   return (
-    <section
-      className="relative bg-cover bg-center bg-fixed min-h-screen"
-      style={{ backgroundImage: `url(${backdropUrl})` }}
-    >
-      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-      <div className="relative z-10 container mx-auto p-6">
-        <Navbar />
+    <>
+      <Head>
+        <title>{username ? `${username}'s Logged Movies` : 'Logged Movies'} | FMDB</title>
+      </Head>
 
-        {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
-          </div>
-        ) : error ? (
-          <div className="text-center text-white mt-20">
-            <h2 className="text-4xl">{error}</h2>
-          </div>
-        ) : (
-          
-          <LoggedMovies movies={movies} />
-        )}
+      <section
+        className="relative bg-cover bg-center bg-fixed min-h-screen"
+        style={{ backgroundImage: `url(${backdropUrl})` }}
+      >
+        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+        <div className="relative z-10 container mx-auto p-6">
+          <Navbar />
 
-        <Footer />
-      </div>
-    </section>
+          {loading ? (
+            <div className="flex justify-center items-center h-64">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+            </div>
+          ) : error ? (
+            <div className="text-center text-white mt-20">
+              <h2 className="text-4xl">{error}</h2>
+              {error === 'This profile is private' && token && (
+                <p className="mt-4">You might not have permission to view this profile</p>
+              )}
+              {error === 'This profile is private' && !token && (
+                <p className="mt-4">Please sign in to view this profile if you have permission</p>
+              )}
+            </div>
+          ) : (
+            <div>
+              <h1 className="text-4xl font-bold text-white mb-8 text-center">
+                {username}'s Logged Movies
+              </h1>
+              <LoggedMovies movies={movies} />
+            </div>
+          )}
+
+          <Footer />
+        </div>
+      </section>
+    </>
   );
 };
 
