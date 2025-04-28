@@ -7,10 +7,10 @@ const dbConfig = {
     user: process.env.DB_USER, // SQL Server username
     password: process.env.DB_PASSWORD, // SQL Server password
     database: process.env.DB_NAME, // Database name
-    port: 1433, // Azure SQL always uses port 1433
+    port: process.env.PORT, // Azure SQL always uses port 1433
     options: {
         encrypt: true, // Encryption is REQUIRED for Azure SQL
-        trustServerCertificate: false // In production, always false for Azure
+        trustServerCertificate: true // In production, always false for Azure
     },
     connectionTimeout: 30000, // 30s to connect (optional but recommended)
     requestTimeout: 30000 // 30s timeout for queries (optional)
