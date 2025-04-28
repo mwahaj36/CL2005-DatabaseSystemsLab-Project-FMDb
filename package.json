@@ -5,6 +5,6 @@
     "next": "^15.3.0"
   },
   "scripts": {
-    "dev": "concurrently \"cd Backend && nodemon server.js\" \"npm run dev --prefix Frontend/fmdb-frontend\""
+    "dev": "concurrently \"cd Backend && nodemon server.js\" \"npm run dev --prefix Frontend\""
   }
 }
