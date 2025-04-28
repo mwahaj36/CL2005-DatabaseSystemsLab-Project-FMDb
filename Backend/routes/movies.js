@@ -516,6 +516,7 @@ router.get('/recommended', authenticateToken, async (req, res) => {
             FROM Movies M 
             JOIN MovieKeywords MK ON M.MovieID = MK.MovieID
             WHERE MK.KeywordID IN (${keywordIdsString}) AND M.MovieID != @MovieID
+            GROUP BY M.MovieID, M.Title, M.MoviePosterLink
             ORDER BY NEWID();
         `;
         const recommendationsRequest = new sql.Request();
