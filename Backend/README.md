@@ -24,7 +24,7 @@ For detailed API documentation, please visit the following link:
     ```
 4. Start the server:
     ```bash
-    npm start
+    nodemon
     ```
 
 ## Contributing
