@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Submit an activity [NOT REPLY] (requires JWT token containing userId)
 router.post('/submit', authenticateToken, async (req, res) => {
-    const { movieId, review, ratings, isLogged } = req.body;
+    const { movieId, review, ratings, isLogged, date } = req.body;
     const userId = req.userId; // Extract userId from the token payload
 
     try {
@@ -48,6 +48,14 @@ router.post('/submit', authenticateToken, async (req, res) => {
           values.push('@ratings');
           insertRequest.input('ratings', sql.Int, ratings);
         }
+
+        // Optional: Date
+        if (date !== undefined && isLogged === true) {
+            columns.push('ActivityDateTime');
+            values.push('@date');
+            insertRequest.input('date', sql.DateTime, date);
+        }
+  
         
         // Final query
         const insertActivityQuery = `
