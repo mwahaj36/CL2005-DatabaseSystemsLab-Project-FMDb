@@ -700,12 +700,10 @@ router.get('/watchedMovies/public/:userid', async (req, res) => {
     M.MovieID,
     M.Title,
     M.MoviePosterLink,
-    MAX(A.ActivityDateTime) AS AddedAt
 FROM Activity A
 JOIN Movies M ON A.MovieID = M.MovieID
 WHERE A.UserID = @userid
 GROUP BY M.MovieID, M.Title, M.MoviePosterLink
-ORDER BY AddedAt DESC;
         `);
         const movies = await processMoviesWithDirectors(watchedMoviesRes.recordset);
         return res.status(200).json({
@@ -759,12 +757,10 @@ router.get('/watchedMovies/:userid', authenticateToken, async (req, res) => {
     M.MovieID,
     M.Title,
     M.MoviePosterLink,
-    MAX(A.ActivityDateTime) AS AddedAt
 FROM Activity A
 JOIN Movies M ON A.MovieID = M.MovieID
 WHERE A.UserID = @userid
 GROUP BY M.MovieID, M.Title, M.MoviePosterLink
-ORDER BY AddedAt DESC;
         `);
         const movies = await processMoviesWithDirectors(watchedMoviesRes.recordset);
         return res.status(200).json({
