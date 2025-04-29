@@ -89,25 +89,24 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setError('You need to be logged in to save activities');
       return;
     }
-
+  
     if (!review && rating === 0 && !watchedBefore) {
       setError('Please provide at least a rating, review, or watched status');
       return;
     }
-
+  
     setIsSubmitting(true);
     setError(null);
-
+  
     try {
       const activityData = {
         movieId,
         review: review || null,
         ratings: rating || null,
         isLogged: watchedBefore,
-        watchedDate: watchedBefore ? watchedDate : null
+        date: watchedBefore ? watchedDate : undefined, // ✅ FIELD NAME FIXED
       };
-      
-
+  
       const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
         method: 'POST',
         headers: {
@@ -116,15 +115,15 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         },
         body: JSON.stringify(activityData)
       });
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to save activity');
       }
-
+  
       const result = await response.json();
       console.log('Activity saved:', result);
-
+  
       if (onSave) {
         onSave({
           ...activityData,
@@ -134,13 +133,13 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
           watchedDate: watchedBefore ? watchedDate : null
         });
       }
-
-      // ✅ Reset form after save
+  
+      // Reset form
       setReview('');
       setRating(0);
       setWatchedDate(new Date().toISOString().split('T')[0]);
       setWatchedBefore(false);
-
+  
     } catch (err) {
       console.error('Error saving activity:', err);
       setError(err.message);
@@ -148,6 +147,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="bg-darkPurple text-white p-6 rounded-xl shadow-lg relative max-w-4xl mx-auto">
