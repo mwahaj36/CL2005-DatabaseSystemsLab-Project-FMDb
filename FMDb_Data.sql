@@ -19741,7 +19741,7 @@ WHERE DirectorName IN ('Shoojit Sircar');
 -- ========== Writers ==========
 INSERT INTO MovieWriters (MovieID, WriterID)
 SELECT @MovieID, WriterID FROM Writers
-WHERE WriterName IN ('Juhi Chaturvedi',  'Juhi Chaturvedi',  'Juhi Chaturvedi',  'Juhi Chaturvedi',  'Wajid Shaikh');
+WHERE WriterName IN ('Juhi Chaturvedi', 'Wajid Shaikh');
 
 -- ========== Actors ==========
 DECLARE @ActorName VARCHAR(100), @Character VARCHAR(100), @ActorID INT;
