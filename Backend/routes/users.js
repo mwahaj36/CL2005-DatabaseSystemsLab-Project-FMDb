@@ -961,8 +961,35 @@ router.put('/userType', authenticateToken, async (req, res) => {
         const rank = { 'User': 1, 'Critic': 2, 'Admin': 3 };
 
         if (rank[userType] > rank[currentType]) {
-            // Requesting promotion — insert request into UserTypeChangeRequests table
+            // Requesting promotion — check for existing request
             const notiType = userType === 'Admin' ? 'AdminReq' : 'CriticReq';
+            const deleteNoti = userType === 'Admin' ? 'CriticReq' : 'AdminReq';  // the opposite of notitype
+            const checkReq = new sql.Request();
+            checkReq.input('userId', sql.Int, userId);
+            checkReq.input('notiType', sql.VarChar(20), notiType);
+
+            const existingReqResult = await checkReq.query(`
+                SELECT COUNT(*) AS Count
+                FROM Notifications
+                WHERE SenderID = @userId
+                    AND NotificationType = @notiType
+            `);
+
+            if (existingReqResult.recordset[0].Count > 0) {
+                return res.status(400).json({ success: false, message: 'You already have a pending request for this user type' });
+            }
+
+            // First, delete opposite of requested. (if adminReq, delete existing criticReq and vice versa)
+            if (userType === 'Admin') {
+                const deleteOldReq = new sql.Request();
+                deleteOldReq.input('userId', sql.Int, userId);
+                deleteOldReq.input('notiType', sql.VarChar(20), deleteNoti);
+                await deleteOldReq.query(`
+                    DELETE FROM Notifications
+                    WHERE SenderID = @userId
+                    AND NotificationType = @notiType
+                `);
+            }
 
             const insertReq = new sql.Request();
             insertReq.input('userId', sql.Int, userId);
