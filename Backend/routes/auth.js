@@ -184,6 +184,7 @@ router.post('/signup', async (req, res) => {
         res.status(500).send('Error during sign up');
     }
 });
+
 // Route to Verify
 router.get('/verify', authenticateToken, (req, res) => {
     res.json({ success: true, message: 'Token is valid' });
