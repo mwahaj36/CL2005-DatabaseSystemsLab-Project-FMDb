@@ -38,7 +38,7 @@ const ProfileHero = ({
 
       try {
         setIsLoadingRequestStatus(true);
-        const response = await fetch(`http://localhost:5000/notification/isFriendReq/${profileUser.userID}`, {
+        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/isFriendReq/${profileUser.userID}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
