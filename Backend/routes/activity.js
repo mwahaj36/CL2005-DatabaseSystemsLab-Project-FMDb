@@ -84,7 +84,13 @@ router.post('/reply', authenticateToken, async (req, res) => {
         }
 
         // Check if the review exists in the database
-        const checkReviewQuery = 'SELECT * FROM Activity WHERE ActivityID = @activityId';
+        const checkReviewQuery = `
+            SELECT A.UserID, M.MovieID, M.Title 
+            FROM Activity A 
+            JOIN Movies M 
+            ON A.MovieID = M.MovieID 
+            WHERE ActivityID = @activityId
+        `;
         const reviewRequest = new sql.Request();
         reviewRequest.input('activityId', sql.Int, activityId);
         const reviewCheckResult = await reviewRequest.query(checkReviewQuery);
@@ -102,7 +108,7 @@ router.post('/reply', authenticateToken, async (req, res) => {
         const insertRequest = new sql.Request();
         insertRequest.input('userId', sql.Int, userId);
         insertRequest.input('movieId', sql.Int, reviewCheckResult.recordset[0].MovieID); // Use the MovieID from the original review
-        insertRequest.input('reply', sql.NVarChar, reply);
+        insertRequest.input('reply', sql.Text, reply);
 
         const insertResult = await insertRequest.query(insertReplyQuery);
 
@@ -114,8 +120,28 @@ router.post('/reply', authenticateToken, async (req, res) => {
         const linkRequest = new sql.Request();
         linkRequest.input('activityId', sql.Int, activityId);
         linkRequest.input('replyId', sql.Int, insertResult.recordset[0].UserId); // Use the ID of the inserted reply
-
         await linkRequest.query(linkReplyQuery);
+
+        // Message the person to whom replied
+        // get the name of sender first :)
+        const nameReq = new sql.Request();
+        nameReq.input('userId', sql.Int, userId)
+        const result = await nameReq.query(`
+            SELECT Username FROM Users WHERE UserID = @userId
+        `);
+
+        const recipient = reviewCheckResult.recordset[0].UserID;
+        const title = reviewCheckResult.recordset[0].Title;
+        const preview = reply.trim().split(/\s+/).slice(0, 15).join(' ') + (reply.trim().split(/\s+/).length > 10 ? '...' : '');
+
+        const msgRequest = new sql.Request();
+        msgRequest.input('senderId', sql.Int, userId);
+        msgRequest.input('receiverId', sql.Int, recipient);
+        msgRequest.input('message', sql.Text, `${result.recordset[0].Username} replied to your review on ${title}: "${preview}"`);
+        await msgRequest.query(`
+            INSERT INTO Notifications(SenderID, ReceiverID, Message, NotificationType) 
+            VALUES (@senderId, @receiverId, @message, 'General')
+        `);
 
         res.status(200).json({ success: true, message: 'Reply submitted successfully' });
     } catch (error) {
@@ -296,43 +322,70 @@ router.get('/replies/:activityid', async (req, res) => {
     }
 });
 
-// Like a review (requires JWT token containing userId and reviewId in request body)
+/// Like a review (requires JWT token containing userId and reviewId in request body)
 router.post('/like/:reviewId', authenticateToken, async (req, res) => {
     const reviewId = req.params.reviewId;
-    const userId = req.userId; // Extract userId from the token payload
+    const userId = req.userId;
 
     try {
-        // Check if the review exists in the database
-        const checkReviewQuery = 'SELECT ActivityID FROM Activity WHERE ActivityID = @reviewId';
+        // Check if the review exists and get the author + movie info
+        const checkReviewQuery = `
+            SELECT A.UserID AS AuthorID, M.Title
+            FROM Activity A
+            JOIN Movies M ON A.MovieID = M.MovieID
+            WHERE A.ActivityID = @reviewId
+        `;
         const reviewRequest = new sql.Request();
         reviewRequest.input('reviewId', sql.Int, reviewId);
-        const reviewCheckResult = await reviewRequest.query(checkReviewQuery);
+        const reviewResult = await reviewRequest.query(checkReviewQuery);
 
-        if (reviewCheckResult.recordset.length === 0) {
+        if (reviewResult.recordset.length === 0) {
             return res.status(404).json({ success: false, message: 'Review not found' });
         }
 
-        // Check if the user has already liked the review
-        const checkLikeQuery = 'SELECT * FROM ActivityLikes WHERE ActivityID = @reviewId AND UserID = @userId';
-        const likeCheckRequest = new sql.Request();
-        likeCheckRequest.input('reviewId', sql.Int, reviewId);
-        likeCheckRequest.input('userId', sql.Int, userId);
-        const likeCheckResult = await likeCheckRequest.query(checkLikeQuery);
+        const authorId = reviewResult.recordset[0].AuthorID;
+        const movieTitle = reviewResult.recordset[0].Title;
 
-        if (likeCheckResult.recordset.length === 1) {
+        // Check if the user already liked this review
+        const checkLikeQuery = `
+            SELECT * FROM ActivityLikes 
+            WHERE ActivityID = @reviewId AND UserID = @userId
+        `;
+        const likeCheck = new sql.Request();
+        likeCheck.input('reviewId', sql.Int, reviewId);
+        likeCheck.input('userId', sql.Int, userId);
+        const likeCheckResult = await likeCheck.query(checkLikeQuery);
+
+        if (likeCheckResult.recordset.length > 0) {
             return res.status(400).json({ success: false, message: 'You have already liked this review' });
         }
 
-        // Insert the like into the database
-        const insertLikeQuery = 'INSERT INTO ActivityLikes (ActivityID, UserID) VALUES (@reviewId, @userId)';
-        const insertLikeRequest = new sql.Request();
-        insertLikeRequest.input('reviewId', sql.Int, reviewId);
-        insertLikeRequest.input('userId', sql.Int, userId);
+        // Insert the like
+        const insertLike = new sql.Request();
+        insertLike.input('reviewId', sql.Int, reviewId);
+        insertLike.input('userId', sql.Int, userId);
+        await insertLike.query(`INSERT INTO ActivityLikes (ActivityID, UserID) VALUES (@reviewId, @userId)`);
 
-        await insertLikeRequest.query(insertLikeQuery);
+        // Get username of the liker
+        const nameReq = new sql.Request();
+        nameReq.input('userId', sql.Int, userId);
+        const nameResult = await nameReq.query(`SELECT Username FROM Users WHERE UserID = @userId`);
+        const likerName = nameResult.recordset[0].Username;
+
+        // Insert notification to the review author
+        const notif = new sql.Request();
+        notif.input('senderId', sql.Int, userId);
+        notif.input('receiverId', sql.Int, authorId);
+        notif.input('message', sql.Text, `${likerName} liked your review on ${movieTitle}`);
+        await notif.query(`
+            INSERT INTO Notifications (SenderID, ReceiverID, Message, NotificationType)
+            VALUES (@senderId, @receiverId, @message, 'General')
+        `);
+
         res.status(200).json({ success: true, message: 'Review liked successfully' });
     } catch (error) {
-        return res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+        console.error('Error liking review:', error);
+        res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
     }
 });
 
