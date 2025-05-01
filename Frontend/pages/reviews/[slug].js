@@ -53,89 +53,89 @@ const AllReviewsPage = () => {
     }
   };
 
-  useEffect(() => {
+  const fetchReviews = async () => {
     if (!slug) return;
 
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+    try {
+      setLoading(true);
+      setError(null);
 
-        const res = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/all/${slug}`);
-        const data = await res.json();
+      const res = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/all/${slug}`);
+      const data = await res.json();
 
-        if (!data.success) {
-          throw new Error(data.message || 'Failed to fetch reviews');
-        }
-
-        setMovie({
-          movieId: data.movie.movieid,
-          title: data.movie.title,
-          backdrop: data.movie.moviebackdroplink,
-          directors: data.movie.directors,
-          releaseDate: data.movie.releaseDate || ''
-        });
-
-        // Filter out reviews that have no text (skip entirely if no ReviewText)
-        const reviewsData = (data.reviews || []).filter(
-          review => review.ReviewText && !review.IsReply
-        );
-        
-        setReviews(reviewsData);
-
-        if (user && token) {
-          // Check likes and deletable status for all reviews and replies
-          const likes = {};
-          const deletable = {};
-          
-          const processActivities = async (activities) => {
-            await Promise.all(
-              activities.map(async (activity) => {
-                // Check like status
-                try {
-                  const url = new URL('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isLiked');
-                  url.searchParams.set('activityId', activity.ActivityID);
-                  url.searchParams.set('userId', user.userID);
-
-                  const likeResponse = await fetch(url, {
-                    method: 'GET',
-                    headers: { 'Authorization': `Bearer ${token}` }
-                  });
-
-                  if (likeResponse.ok) {
-                    const likeData = await likeResponse.json();
-                    likes[activity.ActivityID] = likeData.isLiked;
-                  }
-                } catch (err) {
-                  console.error(`Error checking like for activity ${activity.ActivityID}:`, err);
-                  likes[activity.ActivityID] = false;
-                }
-
-                // Check deletable status
-                deletable[activity.ActivityID] = await checkDeletableStatus(activity.ActivityID);
-
-                // Process replies recursively
-                if (activity.Replies && activity.Replies.length > 0) {
-                  await processActivities(activity.Replies);
-                }
-              })
-            );
-          };
-
-          await processActivities(reviewsData);
-          
-          setLikedReviews(likes);
-          setDeletableReviews(deletable);
-        }
-      } catch (err) {
-        setError(err.message);
-        setShowErrorPopup(true);
-      } finally {
-        setLoading(false);
+      if (!data.success) {
+        throw new Error(data.message || 'Failed to fetch reviews');
       }
-    };
 
-    fetchData();
+      setMovie({
+        movieId: data.movie.movieid,
+        title: data.movie.title,
+        backdrop: data.movie.moviebackdroplink,
+        directors: data.movie.directors,
+        releaseDate: data.movie.releaseDate || ''
+      });
+
+      // Filter out reviews that have no text (skip entirely if no ReviewText)
+      const reviewsData = (data.reviews || []).filter(
+        review => review.ReviewText && !review.IsReply
+      );
+      
+      setReviews(reviewsData);
+
+      if (user && token) {
+        // Check likes and deletable status for all reviews and replies
+        const likes = {};
+        const deletable = {};
+        
+        const processActivities = async (activities) => {
+          await Promise.all(
+            activities.map(async (activity) => {
+              // Check like status
+              try {
+                const url = new URL('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isLiked');
+                url.searchParams.set('activityId', activity.ActivityID);
+                url.searchParams.set('userId', user.userID);
+
+                const likeResponse = await fetch(url, {
+                  method: 'GET',
+                  headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (likeResponse.ok) {
+                  const likeData = await likeResponse.json();
+                  likes[activity.ActivityID] = likeData.isLiked;
+                }
+              } catch (err) {
+                console.error(`Error checking like for activity ${activity.ActivityID}:`, err);
+                likes[activity.ActivityID] = false;
+              }
+
+              // Check deletable status
+              deletable[activity.ActivityID] = await checkDeletableStatus(activity.ActivityID);
+
+              // Process replies recursively
+              if (activity.Replies && activity.Replies.length > 0) {
+                await processActivities(activity.Replies);
+              }
+            })
+          );
+        };
+
+        await processActivities(reviewsData);
+        
+        setLikedReviews(likes);
+        setDeletableReviews(deletable);
+      }
+    } catch (err) {
+      setError(err.message);
+      setShowErrorPopup(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchReviews();
   }, [slug, user, token]);
 
   const handleLikeClick = async (activityID) => {
@@ -307,47 +307,11 @@ const AllReviewsPage = () => {
 
       if (!data.success) throw new Error(data.message || 'Failed to submit reply');
 
-      const newReplyObj = {
-        ActivityID: data.activityID,
-        ReviewText: replyText,
-        Username: user.username,
-        Ratings: null,
-        IsLogged: true,
-        ActivityDateTime: new Date().toISOString(),
-        Replies: [],
-        IsReply: true,
-        ReplyTo: reviewID,
-        ActivityLikeCount: 0,
-        UserID: user.userID
-      };
-
-      // Update reviews state with the new reply
-      const addReplyToActivity = (activities) => {
-        return activities.map(activity => {
-          if (activity.ActivityID === reviewID) {
-            return {
-              ...activity,
-              Replies: [...(activity.Replies || []), newReplyObj]
-            };
-          }
-          
-          if (activity.Replies && activity.Replies.length > 0) {
-            return {
-              ...activity,
-              Replies: addReplyToActivity(activity.Replies)
-            };
-          }
-          
-          return activity;
-        });
-      };
-
-      setReviews(prev => addReplyToActivity(prev));
+      // Clear the reply input
       setNewReply(prev => ({ ...prev, [reviewID]: '' }));
 
-      // Update likedReviews and deletableReviews for the new reply
-      setLikedReviews(prev => ({ ...prev, [data.activityID]: false }));
-      setDeletableReviews(prev => ({ ...prev, [data.activityID]: true }));
+      // Refresh the reviews to get the latest data including the new reply
+      await fetchReviews();
     } catch (err) {
       console.error('Error submitting reply:', err);
       setError(err.message);
