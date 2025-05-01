@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ErrorPopup from '@/components/Error';
 import { MessageSquare } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
@@ -20,11 +20,50 @@ const ProfileHero = ({
   const [modalError, setModalError] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [friendStatus, setFriendStatus] = useState(isFriend);
+  const [requestStatus, setRequestStatus] = useState('none');
+  const [isLoadingRequestStatus, setIsLoadingRequestStatus] = useState(true);
 
   // Determine if the current user can see private content
   const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
                                friendStatus || 
                                profileUser.privacy === 'Public';
+
+  // Check friend request status on component mount and when user changes
+  useEffect(() => {
+    const checkFriendRequestStatus = async () => {
+      if (!currentUser || profileUser.userID === currentUser.userID) {
+        setIsLoadingRequestStatus(false);
+        return;
+      }
+
+      try {
+        setIsLoadingRequestStatus(true);
+        const response = await fetch(`http://localhost:5000/notification/isFriendReq/${profileUser.userID}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to check friend request status');
+        }
+
+        setRequestStatus(data.exists ? 'pending-sent' : 'none');
+      } catch (error) {
+        setErrorMessage(error.message);
+      } finally {
+        setIsLoadingRequestStatus(false);
+      }
+    };
+
+    checkFriendRequestStatus();
+  }, [currentUser, profileUser.userID, token]);
+
+  useEffect(() => {
+    setFriendStatus(isFriend);
+  }, [isFriend]);
 
   const handleAddFriend = async () => {
     if (!currentUser) {
@@ -53,7 +92,7 @@ const ProfileHero = ({
       }
 
       // Update local state and call parent callback
-      setFriendStatus(true);
+      setRequestStatus('pending-sent');
       onAddFriend?.();
       setErrorMessage('Friend request sent successfully!');
     } catch (error) {
@@ -90,6 +129,7 @@ const ProfileHero = ({
 
       // Update local state and call parent callback
       setFriendStatus(false);
+      setRequestStatus('none');
       onRemoveFriend?.();
       setErrorMessage('Friend removed successfully!');
     } catch (error) {
@@ -165,14 +205,6 @@ const ProfileHero = ({
     ) : content;
   };
 
-  // Link component with conditional clickability
-  const ConditionalLink = ({ href, children }) => {
-    if (canViewPrivateContent && href) {
-      return <Link href={href}>{children}</Link>;
-    }
-    return children;
-  };
-
   return (
     <section id="hero" className="relative -mt-14">
       {errorMessage && (
@@ -232,19 +264,22 @@ const ProfileHero = ({
             style={{ width: '240px', height: '240px' }}
           />
 
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            <ConditionalLink href={`/friends/${profileUser.userID}`}>
-              <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
-                <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
-              </div>
-            </ConditionalLink>
+          {/* Only show Friends and Watchlist buttons if user is public or friends */}
+          {canViewPrivateContent && (
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <Link href={`/friends/${profileUser.userID}`}>
+                <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
+                  <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
+                </div>
+              </Link>
 
-            <ConditionalLink href={`/watchlist/${profileUser.userID}`}>
-              <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
-                <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
-              </div>
-            </ConditionalLink>
-          </div>
+              <Link href={`/watchlist/${profileUser.userID}`}>
+                <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
+                  <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
+                </div>
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col mb-40 md:w-4/5">
@@ -284,6 +319,20 @@ const ProfileHero = ({
                         </button>
                       )}
                     </>
+                  ) : isLoadingRequestStatus ? (
+                    <button
+                      className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl"
+                      disabled
+                    >
+                      Loading...
+                    </button>
+                  ) : requestStatus === 'pending-sent' ? (
+                    <button
+                      className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl cursor-default"
+                      disabled
+                    >
+                      Friend Request Sent
+                    </button>
                   ) : (
                     <button
                       onClick={handleAddFriend}
