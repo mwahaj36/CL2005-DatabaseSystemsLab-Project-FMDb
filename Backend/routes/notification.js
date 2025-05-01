@@ -243,4 +243,77 @@ router.delete('/close/:notiID', authenticateToken, async (req, res) => {
     }
 });
 
+// Get IsFriendReqPending of given user with current user
+router.get('/isFriendReq/:userId', authenticateToken, async(req, res) => {
+    const targetUserId = parseInt(req.params.userId, 10);
+    const loggedInUserId = req.userId;
+
+    if (isNaN(targetUserId)) {
+        return res.status(400).json({ success: false, message: 'Invalid userId parameter' });
+    }
+
+    try {
+        // Check for existing pending friend request
+        const request = new sql.Request();
+        request.input('senderId', sql.Int, loggedInUserId);
+        request.input('receiverId', sql.Int, targetUserId);
+
+        const result = await request.query(`
+            SELECT COUNT(*) AS Count
+            FROM Notifications
+            WHERE SenderID = @senderId
+              AND ReceiverID = @receiverId
+              AND NotificationType = 'FriendReq'
+        `);
+        
+        res.json({ success: true, exists: result.recordset[0].Count > 0 ? true : false });
+    } catch (error) {
+        console.error('Error checking pending friend request:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get pending admin requests for the authenticated user
+router.get('/isAdminReq', authenticateToken, async (req, res) => {
+    const loggedInUserId = req.userId;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, loggedInUserId);
+
+        const result = await request.query(`
+            SELECT COUNT(*) AS Count
+            FROM Notifications
+            WHERE SenderID = @userId
+              AND NotificationType = 'AdminReq'
+        `);
+        
+        res.json({ success: true, exists: result.recordset[0].Count > 0 ? true : false });
+    } catch (error) {
+        console.error('Error fetching admin requests:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// Get pending critic requests for the authenticated user
+router.get('/isCriticReq', authenticateToken, async (req, res) => {
+    const loggedInUserId = req.userId;
+    try {
+        const request = new sql.Request();
+        request.input('userId', sql.Int, loggedInUserId);
+
+        const result = await request.query(`
+            SELECT COUNT(*) AS Count
+            FROM Notifications
+            WHERE SenderID = @userId
+              AND NotificationType = 'CriticReq'
+        `);
+        
+        res.json({ success: true, exists: result.recordset[0].Count > 0 ? true : false });
+    } catch (error) {
+        console.error('Error fetching critic requests:', error.message);
+        res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+
 module.exports = router;
