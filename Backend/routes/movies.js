@@ -401,6 +401,7 @@ router.get('/friends', authenticateToken, async (req, res) => {
             JOIN Users U ON A.UserID = U.UserID
             JOIN Movies M ON A.MovieID = M.MovieID
             WHERE A.UserID IN (${friendIdsString})
+            GROUP BY M.MovieID, M.Title, M.MoviePosterLink
             ORDER BY A.ActivityDateTime DESC;
         `;
         const recentMoviesRequest = new sql.Request();
@@ -444,6 +445,7 @@ router.get('/friends/watchlist', authenticateToken, async (req, res) => {
             JOIN Users U ON UW.UserID = U.UserID
             JOIN Movies M ON UW.MovieID = M.MovieID
             WHERE UW.UserID IN (${friendIdsString})
+            GROUP BY M.MovieID, M.Title, M.MoviePosterLink
             ORDER BY UW.AddedAt DESC;
         `;
         const recentMoviesRequest = new sql.Request();
@@ -532,6 +534,7 @@ router.get('/recommended', authenticateToken, async (req, res) => {
                 JOIN MovieGenres MG ON M.MovieID = MG.MovieID
                 WHERE MG.GenreID IN (${genreIdsString}) 
                 AND M.MovieID NOT IN (${recommendationsResult.recordset.map(row => row.MovieID).join(', ') || '-1'}, @MovieID)
+                GROUP BY M.MovieID, M.Title, M.MoviePosterLink
                 ORDER BY NEWID();
             `;
             const genreRecommendationsRequest = new sql.Request();
