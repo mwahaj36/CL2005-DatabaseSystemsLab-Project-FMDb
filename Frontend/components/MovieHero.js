@@ -130,14 +130,16 @@ const MovieHero = ({ movieData }) => {
           onClick={handleOverlayClick}
           className="fixed inset-0 z-50 bg-black bg-opacity-70 flex items-center justify-center p-4"
         >
-          <ActivityCard
-          movieTitle={movieData.title}
-          movieId={movieData.movieId}
-          movieYear={new Date(movieData.releaseDate).getFullYear()}
-          moviePoster={movieData.moviePosterLink}
-          onSave={handleSave}
-          onDiscard={handleDiscard}
-        />
+         <ActivityCard
+  movieTitle={movieData.title}
+  movieId={movieData.movieId}
+  movieYear={movieData.releaseDate && !isNaN(new Date(movieData.releaseDate)) 
+    ? new Date(movieData.releaseDate).getFullYear() 
+    : null}
+  moviePoster={movieData.moviePosterLink}
+  onSave={handleSave}
+  onDiscard={handleDiscard}
+/>
         </div>
       )}
 
