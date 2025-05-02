@@ -189,10 +189,11 @@ const ProfileHero = ({
 
   // Stats display components
   const StatButton = ({ label, value, href }) => {
+    const isClickable = profileUser.privacy === 'Public' || canViewPrivateContent;
     const content = (
       <div 
         className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
-          canViewPrivateContent ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
+          isClickable ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
         }`}
       >
         <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
@@ -200,7 +201,7 @@ const ProfileHero = ({
       </div>
     );
 
-    return canViewPrivateContent && href ? (
+    return isClickable && href ? (
       <Link href={href}>{content}</Link>
     ) : content;
   };
@@ -368,19 +369,19 @@ const ProfileHero = ({
             <StatButton
               label="Movies Watched"
               value={profileUser.basicDetails?.uniqueMoviesWatched}
-              href={canViewPrivateContent ? `/watched/${profileUser.userID}` : undefined}
+              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/watched/${profileUser.userID}` : undefined}
             />
 
             <StatButton
               label="Movies Logged"
               value={profileUser.basicDetails?.loggedMoviesCount}
-              href={canViewPrivateContent ? `/logged/${profileUser.userID}` : undefined}
+              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/logged/${profileUser.userID}` : undefined}
             />
 
             <StatButton
               label="Liked Movies"
               value={profileUser.basicDetails?.likedMoviesCount}
-              href={canViewPrivateContent ? `/liked/${profileUser.userID}` : undefined}
+              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/liked/${profileUser.userID}` : undefined}
             />
 
             <div
