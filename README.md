@@ -6,8 +6,11 @@ This website will serve as a platform where users can log, review, and track mov
 ## 🚀 Features
 ### 🔹 User & Admin Authentication
 - Users can **sign up and log in** with username and password.
-- Admins have **separate registration** with moderation privileges.
 - **Password recovery & reset** options available.
+
+### 🔹 User Role Requests
+- Users can **request role changes** (e.g., User to Critic or Admin).
+- Admins receive and **review role requests**.
 
 ### 🔹 Profile Management
 - Users can **edit their profile**, change username, profile picture, and bio.
@@ -20,7 +23,6 @@ This website will serve as a platform where users can log, review, and track mov
 
 ### 🔹 Watchlists
 - Users can **create and manage** watchlists.
-- **Custom categories** for organization.
 
 ### 🔹 Community Reviews & Ratings
 - Users can **post and read reviews** for movies & TV shows.
@@ -39,6 +41,17 @@ This website will serve as a platform where users can log, review, and track mov
 - Users can **follow others** and see their logged movies & reviews.
 - **Like & comment** on reviews.
 - **Discussion threads** on movies & TV shows.
+- **Reply to reviews** and start discussions.
+- Replies are **linked to the original review** and notify the reviewer.
+
+### 🔹 Friends & Requests
+- Send and accept **friend requests**.
+- View **pending requests** and remove friends.
+- **See friend activity** based on privacy settings.
+
+### 🔹 Notifications
+- Users receive **real-time notifications** for friend requests, likes, replies, and role approvals.
+- All notifications are **stored and viewable** in the user's panel.
 
 ### 🔹 Admin Panel
 - **Moderation tools** to manage user reviews & reported content.
@@ -53,7 +66,6 @@ This website will serve as a platform where users can log, review, and track mov
 ### 🔹 Featured Reviews
 - **Top reviews** featured on the homepage based on community votes.
 - **Verified critics** section for professional reviews.
-- Users can **nominate reviews** for featuring.
 
 ### 🔹 Activity Tracking
 - Platform tracks **active reviewers & contributors**.
