@@ -187,20 +187,22 @@ const ProfileHero = ({
     }
   };
 
-  // Stats display components
   const StatButton = ({ label, value, href }) => {
+    const isPublicAccount = profileUser.privacy === 'Public';
+    const canNavigate = isPublicAccount || canViewPrivateContent;
+  
     const content = (
       <div 
         className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
-          canViewPrivateContent ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
+          canNavigate ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
         }`}
       >
         <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
         <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
       </div>
     );
-
-    return canViewPrivateContent && href ? (
+  
+    return canNavigate && href ? (
       <Link href={href}>{content}</Link>
     ) : content;
   };
