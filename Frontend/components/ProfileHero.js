@@ -187,24 +187,30 @@ const ProfileHero = ({
     }
   };
 
-  // Stats display components
-  const StatButton = ({ label, value, href }) => {
-    const isClickable = profileUser.privacy === 'Public' || canViewPrivateContent;
-    const content = (
-      <div 
-        className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
-          isClickable ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
-        }`}
-      >
-        <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
-        <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
-      </div>
-    );
+  // Stats display components - updated version
+const StatButton = ({ label, value, href }) => {
+  const isClickable = canViewPrivateContent && href;
+  const content = (
+    <div 
+      className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
+        isClickable ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
+      }`}
+    >
+      <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
+      <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
+    </div>
+  );
 
-    return isClickable && href ? (
-      <Link href={href}>{content}</Link>
-    ) : content;
-  };
+  return isClickable ? <Link href={href}>{content}</Link> : content;
+};
+
+// Link component with conditional clickability - updated version
+const ConditionalLink = ({ href, children }) => {
+  if (canViewPrivateContent && href) {
+    return <Link href={href}>{children}</Link>;
+  }
+  return children;
+};
 
   return (
     <section id="hero" className="relative -mt-14">
