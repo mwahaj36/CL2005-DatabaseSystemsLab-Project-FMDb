@@ -28,7 +28,7 @@ const MovieCard = ({ movie }) => {
           />
         </a>
       </Link>
-      <div className="text-center w-1/4 px-2 h-20 flex flex-col justify-center sm:h-auto">
+      <div className="text-center w-full px-2 h-20 flex flex-col justify-center sm:h-auto">
         <h5
           className="text-lg font-bold text-white line-clamp-2 sm:text-base"
           title={movie.title}
