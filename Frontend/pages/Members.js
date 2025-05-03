@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Leaderboard from "@/components/Leaderboard";
 import Head from "next/head";
-
 const Members = () => {
   const [members, setMembers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +33,7 @@ const Members = () => {
         const data = await response.json();
         if (data.success) {
           const transformedMembers = data.users.map(user => ({
-            userName: user.Username,
+            userName:user.Username,
             userID: user.UserID,
             fullName: user.FullName,
             imageSrc: `https://ui-avatars.com/api/?name=${encodeURIComponent(user.FullName)}&background=random`,
@@ -67,7 +66,7 @@ const Members = () => {
       const data = await response.json();
       if (data.success) {
         const transformedResults = data.users.map(user => ({
-          userName: user.Username,
+          userName:user.Username,
           userID: user.UserID,
           fullName: user.FullName,
           imageSrc: `https://ui-avatars.com/api/?name=${encodeURIComponent(user.FullName)}&background=random`,
@@ -90,6 +89,7 @@ const Members = () => {
     setSearchResults([]);
   };
 
+  // Sort members by movies watched if sortByMovies is true
   const sortedMembers = useMemo(() => {
     const membersToSort = searchResults.length > 0 ? searchResults : members;
     if (!sortByMovies) return membersToSort;
@@ -118,87 +118,88 @@ const Members = () => {
 
   return (
     <>
-      <Head>
-        <title>FMDb Members</title>
+    <Head>
+      <title>FMDb Members</title>
       </Head>
-      <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}>
-        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-        <section id="members" className="relative z-10">
-          <Navbar />
-          <Leaderboard />
-          <h2 className="text-white text-4xl md:text-6xl mt-10 md:mt-20 text-center font-bold mb-6 md:mb-8">FMDb Members</h2>
+    <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}>
+      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+      <section id="members" className="relative z-10">
+        <Navbar />
+        <Leaderboard />
+        <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">FMDb Members</h2>
+        
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto mb-8 px-4">
+          <form onSubmit={handleSearch} className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search members by username or name..."
+              className="w-full bg-darkPurple bg-opacity-90 border-2 border-purple-500 rounded-full py-3 px-6 text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            />
+            <button
+              type="submit"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-colors duration-200"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </form>
+        </div>
 
-          {/* Search Bar */}
-          <div className="max-w-sm md:max-w-md mx-auto mb-6 md:mb-8 px-4">
-            <form onSubmit={handleSearch} className="relative">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search members by username or name..."
-                className="w-full bg-darkPurple bg-opacity-90 border-2 border-purple-500 rounded-full py-2 md:py-3 px-4 md:px-6 text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 md:right-3 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white rounded-full p-2 transition-colors duration-200"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </form>
+        
+        {isSearching ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
           </div>
-
-          {isSearching ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
+              {sortedMembers.map((member, index) => (
+                <MemberCard
+                  key={index}
+                  imageSrc={member.imageSrc}
+                  alt={member.alt}
+                  userName={member.userName}
+                  userID={member.userID}
+                  userType={member.userType}
+                  activities={member.activities}
+                  movies={member.movies}
+                />
+              ))}
             </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 px-4 md:px-8">
-                {sortedMembers.map((member, index) => (
-                  <MemberCard
-                    key={index}
-                    imageSrc={member.imageSrc}
-                    alt={member.alt}
-                    userName={member.userName}
-                    userID={member.userID}
-                    userType={member.userType}
-                    activities={member.activities}
-                    movies={member.movies}
-                  />
-                ))}
+            
+            {/* Pagination controls - only show when not showing search results */}
+            {searchResults.length === 0 && (
+              <div className="flex justify-center mt-8 mb-8">
+                <button 
+                  onClick={() => handlePageChange(currentPage - 1)} 
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 mx-1 bg-purple-600 text-white rounded disabled:opacity-50"
+                >
+                  Previous
+                </button>
+                <span className="px-4 py-2 mx-1 text-white">
+                  Page {currentPage} of {totalPages}
+                </span>
+                <button 
+                  onClick={() => handlePageChange(currentPage + 1)} 
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 mx-1 bg-purple-600 text-white rounded disabled:opacity-50"
+                >
+                  Next
+                </button>
               </div>
-
-              {/* Pagination controls */}
-              {searchResults.length === 0 && (
-                <div className="flex justify-center mt-6 md:mt-8 mb-6 md:mb-8">
-                  <button
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="px-3 md:px-4 py-2 mx-1 bg-purple-600 text-white rounded disabled:opacity-50"
-                  >
-                    Previous
-                  </button>
-                  <span className="px-3 md:px-4 py-2 mx-1 text-white">
-                    Page {currentPage} of {totalPages}
-                  </span>
-                  <button
-                    onClick={() => handlePageChange(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="px-3 md:px-4 py-2 mx-1 bg-purple-600 text-white rounded disabled:opacity-50"
-                  >
-                    Next
-                  </button>
-                </div>
-              )}
-            </>
-          )}
-
-          <Footer />
-        </section>
-      </div>
-    </>
+            )}
+          </>
+        )}
+        
+        <Footer />
+      </section>
+    </div></>
+    
   );
 };
 
