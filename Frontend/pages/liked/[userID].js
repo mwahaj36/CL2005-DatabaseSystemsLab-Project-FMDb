@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import MovieCard from '../../components/MovieCard';
 import { useAuth } from '../../context/AuthContext';
+import Head from 'next/head';
 
 const UserLikedMoviesPage = () => {
   const router = useRouter();
@@ -96,6 +97,8 @@ const UserLikedMoviesPage = () => {
   const isOwnLikedMovies = user && user.userID === parseInt(userID);
 
   return (
+    <>
+    <head>User Liked Movies</head>
     <div className="relative min-h-screen">
       <div
         className="relative bg-cover bg-center bg-fixed"
@@ -208,6 +211,7 @@ const UserLikedMoviesPage = () => {
         <Footer />
       </div>
     </div>
+    </>
   );
 };
 
