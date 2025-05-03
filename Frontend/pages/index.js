@@ -6,7 +6,6 @@ import HeroSection from "../components/HeroSection";
 import Leaderboard from "../components/Leaderboard";
 import Footer from "../components/Footer";
 import UserSpotlight from "../components/UserSpotlight";
-import Head from 'next/head';
 
 const HomePage = () => {
   const { user, token } = useContext(AuthContext);
@@ -261,8 +260,6 @@ const HomePage = () => {
   };
 
   return (
-    <>
-    <head>FMDb - Home</head>
     <div className="relative bg-cover bg-center bg-fixed min-h-screen" 
          style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
@@ -349,7 +346,6 @@ const HomePage = () => {
 
       <Footer />
     </div>
-    </>
   );
 };
 
