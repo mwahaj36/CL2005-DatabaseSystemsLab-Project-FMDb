@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
+import Head from 'next/head';
 const MovieCard = ({ movie }) => {
   if (!movie || !movie.movieid) {
     return (
@@ -229,6 +229,10 @@ const MoviesListPage = () => {
   }, [page, sort, order]);
 
   return (
+    <>
+    <Head>
+      <title>FMDB - Movies List</title>
+    </Head>
     <div className="relative min-h-screen">
       <div className="relative bg-cover bg-center bg-fixed"
         style={{
@@ -579,7 +583,8 @@ const MoviesListPage = () => {
 
         <Footer />
       </div>
-    </div>
+    </div></>
+    
   );
 };
 

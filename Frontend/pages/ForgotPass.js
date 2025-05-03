@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
-
+import Head from "next/head";
 export default function ForgotPasswordPage() {
   const router = useRouter();
   const { resetPassword, error } = useContext(AuthContext);
@@ -33,7 +33,11 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div
+    <>
+    <Head>
+      <title>Forgot Password</title>
+      </Head>
+      <div
       className="relative bg-cover bg-center bg-fixed min-h-screen"
       style={{
         backgroundImage:
@@ -98,6 +102,7 @@ export default function ForgotPasswordPage() {
         </div>
       </section>
       <Footer />
-    </div>
+    </div></>
+  
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
+import Head from 'next/head';
 const MovieCard = ({ movie }) => {
   if (!movie || !movie.movieid) {
     return (
@@ -223,7 +223,11 @@ const MoviesListPage = () => {
   }, [page, sort, order]);
 
   return (
-    <div className="relative min-h-screen">
+    <>
+    <Head>
+      <title>FMDB | Series List</title>
+      </Head>
+     <div className="relative min-h-screen">
       <div className="relative bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: "url('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg')",
@@ -573,7 +577,8 @@ const MoviesListPage = () => {
 
         <Footer />
       </div>
-    </div>
+    </div></>
+   
   );
 };
 

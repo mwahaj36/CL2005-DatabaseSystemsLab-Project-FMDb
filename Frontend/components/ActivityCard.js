@@ -3,7 +3,7 @@ import { useAuth } from '@/context/AuthContext'; // Adjust the import path as ne
 
 const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onDiscard }) => {
   const [watchedDate, setWatchedDate] = useState(new Date().toISOString().split('T')[0]);
-  const [watchedBefore, setWatchedBefore] = useState(false); // ✅ ADDED
+  const [watchedBefore, setWatchedBefore] = useState(false);
   const [review, setReview] = useState('');
   const [tags, setTags] = useState('');
   const [liked, setLiked] = useState(false);
@@ -104,7 +104,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         review: review || null,
         ratings: rating || null,
         isLogged: watchedBefore,
-        date: watchedBefore ? watchedDate : undefined, // ✅ FIELD NAME FIXED
+        date: watchedBefore ? watchedDate : undefined,
       };
   
       const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
@@ -169,11 +169,12 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
 
         <div className="flex-1 flex flex-col justify-between">
           <h2 className="text-2xl font-bold">
-            {movieTitle}{' '}
-            <span className="text-purple text-lg font-normal">{movieYear}</span>
+            {movieTitle}
+            {movieYear && (
+              <span className="text-purple text-lg font-normal"> {movieYear}</span>
+            )}
           </h2>
 
-          {/* ✅ Typo fixed here */}
           <div className="flex items-center gap-4 mt-4">
             <label className="flex items-center gap-2">
               <input

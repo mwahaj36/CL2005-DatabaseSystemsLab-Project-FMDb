@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext";
-
+import Head from "next/head";
 export default function AdminPanel() {
   const { token } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -198,6 +198,8 @@ export default function AdminPanel() {
   };
 
   return (
+    <>
+    <Head><title>AdminPanel</title></Head>
     <div className="min-h-screen bg-gradient-to-b from-darkPurple via-purpleWhite to-darkPurple text-white">
       <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://images5.alphacoders.com/825/825367.jpg')" }}>
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
@@ -489,5 +491,7 @@ export default function AdminPanel() {
       </div>
       <Footer />
     </div>
+    </>
+    
   );
 }

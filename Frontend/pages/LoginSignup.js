@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
-
+import Head from "next/head";
 export default function LoginSignupPage() {
   const router = useRouter();
   const { login, signup, resetPassword } = useContext(AuthContext);
@@ -134,7 +134,11 @@ export default function LoginSignupPage() {
   }, [formSuccess]);
 
   return (
-    <div className="relative bg-cover bg-center bg-fixed min-h-screen" style={{
+    <>
+    <Head>
+      <title>{isResetPassword ? "Reset Password" : isSignup ? "Sign Up" : "Login"}</title>
+    </Head>
+       <div className="relative bg-cover bg-center bg-fixed min-h-screen" style={{
       backgroundImage: "url('https://image.tmdb.org/t/p/original/8mnXR9rey5uQ08rZAvzojKWbDQS.jpg')"
     }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
@@ -327,6 +331,7 @@ export default function LoginSignupPage() {
       </section>
       
       <Footer />
-    </div>
+    </div></>
+ 
   );
 }

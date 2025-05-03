@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../context/AuthContext";
 import Error from "../components/Error"; // Import the Error component
-
+import Head from "next/head";
 export default function ChangePasswordPage() {
   const router = useRouter();
   const { changePassword, error } = useContext(AuthContext);
@@ -30,6 +30,10 @@ export default function ChangePasswordPage() {
   };
 
   return (
+    <>
+      <Head>
+        <title>Change Password</title>    
+        </Head>
     <div
       className="relative bg-cover bg-center bg-fixed min-h-screen"
       style={{
@@ -107,6 +111,7 @@ export default function ChangePasswordPage() {
         </div>
       </section>
       <Footer />
-    </div>
+    </div></>
+    
   );
 }
