@@ -401,7 +401,7 @@ router.get('/friends', authenticateToken, async (req, res) => {
             JOIN Users U ON A.UserID = U.UserID
             JOIN Movies M ON A.MovieID = M.MovieID
             WHERE A.UserID IN (${friendIdsString})
-            GROUP BY M.MovieID, M.Title, M.MoviePosterLink
+            GROUP BY M.MovieID, M.Title, M.MoviePosterLink, A.ActivityDateTime
             ORDER BY A.ActivityDateTime DESC;
         `;
         const recentMoviesRequest = new sql.Request();
@@ -445,7 +445,7 @@ router.get('/friends/watchlist', authenticateToken, async (req, res) => {
             JOIN Users U ON UW.UserID = U.UserID
             JOIN Movies M ON UW.MovieID = M.MovieID
             WHERE UW.UserID IN (${friendIdsString})
-            GROUP BY M.MovieID, M.Title, M.MoviePosterLink
+            GROUP BY M.MovieID, M.Title, M.MoviePosterLink, UW.AddedAt
             ORDER BY UW.AddedAt DESC;
         `;
         const recentMoviesRequest = new sql.Request();
