@@ -6,6 +6,9 @@ import TrendingReviews from '../../components/TrendingReviews';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import MovieHero from '../../components/MovieHero';
+import Head from 'next/head';
+
+
 
 const MoviePage = () => {
   const router = useRouter();
@@ -67,35 +70,40 @@ const MoviePage = () => {
   }
 
   return (
-    <div>
-      <section
-        className="relative bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url(${selectedMovie.movieBackdropLink})` }}
-      >
-        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-        <Navbar />
-        <MovieHero movieData={selectedMovie} />
-        <div className="container px-6 mx-auto mt-16 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {castAndCrew && (
-              <CastAndCrew
-                crewData={{
-                  director: castAndCrew.directors?.join(', ') || "Not specified",
-                  writer: castAndCrew.writers?.join(', ') || "Not specified",
-                  cast: castAndCrew.actors || []
-                }}
+    <>
+      <Head>
+        <title>{selectedMovie.title} ({selectedMovie.year})</title>
+      </Head>
+      <div>
+        <section
+          className="relative bg-cover bg-center bg-fixed"
+          style={{ backgroundImage: `url(${selectedMovie.movieBackdropLink})` }}
+        >
+          <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+          <Navbar />
+          <MovieHero movieData={selectedMovie} />
+          <div className="container px-6 mx-auto mt-16 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {castAndCrew && (
+                <CastAndCrew
+                  crewData={{
+                    director: castAndCrew.directors?.join(', ') || "Not specified",
+                    writer: castAndCrew.writers?.join(', ') || "Not specified",
+                    cast: castAndCrew.actors || []
+                  }}
+                />
+              )}
+              <TrendingReviews
+                reviewsData={reviewsForMovie}
+                user={user}
+                movie={selectedMovie}
               />
-            )}
-            <TrendingReviews
-              reviewsData={reviewsForMovie}
-              user={user}
-              movie={selectedMovie}
-            />
+            </div>
           </div>
-        </div>
-        <Footer />
-      </section>
-    </div>
+          <Footer />
+        </section>
+      </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { useAuth } from '@/context/AuthContext';
 import ErrorPopup from '@/components/Error';
-
+import Head from 'next/head';
 const AllReviewsPage = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -408,120 +408,125 @@ const AllReviewsPage = () => {
   }
 
   return (
-    <div>
-      <section
-        className="relative bg-cover bg-center bg-fixed min-h-screen"
-        style={{ backgroundImage: `url(${movie.backdrop})` }}
-      >
-        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-        <Navbar />
-        <div className="container px-6 mx-auto mt-16 text-center relative z-10">
-          <h1 className="text-white font-bold text-4xl md:text-6xl pb-5">
-            {movie.title} ({formatReleaseYear(movie.releaseDate)})
-          </h1>
-          <p className="text-white text-xl md:text-2xl">
-            {renderDirectors(movie.directors)}
-          </p>
-          <div className="mt-8 text-white">
-            <h2 className="text-2xl">All Reviews</h2>
-            {reviews.length === 0 ? (
-              <p className="text-white">No reviews found for this movie.</p>
-            ) : (
-              reviews.map((review) => {
-                const isLiked = likedReviews[review.ActivityID] || false;
-                const isDeletable = deletableReviews[review.ActivityID] || false;
+    <>
+      <Head>
+        <title>{movie.title} Reviews</title>
+      </Head>
+      <div>
+        <section
+          className="relative bg-cover bg-center bg-fixed min-h-screen"
+          style={{ backgroundImage: `url(${movie.backdrop})` }}
+        >
+          <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+          <Navbar />
+          <div className="container px-6 mx-auto mt-16 text-center relative z-10">
+            <h1 className="text-white font-bold text-4xl md:text-6xl pb-5">
+              {movie.title} ({formatReleaseYear(movie.releaseDate)})
+            </h1>
+            <p className="text-white text-xl md:text-2xl">
+              {renderDirectors(movie.directors)}
+            </p>
+            <div className="mt-8 text-white">
+              <h2 className="text-2xl">All Reviews</h2>
+              {reviews.length === 0 ? (
+                <p className="text-white">No reviews found for this movie.</p>
+              ) : (
+                reviews.map((review) => {
+                  const isLiked = likedReviews[review.ActivityID] || false;
+                  const isDeletable = deletableReviews[review.ActivityID] || false;
 
-                return (
-                  <div
-                    key={review.ActivityID}
-                    className="bg-black bg-opacity-40 p-6 mt-6 rounded-3xl shadow-md hover:scale-105 transition-transform duration-300 max-w-5xl mx-auto"
-                  >
-                    <div className="flex items-center space-x-4 relative">
-                      <img
-                       src={`https://ui-avatars.com/api/?name=${review.Username}&background=random`}
-                        alt={review.Username}
-                        className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl"
-                      />
+                  return (
+                    <div
+                      key={review.ActivityID}
+                      className="bg-black bg-opacity-40 p-6 mt-6 rounded-3xl shadow-md hover:scale-105 transition-transform duration-300 max-w-5xl mx-auto"
+                    >
+                      <div className="flex items-center space-x-4 relative">
+                        <img
+                          src={`https://ui-avatars.com/api/?name=${review.Username}&background=random`}
+                          alt={review.Username}
+                          className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-xl"
+                        />
 
-                      {review.Ratings !== null && (
-                        <div className="font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner bg-purpleWhite">
-                          {review.Ratings % 1 === 0 && review.Ratings !== 10
-                            ? `${review.Ratings}.0`
-                            : review.Ratings}
+                        {review.Ratings !== null && (
+                          <div className="font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner bg-purpleWhite">
+                            {review.Ratings % 1 === 0 && review.Ratings !== 10
+                              ? `${review.Ratings}.0`
+                              : review.Ratings}
+                          </div>
+                        )}
+
+                        <div className={`${review.Ratings !== null ? 'ml-6' : ''} text-center md:text-left flex-1`}>
+                          <p className="text-white text-md md:text-lg italic">{review.ReviewText}</p>
+                          <p className="text-purpleWhite font-bold mt-2 text-sm">{review.Username}</p>
+                          <p className="text-white text-xs italic">{formatTimeAgo(review.ActivityDateTime)}</p>
                         </div>
-                      )}
 
-                      <div className={`${review.Ratings !== null ? 'ml-6' : ''} text-center md:text-left flex-1`}>
-                        <p className="text-white text-md md:text-lg italic">{review.ReviewText}</p>
-                        <p className="text-purpleWhite font-bold mt-2 text-sm">{review.Username}</p>
-                        <p className="text-white text-xs italic">{formatTimeAgo(review.ActivityDateTime)}</p>
-                      </div>
-
-                      <div className="absolute bottom-4 right-4 flex items-center">
-                        <span className="text-white mr-2">{review.ActivityLikeCount || 0}</span>
-                        <button
-                          onClick={() => handleLikeClick(review.ActivityID)}
-                          className={`text-2xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
-                            isLiked ? 'text-red-500' : 'text-white'
-                          }`}
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg"
-                               viewBox="0 0 24 24" fill="currentColor"
-                               className="w-6 h-6">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-                                     2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 
-                                     3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
-                                     3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                          </svg>
-                        </button>
-                        
-                        {isDeletable && (
+                        <div className="absolute bottom-4 right-4 flex items-center">
+                          <span className="text-white mr-2">{review.ActivityLikeCount || 0}</span>
                           <button
-                            onClick={() => handleDeleteReview(review.ActivityID)}
-                            className="ml-2 text-white hover:text-red-500 transition-colors duration-200"
-                            title="Delete review"
+                            onClick={() => handleLikeClick(review.ActivityID)}
+                            className={`text-2xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
+                              isLiked ? 'text-red-500' : 'text-white'
+                            }`}
                           >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 24 24" fill="currentColor"
+                                 className="w-6 h-6">
+                              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                                       2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 
+                                       3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 
+                                       3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
                           </button>
-                        )}
+                          
+                          {isDeletable && (
+                            <button
+                              onClick={() => handleDeleteReview(review.ActivityID)}
+                              className="ml-2 text-white hover:text-red-500 transition-colors duration-200"
+                              title="Delete review"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {renderReplies(review.Replies)}
+
+                      <div className="mt-4">
+                        <textarea
+                          value={newReply[review.ActivityID] || ''}
+                          onChange={(e) => handleReplyChange(review.ActivityID, e)}
+                          className="w-full p-2 bg-black bg-opacity-50 text-white rounded-md"
+                          placeholder="Write a reply..."
+                          rows="2"
+                        />
+                        <button
+                          onClick={() => handleReplySubmit(review.ActivityID)}
+                          className="mt-2 px-4 py-2 bg-purpleWhite text-darkPurple rounded-lg hover:bg-opacity-90 transition"
+                        >
+                          Reply
+                        </button>
                       </div>
                     </div>
-
-                    {renderReplies(review.Replies)}
-
-                    <div className="mt-4">
-                      <textarea
-                        value={newReply[review.ActivityID] || ''}
-                        onChange={(e) => handleReplyChange(review.ActivityID, e)}
-                        className="w-full p-2 bg-black bg-opacity-50 text-white rounded-md"
-                        placeholder="Write a reply..."
-                        rows="2"
-                      />
-                      <button
-                        onClick={() => handleReplySubmit(review.ActivityID)}
-                        className="mt-2 px-4 py-2 bg-purpleWhite text-darkPurple rounded-lg hover:bg-opacity-90 transition"
-                      >
-                        Reply
-                      </button>
-                    </div>
-                  </div>
-                );
-              })
-            )}
+                  );
+                })
+              )}
+            </div>
           </div>
-        </div>
-        <Footer />
-      </section>
+          <Footer />
+        </section>
 
-      {showErrorPopup && (
-        <ErrorPopup
-          message={error || 'An unexpected error occurred'}
-          onClose={closeErrorPopup}
-        />
-      )}
-    </div>
+        {showErrorPopup && (
+          <ErrorPopup
+            message={error || 'An unexpected error occurred'}
+            onClose={closeErrorPopup}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

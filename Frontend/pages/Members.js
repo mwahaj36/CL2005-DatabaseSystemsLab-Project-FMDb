@@ -3,7 +3,7 @@ import MemberCard from "@/components/MemberCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Leaderboard from "@/components/Leaderboard";
-
+import Head from "next/head";
 const Members = () => {
   const [members, setMembers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -117,6 +117,10 @@ const Members = () => {
   }
 
   return (
+    <>
+    <Head>
+      <title>FMDb Members</title>
+      </Head>
     <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg')" }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <section id="members" className="relative z-10">
@@ -194,7 +198,8 @@ const Members = () => {
         
         <Footer />
       </section>
-    </div>
+    </div></>
+    
   );
 };
 

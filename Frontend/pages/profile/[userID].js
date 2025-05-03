@@ -7,7 +7,7 @@ import { useAuth } from '@/context/AuthContext';
 import MovieCard from '@/components/MovieCard';
 import YearlyStats from '@/components/YearlyStats';
 import ThirdScreenReviewsP from '@/components/ThirdScreenReviewsP';
-
+import Head from 'next/head';
 const Profile = () => {
   const router = useRouter();
   const { userID } = router.query;
@@ -175,95 +175,101 @@ const Profile = () => {
   }
 
   return (
-    <section
-      className="relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${backdropUrl})` }}
-    >
-      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-      <div className="relative p-4 z-10">
-        <Navbar />
-        <ProfileHero 
-          profileUser={profileUser} 
-          isFriend={isFriend}
-          onRemoveFriend={() => handleFriendUpdate(false)}
-          currentUser={currentUser}
-        />
+    <>
+      <Head>
+        <title>{profileUser?.username ? `${profileUser.username}'s Profile` : 'User Profile'}</title>
+      </Head>
 
-        {showPrivateContent ? (
-          <>
-            <p className="text-3xl mt-10 mb-20 md:text-6xl font-bold text-center">Favorites</p>
+      <section
+        className="relative bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${backdropUrl})` }}
+      >
+        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+        <div className="relative p-4 z-10">
+          <Navbar />
+          <ProfileHero 
+            profileUser={profileUser} 
+            isFriend={isFriend}
+            onRemoveFriend={() => handleFriendUpdate(false)}
+            currentUser={currentUser}
+          />
 
-            <div className="relative flex flex-col z-10 mt-10 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
-              {profileUser.favoriteMovies?.map((movie, index) => (
-                <MovieCard 
-                  key={index} 
-                  movie={{
-                    movieid: movie.movieid,
-                    title: movie.title,
-                    movieposterlink: movie.movieposterlink,
-                    directors: movie.directors
-                  }} 
-                />
-              ))}
-            </div>
+          {showPrivateContent ? (
+            <>
+              <p className="text-3xl mt-10 mb-20 md:text-6xl font-bold text-center">Favorites</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
-              <div className="w-full flex flex-col p-6 rounded-xl">
-                <h1 className='text-5xl font-bold mb-5 text-white text-center'>Recent Reviews</h1>
-                <ThirdScreenReviewsP 
-                  reviews={formattedReviews} 
-                  userId={profileUser.userID}
-                  userType={profileUser.userType}
-                />
+              <div className="relative flex flex-col z-10 mt-10 md:flex-row md:space-x-6 space-y-20 md:space-y-0">
+                {profileUser.favoriteMovies?.map((movie, index) => (
+                  <MovieCard 
+                    key={index} 
+                    movie={{
+                      movieid: movie.movieid,
+                      title: movie.title,
+                      movieposterlink: movie.movieposterlink,
+                      directors: movie.directors
+                    }} 
+                  />
+                ))}
               </div>
 
-              {profileUser.yearlyStats && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-24">
                 <div className="w-full flex flex-col p-6 rounded-xl">
-                  <YearlyStats 
-                    yearlyStats={profileUser.yearlyStats} 
-                    uniqueMoviesWatched={profileUser.basicDetails?.uniqueMoviesWatched}
-                    loggedMoviesCount={profileUser.basicDetails?.loggedMoviesCount}
-                    activitiesCount={profileUser.basicDetails?.activitiesCount}
-                    mostLoggedMovie={profileUser.basicDetails?.mostLoggedMovie}
-                    activityLikes={profileUser.basicDetails?.activityLikes}
+                  <h1 className='text-5xl font-bold mb-5 text-white text-center'>Recent Reviews</h1>
+                  <ThirdScreenReviewsP 
+                    reviews={formattedReviews} 
+                    userId={profileUser.userID}
+                    userType={profileUser.userType}
                   />
                 </div>
-              )}
-            </div>
 
-            {isCurrentUser && currentUser?.userType === 'User' && (
-              <div className="flex flex-col items-center space-y-4 mt-12">
-                <div className="flex justify-center space-x-6">
-                  <button
-                    onClick={() => requestUserTypeChange('Critic')}
-                    disabled={apiLoading}
-                    className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-                  >
-                    Apply to be Critic
-                  </button>
-                  <button
-                    onClick={() => requestUserTypeChange('Admin')}
-                    disabled={apiLoading}
-                    className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
-                  >
-                    Apply to be Admin
-                  </button>
-                </div>
-                {responseMsg && <p className="text-purpleWhite text-center">{responseMsg}</p>}
+                {profileUser.yearlyStats && (
+                  <div className="w-full flex flex-col p-6 rounded-xl">
+                    <YearlyStats 
+                      yearlyStats={profileUser.yearlyStats} 
+                      uniqueMoviesWatched={profileUser.basicDetails?.uniqueMoviesWatched}
+                      loggedMoviesCount={profileUser.basicDetails?.loggedMoviesCount}
+                      activitiesCount={profileUser.basicDetails?.activitiesCount}
+                      mostLoggedMovie={profileUser.basicDetails?.mostLoggedMovie}
+                      activityLikes={profileUser.basicDetails?.activityLikes}
+                    />
+                  </div>
+                )}
               </div>
-            )}
-          </>
-        ) : (
-          <div className="mt-10 text-center">
-            <p className="text-white mt-10 font-semibold text-center text-3xl">
-              Shh... this user's movie vault is private.<br></br>
-              {currentUser ? "Become friends to peek behind the scenes!" : "Log in and become friends to see more!"}
-            </p>
-          </div>
-        )}
-      </div>
-      <Footer />
-    </section>
+
+              {isCurrentUser && currentUser?.userType === 'User' && (
+                <div className="flex flex-col items-center space-y-4 mt-12">
+                  <div className="flex justify-center space-x-6">
+                    <button
+                      onClick={() => requestUserTypeChange('Critic')}
+                      disabled={apiLoading}
+                      className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
+                    >
+                      Apply to be Critic
+                    </button>
+                    <button
+                      onClick={() => requestUserTypeChange('Admin')}
+                      disabled={apiLoading}
+                      className="bg-purple text-white px-4 py-3 rounded-xl hover:bg-darkPurple transition disabled:opacity-50"
+                    >
+                      Apply to be Admin
+                    </button>
+                  </div>
+                  {responseMsg && <p className="text-purpleWhite text-center">{responseMsg}</p>}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="mt-10 text-center">
+              <p className="text-white mt-10 font-semibold text-center text-3xl">
+                Shh... this user's movie vault is private.<br></br>
+                {currentUser ? "Become friends to peek behind the scenes!" : "Log in and become friends to see more!"}
+              </p>
+            </div>
+          )}
+        </div>
+        <Footer />
+      </section>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import EditFavorite from '@/components/EditFavorite';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRouter } from 'next/router';
-
+import Head from 'next/head';
 export default function EditProfile() {
   const { user, token } = useAuth();
   const router = useRouter();
@@ -193,7 +193,11 @@ export default function EditProfile() {
   }
 
   return (
-    <section className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${background})` }}>
+    <>
+    <Head>
+      <title>Edit Profile</title>
+    </Head>
+     <section className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${background})` }}>
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
       
@@ -386,6 +390,7 @@ export default function EditProfile() {
         </div>
       </div>
       <Footer />
-    </section>
+    </section> </>
+  
   );
 }

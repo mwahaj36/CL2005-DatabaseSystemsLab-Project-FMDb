@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MovieCard from '@/components/MovieCard';
 import { useAuth } from '@/context/AuthContext';
-
+import Head from 'next/head';
 const UserWatchedMoviesPage = () => {
   const router = useRouter();
   const { userID } = router.query;
@@ -96,6 +96,11 @@ const UserWatchedMoviesPage = () => {
   const isOwnWatchedMovies = user && user.userID === parseInt(userID);
 
   return (
+    <> 
+    <Head>
+    <title>{profileUsername ? `${profileUsername}'s Watched Movies` : 'User Watched Movies'}</title>
+    </Head>
+
     <div className="relative min-h-screen">
       <div
         className="relative bg-cover bg-center bg-fixed"
@@ -212,6 +217,8 @@ const UserWatchedMoviesPage = () => {
       </div>
       <Footer />
     </div>
+    </>
+   
   );
 };
 

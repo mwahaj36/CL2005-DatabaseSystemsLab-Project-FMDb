@@ -4,7 +4,7 @@ import ThirdScreenReviews from "@/components/ThirdScreenReviews";
 import Spotlight from "../components/Spotlight";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import Head from "next/head";
 const HomePage = () => {
   const { user } = useContext(AuthContext);
   const [topMovies, setTopMovies] = useState([]);
@@ -68,6 +68,10 @@ const HomePage = () => {
 
 
   return (
+    <>
+    <Head>
+      <title>Verified Critics</title>  
+      </Head>
     <div>
       <div className="relative bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/nvxrQQspxmSblCYDtvDAbVFX8Jt.jpg')" }}>
         <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
@@ -99,7 +103,8 @@ const HomePage = () => {
         
         <Footer />
       </div>
-    </div>
+    </div></>
+    
   );
 };
 
