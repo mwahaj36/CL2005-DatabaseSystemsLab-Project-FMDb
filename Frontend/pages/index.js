@@ -71,7 +71,6 @@ const HomePage = () => {
           }
         });
         if (!res.ok) {
-          // If 404, set empty data and no error (we'll hide the section)
           if (res.status === 404) {
             if (isMounted) {
               setApiState(prev => ({
@@ -135,7 +134,6 @@ const HomePage = () => {
           }
         });
         if (!res.ok) {
-          // If 404, set empty data and no error (we'll hide the section)
           if (res.status === 404) {
             if (isMounted) {
               setApiState(prev => ({
@@ -197,7 +195,6 @@ const HomePage = () => {
           }
         });
         if (!res.ok) {
-          // If 404, set empty data and no error (we'll hide the section)
           if (res.status === 404) {
             if (isMounted) {
               setApiState(prev => ({
@@ -249,107 +246,95 @@ const HomePage = () => {
     { username: "mark_twain", image: "", activities: 30, moviesWatched: 10 }
   ];
 
-  // Helper to determine if a section should be shown
   const shouldShowSection = (section) => {
-    // Don't show if there was an error (other than 404 which we've handled)
     if (section.error && section.error.includes('404')) return false;
     if (section.error) return false;
-    
-    // Show if there's data or if it's still loading (we'll show loading state)
     return section.data.length > 0 || section.loading;
   };
 
   return (
     <>
-    <Head>
-            <title>FMDb - Home </title>
-          </Head>
-    <div className="relative bg-cover bg-center bg-fixed min-h-screen" 
-         style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
-      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-      <Navbar />
-      
-      {/* Welcome message for logged in users */}
-      {user && (
-        <h1 className=" relative z-10 text-8xl text-white text-shadow font-bold text-center">
-          Welcome Back!
-        </h1>
-      )}
-
-      {/* Hero section for non-logged in users */}
-      {!user && <HeroSection />}
-
-      {/* Spotlight section (for all users) */}
-      <section className="relative z-10 pt-10">
-        <h2 className="-mt-5 text-6xl text-white text-shadow font-bold text-center">
-          In the Spotlight
-        </h2>
-        {apiState.trending.loading ? (
-          <div className="text-center text-white py-10">Loading trending movies...</div>
-        ) : apiState.trending.error ? (
-          <div className="text-center text-red-400 py-10">{apiState.trending.error}</div>
-        ) : (
-          <Spotlight movies={apiState.trending.data} />
+      <Head>
+        <title>FMDb - Home</title>
+      </Head>
+      <div className="relative bg-cover bg-center bg-fixed min-h-screen" 
+           style={{ backgroundImage: "url('https://image.tmdb.org/t/p/original/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg')" }}>
+        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+        <Navbar />
+        
+        {user && (
+          <h1 className="relative z-10 text-4xl sm:text-6xl md:text-8xl text-white text-shadow font-bold text-center">
+            Welcome Back!
+          </h1>
         )}
-      </section>
 
-      {/* Logged in user content */}
-      {user && (
-        <>
-          {/* Recommended for you - only show if there's data or loading */}
-          {shouldShowSection(apiState.recommended) && (
-            <section className="relative z-10 pt-16">
-              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-2">
-                Recommended For You
-              </h2>
-              {apiState.recommended.recommendedOn && (
-                <p className="text-center text-purple-300 text-xl mb-6]]">
-                  Based on your interest in: {apiState.recommended.recommendedOn}
-                </p>
-              )}
-              {apiState.recommended.loading ? (
-                <div className="text-center text-white py-10">Loading recommendations...</div>
-              ) : apiState.recommended.data.length > 0 ? (
-                <Spotlight movies={apiState.recommended.data} />
-              ) : null}
-            </section>
+        {!user && <HeroSection />}
+
+        <section className="relative z-10 pt-10">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl text-white text-shadow font-bold text-center">
+            In the Spotlight
+          </h2>
+          {apiState.trending.loading ? (
+            <div className="text-center text-white py-10">Loading trending movies...</div>
+          ) : apiState.trending.error ? (
+            <div className="text-center text-red-400 py-10">{apiState.trending.error}</div>
+          ) : (
+            <Spotlight movies={apiState.trending.data} />
           )}
+        </section>
 
-          {/* Friends' Recent Activity - only show if there's data or loading */}
-          {shouldShowSection(apiState.friendsActivity) && (
-            <section className="relative z-10 pt-16">
-              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-                Friends' Recent Activity
-              </h2>
-              {apiState.friendsActivity.loading ? (
-                <div className="text-center text-white py-10">Loading friends activity...</div>
-              ) : apiState.friendsActivity.data.length > 0 ? (
-                <Spotlight movies={apiState.friendsActivity.data} />
-              ) : null}
-            </section>
-          )}
+        {user && (
+          <>
+            {shouldShowSection(apiState.recommended) && (
+              <section className="relative z-10 pt-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl text-white text-shadow font-bold text-center mb-2">
+                  Recommended For You
+                </h2>
+                {apiState.recommended.recommendedOn && (
+                  <p className="text-center text-purple-300 text-sm sm:text-lg md:text-xl mb-6">
+                    Based on your interest in: {apiState.recommended.recommendedOn}
+                  </p>
+                )}
+                {apiState.recommended.loading ? (
+                  <div className="text-center text-white py-10">Loading recommendations...</div>
+                ) : apiState.recommended.data.length > 0 ? (
+                  <Spotlight movies={apiState.recommended.data} />
+                ) : null}
+              </section>
+            )}
 
-          {/* Popular in Your Circle - only show if there's data or loading */}
-          {shouldShowSection(apiState.friendsWatchlist) && (
-            <section className="relative z-10 pt-16">
-              <h2 className="text-6xl text-white text-shadow font-bold text-center mb-8">
-                Popular in Your Circle
-              </h2>
-              {apiState.friendsWatchlist.loading ? (
-                <div className="text-center text-white py-10">Loading watchlist...</div>
-              ) : apiState.friendsWatchlist.data.length > 0 ? (
-                <Spotlight movies={apiState.friendsWatchlist.data} />
-              ) : null}
-            </section>
-          )}
-        </>
-      )}
+            {shouldShowSection(apiState.friendsActivity) && (
+              <section className="relative z-10 pt-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl text-white text-shadow font-bold text-center mb-8">
+                  Friends' Recent Activity
+                </h2>
+                {apiState.friendsActivity.loading ? (
+                  <div className="text-center text-white py-10">Loading friends activity...</div>
+                ) : apiState.friendsActivity.data.length > 0 ? (
+                  <Spotlight movies={apiState.friendsActivity.data} />
+                ) : null}
+              </section>
+            )}
 
-      {/* Leaderboard (for all users) */}
-      <Leaderboard topThree={topThreeUsers} />
+            {shouldShowSection(apiState.friendsWatchlist) && (
+              <section className="relative z-10 pt-16">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl text-white text-shadow font-bold text-center mb-8">
+                  Popular in Your Circle
+                </h2>
+                {apiState.friendsWatchlist.loading ? (
+                  <div className="text-center text-white py-10">Loading watchlist...</div>
+                ) : apiState.friendsWatchlist.data.length > 0 ? (
+                  <Spotlight movies={apiState.friendsWatchlist.data} />
+                ) : null}
+              </section>
+            )}
+          </>
+        )}
 
-      <Footer />
-    </div>
+        <Leaderboard topThree={topThreeUsers} />
+
+        <Footer />
+      </div>
     </>
   );
 };

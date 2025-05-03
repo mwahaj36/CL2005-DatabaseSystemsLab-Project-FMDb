@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import Head from "next/head";
+
 export default function LoginSignupPage() {
   const router = useRouter();
   const { login, signup, resetPassword } = useContext(AuthContext);
@@ -144,16 +145,16 @@ export default function LoginSignupPage() {
       <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
       <Navbar />
       
-      <section className="relative -mt-14 z-10 flex items-center justify-center min-h-screen">
-        <div className="container flex flex-col justify-center items-center px-6 mx-auto">
-          <div className="w-full max-w-md">
-            <div className="bg-purpleWhite bg-opacity-70 px-8 py-10 rounded-3xl space-y-6 drop-shadow-xl">
+      <section className="relative -mt-14 z-10 flex items-center justify-center min-h-screen px-4">
+        <div className="container flex flex-col justify-center items-center px-4 mx-auto">
+          <div className="w-full max-w-sm">
+            <div className="bg-purpleWhite bg-opacity-70 px-6 py-8 rounded-3xl space-y-6 drop-shadow-xl">
               <div className="text-center">
-                <h1 className="text-4xl font-bold text-darkPurple mb-2">
+                <h1 className="text-3xl font-bold text-darkPurple mb-2">
                   {isResetPassword ? "Reset Password" : 
                    isSignup ? "Create Account" : "Welcome Back"}
                 </h1>
-                <p className="text-purple">
+                <p className="text-purple text-sm">
                   {isResetPassword ? "Enter your email to reset password" :
                    isSignup ? "Join our community today" : "Sign in to continue"}
                 </p>
@@ -161,24 +162,24 @@ export default function LoginSignupPage() {
 
               <form onSubmit={handleSubmit}>
                 {isSignup && !isResetPassword && (
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                  <div className="flex flex-wrap -mx-2 mb-4">
+                    <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                       <input
                         type="text"
                         name="firstName"
                         placeholder="First Name"
-                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
                       />
                     </div>
-                    <div className="w-full md:w-1/2 px-3">
+                    <div className="w-full md:w-1/2 px-2">
                       <input
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
-                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                        className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                         value={formData.lastName}
                         onChange={handleInputChange}
                         required
@@ -193,7 +194,7 @@ export default function LoginSignupPage() {
                       type="text"
                       name="username"
                       placeholder="Username"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                       value={formData.username}
                       onChange={handleInputChange}
                       required={!isResetPassword}
@@ -207,7 +208,7 @@ export default function LoginSignupPage() {
                       type="email"
                       name="email"
                       placeholder="Email Address"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
@@ -220,7 +221,7 @@ export default function LoginSignupPage() {
                     type="password"
                     name="password"
                     placeholder={isResetPassword ? "New Password" : "Password"}
-                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                    className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                     value={formData.password}
                     onChange={handleInputChange}
                     required
@@ -233,7 +234,7 @@ export default function LoginSignupPage() {
                       type="password"
                       name="confirmPassword"
                       placeholder="Confirm Password"
-                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
+                      className="block w-full bg-white text-darkPurple border-2 border-purpleWhite rounded-lg py-2 px-3 leading-tight focus:outline-none focus:ring-2 focus:ring-darkPurple focus:border-transparent"
                       value={formData.confirmPassword}
                       onChange={handleInputChange}
                       required
@@ -302,7 +303,7 @@ export default function LoginSignupPage() {
 
               {!isResetPassword ? (
                 <div className="text-center mt-4">
-                  <p className="text-darkPurple">
+                  <p className="text-darkPurple text-sm">
                     {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
                     <button
                       onClick={toggleFormType}
@@ -314,7 +315,7 @@ export default function LoginSignupPage() {
                 </div>
               ) : (
                 <div className="text-center mt-4">
-                  <p className="text-darkPurple">
+                  <p className="text-darkPurple text-sm">
                     Remember your password?{" "}
                     <button
                       onClick={toggleFormType}
