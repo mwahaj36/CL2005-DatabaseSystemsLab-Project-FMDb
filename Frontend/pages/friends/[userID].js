@@ -4,6 +4,7 @@ import MemberCard from "@/components/MemberCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useAuth } from "@/context/AuthContext"; // Assuming you have an auth context
+import Head from 'next/head';
 
 const FriendsPage = () => {
   const router = useRouter();
@@ -88,45 +89,50 @@ const FriendsPage = () => {
   }
 
   return (
-    <div
-      className="relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url('${backdrop || 'https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg'}')` }}
-    >
-      <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
-      <section id="friends" className="relative z-10">
-        <Navbar />
-        <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">
-          {username ? `${username}'s Friends` : 'Friends'}
-        </h2>
-
-        {sortedFriends.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
-            {sortedFriends.map((friend, index) => (
-              <MemberCard
-                key={index}
-                imageSrc={friend.imageSrc}
-                alt={friend.alt}
-                userID={friend.userID}
-                userType={friend.userType}
-                userName={friend.userName}
-                activities={friend.activities}
-                movies={friend.movies}
-                bio={friend.bio}
-                gender={friend.gender}
-                privacy={friend.privacy}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center text-white text-xl py-12">
-            <p>No friends to display.</p>
-          </div>
-        )}
-
-        <Footer />
-      </section>
-    </div>
+    <>
+      <Head>
+        <title>{username ? `${username}'s Friends` : 'User Friend List'}</title>
+      </Head>
+      <div
+        className="relative bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url('${backdrop || 'https://image.tmdb.org/t/p/original/mLyW3UTgi2lsMdtueYODcfAB9Ku.jpg'}')` }}
+      >
+        <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
+        <section id="friends" className="relative z-10">
+          <Navbar />
+          <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">
+            {username ? `${username}'s Friends` : 'Friends'}
+          </h2>
+  
+          {sortedFriends.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
+              {sortedFriends.map((friend, index) => (
+                <MemberCard
+                  key={index}
+                  imageSrc={friend.imageSrc}
+                  alt={friend.alt}
+                  userID={friend.userID}
+                  userType={friend.userType}
+                  userName={friend.userName}
+                  activities={friend.activities}
+                  movies={friend.movies}
+                  bio={friend.bio}
+                  gender={friend.gender}
+                  privacy={friend.privacy}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-white text-xl py-12">
+              <p>No friends to display.</p>
+            </div>
+          )}
+  
+          <Footer />
+        </section>
+      </div>
+    </>
   );
-};
+}
 
 export default FriendsPage;
