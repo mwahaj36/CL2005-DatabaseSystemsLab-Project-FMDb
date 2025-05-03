@@ -38,6 +38,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
         throw new Error(data.message || 'Failed to update favorites');
       }
 
+      // Fetch full movie data after successful update
       const movieDetailsRes = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/${movieId}`);
       const movieData = await movieDetailsRes.json();
 
@@ -62,6 +63,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
     }
   };
 
+  // If no movie exists for this rank
   if (!movie || !movie.movieid) {
     return (
       <div className="flex flex-col items-center justify-center p-4 w-full h-full bg-white bg-opacity-10 rounded-lg">
@@ -72,32 +74,33 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
           Add Favorite
         </button>
 
+        {/* Add Favorite Modal */}
         <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
           <div className="fixed inset-0 flex items-center justify-center p-4">
-            <Dialog.Panel className="w-full max-w-md max-w-full rounded bg-darkPurple p-6 text-white">
-              <Dialog.Title className="text-xl sm:text-2xl font-bold mb-4">Add Favorite Movie (Rank #{rank})</Dialog.Title>
+            <Dialog.Panel className="w-full max-w-md rounded bg-darkPurple p-6 text-white">
+              <Dialog.Title className="text-2xl font-bold mb-4">Add Favorite Movie (Rank #{rank})</Dialog.Title>
               
               {error && (
-                <div className="mb-4 p-2 bg-red-100 text-red-700 rounded text-sm">
+                <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
                   {error}
                 </div>
               )}
               
               {success && (
-                <div className="mb-4 p-2 bg-green-100 text-green-700 rounded text-sm">
+                <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">
                   {success}
                 </div>
               )}
 
               <div className="space-y-4">
                 <div>
-                  <label className="block mb-1 text-sm">Movie ID</label>
+                  <label className="block mb-1">Movie ID</label>
                   <input
                     type="number"
                     value={movieId}
                     onChange={(e) => setMovieId(e.target.value)}
-                    className="w-full bg-white p-2 rounded text-darkPurple text-sm"
+                    className="w-full bg-white p-2 rounded text-darkPurple"
                     placeholder="Enter TMDB Movie ID"
                   />
                 </div>
@@ -106,14 +109,14 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
               <div className="mt-6 flex justify-end space-x-3">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 bg-gray-500 rounded hover:bg-gray-600 text-sm"
+                  className="px-4 py-2 bg-gray-500 rounded hover:bg-gray-600"
                   disabled={isSubmitting}
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleAddFavorite}
-                  className="px-4 py-2 bg-purple rounded hover:bg-purple-700 disabled:opacity-50 text-sm"
+                  className="px-4 py-2 bg-purple rounded hover:bg-purple-700 disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Saving...' : 'Save'}
@@ -126,6 +129,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
     );
   }
 
+  // If a movie exists for this rank
   return (
     <div className="flex flex-col items-center p-4 w-full h-full">
       <div className="text-white text-lg font-bold mb-2">Rank #{rank}</div>
@@ -134,7 +138,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
         <a className="w-full flex flex-col items-center">
           <img
             src={movie.movieposterlink || '/placeholder-movie.jpg'}
-            className="object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105 max-w-full"
+            className=" object-cover shadow-lg rounded-lg transition-transform duration-300 hover:scale-105"
             alt={movie.title}
             onError={(e) => {
               e.target.onerror = null;
@@ -145,7 +149,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       </Link>
       
       <div className="text-center w-full px-2 mt-2 h-16 flex flex-col justify-center">
-        <h5 className="text-base sm:text-lg font-bold text-white line-clamp-1" title={movie.title}>
+        <h5 className="text-lg font-bold text-white line-clamp-1" title={movie.title}>
           {movie.title}
         </h5>
         {movie.directors?.length > 0 && (
@@ -165,32 +169,33 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
         Change Movie
       </button>
 
+      {/* Change Movie Modal */}
       <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-md max-w-full rounded bg-darkPurple p-6 text-white">
-            <Dialog.Title className="text-xl sm:text-2xl font-bold mb-4">Change Favorite Movie (Rank #{rank})</Dialog.Title>
+          <Dialog.Panel className="w-full max-w-md rounded bg-darkPurple p-6 text-white">
+            <Dialog.Title className="text-2xl font-bold mb-4">Change Favorite Movie (Rank #{rank})</Dialog.Title>
             
             {error && (
-              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded text-sm">
+              <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
                 {error}
               </div>
             )}
             
             {success && (
-              <div className="mb-4 p-2 bg-green-100 text-green-700 rounded text-sm">
+              <div className="mb-4 p-2 bg-green-100 text-green-700 rounded">
                 {success}
               </div>
             )}
 
             <div className="space-y-4">
               <div>
-                <label className="block mb-1 text-sm">Movie ID</label>
+                <label className="block mb-1">Movie ID</label>
                 <input
                   type="number"
                   value={movieId}
                   onChange={(e) => setMovieId(e.target.value)}
-                  className="w-full bg-white p-2 rounded text-darkPurple text-sm"
+                  className="w-full bg-white p-2 rounded text-darkPurple"
                   placeholder="Enter TMDB Movie ID"
                 />
               </div>
@@ -199,14 +204,14 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
             <div className="mt-6 flex justify-end space-x-3">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-500 rounded hover:bg-gray-600 text-sm"
+                className="px-4 py-2 bg-gray-500 rounded hover:bg-gray-600"
                 disabled={isSubmitting}
               >
                 Cancel
               </button>
               <button
                 onClick={handleAddFavorite}
-                className="px-4 py-2 bg-purple rounded hover:bg-purple-700 disabled:opacity-50 text-sm"
+                className="px-4 py-2 bg-purple rounded hover:bg-purple-700 disabled:opacity-50"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Saving...' : 'Save'}

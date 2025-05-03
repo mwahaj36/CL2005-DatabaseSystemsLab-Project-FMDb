@@ -34,9 +34,9 @@ const ActivityAndReviewSection = () => {
     return (
       <div
         key={review.activityID}
-        className="relative flex flex-col items-center w-full z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+        className="relative items-center w-full z-10 min-h-40 bg-black bg-opacity-60 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
       >
-        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 relative w-full">
+        <div className="flex items-center space-x-6 relative w-full">
           <div
             className={`font-bold text-darkPurple text-xl md:text-2xl px-5 py-8 rounded-xl shadow-inner ${
               review.userType === 'verified critic' ? 'bg-gold' : 'bg-purpleWhite'
@@ -46,11 +46,11 @@ const ActivityAndReviewSection = () => {
           </div>
 
           <div className="text-center md:text-left flex-1">
-            <p className="text-white text-sm md:text-lg italic">{review.reviewText}</p>
-            <p className="text-purpleWhite font-bold mt-2 text-xs md:text-sm">{review.movieTitle}</p>
+            <p className="text-white text-md md:text-lg italic">{review.reviewText}</p>
+            <p className="text-purpleWhite font-bold mt-2 text-sm">{review.movieTitle}</p>
           </div>
 
-          <div className="absolute bottom-4 right-4 md:static">
+          <div className="absolute bottom-4 right-4">
             <button
               onClick={() => handleLikeClick(review.activityID)}
               className={`text-2xl md:text-3xl transition-transform duration-200 hover:scale-125 focus:outline-none ${
@@ -71,15 +71,15 @@ const ActivityAndReviewSection = () => {
   };
 
   return (
-    <section id="review-section" className="relative z-10 container px-4 md:px-6 mx-auto">
-      <h2 className="text-purpleWhite text-xl md:text-5xl font-bold mb-6 text-center">Recent Reviews</h2>
+    <section id="review-section" className="relative z-10 container px-6 mx-auto">
+      <h2 className="text-purpleWhite text-2xl md:text-5xl font-bold mb-6 text-center">Recent Reviews</h2>
 
       {showError && (
         <Error message="Oops! We couldn't load the reviews right now." onClose={() => setShowError(false)} />
       )}
 
-      <div className="gap-6 md:gap-8">
-        <div className="space-y-4 md:space-y-6">{firstColReviews.map(renderReviewCard)}</div>
+      <div className="gap-8">
+        <div className="space-y-6">{firstColReviews.map(renderReviewCard)}</div>
       </div>
     </section>
   );

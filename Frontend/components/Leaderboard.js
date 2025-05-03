@@ -40,8 +40,7 @@ const Leaderboard = () => {
     "rgba(214, 175, 54, 0.6)",  // Gold with 70% opacity
     "rgba(167, 167, 173, 0.6)", // Silver with 70% opacity
     "rgba(130, 74, 2, 0.6)",    // Bronze with 70% opacity
-  ];  
-  const places = ["1st Place", "2nd Place", "3rd Place"];
+  ];  const places = ["1st Place", "2nd Place", "3rd Place"];
 
   const closeErrorPopup = () => {
     setShowErrorPopup(false);
@@ -76,12 +75,12 @@ const Leaderboard = () => {
         <h2 className="text-white text-6xl mt-20 text-center font-bold mb-8">
           Leaderboard
         </h2>
-        <div className="flex flex-col items-center space-y-10 md:flex-row md:justify-center md:space-y-0 md:space-x-20">
+        <div className="flex justify-center space-x-20">
           {leaderboardData.map((user, index) => (
             <Link href={`/profile/${user.UserID}`} key={user.UserID}>
               <div
-                className={`flex flex-col items-center p-4 bg-opacity-60 rounded-xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
-                style={{ backgroundColor: medalColors[index] }}
+                className={`flex items-center p-4 bg-opacity-60 rounded-xl shadow-xl hover:scale-105 transition mt-10 max-w-xs cursor-pointer`}
+                style={{ backgroundColor: medalColors[index]  }}
               >
                 <div className="w-32 h-32 bg-white rounded-xl overflow-hidden shadow-md">
                   <img

@@ -68,10 +68,7 @@ const MovieSearchSelect = ({ onSelect, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-60">
-      <div
-        ref={wrapperRef}
-        className="bg-darkPurple p-6 rounded-lg w-full max-w-md shadow-lg relative sm:max-w-sm"
-      >
+      <div ref={wrapperRef} className="bg-darkPurple p-6 rounded-lg w-full max-w-md shadow-lg relative">
         <button
           className="absolute top-2 right-3 text-xl font-bold text-white hover:text-purple"
           onClick={onClose}
@@ -81,7 +78,7 @@ const MovieSearchSelect = ({ onSelect, onClose }) => {
 
         <input
           type="text"
-          className="w-full px-4 py-4 border-white border-2 bg-darkPurple text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple mb-4"
+          className="w-full px-4 py-4 border-white border-2 bg-darkPurple rounded-md focus:outline-none focus:ring-2 focus:ring-purple mb-4"
           placeholder="Search for a movie..."
           value={query}
           onChange={handleInputChange}
@@ -105,8 +102,7 @@ const MovieSearchSelect = ({ onSelect, onClose }) => {
                   alt={movie.title}
                   className="w-16 h-24 object-cover mr-4"
                   onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/80x120?text=No+Poster";
+                    e.target.src = 'https://via.placeholder.com/80x120?text=No+Poster';
                   }}
                 />
                 <div className="flex flex-col">

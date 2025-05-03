@@ -150,7 +150,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
   
 
   return (
-    <div className="bg-darkPurple text-white p-4 md:p-6 rounded-xl shadow-lg relative max-w-4xl mx-auto">
+    <div className="bg-darkPurple text-white p-6 rounded-xl shadow-lg relative max-w-4xl mx-auto">
       <button
         onClick={onDiscard}
         className="absolute top-4 right-4 text-white text-2xl font-bold hover:scale-110 transition"
@@ -160,22 +160,22 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         &times;
       </button>
 
-      <div className="flex flex-col gap-4 md:gap-6 md:flex-row">
+      <div className="flex gap-6 flex-col md:flex-row">
         <img
           src={moviePoster}
           alt={movieTitle}
-          className="h-48 md:h-72 w-full md:w-auto rounded-xl shadow-md object-cover"
+          className="h-72 rounded-xl shadow-md object-cover"
         />
 
         <div className="flex-1 flex flex-col justify-between">
-          <h2 className="text-xl md:text-2xl font-bold">
+          <h2 className="text-2xl font-bold">
             {movieTitle}
             {movieYear && (
               <span className="text-purple text-lg font-normal"> {movieYear}</span>
             )}
           </h2>
 
-          <div className="flex items-center gap-4 mt-4 flex-wrap">
+          <div className="flex items-center gap-4 mt-4">
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
