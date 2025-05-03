@@ -396,13 +396,24 @@ router.get('/friends', authenticateToken, async (req, res) => {
 
         // Fetch the 5 most recent movies watched by friends
         const recentMoviesQuery = `
-            SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
-            FROM Activity A
-            JOIN Users U ON A.UserID = U.UserID
-            JOIN Movies M ON A.MovieID = M.MovieID
-            WHERE A.UserID IN (${friendIdsString})
-            GROUP BY M.MovieID, M.Title, M.MoviePosterLink, A.ActivityDateTime
-            ORDER BY A.ActivityDateTime DESC;
+            WITH RankedActivity AS (
+                SELECT 
+                    M.MovieID,
+                    M.Title,
+                    M.MoviePosterLink,
+                    A.ActivityDateTime,
+                    ROW_NUMBER() OVER (PARTITION BY M.MovieID ORDER BY A.ActivityDateTime DESC) AS rn
+                FROM Activity A
+                JOIN Movies M ON A.MovieID = M.MovieID
+                WHERE A.UserID IN (${friendIdsString})
+            )
+            SELECT TOP 5
+                MovieID,
+                Title,
+                MoviePosterLink
+            FROM RankedActivity
+            WHERE rn = 1
+            ORDER BY ActivityDateTime DESC;
         `;
         const recentMoviesRequest = new sql.Request();
         const recentMoviesResult = await recentMoviesRequest.query(recentMoviesQuery);
@@ -440,13 +451,24 @@ router.get('/friends/watchlist', authenticateToken, async (req, res) => {
 
         // Fetch the 5 most recent movies added to watchlist by friends
         const recentMoviesQuery = `
-            SELECT TOP 5 M.MovieID, M.Title, M.MoviePosterLink
-            FROM UserWatchlist UW
-            JOIN Users U ON UW.UserID = U.UserID
-            JOIN Movies M ON UW.MovieID = M.MovieID
-            WHERE UW.UserID IN (${friendIdsString})
-            GROUP BY M.MovieID, M.Title, M.MoviePosterLink, UW.AddedAt
-            ORDER BY UW.AddedAt DESC;
+            WITH RankedWatchlist AS (
+                SELECT 
+                    M.MovieID,
+                    M.Title,
+                    M.MoviePosterLink,
+                    UW.AddedAt,
+                    ROW_NUMBER() OVER (PARTITION BY M.MovieID ORDER BY UW.AddedAt DESC) AS rn
+                FROM UserWatchlist UW
+                JOIN Movies M ON UW.MovieID = M.MovieID
+                WHERE UW.UserID IN (${friendIdsString})
+            )
+            SELECT TOP 5 
+                MovieID,
+                Title,
+                MoviePosterLink
+            FROM RankedWatchlist
+            WHERE rn = 1
+            ORDER BY AddedAt DESC;
         `;
         const recentMoviesRequest = new sql.Request();
         const recentMoviesResult = await recentMoviesRequest.query(recentMoviesQuery);
