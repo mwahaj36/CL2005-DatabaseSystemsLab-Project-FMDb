@@ -72,7 +72,7 @@ const MoviePage = () => {
   return (
     <>
       <Head>
-        <title>{selectedMovie.title} ({selectedMovie.year})</title>
+        <title>{selectedMovie.title}</title>
       </Head>
       <div>
         <section
