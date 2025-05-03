@@ -98,8 +98,9 @@ const UserLikedMoviesPage = () => {
 
   return (
     <>
-<title>{profileUsername ? `${profileUsername}'s Liked Movies` : 'User Liked Movies'}</title>
-
+   <Head>
+           <title>{username ? `${username}'s Liked Movies` : 'User Liked Movies'}</title>
+         </Head>
     <div className="relative min-h-screen">
       <div
         className="relative bg-cover bg-center bg-fixed"

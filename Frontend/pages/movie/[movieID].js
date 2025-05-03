@@ -8,8 +8,6 @@ import Footer from '../../components/Footer';
 import MovieHero from '../../components/MovieHero';
 import Head from 'next/head';
 
-
-
 const MoviePage = () => {
   const router = useRouter();
   const { movieID } = router.query;
@@ -25,14 +23,12 @@ const MoviePage = () => {
     try {
       setLoading(true);
 
-      // Fetch all data in parallel
       const [movieRes, reviewsRes, castRes] = await Promise.all([
         fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/details/${movieID}`),
         fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/top/${movieID}`),
         fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/cast/${movieID}`)
       ]);
 
-      // Check responses and parse JSON
       const [movieData, reviewsData, castData] = await Promise.all([
         movieRes.ok ? movieRes.json() : Promise.reject(new Error('Failed to fetch movie details')),
         reviewsRes.ok ? reviewsRes.json() : Promise.reject(new Error('Failed to fetch reviews')),
@@ -82,8 +78,8 @@ const MoviePage = () => {
           <div className="fixed inset-0 bg-darkPurple bg-opacity-80 z-0"></div>
           <Navbar />
           <MovieHero movieData={selectedMovie} />
-          <div className="container px-6 mx-auto mt-16 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="container px-4 sm:px-6 mx-auto mt-8 sm:mt-16 relative z-10">
+            <div className="grid grid-cols-1 gap-6 sm:gap-10">
               {castAndCrew && (
                 <CastAndCrew
                   crewData={{

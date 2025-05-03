@@ -15,9 +15,9 @@ const LoggedMovies = ({ movies }) => {
           return (
             <div
               key={index}
-              className="flex items-center bg-darkPurple bg-opacity-90 rounded-2xl shadow-md px-6 py-4 hover:scale-[1.01] transition-transform duration-300"
+              className="flex flex-col sm:flex-row items-center bg-darkPurple bg-opacity-90 rounded-2xl shadow-md px-4 py-4 hover:scale-[1.01] transition-transform duration-300"
             >
-              <div className="w-12 text-center text-purpleWhite font-semibold text-md leading-tight mr-2">
+              <div className="w-full sm:w-auto text-center text-purpleWhite font-semibold text-md leading-tight mb-2 sm:mb-0 sm:mr-4">
                 <p>{date[0]}</p>
                 <p className="text-2xl">{date[2]}</p>
                 <p>{date[1]}</p>
@@ -26,11 +26,11 @@ const LoggedMovies = ({ movies }) => {
               <img
                 src={movie.movieposterlink}
                 alt="Movie Poster"
-                className="w-12 h-16 rounded-lg object-cover"
+                className="w-24 h-32 rounded-lg object-cover mb-2 sm:mb-0 sm:mr-4"
               />
 
-              <div className="flex flex-col ml-4 flex-1">
-                <div className="text-white font-bold text-lg flex items-center gap-2">
+              <div className="flex flex-col flex-1 text-center sm:text-left">
+                <div className="text-white font-bold text-lg flex items-center justify-center sm:justify-start gap-2">
                   {movie.title}
                 </div>
                 {movie.directors?.length > 0 && (
@@ -41,7 +41,7 @@ const LoggedMovies = ({ movies }) => {
               </div>
 
               {user?.userID?.toString() === userID && (
-                <div className="ml-auto">
+                <div className="mt-2 sm:mt-0 sm:ml-auto">
                   <button className="text-purpleWhite hover:text-purple text-xl">
                     <i className="fas fa-trash-alt text-2xl"></i>
                   </button>

@@ -23,12 +23,11 @@ const ProfileHero = ({
   const [requestStatus, setRequestStatus] = useState('none');
   const [isLoadingRequestStatus, setIsLoadingRequestStatus] = useState(true);
 
-  // Determine if the current user can see private content
-  const canViewPrivateContent = profileUser.userID === currentUser?.userID || 
-                               friendStatus || 
-                               profileUser.privacy === 'Public';
+  const canViewPrivateContent =
+    profileUser.userID === currentUser?.userID ||
+    friendStatus ||
+    profileUser.privacy === 'Public';
 
-  // Check friend request status on component mount and when user changes
   useEffect(() => {
     const checkFriendRequestStatus = async () => {
       if (!currentUser || profileUser.userID === currentUser.userID) {
@@ -38,16 +37,21 @@ const ProfileHero = ({
 
       try {
         setIsLoadingRequestStatus(true);
-        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/isFriendReq/${profileUser.userID}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`
+        const response = await fetch(
+          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/isFriendReq/${profileUser.userID}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
-        });
+        );
 
         const data = await response.json();
-        
+
         if (!response.ok) {
-          throw new Error(data.message || 'Failed to check friend request status');
+          throw new Error(
+            data.message || 'Failed to check friend request status'
+          );
         }
 
         setRequestStatus(data.exists ? 'pending-sent' : 'none');
@@ -67,31 +71,33 @@ const ProfileHero = ({
 
   const handleAddFriend = async () => {
     if (!currentUser) {
-      setErrorMessage("You must be logged in to add friends.");
+      setErrorMessage('You must be logged in to add friends.');
       return;
     }
-    
+
     try {
       setIsSending(true);
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/friendRequest', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          userId: profileUser.userID,
-          message: "I'd like to add you as a friend"
-        })
-      });
+      const response = await fetch(
+        'https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/friendRequest',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            userId: profileUser.userID,
+            message: "I'd like to add you as a friend",
+          }),
+        }
+      );
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Failed to send friend request');
       }
 
-      // Update local state and call parent callback
       setRequestStatus('pending-sent');
       onAddFriend?.();
       setErrorMessage('Friend request sent successfully!');
@@ -104,30 +110,32 @@ const ProfileHero = ({
 
   const handleRemoveFriend = async () => {
     if (!currentUser) {
-      setErrorMessage("You must be logged in to remove friends.");
+      setErrorMessage('You must be logged in to remove friends.');
       return;
     }
-    
+
     try {
       setIsSending(true);
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/removeFriend', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          userId: profileUser.userID
-        })
-      });
+      const response = await fetch(
+        'https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/removeFriend',
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            userId: profileUser.userID,
+          }),
+        }
+      );
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Failed to remove friend');
       }
 
-      // Update local state and call parent callback
       setFriendStatus(false);
       setRequestStatus('none');
       onRemoveFriend?.();
@@ -147,31 +155,34 @@ const ProfileHero = ({
 
   const handleSendMessage = async () => {
     if (!currentUser) {
-      setModalError("You must be logged in to send messages.");
+      setModalError('You must be logged in to send messages.');
       return;
     }
 
     if (!messageText.trim()) {
-      setModalError("Message cannot be empty.");
+      setModalError('Message cannot be empty.');
       return;
     }
 
     try {
       setIsSending(true);
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          receiverId: profileUser.userID,
-          message: messageText
-        })
-      });
+      const response = await fetch(
+        'https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/message',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            receiverId: profileUser.userID,
+            message: messageText,
+          }),
+        }
+      );
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Failed to send message');
       }
@@ -187,38 +198,32 @@ const ProfileHero = ({
     }
   };
 
-  // Stats display components - updated version
-const StatButton = ({ label, value, href }) => {
-  const isClickable = canViewPrivateContent && href;
-  const content = (
-    <div 
-      className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
-        isClickable ? 'hover:scale-105 transition-transform cursor-pointer' : 'cursor-default'
-      }`}
-    >
-      <p className="text-purpleWhite text-md md:text-lg font-semibold">{label}</p>
-      <p className="text-white text-sm md:text-7xl font-bold">{value ?? '—'}</p>
-    </div>
-  );
+  const StatButton = ({ label, value, href }) => {
+    const isClickable = canViewPrivateContent && href;
+    const content = (
+      <div
+        className={`bg-black bg-opacity-60 rounded-xl p-4 shadow-lg text-center ${
+          isClickable
+            ? 'hover:scale-105 transition-transform cursor-pointer'
+            : 'cursor-default'
+        }`}
+      >
+        <p className="text-purpleWhite text-sm md:text-lg font-semibold">
+          {label}
+        </p>
+        <p className="text-white text-lg md:text-4xl font-bold">
+          {value ?? '—'}
+        </p>
+      </div>
+    );
 
-  return isClickable ? <Link href={href}>{content}</Link> : content;
-};
-
-// Link component with conditional clickability - updated version
-const ConditionalLink = ({ href, children }) => {
-  if (canViewPrivateContent && href) {
-    return <Link href={href}>{children}</Link>;
-  }
-  return children;
-};
+    return isClickable ? <Link href={href}>{content}</Link> : content;
+  };
 
   return (
     <section id="hero" className="relative -mt-14">
       {errorMessage && (
-        <ErrorPopup 
-          message={errorMessage} 
-          onClose={() => setErrorMessage('')} 
-        />
+        <ErrorPopup message={errorMessage} onClose={() => setErrorMessage('')} />
       )}
 
       {showMessageModal && (
@@ -235,12 +240,14 @@ const ConditionalLink = ({ href, children }) => {
               ✕
             </button>
 
-            <h2 className="text-xl font-bold text-darkPurple mb-4">Send a message to {profileUser.fullName}</h2>
+            <h2 className="text-xl font-bold text-darkPurple mb-4">
+              Send a message to {profileUser.fullName}
+            </h2>
 
             {modalError && (
-              <ErrorPopup 
-                message={modalError} 
-                onClose={() => setModalError('')} 
+              <ErrorPopup
+                message={modalError}
+                onClose={() => setModalError('')}
               />
             )}
 
@@ -262,27 +269,30 @@ const ConditionalLink = ({ href, children }) => {
         </div>
       )}
 
-      <div className="relative z-10 mt-20 items-center container flex flex-row px-6 mx-auto space-y-0 md:space-y-0">
+      <div className="relative z-10 mt-20 items-center container flex flex-col md:flex-row px-6 mx-auto space-y-6 md:space-y-0">
         <div className="flex flex-col items-center p-6 rounded-xl md:w-1/5">
           <img
             src={`https://ui-avatars.com/api/?name=${profileUser.fullName}&background=random`}
             alt="Profile"
             className="shadow-lg rounded-xl transition-transform duration-300 hover:scale-105"
-            style={{ width: '240px', height: '240px' }}
+            style={{ width: '160px', height: '160px' }}
           />
 
-          {/* Only show Friends and Watchlist buttons if user is public or friends */}
           {canViewPrivateContent && (
             <div className="mt-4 grid grid-cols-2 gap-4">
               <Link href={`/friends/${profileUser.userID}`}>
                 <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
-                  <p className="text-purpleWhite text-sm md:text-xl font-semibold">Friends</p>
+                  <p className="text-purpleWhite text-sm font-semibold">
+                    Friends
+                  </p>
                 </div>
               </Link>
 
               <Link href={`/watchlist/${profileUser.userID}`}>
                 <div className="bg-black bg-opacity-60 rounded-xl p-3 shadow-md flex flex-col items-center justify-center text-center h-16 transition-all duration-300 hover:scale-105">
-                  <p className="text-purpleWhite text-sm md:text-xl font-semibold">Watchlist</p>
+                  <p className="text-purpleWhite text-sm font-semibold">
+                    Watchlist
+                  </p>
                 </div>
               </Link>
             </div>
@@ -290,12 +300,14 @@ const ConditionalLink = ({ href, children }) => {
         </div>
 
         <div className="flex flex-col mb-40 md:w-4/5">
-          <div className="w-full flex items-center justify-between flex-wrap">
+          <div className="w-full flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-end space-x-4">
-              <h1 className="text-white text-3xl font-bold md:text-6xl">{profileUser.fullName}</h1>
+              <h1 className="text-white text-2xl font-bold md:text-4xl">
+                {profileUser.fullName}
+              </h1>
             </div>
 
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center mt-4 md:mt-0">
               {profileUser.userID === currentUser?.userID && (
                 <Link
                   href="/EditProfile"
@@ -352,42 +364,57 @@ const ConditionalLink = ({ href, children }) => {
                 </>
               )}
 
-              {profileUser.userType?.toLowerCase() === 'admin' && profileUser.userID === currentUser?.userID && (
-                <Link
-                  href="/AdminPanel"
-                  className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
-                >
-                  Admin Panel
-                </Link>
-              )}
+              {profileUser.userType?.toLowerCase() === 'admin' &&
+                profileUser.userID === currentUser?.userID && (
+                  <Link
+                    href="/AdminPanel"
+                    className="px-4 py-2 text-darkPurple bg-purpleWhite rounded-xl hover:bg-purple hover:text-purpleWhite"
+                  >
+                    Admin Panel
+                  </Link>
+                )}
             </div>
           </div>
           <div className="flex items-end space-x-4">
-            <h1 className="text-white text-xl font-bold md:text-3xl">{profileUser.username}</h1>
+            <h1 className="text-white text-lg font-bold md:text-2xl">
+              {profileUser.username}
+            </h1>
           </div>
-          <div className="mt-2 bg-black bg-opacity-40 p-6 rounded-xl shadow-xl">
-            <p className="text-white text-sm md:text-xl leading-relaxed drop-shadow-xl">
+          <div className="mt-2 bg-black bg-opacity-40 p-4 rounded-xl shadow-xl">
+            <p className="text-white text-sm md:text-lg leading-relaxed drop-shadow-xl">
               {profileUser.bio || 'No bio provided.'}
             </p>
           </div>
 
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatButton
               label="Movies Watched"
               value={profileUser.basicDetails?.uniqueMoviesWatched}
-              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/watched/${profileUser.userID}` : undefined}
+              href={
+                profileUser.privacy === 'Public' || canViewPrivateContent
+                  ? `/watched/${profileUser.userID}`
+                  : undefined
+              }
             />
 
             <StatButton
               label="Movies Logged"
               value={profileUser.basicDetails?.loggedMoviesCount}
-              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/logged/${profileUser.userID}` : undefined}
+              href={
+                profileUser.privacy === 'Public' || canViewPrivateContent
+                  ? `/logged/${profileUser.userID}`
+                  : undefined
+              }
             />
 
             <StatButton
               label="Liked Movies"
               value={profileUser.basicDetails?.likedMoviesCount}
-              href={profileUser.privacy === 'Public' || canViewPrivateContent ? `/liked/${profileUser.userID}` : undefined}
+              href={
+                profileUser.privacy === 'Public' || canViewPrivateContent
+                  ? `/liked/${profileUser.userID}`
+                  : undefined
+              }
             />
 
             <div
@@ -399,8 +426,10 @@ const ConditionalLink = ({ href, children }) => {
                   : 'bg-darkPurple'
               } bg-opacity-60 items-center pt-7 rounded-xl p-4 shadow-lg text-center`}
             >
-              <p className="text-purpleWhite text-center text-md md:text-2xl font-semibold">User Type</p>
-              <p className="text-white text-center text-sm md:text-5xl font-bold leading-tight">
+              <p className="text-purpleWhite text-center text-sm md:text-lg font-semibold">
+                User Type
+              </p>
+              <p className="text-white text-center text-lg md:text-3xl font-bold leading-tight">
                 {profileUser.userType || 'User'}
               </p>
             </div>
