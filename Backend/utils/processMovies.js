@@ -39,6 +39,7 @@ async function processMoviesWithDirectors(recordset) {
         review: row.Review,
         ratings: row.Ratings,
         rank: row.Rank,
+        username: row.Username,
         directors: directorsMap[row.MovieID] || []
     }));
 };
