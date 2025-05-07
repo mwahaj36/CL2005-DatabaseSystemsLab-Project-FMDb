@@ -10,7 +10,7 @@ const Spotlight = ({ movies, showUsername = false }) => {
             <div key={index} className="flex flex-col items-center w-full md:w-auto">
               <MovieCard movie={movie} />
               {showUsername && movie.username && (
-                <p className="mt-2 text-white text-sm text-center">
+                <p className=" text-purpleWhite text-sm text-center">
                   Activity by: <span className="text-purple-300">{movie.username}</span>
                 </p>
               )}
