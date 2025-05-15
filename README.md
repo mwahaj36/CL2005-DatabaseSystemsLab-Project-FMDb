@@ -5,8 +5,6 @@ This website will serve as a platform where users can log, review, and track mov
 
 ## 🎥 App Demo / Guided Walkthrough
 [![Watch the demo](https://img.youtube.com/vi/LNvrla6SHps/0.jpg)](https://youtu.be/LNvrla6SHps)
-https://github.com/user-attachments/assets/0516985b-a898-4cfa-9192-f902487b2c17
-
 
 ## 🚀 Features
 ### 🔹 User & Admin Authentication
