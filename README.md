@@ -3,6 +3,9 @@
 ## 📌 Introduction
 This website will serve as a platform where users can log, review, and track movies and TV shows they have watched. It will provide a social and interactive space where users can share their thoughts, create watchlists, and discover new content based on community ratings and recommendations.
 
+## 🎥 App Demo / Guided Walkthrough
+[![Watch the demo](https://img.youtube.com/vi/LNvrla6SHps/0.jpg)](https://youtu.be/LNvrla6SHps)
+
 ## 🚀 Features
 ### 🔹 User & Admin Authentication
 - Users can **sign up and log in** with username and password.
