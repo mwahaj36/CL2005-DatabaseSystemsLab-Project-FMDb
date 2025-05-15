@@ -31,7 +31,7 @@ This website will serve as a platform where users can log, review, and track mov
 ### 🔹 Movie & TV Show Database
 - **Searchable database** for movies & TV shows.
 - Filter by **title, genre, and release year**.
-- **Integration with external APIs** (e.g., TMDb) for fetching movie details.
+- **Integration with external APIs** (e.g., TMDb) for fetching movie posters and backdrops.
 
 ### 🔹 Trending & Recommendations
 - Homepage features **trending movies & TV shows** based on user activity.
@@ -70,7 +70,6 @@ This website will serve as a platform where users can log, review, and track mov
 ### 🔹 Activity Tracking
 - Platform tracks **active reviewers & contributors**.
 - **Leaderboard** for most engaged users.
-- Users earn **badges & achievements** (e.g., 'Top Reviewer', 'Movie Buff').
 
 ## 🛠️ Tech Stack
 
