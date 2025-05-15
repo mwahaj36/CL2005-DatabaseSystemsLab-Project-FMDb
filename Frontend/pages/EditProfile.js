@@ -28,64 +28,71 @@ export default function EditProfile() {
 
   // Fetch user profile data including favorites
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      if (!user?.userID || !token) {
-        setIsLoading(false);
-        return;
-      }
-  
-      try {
-        // First fetch the public data
-        const publicResponse = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${user.userID}`);
-        const publicData = await publicResponse.json();
-  
-        if (!publicResponse.ok) {
-          throw new Error(publicData.message || 'Failed to fetch public user profile');
+    // Replace the current fetchUserProfile function inside useEffect with this:
+const fetchUserProfile = async () => {
+  if (!user?.userID || !token) {
+    setIsLoading(false);
+    return;
+  }
+
+  try {
+    // First fetch the public data
+    const publicResponse = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${user.userID}`);
+    const publicData = await publicResponse.json();
+
+    if (!publicResponse.ok) {
+      throw new Error(publicData.message || 'Failed to fetch public user profile');
+    }
+
+    // Split full name into first and last names
+    const nameParts = publicData.user?.FullName?.split(" ") || [];
+    setFirstName(nameParts[0] || "");
+    setLastName(nameParts.slice(1).join(" ") || "");
+    
+    // Set other fields with proper null checks
+    setEmail(publicData.user?.Email || "");
+    setBio(publicData.user?.Bio || "");
+    setUserType(publicData.user?.UserType || "");
+    setGender(publicData.user?.Gender || "Not Specified");
+    setDob(publicData.user?.DateOfBirth?.split('T')[0] || ""); 
+    setPrivacy(publicData.user?.Privacy?.toLowerCase() || "public");
+    
+    // Set background from basicDetails if available
+    if (publicData.basicDetails?.firstFavoriteBackdrop) {
+      setBackground(publicData.basicDetails.firstFavoriteBackdrop);
+    }
+
+    // Silently attempt to fetch favorites - don't throw errors if it fails
+    try {
+      const favoritesResponse = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favorites', {
+        headers: {
+          'Authorization': `Bearer ${token}`
         }
-  
-        // Split full name into first and last names
-        const nameParts = publicData.user?.FullName?.split(" ") || [];
-        setFirstName(nameParts[0] || "");
-        setLastName(nameParts.slice(1).join(" ") || "");
-        
-        // Set other fields with proper null checks
-        setEmail(publicData.user?.Email || "");
-        setBio(publicData.user?.Bio || "");
-        setUserType(publicData.user?.UserType || "");
-        setGender(publicData.user?.Gender || "Not Specified");
-        setDob(publicData.user?.DateOfBirth?.split('T')[0] || ""); 
-        setPrivacy(publicData.user?.Privacy?.toLowerCase() || "public");
-        
-        // Set background from basicDetails if available
-        if (publicData.basicDetails?.firstFavoriteBackdrop) {
-          setBackground(publicData.basicDetails.firstFavoriteBackdrop);
-        }
-  
-        // Fetch favorites using the Bearer token
-        const favoritesResponse = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favorites', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        
-        if (!favoritesResponse.ok) {
-          throw new Error('Failed to fetch favorites');
-        }
-  
+      });
+      
+      if (favoritesResponse.ok) {
         const favoritesData = await favoritesResponse.json();
-        
         if (favoritesData.success && favoritesData.favorites) {
-          // The API already provides ranks, so we can use them directly
           setFavoriteMovies(favoritesData.favorites);
         }
-  
-      } catch (error) {
-        console.error("Error fetching user profile:", error);
-        setSubmitError(error.message);
-      } finally {
-        setIsLoading(false);
       }
-    };
+      // If the request fails, we just continue without setting favorites
+    } catch (favoritesError) {
+      console.log("Could not fetch favorites, continuing without them", favoritesError);
+      // You could set some default favorites here if you want
+      // setFavoriteMovies([]);
+    }
+
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    // Only set error for critical failures (public profile fetch)
+    if (error.message.includes('public user profile')) {
+      setSubmitError("Failed to load profile data");
+    }
+  } finally {
+    setIsLoading(false);
+  }
+};
   
     fetchUserProfile();
   }, [user, token]);
