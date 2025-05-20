@@ -3,6 +3,9 @@
 ## 📌 Introduction
 This website will serve as a platform where users can log, review, and track movies and TV shows they have watched. It will provide a social and interactive space where users can share their thoughts, create watchlists, and discover new content based on community ratings and recommendations.
 
+## 🎥 App Demo / Guided Walkthrough
+[![Watch the demo](https://img.youtube.com/vi/LNvrla6SHps/0.jpg)](https://youtu.be/LNvrla6SHps)
+
 ## 🚀 Features
 ### 🔹 User & Admin Authentication
 - Users can **sign up and log in** with username and password.
@@ -31,7 +34,7 @@ This website will serve as a platform where users can log, review, and track mov
 ### 🔹 Movie & TV Show Database
 - **Searchable database** for movies & TV shows.
 - Filter by **title, genre, and release year**.
-- **Integration with external APIs** (e.g., TMDb) for fetching movie details.
+- **Integration with external APIs** (e.g., TMDb) for fetching movie posters and backdrops.
 
 ### 🔹 Trending & Recommendations
 - Homepage features **trending movies & TV shows** based on user activity.
@@ -70,7 +73,6 @@ This website will serve as a platform where users can log, review, and track mov
 ### 🔹 Activity Tracking
 - Platform tracks **active reviewers & contributors**.
 - **Leaderboard** for most engaged users.
-- Users earn **badges & achievements** (e.g., 'Top Reviewer', 'Movie Buff').
 
 ## 🛠️ Tech Stack
 

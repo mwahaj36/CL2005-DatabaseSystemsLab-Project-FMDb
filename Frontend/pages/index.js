@@ -119,7 +119,7 @@ const HomePage = () => {
     return () => { isMounted = false };
   }, [user]);
 
-  // Fetch friends activity (only for logged in users)
+  // Fetch friends activity (only for logged in users) - Updated to use localhost endpoint
   useEffect(() => {
     if (!user) return;
 
@@ -129,7 +129,6 @@ const HomePage = () => {
     const fetchFriendsActivity = async () => {
       try {
         const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/friends', {
-          credentials: 'include',
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -324,7 +323,10 @@ const HomePage = () => {
               {apiState.friendsActivity.loading ? (
                 <div className="text-center text-white py-10">Loading friends activity...</div>
               ) : apiState.friendsActivity.data.length > 0 ? (
-                <Spotlight movies={apiState.friendsActivity.data} />
+                <Spotlight 
+                  movies={apiState.friendsActivity.data} 
+                  showUsername={true} // Pass prop to show username
+                />
               ) : null}
             </section>
           )}
