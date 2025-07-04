@@ -73,17 +73,22 @@ const MoviesListPage = () => {
     movieLength: ''
   });
 
+
+  const { token } = useAuth();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   const fetchMovies = async () => {
     setLoading(true);
     try {
-      const response = await fetch(
-        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/page?page=${page}&sort=${sort}&order=${order}`,
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-          },
-        }
-      );
+     const response = await fetch(
+      `${API_URL}/movies/page?page=${page}&sort=${sort}&order=${order}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
       const data = await response.json();
       if (data.success) {
         setMovies(data.movies);
@@ -96,12 +101,12 @@ const MoviesListPage = () => {
   };
 
   const fetchPageCount = async () => {
-    try {
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/pageCount', {
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-        },
-      });
+   try {
+  const response = await fetch(`${API_URL}/movies/pageCount`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
       const data = await response.json();
       if (data.success) {
         setTotalPages(data.totalPages);
@@ -128,14 +133,15 @@ const MoviesListPage = () => {
       
       // Only search if at least one filter is set
       if (params.toString()) {
-        const response = await fetch(
-          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/discover?${params.toString()}`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-            },
-          }
-        );
+       const response = await fetch(
+        `${API_URL}/movies/discover?${params.toString()}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
         
         const data = await response.json();
         if (data.success) {

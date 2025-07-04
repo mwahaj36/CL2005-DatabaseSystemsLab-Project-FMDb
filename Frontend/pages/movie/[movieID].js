@@ -9,7 +9,7 @@ import MovieHero from '../../components/MovieHero';
 import Head from 'next/head';
 
 
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const MoviePage = () => {
   const router = useRouter();
   const { movieID } = router.query;
@@ -26,11 +26,12 @@ const MoviePage = () => {
       setLoading(true);
 
       // Fetch all data in parallel
-      const [movieRes, reviewsRes, castRes] = await Promise.all([
-        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/details/${movieID}`),
-        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/top/${movieID}`),
-        fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/cast/${movieID}`)
-      ]);
+    const [movieRes, reviewsRes, castRes] = await Promise.all([
+      fetch(`${API_URL}/movies/details/${movieID}`),
+      fetch(`${API_URL}/activity/top/${movieID}`),
+      fetch(`${API_URL}/movies/cast/${movieID}`),
+    ]);
+
 
       // Check responses and parse JSON
       const [movieData, reviewsData, castData] = await Promise.all([

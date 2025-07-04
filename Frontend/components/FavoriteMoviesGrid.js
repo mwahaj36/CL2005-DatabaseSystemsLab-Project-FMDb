@@ -8,7 +8,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const handleAddFavorite = async () => {
     if (!movieId) {
       setError('Please enter a Movie ID');
@@ -20,16 +20,16 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
     setSuccess(null);
 
     try {
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favoriteMovies', {
+      const response = await fetch(`${API_URL}/users/favoriteMovies`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           movieId: parseInt(movieId),
-          rank: parseInt(rank)
-        })
+          rank: parseInt(rank),
+        }),
       });
 
       const data = await response.json();
@@ -39,8 +39,9 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
       }
 
       // Fetch full movie data after successful update
-      const movieDetailsRes = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/${movieId}`);
+      const movieDetailsRes = await fetch(`${API_URL}/movies/${movieId}`);
       const movieData = await movieDetailsRes.json();
+
 
       if (!movieDetailsRes.ok) {
         throw new Error(movieData.message || 'Failed to fetch movie details');

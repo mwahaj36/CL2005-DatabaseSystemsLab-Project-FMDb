@@ -10,7 +10,7 @@ const LoggedMoviesPage = () => {
   const router = useRouter();
   const { userID } = router.query;
   const { user, token, loading: authLoading } = useAuth();
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -34,8 +34,8 @@ const LoggedMoviesPage = () => {
 
         // Use private endpoint if token exists, otherwise use public endpoint
         const url = token
-          ? `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/${userID}`
-          : `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/loggedMovies/public/${userID}`;
+        ? `${API_URL}/users/loggedMovies/${userID}`
+        : `${API_URL}/users/loggedMovies/public/${userID}`;
 
         const response = await fetch(url, { headers });
         const data = await response.json();

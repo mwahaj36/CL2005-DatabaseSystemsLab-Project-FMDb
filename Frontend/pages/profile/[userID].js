@@ -19,7 +19,7 @@ const Profile = () => {
   const [apiLoading, setApiLoading] = useState(false);
   const [isFriend, setIsFriend] = useState(false);
   const [loadingFriendStatus, setLoadingFriendStatus] = useState(true);
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     if (!router.isReady || !userID) return;
 
@@ -27,15 +27,16 @@ const Profile = () => {
       try {
         setLoading(true);
         let response;
-        let endpoint;
 
-        if (currentUser) {
-          // Use logged-in endpoint if user is authenticated
-          endpoint = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/logged/${userID}`;
-        } else {
-          // Use public endpoint if user is not authenticated
-          endpoint = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${userID}`;
-        }
+       let endpoint = '';
+
+      if (currentUser) {
+        // Use logged-in endpoint if user is authenticated
+        endpoint = `${API_URL}/users/logged/${userID}`;
+      } else {
+        // Use public endpoint if user is not authenticated
+        endpoint = `${API_URL}/users/public/${userID}`;
+      }
 
         const headers = currentUser 
           ? { 'Authorization': `Bearer ${token}` }
@@ -91,11 +92,12 @@ const Profile = () => {
       
       try {
         setLoadingFriendStatus(true);
-        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/isFriend/${userID}`, {
+       const response = await fetch(`${API_URL}/users/isFriend/${userID}`, {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
+
 
         const data = await response.json();
         
@@ -140,17 +142,18 @@ const Profile = () => {
     setApiLoading(true);
     setResponseMsg('');
     try {
-      const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/userType', {
+     const res = await fetch(`${API_URL}/users/userType`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           userType: type,
-          message: `Requesting upgrade to ${type}`
-        })
+          message: `Requesting upgrade to ${type}`,
+        }),
       });
+
 
       const data = await res.json();
       setResponseMsg(data?.message || 'Request sent');

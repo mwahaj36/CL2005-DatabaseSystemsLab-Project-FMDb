@@ -15,7 +15,7 @@ const MovieSearchSelect = ({ onSelect, onClose }) => {
       timer = setTimeout(() => func.apply(this, args), delay);
     };
   };
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const searchMovies = async (searchTerm) => {
     if (searchTerm.trim() === "") {
       setFilteredMovies([]);
@@ -24,9 +24,10 @@ const MovieSearchSelect = ({ onSelect, onClose }) => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(
-        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/search/title/${encodeURIComponent(searchTerm)}`
+     const response = await fetch(
+        `${API_URL}/movies/search/title/${encodeURIComponent(searchTerm)}`
       );
+
       const data = await response.json();
       if (data.success) {
         setFilteredMovies(data.movies);

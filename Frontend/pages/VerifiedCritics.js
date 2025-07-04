@@ -22,7 +22,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTopMovies = async () => {
       try {
-        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/critic/movies');
+       const API_URL = process.env.NEXT_PUBLIC_API_URL;
+        const response = await fetch(`${API_URL}/critic/movies`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -46,7 +47,9 @@ const HomePage = () => {
   useEffect(() => {
     const fetchTopReviews = async () => {
       try {
-        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/critic/reviews');
+        const API_URL = process.env.NEXT_PUBLIC_API_URL;
+        const publicResponse = await fetch(`${API_URL}/critic/reviews`);
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

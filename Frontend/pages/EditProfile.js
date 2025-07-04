@@ -37,7 +37,8 @@ const fetchUserProfile = async () => {
 
   try {
     // First fetch the public data
-    const publicResponse = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/${user.userID}`);
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const publicResponse = await fetch(`${API_URL}/users/public/${user.userID}`);
     const publicData = await publicResponse.json();
 
     if (!publicResponse.ok) {
@@ -64,11 +65,12 @@ const fetchUserProfile = async () => {
 
     // Silently attempt to fetch favorites - don't throw errors if it fails
     try {
-      const favoritesResponse = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favorites', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+     const favoritesResponse = await fetch(`${API_URL}/users/favorites`, {
+     headers: {
+    Authorization: `Bearer ${token}`,
+    },
+    });
+
       
       if (favoritesResponse.ok) {
         const favoritesData = await favoritesResponse.json();
@@ -143,11 +145,11 @@ const fetchUserProfile = async () => {
     setSubmitSuccess(false);
 
     try {
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users', {
+        const response = await fetch(`${API_URL}/users`, {
         method: 'PUT',
-        headers: {
+        eaders: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           FullName: `${firstName} ${lastName}`,
@@ -156,9 +158,10 @@ const fetchUserProfile = async () => {
           Bio: bio || "",
           Privacy: privacy === 'public' ? 'Public' : 'Private',
           Gender: gender,
-          DateOfBirth: dob
-        })
+          DateOfBirth: dob,
+        }),
       });
+
 
       const data = await response.json();
 

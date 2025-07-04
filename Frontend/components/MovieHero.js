@@ -10,7 +10,7 @@ const MovieHero = ({ movieData }) => {
   const [isInWatchlist, setIsInWatchlist] = useState(false);
   const [loadingWatchlist, setLoadingWatchlist] = useState(true);
   const { user: currentUser, token } = useAuth();
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     const checkWatchlistStatus = async () => {
       if (!currentUser || !movieData?.movieId) {
@@ -20,13 +20,14 @@ const MovieHero = ({ movieData }) => {
 
       try {
         const response = await fetch(
-          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/isWatchlist/${movieData.movieId}`,
+          `${API_URL}/watchlist/isWatchlist/${movieData.movieId}`,
           {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
+
 
         if (!response.ok) {
           throw new Error('Failed to fetch watchlist status');
@@ -60,16 +61,17 @@ const MovieHero = ({ movieData }) => {
     try {
       setLoadingWatchlist(true);
       const method = isInWatchlist ? 'DELETE' : 'POST';
-      const response = await fetch(
-        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${movieData.movieId}`,
+     const response = await fetch(
+        `${API_URL}/watchlist/${movieData.movieId}`,
         {
           method,
           headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         }
       );
+
 
       if (!response.ok) {
         throw new Error(`Failed to ${isInWatchlist ? 'remove from' : 'add to'} watchlist`);

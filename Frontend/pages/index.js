@@ -7,6 +7,8 @@ import Leaderboard from "../components/Leaderboard";
 import Footer from "../components/Footer";
 import Head from 'next/head';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 const HomePage = () => {
   const { user, token } = useContext(AuthContext);
 
@@ -23,7 +25,7 @@ const HomePage = () => {
 
     const fetchTrending = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/trending');
+        const res = await fetch(`${API_URL}/movies/trending`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
 
@@ -64,10 +66,10 @@ const HomePage = () => {
 
     const fetchRecommended = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/recommended', {
+          const res = await fetch(`${API_URL}/movies/recommended`, {
           credentials: 'include',
           headers: {
-            Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`
           }
         });
         if (!res.ok) {
@@ -128,11 +130,12 @@ const HomePage = () => {
 
     const fetchFriendsActivity = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/friends', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+      const res = await fetch(`${API_URL}/movies/friends`, {
+      headers: {
+      Authorization: `Bearer ${token}`,
+      },
+      });
+
         if (!res.ok) {
           // If 404, set empty data and no error (we'll hide the section)
           if (res.status === 404) {
@@ -189,12 +192,13 @@ const HomePage = () => {
 
     const fetchFriendsWatchlist = async () => {
       try {
-        const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/friends/watchlist', {
-          credentials: 'include',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+       const res = await fetch(`${API_URL}/movies/friends/watchlist`, {
+        credentials: 'include',
+        headers: {
+        Authorization: `Bearer ${token}`,
+        },
+      });
+
         if (!res.ok) {
           // If 404, set empty data and no error (we'll hide the section)
           if (res.status === 404) {
@@ -247,7 +251,6 @@ const HomePage = () => {
     { username: "jane_smith", image: "", activities: 38, moviesWatched: 12 },
     { username: "mark_twain", image: "", activities: 30, moviesWatched: 10 }
   ];
-
   // Helper to determine if a section should be shown
   const shouldShowSection = (section) => {
     // Don't show if there was an error (other than 404 which we've handled)
@@ -348,6 +351,7 @@ const HomePage = () => {
       )}
 
       {/* Leaderboard (for all users) */}
+      
       <Leaderboard topThree={topThreeUsers} />
 
       <Footer />

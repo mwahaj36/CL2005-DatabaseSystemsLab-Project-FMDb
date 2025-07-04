@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import ErrorPopup from "@/components/Error";
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net//users/leaderboard');
+        const response = await fetch(`${API_URL}/users/leaderboard`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard data');

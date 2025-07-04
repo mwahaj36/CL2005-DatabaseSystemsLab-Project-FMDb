@@ -17,6 +17,10 @@ const UserWatchlistPage = () => {
   const [backdropUrl, setBackdropUrl] = useState('');
   const { user, token, loading: authLoading } = useAuth();
 
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  
   useEffect(() => {
     if (!userID || authLoading) return;
 
@@ -28,21 +32,14 @@ const UserWatchlistPage = () => {
       try {
         const headers = {};
     
-        if (token) {
-          headers['Authorization'] = `Bearer ${token}`;
-        }
-    
-        let url = '';
-    
-        if (!token) {
-          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/public/${userID}`;
-        } else {
-          if (user && parseInt(user.userID) === parseInt(userID)) {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${userID}`;
-          } else {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/watchlist/${userID}`;
-          }
-        }
+       if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
+      const url = !token 
+        ? `${API_URL}/watchlist/public/${userID}` 
+        : `${API_URL}/watchlist/${userID}`;
+
     
         const response = await fetch(url, { headers });
         const data = await response.json();

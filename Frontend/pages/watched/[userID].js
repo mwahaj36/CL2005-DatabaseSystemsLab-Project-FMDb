@@ -15,7 +15,7 @@ const UserWatchedMoviesPage = () => {
   const [profileUsername, setProfileUsername] = useState(null);
   const [backdropUrl, setBackdropUrl] = useState('');
   const { user, token } = useAuth();
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     if (!router.isReady || !userID) return;
 
@@ -26,23 +26,15 @@ const UserWatchedMoviesPage = () => {
 
       try {
         const headers = {};
-        
+
         if (token) {
           headers['Authorization'] = `Bearer ${token}`;
         }
-        
-        let url = '';
-        
-        if (!token) {
-          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/public/${userID}`;
-        } else {
-          if (user && parseInt(user.userID) === parseInt(userID)) {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/${userID}`;
-          } else {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/watchedMovies/${userID}`;
-          }
-        }
-        
+
+        const url = !token 
+          ? `${API_URL}/users/watchedMovies/public/${userID}`
+          : `${API_URL}/users/watchedMovies/${userID}`;
+
         console.log('Fetching data from:', url);
         
         const response = await fetch(url, { headers });

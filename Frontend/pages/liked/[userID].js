@@ -16,7 +16,7 @@ const UserLikedMoviesPage = () => {
   const [profileUsername, setProfileUsername] = useState(null);
   const [backdropUrl, setBackdropUrl] = useState('https://image.tmdb.org/t/p/original/aCHn2TXYJfzPXQKA6r9mKPbMlUB.jpg');
   const { user, token } = useAuth();
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     if (!router.isReady || !userID) return;
 
@@ -33,16 +33,13 @@ const UserLikedMoviesPage = () => {
         }
         
         let url = '';
-        
+
         if (!token) {
-          url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/public/${userID}`;
+          url = `${API_URL}/users/likedMovies/public/${userID}`;
         } else {
-          if (user && parseInt(user.userID) === parseInt(userID)) {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`;
-          } else {
-            url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/likedMovies/${userID}`;
-          }
+          url = `${API_URL}/users/likedMovies/${userID}`;
         }
+
         
         console.log('Fetching data from:', url);
         

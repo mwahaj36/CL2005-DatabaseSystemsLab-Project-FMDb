@@ -11,7 +11,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLikeLoading, setIsLikeLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const { token, user } = useAuth();
 
   useEffect(() => {
@@ -20,13 +20,14 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       try {
         setIsLikeLoading(true);
         const response = await fetch(
-          `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/like?movieId=${movieId}&userId=${user.userID}`,
+          `${API_URL}/movies/like?movieId=${movieId}&userId=${user.userID}`,
           {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
+
 
         if (!response.ok) {
           throw new Error('Failed to check like status');
@@ -59,7 +60,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
       setError(null);
 
       const method = liked ? 'DELETE' : 'POST';
-      const url = `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/like/${movieId}`;
+      const url = `${API_URL}/movies/like/${movieId}`;
 
       const response = await fetch(url, {
         method,
@@ -107,7 +108,7 @@ const ActivityCard = ({ movieTitle, movieYear, moviePoster, movieId, onSave, onD
         date: watchedBefore ? watchedDate : undefined,
       };
   
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/submit', {
+        const response = await fetch(`${API_URL}/activity/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

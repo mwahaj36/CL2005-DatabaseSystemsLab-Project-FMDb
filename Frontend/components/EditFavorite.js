@@ -8,7 +8,7 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // Initialize selectedMovie when component mounts or movie changes
   useEffect(() => {
     if (movie?.movieid) {
@@ -35,28 +35,29 @@ const EditFavorite = ({ movie, rank, token, onFavoriteUpdate }) => {
 
     try {
       // Validate movie exists
-      const movieExistRes = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/check/${movie.movieid}`);
-      if (!movieExistRes.ok) {
-        throw new Error('Failed to validate movie');
-      }
-      
-      const movieExistData = await movieExistRes.json();
-      if (!movieExistData.exists) {
-        throw new Error('Movie not found');
-      }
+     const movieExistRes = await fetch(`${API_URL}/movies/check/${movie.movieid}`);
+        if (!movieExistRes.ok) {
+          throw new Error('Failed to validate movie');
+        }
 
-      // Update favorite
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/favoriteMovies', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          movieId: parseInt(movie.movieid),
-          rank: rank
-        })
-      });
+        const movieExistData = await movieExistRes.json();
+        if (!movieExistData.exists) {
+          throw new Error('Movie not found');
+        }
+
+        // Update favorite
+        const response = await fetch(`${API_URL}/users/favoriteMovies`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            movieId: parseInt(movie.movieid),
+            rank: rank,
+          }),
+        });
+
 
       if (!response.ok) {
         const data = await response.json();

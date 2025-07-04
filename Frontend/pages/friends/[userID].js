@@ -15,7 +15,7 @@ const FriendsPage = () => {
   const [sortByMovies, setSortByMovies] = useState(true);
   const [username, setUsername] = useState('');
   const [backdrop, setBackdrop] = useState('');
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   useEffect(() => {
     if (!userID) return;
 
@@ -23,17 +23,18 @@ const FriendsPage = () => {
       try {
         let response;
 
-        if (token) {
-          // Authenticated endpoint
-          response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/friends/${userID}`, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          });
-        } else {
-          // Public endpoint
-          response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/public/friends/${userID}`);
-        }
+       if (token) {
+  // Authenticated endpoint
+        response = await fetch(`${API_URL}/users/friends/${userID}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      } else {
+        // Public endpoint
+        response = await fetch(`${API_URL}/users/public/friends/${userID}`);
+      }
+
 
         const data = await response.json();
 

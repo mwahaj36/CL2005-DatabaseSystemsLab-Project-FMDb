@@ -20,18 +20,19 @@ function Navbar() {
 
   const profileRef = useRef(null);
   const notifRef = useRef(null);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // Fetch notifications when user is logged in (on mount and when user changes)
   useEffect(() => {
     const fetchInitialNotifications = async () => {
       if (user) {
         try {
           const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-          const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/user', {
+          const response = await fetch(`${API_URL}/notification/user`, {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           });
+
           
           if (response.ok) {
             const data = await response.json();
@@ -58,11 +59,12 @@ function Navbar() {
         setLoadingNotifications(true);
         try {
           const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-          const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/user', {
+         const response = await fetch(`${API_URL}/notification/user`, {
             headers: {
-              'Authorization': `Bearer ${token}`
-            }
+              Authorization: `Bearer ${token}`,
+            },
           });
+
           
           if (response.ok) {
             const data = await response.json();
@@ -105,12 +107,13 @@ function Navbar() {
   const handleAccept = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/accept/${notificationId}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+      const response = await fetch(`${API_URL}/notification/accept/${notificationId}`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
 
       if (response.ok) {
         setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));
@@ -124,12 +127,13 @@ function Navbar() {
   const handleReject = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/reject/${notificationId}`, {
+     const response = await fetch(`${API_URL}/notification/reject/${notificationId}`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
+
 
       if (response.ok) {
         setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));
@@ -143,12 +147,13 @@ function Navbar() {
   const handleClose = async (notificationId) => {
     try {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/notification/close/${notificationId}`, {
+     const response = await fetch(`${API_URL}/notification/close/${notificationId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
+
 
       if (response.ok) {
         setNotifications(prev => prev.filter(n => n.NotificationID !== notificationId));

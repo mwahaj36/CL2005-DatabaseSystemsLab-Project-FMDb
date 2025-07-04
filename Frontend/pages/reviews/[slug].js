@@ -17,7 +17,7 @@ const AllReviewsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const formatTimeAgo = (date) => {
     const diff = (new Date() - new Date(date)) / 1000;
     if (diff < 60) return 'just now';
@@ -42,11 +42,14 @@ const AllReviewsPage = () => {
     if (!user || !token) return false;
     
     try {
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isDeletable/${activityId}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+      const response = await fetch(`${API_URL}/activity/isDeletable/${activityId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       const data = await response.json();
       return data.success && data.isDeletable;
+
     } catch (err) {
       console.error('Error checking deletable status:', err);
       return false;
@@ -60,7 +63,7 @@ const AllReviewsPage = () => {
       setLoading(true);
       setError(null);
 
-      const res = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/all/${slug}`);
+      const res = await fetch(`${API_URL}/activity/all/${slug}`);
       const data = await res.json();
 
       if (!data.success) {
@@ -92,7 +95,7 @@ const AllReviewsPage = () => {
             activities.map(async (activity) => {
               // Check like status
               try {
-                const url = new URL('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/isLiked');
+                const url = new URL(`${API_URL}/activity/isLiked`);
                 url.searchParams.set('activityId', activity.ActivityID);
                 url.searchParams.set('userId', user.userID);
 
@@ -178,10 +181,12 @@ const AllReviewsPage = () => {
       setReviews(prev => updateActivityLikes(prev));
 
       const response = await fetch(
-        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/like/${activityID}`,
+        `${API_URL}/activity/like/${activityID}`,
         {
           method: isLiked ? 'DELETE' : 'POST',
-          headers: { 'Authorization': `Bearer ${token}` }
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -235,10 +240,13 @@ const AllReviewsPage = () => {
     }
 
     try {
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/${activityId}`, {
-        method: 'DELETE',
-        headers: { 'Authorization': `Bearer ${token}` }
-      });
+     const response = await fetch(`${API_URL}/activity/${activityId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
 
       if (!response.ok) {
         const errData = await response.json();
@@ -290,18 +298,19 @@ const AllReviewsPage = () => {
     if (!replyText) return;
 
     try {
-      const res = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/activity/reply', {
+     const res = await fetch(`${API_URL}/activity/reply`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           activityId: reviewID,
           reply: replyText,
-          userId: user.userID
+          userId: user.userID,
         }),
       });
+
 
       const data = await res.json();
 

@@ -31,6 +31,9 @@ export default function AdminPanel() {
     writers: ""
   });
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+
   // Admin Controls States
   const [movieIdToDelete, setMovieIdToDelete] = useState("");
   const [userIdToRemove, setUserIdToRemove] = useState("");
@@ -85,14 +88,15 @@ export default function AdminPanel() {
         writers: movie.writers.split(',').map(w => w.trim()).filter(w => w)
       };
   
-      const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/movie', {
+      const response = await fetch(`${API_URL}/admin/movie`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(formattedMovie)
+        body: JSON.stringify(formattedMovie),
       });
+
   
       const data = await response.json();
   
@@ -142,12 +146,13 @@ export default function AdminPanel() {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/movie/${movieIdToDelete}`, {
+      const response = await fetch(`${API_URL}/admin/movie/${movieIdToDelete}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
+
 
       const data = await response.json();
 
@@ -175,12 +180,12 @@ export default function AdminPanel() {
     setErrorMessage("");
 
     try {
-      const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/admin/user/${userIdToRemove}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+      const response = await fetch(`${API_URL}/admin/user/${userIdToRemove}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
       const data = await response.json();
 

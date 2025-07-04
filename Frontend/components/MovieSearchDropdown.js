@@ -7,7 +7,7 @@ const DropdownSearch = ({ onClose }) => {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const wrapperRef = useRef(null);
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // Debounce function to limit API calls
   const debounce = (func, delay) => {
     let timer;
@@ -25,9 +25,10 @@ const DropdownSearch = ({ onClose }) => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(
-        `https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/movies/search/title/${encodeURIComponent(searchTerm)}`
-      );
+    const response = await fetch(
+      `${API_URL}/movies/search/title/${encodeURIComponent(searchTerm)}`
+    );
+
       const data = await response.json();
       if (data.success) {
         setFilteredMovies(data.movies);

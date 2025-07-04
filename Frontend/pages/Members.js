@@ -14,10 +14,13 @@ const Members = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const fetchPageCount = async () => {
       try {
-        const response = await fetch('https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/pageCount');
+        const response = await fetch(`${API_URL}/users/pageCount`);
         const data = await response.json();
         if (data.success) {
           setTotalPages(data.totalPages);
@@ -29,7 +32,7 @@ const Members = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch(`https://fmdb-server-fmf2e0g7dqfuh0hx.australiaeast-01.azurewebsites.net/users/page?page=${currentPage}`);
+        const response = await fetch(`${API_URL}/users/page?page=${currentPage}`);
         const data = await response.json();
         if (data.success) {
           const transformedMembers = data.users.map(user => ({
